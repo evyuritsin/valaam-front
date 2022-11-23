@@ -218,19 +218,42 @@
 						</div>
 						<div class="search__col">
 							<label for="" class="search__filter-name">Продолжительность</label>
-							<input type="text" class="search__filter icon_duration" showmodal="duration-list" readonly value="" placeholder="На 7 дней">			
+							<input 
+								type="text" 
+								class="search__filter icon_duration" 
+								showmodal="duration-list"
+								inputobj="92576" 
+								readonly 
+								value="" 
+								placeholder="Продолжительность"
+								data=""
+							>			
 						</div>
 						<div class="search__col">
 							<label for="" class="search__filter-name">Количество человек</label>
-							<input type="text" class="search__filter icon_count" showmodal="count-list" readonly value="" placeholder="2 взрослых 0 детей">
+							<input 
+								type="text" 
+								class="search__filter icon_count" 
+								showmodal="count-list" 
+								inputobj="57952" 
+								readonly 
+								value="" 
+								placeholder="Состав гостей"
+								data=""
+							>
 						</div>
 						<div class="search__col">
 							<label for="" class="search__filter-name">Место отправления</label>
-							<select class="search__filter search__filter-select">
-								<option value="0">Любое</option>
-								<option value="1">Санкт-Петербург</option>
-								<option value="2">Приозёрск</option>
-							</select>
+							<input 
+								type="text" 
+								class="search__filter icon_geo_search" 
+								showmodal="geo-list"
+								inputobj="64729"
+								readonly 
+								value="" 
+								placeholder="Любое"
+								data=""
+							>
 						</div>						
 					</div>
 					<div class="search__submits">
@@ -398,8 +421,25 @@
 					</div>
 				</div>				
 			</div>
-
-			<a href="#" class="btn-more-show">Показать ещё</a>				
+			<a href="#" class="btn-more-show">Показать ещё</a>
+			<section class="section find-programs">
+				<div class="find-programs__title">НЕ НАШЛИ ПОДХОДЯЩУЮ ПРОГРАММУ?</div>
+				<div class="find-programs__construct">
+					<span class="find-programs__label">Воспользуйтесь сервисом</span>
+					<button class="vp-btn ml-20 bg-yellow">КОНСТРУКТОР ПРОГРАММ</button>
+				</div>
+				<div class="find-programs__separate"></div>
+				<span class="find-programs__label">Или оставьте заявку, с Вами свяжется организатор</span>
+				<div class="find-programs__form">
+					<input type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
+					<input type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
+					<button type="submit" class="vp-btn ml-20 pl-20 pr-20">Оставить заявку</button>				
+				</div>
+				<div class="checkbox__label">
+					<input type="checkbox" class="checkbox" checked="">
+					<span class="checkbox__text while">Я согласен с условиями передачи информации</span>
+				</div>
+			</section>		
 		</section>
 		<section class="section motorShips">
 			<div class="main__caption">Теплоходы</div>
@@ -2497,37 +2537,37 @@
 		</form>	
 	</div>
 	<div class="modal__blocked hide"></div>
-	<div class="popup__listing checkbox-list hide" popupobject="">
+	<div class="popup popup__listing duration-list hide" popupobject="" obj="">
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Один день</span>
 		</div>
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Два дня</span>
 		</div>
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Три дня</span>
 		</div>
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Четыре дня</span>
 		</div>	
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Пять дней</span>
 		</div>
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Шесть дней</span>
 		</div>	
 		<div class="checkbox__label">
-			<input type="checkbox" class="checkbox" checked>
+			<input type="checkbox" class="checkbox">
 			<span class="checkbox__text">Семь дней и более</span>
 		</div>								
 	</div>
-	<div class="popup__listing radiobox-list hide" popupobject="">
+	<div class="popup popup__listing radiobox-list hide" popupobject="" obj="">
 		<div class="radiobox__label">
 			<input type="radio" class="radiobox">
 			<span class="radiobox__text">Один день</span>
@@ -2537,21 +2577,28 @@
 			<span class="radiobox__text">Два дня</span>
 		</div>		
 	</div>
-	<div class="popup__composition count-list hide" popupobject="">
+	<div class="popup popup__select geo-list hide" popupobject="" obj="">
+		<div class="select__item">Санкт-Петербург</div>
+		<div class="select__item">Приозёрск</div>
+		<div class="select__item">Псков</div>
+		<div class="select__item">Великий Новгород</div>
+		<div class="select__item">Калуга</div>
+	</div>
+	<div class="popup popup__composition count-list hide" popupobject="" obj="">
 		<div class="popup__composition-list">
 			<div class="index-form">
 				<div class="index-form__label">
-					<span class="index-form__text">Взрослые</span>
+					<span class="index-form__text">Взрослых</span>
 				</div>
 				<div class="index-form__input" minValue="1" maxValue="6">
 					<div class="index-form__btn-minus"></div>
-					<span class="index-form__value">1</span>
+					<span class="index-form__value">0</span>
 					<div class="index-form__btn-plus"></div>
 				</div>
 			</div>
 			<div class="index-form">
 				<div class="index-form__label">
-					<span class="index-form__text">Дети</span>
+					<span class="index-form__text" value="0-6">Дети от 0-6</span>
 				</div>
 				<div class="index-form__input" minValue="1" maxValue="3">
 					<div class="index-form__btn-minus"></div>
@@ -2560,6 +2607,16 @@
 				</div>
 			</div>
 			<div class="index-form">
+				<div class="index-form__label">
+					<span class="index-form__text" value="7-12">Дети 7-12 лет</span>
+				</div>
+				<div class="index-form__input" minValue="1" maxValue="3">
+					<div class="index-form__btn-minus"></div>
+					<span class="index-form__value">0</span>
+					<div class="index-form__btn-plus"></div>
+				</div>
+			</div>			
+			<!--div class="index-form">
 				<div class="index-form__label">
 					<span class="index-form__text">Возраст ребёнка</span>
 				</div>
@@ -2570,7 +2627,7 @@
 						<option value="3">Старше 14 лет</option>
 					</select>
 				</div>
-			</div>						
+			</div-->						
 		</div>
 		<button class="popup__composition-btn">Готово</button>
 	</div>
@@ -2601,11 +2658,9 @@
 		    focusOnSelect: true
 	    });
 		$(document).ready(function() {
-		    $(".icon_date").flatpickr(
-			{
+		    $(".icon_date").flatpickr({
 			    "locale": "ru"
-			}
-		    );
+			});
 			$('.header__login-auth').click(function() {
 				$('.modal__blocked').show();
 				$('body').css('overflow', 'hidden');
@@ -2678,10 +2733,72 @@
 				});
 			});
 			$('[showmodal]').click(function() {
+				$('.' + $(this).attr('showmodal')).css('width', $(this).css('width'));
+			});
+			$('[showmodal=count-list]').click(function() {
+				$('.popup').hide();
 				var pos = $(this).position();
-				$('.' + $(this).attr('showmodal')).css('top', pos.top + $(this).height() + 1).css('left', pos.left).show();
-				//$('.' + $(this).attr('showmodal')).attr('popupobject', );
-			});					
+				var showTarget = $('.' + $(this).attr('showmodal'));
+				var keyObj = $(this).attr('inputobj');
+				var data = $(this).attr('data');
+				if (data != '') {
+					var arrData = JSON.parse(data);
+					for (var key in arrData) {
+						showTarget.find('span:contains("' + key + '")').closest('.index-form').find('.index-form__value').text(arrData[key]);
+					}					
+				}
+				showTarget.css('top', pos.top + $(this).height() + 2).css('left', pos.left).attr('obj', keyObj).show();
+			});
+
+			$('[showmodal=duration-list]').click(function() {
+				$('.popup').hide();
+				var pos = $(this).position();
+				var showTarget = $('.' + $(this).attr('showmodal'));
+				var keyObj = $(this).attr('inputobj');
+				showTarget.css('top', pos.top + $(this).height() + 2).css('left', pos.left).attr('obj', keyObj).show();
+
+			});
+			$('[showmodal=geo-list]').click(function() {
+				$('.popup').hide();
+				var pos = $(this).position();
+				var showTarget = $('.' + $(this).attr('showmodal'));
+				var keyObj = $(this).attr('inputobj');
+				showTarget.css('top', pos.top + $(this).height() + 2).css('left', pos.left).attr('obj', keyObj).show();
+
+			});		
+			$('.popup__composition-btn').click(function() {
+				var output = [];
+				const data = {};
+				var target = $(this).closest('.popup__composition');
+				var key = target.attr('obj');
+				target.find('.index-form').each(function (index, element) {
+					var label = $(element).find('.index-form__text').text();
+					var value = $(element).find('.index-form__value').text();
+					if (value != '0') {
+						output.push(label + ' - ' + value);
+						data[label] = value;						
+					}
+
+				});
+				$('[inputobj=' + key + ']').val(output.join(' ')).attr('data', JSON.stringify(data));
+				target.find('.index-form__value').text('0');
+				target.hide();
+			});
+			$('.popup__listing input[type=checkbox]').click(function() {
+				var list = [];
+				const data = {};
+				var key = $(this).closest('.popup__listing').attr('obj');
+				$(this).closest('.popup__listing').find('input[type=checkbox]').each(function (index, element) {
+					if ($(element).is(':checked')) {
+						list.push($(element).parent().find('.checkbox__text').text());
+						data[index] = $(element).parent().find('.checkbox__text').text();
+					}
+				});
+				$('[inputobj=' + key + ']').val(list.join('; ')).attr('data', JSON.stringify(data));
+			});
+			$('.popup').blur(function() {
+				$('.popup').hide();
+			});								
 		});
 	</script>
 </body>

@@ -1,0 +1,2699 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Валаамский поломник</title>
+		<!--meta name="keywords" content="" >
+		<meta name="description" content ="">
+		<meta property="og:title" content="Главная" />
+		<meta property="og:url" content="" />
+		<meta property="og:image" content="" />
+		<meta property="og:description" content="" />
+		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:site_name" content="Валаамский поломник" />
+
+		<base href="/" /-->
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+		<!--link rel="icon" type="image/png" href="/favicon.png" /-->
+		<link rel="stylesheet" href="./jquery-ui/jquery-ui.css">
+		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
+		<link rel="stylesheet" type="text/css" href="./sliderClick/slick.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+		<link href="./css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+	<header class="header">
+		<div class="header__row">
+			<div class="header__top">
+				<div class="header__phones">
+					<span class="header__phone">
+						<a class="header__phone-link" href="tel:+78129028611">8 (812) 902-8611</a>
+					</span>
+					<span class="header__phone">
+						<a class="header__phone-link" href="tel:+74992509799">8 (499) 250-9799</a>
+					</span>
+				</div>
+				<div class="header__logins">
+					<div class="header__login">
+						<img class="header__login-icon" src="./img/icon_login.png" alt="login icon">
+						<a class="header__login-auth" href="javascript:void(0)">Войти</a> / 
+						<a class="header__login-reg" href="javascript:void(0)">Зарегистрироваться</a>
+					</div>
+					<div class="header__langs">
+						<ul class="header__lang">
+							<li class="header__lang-content">
+								<img class="header__lang-icon" src="./img/icon_langs_rus.png" alt="lang list">
+								<img class="header__lang-arrow" src="./img/icon_arrow_langs.png" alt="lang arrow">
+								<ul class="header__langs-list">
+									<li class="header__lang-item">
+										<img class="header__lang-icon" src="./img/icon_langs_rus.png" alt="lang list">
+										<img class="header__lang-arrow transform-180" src="./img/icon_arrow_langs.png" alt="lang arrow">
+									</li>									
+									<li class="header__lang-item">
+										<a class="header__lang-link" href="#">
+											<img class="header__lang-icon" src="./img/icon_langs_fin.png" alt="lang list">
+											<span class="header__lang-name">fi</span>
+										</a>
+
+									</li>
+									<li class="header__lang-item">
+										<a class="header__lang-link" href="#">
+											<img class="header__lang-icon" src="./img/icon_langs_eng.png" alt="lang list">
+											<span class="header__lang-name">en</span>
+										</a>
+
+									</li>									
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<div class="header__row">
+			<div class="header-bottom">
+				<img class="header-bottom__logo" src="./img/logo.svg" alt="logo">
+				<ul class="header-bottom__nav">
+					<li class="header-bottom__submenu">
+						<a class="header-bottom__link" href="#">Программы</a>
+						<ul class="header-bottom__sub-menu">
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Расписание</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Однодневные</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Многодневные</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Индивидуальные</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Приходам</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Организованным группам</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Услуги</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Оставить заявку</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header-bottom__submenu">
+						<a class="header-bottom__link" href="#">На валааме</a>
+						<ul class="header-bottom__sub-menu">
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Экскурсии</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Размещение</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Теплоходы</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Правила поведения в монастыре</a>
+							</li>
+						</ul>						
+					</li>
+					<li class="header-bottom__submenu">
+						<a class="header-bottom__link" href="#">Информация</a>
+						<ul class="header-bottom__sub-menu">
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Условия оплаты
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Реквизиты
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Возврат денежных средств
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">Обучение экскурсоводов
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Волонтёром на Валаам
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Часто задаваемые вопросы
+								</a>
+							</li>							
+						</ul>
+					</li>	
+					<li class="header-bottom__submenu">
+						<a class="header-bottom__link" href="#">О нас</a>
+						<ul class="header-bottom__sub-menu">
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Паломническая служба
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Статьи
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Новости
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Подписка
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Вакансии
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Отзывы
+								</a>
+							</li>
+							<li class="header-bottom__sub-item">
+								<a class="header-bottom__sub-link" href="#">
+									Контакты
+								</a>
+							</li>													
+						</ul>
+					</li>
+					<li class="header-bottom__menu header-bottom_order">
+						<a class="header-bottom__link" href="#">Заказ</a>
+					</li>												
+				</ul>
+			</div>				
+		</div>
+	</header>
+	<!--остальные-->
+	<main class="main">
+		<div class="crumbs">
+			<div class="crumbs__row">
+				<ul class="crumbs__list">
+					<li class="crumbs__item">
+						<a class="crumbs__link" href="#main">Главная</a>
+					</li>
+					<li class="crumbs__item">
+						<a class="crumbs__link" href="#">Теплоходы</a>
+					</li>
+					<li class="crumbs__item">Теплоход</li>
+				</ul>
+			</div>
+		</div>
+		<section class="section">
+			<div class="main__caption">ПОИСК ТУРА НА ВАЛААМ</div>
+			<div class="main__content">
+				<div class="search">
+					<form action="">
+					<div class="search__filters">
+						<div class="search__col">
+							<label for="" class="search__filter-name">Дата заезда</label>
+							<input type="text" class="search__filter icon_date" value="" placeholder="17 октября 2022">
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Продолжительность</label>
+							<input type="text" class="search__filter icon_duration" showmodal="duration-list" readonly value="" placeholder="На 7 дней">			
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Количество человек</label>
+							<input type="text" class="search__filter icon_count" showmodal="count-list" readonly value="" placeholder="2 взрослых 0 детей">
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Место отправления</label>
+							<select class="search__filter search__filter-select">
+								<option value="0">Любое</option>
+								<option value="1">Санкт-Петербург</option>
+								<option value="2">Приозёрск</option>
+							</select>
+						</div>						
+					</div>
+					<div class="search__submits">
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_green"></div>
+								<span class="find-list__date">много места</span>
+							</div>
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_orange"></div>
+								<span class="find-list__date">мало места</span>
+							</div>
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_red"></div>
+								<span class="find-list__date">места заканчиваются</span>
+							</div>																	
+						<button type="submit" class="vp-btn ml-30 pl-50 pr-50">Найти</button>
+					</div>
+					</form>
+				</div>
+			</div>
+			<div class="main__caption">НАЙДЕННЫЕ ПРОГРАММЫ</div>
+			<div class="list">
+				<div class="find-list">
+					<img class="find-list__img" src="./img/list_img_1.png" alt="list img">
+					<div class="find-list__content">
+						<div class="find-list__header">
+							<div class="find-list__col">
+								<div class="find-list__title">
+									<a class="find-list__link" href="#">На празднование Покрова Пресвятой Богородицы</a>
+								</div>
+								<div class="find-list__desc">
+									Для православного человека Валаамская обитель, с сонмом святых подвижников и старцев, с подворьями, скитами и пустынями, необыкновенно красивой природой, отделенная от мира ладожскими водами, является настоящим «Русским Северным Афоном». Для православного человека Валаамская обитель, с сонмом святых подвижников и старцев, с подворьями, скитами и пустынями, необыкновенно красивой природой, отделенная от мира ладожскими водами, является настоящим «Русским Северным Афоном».
+								</div>
+							</div>
+							<div class="find-list__col">
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_bus.png" alt="">
+									<span class="find-list__label">Автобус из СПБ</span>
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_geo.png" alt="">
+									<span class="find-list__label">Сортавала</span>
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_motorship.png" alt="">
+									<span class="find-list__label">«Метеор»</span>
+								</div>								
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_service.png" alt="">
+									<span class="find-list__label">Полупансион</span>
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_path2.png" alt="">
+									<span class="find-list__label">15 экскурсий</span>							
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_hotel.png" alt="">
+									<span class="find-list__label">Дом Паломника</span>							
+								</div>															
+							</div>
+						</div>
+
+						<div class="find-list__footer">
+							<img src="./img/icon_calendar.png" alt="icon calendar" class="find-list__calendar">
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_green"></div>
+								<span class="find-list__date">15.10.2022 - сб</span>
+							</div>
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_orange"></div>
+								<span class="find-list__date">15.10.2022 - сб</span>
+							</div>
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_red"></div>
+								<span class="find-list__date">15.10.2022 - сб</span>
+							</div>
+							<div class="find-list__date-item">
+								<a href="" class="find-list__date-item-last">все →</a>
+							</div>																	
+						</div>
+					</div>
+					<div class="find-list__price">
+						<div class="find-list__body-price">
+							от
+							<span class="find-list__price-value">15 849 ₽</span>
+							/чел
+						</div>
+						<div class="find-list__footer-price"><a class="find-list__footer-link" href="#">Смотреть</a></div>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2 дня</span>
+					</div>
+				</div>
+				<div class="find-list">
+					<img class="find-list__img" src="./img/list_img_1.png" alt="list img">
+					<div class="find-list__content">
+						<div class="find-list__header">
+							<div class="find-list__col">
+								<div class="find-list__title">
+									<a class="find-list__link" href="#">На празднование Покрова Пресвятой Богородицы</a>
+								</div>
+								<div class="find-list__desc">
+									Для православного человека Валаамская обитель, с сонмом святых подвижников и старцев, с подворьями, скитами и пустынями, необыкновенно красивой природой, отделенная от мира ладожскими водами, является настоящим «Русским Северным Афоном».
+								</div>
+							</div>
+							<div class="find-list__col">
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_bus.png" alt="">
+									<span class="find-list__label">Автобус из СПБ</span>
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_geo.png" alt="">
+									<span class="find-list__label">Сортавала</span>
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_motorship.png" alt="">
+									<span class="find-list__label">«Метеор»</span>
+								</div>								
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_service.png" alt="">
+									<span class="find-list__label">Полупансион</span>
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_path2.png" alt="">
+									<span class="find-list__label">15 экскурсий</span>							
+								</div>
+								<div class="find-list__icon-list">
+									<img class="find-list__icon" src="./img/icon_hotel.png" alt="">
+									<span class="find-list__label">Дом Паломника</span>							
+								</div>															
+							</div>
+						</div>
+
+						<div class="find-list__footer">
+							<img src="./img/icon_calendar.png" alt="icon calendar" class="find-list__calendar">
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_green"></div>
+								<span class="find-list__date">15.10.2022 - сб</span>
+							</div>
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_orange"></div>
+								<span class="find-list__date">15.10.2022 - сб</span>
+							</div>
+							<div class="find-list__date-item">
+								<div class="find-list__point find-list_red"></div>
+								<span class="find-list__date">15.10.2022 - сб</span>
+							</div>
+							<div class="find-list__date-item">
+								<a href="" class="find-list__date-item-last">все →</a>
+							</div>																	
+						</div>
+					</div>
+					<div class="find-list__price">
+						<div class="find-list__body-price">
+							от
+							<span class="find-list__price-value">15 849 ₽</span>
+							/чел
+						</div>
+						<div class="find-list__footer-price"><a class="find-list__footer-link" href="#">Смотреть</a></div>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2 дня</span>
+					</div>
+				</div>				
+			</div>
+
+			<a href="#" class="btn-more-show">Показать ещё</a>				
+		</section>
+		<section class="section motorShips">
+			<div class="main__caption">Теплоходы</div>
+			<div class="list">
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_valaam.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«Валлам»</a>
+					</div>
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>					
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_severnii_afon.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«Северный Афон»</a>
+					</div>						
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>					
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_patriarh_alex_II.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«ПАТРИАРХ АЛЕКСИЙ II»</a>
+					</div>	
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>					
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_prepodobnii_serafim.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«ПРЕПОДОБНЫЙ СЕРАФИМ»</a>
+					</div>
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>						
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_andrei_pervozvanii.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«АНДРЕЙ ПЕРВОЗВАННЫЙ»</a>
+					</div>	
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>						
+				</div>	
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_igumen_nazarii.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«ИГУМЕН НАЗАРИЙ»</a>
+					</div>
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>						
+				</div>																	
+			</div>
+			<a href="#" class="btn-more-show">Показать ещё</a>
+		</section>
+		<section class="section services">
+			<div class="main__caption">Услуги</div>
+			<div class="list">
+				<div class="service-list">
+					<a href="#service" class="servive-list__link">
+						<img src="./img/services/service_list_veloprokat.png" alt="list img" class="service-list__img">
+					</a>
+					<div class="service-list__content">
+						<a href="#service" class="servive-list__link">
+							<div class="service-list__title">Прокат велосипеда</div>
+						</a>
+						<div class="service-list__desc">
+							В отличие от автомобиля или мотоцикла, велосипед экологичен, не потребляет топливо и соответственно не загрязняет окружающую среду, прост в управлении, его можно припарковать в любом месте и с легкостью объехать все пробки.В отличие от автомобиля или мотоцикла, велосипед экологичен, не потребляет топливо и соответственно не загрязняет окружающую среду, прост в управлении, его можно припарковать в любом месте и с легкостью объехать все пробки.
+						</div>
+					</div>
+					<a href="#service" class="servive-list__link">
+						<div class="service-list__arrow">
+							<img src="./img/icon_arrow.png" alt="" class="servise-list__arrow">
+						</div>
+					</a>
+				</div>
+				<div class="service-list">
+					<a href="#service" class="servive-list__link">
+						<img src="./img/services/service_list_boatprokat.png" alt="list img" class="service-list__img">
+					</a>
+					<div class="service-list__content">
+						<a href="#service" class="servive-list__link">
+							<div class="service-list__title">Прокат лодки</div>
+						</a>
+						<div class="service-list__desc">
+							Лодка, два весла и хорошая компания – это все, что может понадобиться для путешествия . Несомненно, такая прогулка будет запоминающаяся как для романтических пар, так и семьям с детьми.
+						</div>
+					</div>
+					<a href="#service" class="servive-list__link">
+						<div class="service-list__arrow">
+							<img src="./img/icon_arrow.png" alt="" class="servise-list__arrow">
+						</div>
+					</a>
+				</div>
+				<div class="service-list">
+					<a href="#service" class="servive-list__link">
+						<img src="./img/services/service_list_bathhouse.png" alt="list img" class="service-list__img">
+					</a>
+					<div class="service-list__content">
+						<a href="#service" class="servive-list__link">
+							<div class="service-list__title">Баня на дровах</div>
+						</a>						
+						<div class="service-list__desc">
+							Традиционная русская баня — парная на дровах. В ней неприемлемы инновационные аналоги лассической каменки или модели печей, работающих от электричества. В этом заключается главная особенность, и на этом же основываются преимущества русской бани и польза.
+						</div>
+					</div>
+					<a href="#service" class="servive-list__link">
+						<div class="service-list__arrow">
+							<img src="./img/icon_arrow.png" alt="" class="servise-list__arrow">
+						</div>
+					</a>
+				</div>				
+			</div>
+			<a href="#" class="btn-more-show">Показать ещё</a>
+		</section>
+		<section class="section excursions">
+			<div class="main__caption">Экскурсии</div>
+			<div class="list">
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Центральная усадьба</div>
+						<div class="excursion-list__desc">
+							Обзорная экскурсия по центральной усадьбе Валаамского Спасо-Преображенского мужского монастыря по традиции начинается от причала Монастырской бухты ... Обзорная экскурсия по центральной усадьбе Валаамского Спасо-Преображенского мужского монастыря по традиции начинается от причала Монастырской бухты ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Скиты Валаама</div>
+						<div class="excursion-list__desc">
+							Пешеходная экскурсия, построенная на стремлении показать и раскрыть редкостную гармонию дикой, суровой северной природы и строгой подвижнической иноческой жизни ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>				
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Валаамское братство в годы военного лихолетья: Скалистый берег</div>
+						<div class="excursion-list__desc">
+							Обзорная экскурсия по центральной усадьбе Валаамского Спасо-Преображенского мужского монастыря по традиции начинается от причала Монастырской бухты ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Острова монашеского подвига</div>
+						<div class="excursion-list__desc">
+							Теплоходная экскурсия по красивейшим местам Валаамского архипелага: вдоль его западного побережья, из бухты Монастырской, на высоком берегу которой располагается центральная ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Скиты во имя Всех Святых и Смоленский</div>
+						<div class="excursion-list__desc">
+							Пешеходная экскурсия от Центральной Усадьбы монастыря на о. Скитский – второй по величине остров Валаамского архипелага. На его территории расположены 2 из 13 исторических ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Никольский скит</div>
+						<div class="excursion-list__desc">
+							Экскурсия в один из красивейших скитов Валаама, где вновь отреставрированный шатровый храм во имя святителя Николая Чудотворца, белоснежный келейный корпус, яблоневый сад ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>										
+			</div>
+			<a href="#" class="btn-more-show">Показать ещё</a>
+		</section>
+		<section class="section excursion">
+			<div class="main__caption">СКИТЫ ВАЛААМА</div>
+			<div class="main__content">
+				<div class="gallery">
+					<div class="gallery__imgs slider slider-for">
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+					</div>
+					<div class="gallery__previews slider slider-nav">
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>	
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>							
+
+					</div>
+				</div>
+				<div class="options">
+					<div class="options__title">ОПИСАНИЕ ЭКСКУРСИИ</div>
+					<div class="options__list">
+						<div class="options__item">
+							<img src="./img/icon_calendar3.png" alt="" class="options__icon">
+							<span class="options__label">Дни проведения экскурсий: <b>Вт, Чт</b></span>
+						</div>
+						<div class="options__item">
+							<img src="./img/icon_clock2.png" alt="" class="options__icon">
+							<span class="options__label">Длительность экскурсии: <b>3,5 часа</b></span>
+						</div>
+						<div class="options__item">
+							<img src="./img/icon_path.png" alt="" class="options__icon">
+							<span class="options__label">Продолжительность маршрута: <b>6 км</b></span>
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<p>
+						Пешеходная экскурсия, построенная на стремлении показать и раскрыть редкостную гармонию дикой, суровой северной природы и строгой подвижнической иноческой жизни. Маршрут экскурсии проходит по трем валаамским скитам: Воскресенскому, Гефсиманскому и Коневскому.
+					</p>
+					<p>
+						Воскресенский и Гефсиманский скиты с их своеобразным архитектурно-ландшафтным решением образуют знаменитую «Валаамскую Палестину», расположенную в западной части о. Валаам, неподалеку от причала круизных теплоходов в Большой Никоновской бухте. В районе удаленных внутренних Игуменских озер и Коневского скита гостей ожидает встреча с совсем другим по своему характеру уголком Валаама – необыкновенно тихим и прикровенным. Именно здесь располагалась некогда пустынька отшельника Дамаскина - будущего знаменитого Валаамского игумена. Всегда ровная водная гладь, отражающая густой хвойный лес, дубовая аллея, образующая прозрачную шелестящую арку, деревянные мосточки, соединяющие низкие берега, густой, целительный, напоенный ароматом можжевельника воздух - все это создает особую умиротворяющую атмосферу.
+						Заканчивается экскурсия «Скиты Валаама» у монастырской фермы, с конца XIX столетия и до наших дней снабжающей обитель превосходными молочными продуктами. Рассказ экскурсовода коснется вопросов хозяйственной и экономической жизни обители. Особое место в экскурсии уделяется знакомству с уникальным природным комплексом Валаамского архипелага, его флорой и фауной.
+					</p>
+				</div>
+			</div>
+			<div class="main__caption">КАРТА МАРШРУТА</div>
+			<div class="main__content">
+				<div class="map">
+					<div class="map__content">
+						<iframe class="map__frame" src="https://yandex.ru/map-widget/v1/?um=constructor%3A0d32a7319b14aef44c06305519d354f8190b68af08ef76c96c4a452a3dadbd4e&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+					</div>			
+				</div>
+			</div>
+		</section>
+		<section class="section motorShip">
+			<div class="main__caption">ТЕЛОХОД «СЕВЕРНЫЙ АФОН»</div>
+			<div class="main__content">
+				<div class="gallery">
+					<div class="gallery__imgs slider slider-for">
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+					</div>
+					<div class="gallery__previews slider slider-nav">
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>	
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>							
+
+					</div>
+				</div>
+				<div class="options">
+					<div class="options__desc">
+						В наши дни доставка паломников и туристов производится шестью теплоходами Валаамского монастыря, которые на период летней навигации передаются Паломнической службе в оперативное управление. Это два теплохода типа «ОМ» - «Валаам» и «Северный Афон» (вместимостью 122 чел. каждый) и четыре скоростные судна на подводных крыльях типа «Метеор» - «Патриарх Алексий II», «Преподобный Серафим», «Андрей Первозванный», «Игумен Назарий» (вместимостью 116 чел. каждый). <!--Дружные, прекрасно подготовленные команды монастырских теплоходов позволяют обеспечивать перевозки пассажиров в сложных навигационных условиях Ладожского озера и вызывают неизменную благодарность со стороны гостей обители.-->
+					</div>
+					<div class="options__list">
+						<div class="options__item">
+							<img src="./img/icon_calendar3.png" alt="" class="options__icon">
+							<span class="options__label">Год постройки: <b>1962</b></span>
+						</div>
+						<div class="options__item">
+							<img src="./img/icon_people2.png" alt="" class="options__icon">
+							<span class="options__label">Вместимость: <b>150 человек</b></span>
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<p>
+						Пешеходная экскурсия, построенная на стремлении показать и раскрыть редкостную гармонию дикой, суровой северной природы и строгой подвижнической иноческой жизни. Маршрут экскурсии проходит по трем валаамским скитам: Воскресенскому, Гефсиманскому и Коневскому.
+					</p>
+					<p>
+						Воскресенский и Гефсиманский скиты с их своеобразным архитектурно-ландшафтным решением образуют знаменитую «Валаамскую Палестину», расположенную в западной части о. Валаам, неподалеку от причала круизных теплоходов в Большой Никоновской бухте. В районе удаленных внутренних Игуменских озер и Коневского скита гостей ожидает встреча с совсем другим по своему характеру уголком Валаама – необыкновенно тихим и прикровенным. Именно здесь располагалась некогда пустынька отшельника Дамаскина - будущего знаменитого Валаамского игумена. Всегда ровная водная гладь, отражающая густой хвойный лес, дубовая аллея, образующая прозрачную шелестящую арку, деревянные мосточки, соединяющие низкие берега, густой, целительный, напоенный ароматом можжевельника воздух - все это создает особую умиротворяющую атмосферу.
+						Заканчивается экскурсия «Скиты Валаама» у монастырской фермы, с конца XIX столетия и до наших дней снабжающей обитель превосходными молочными продуктами. Рассказ экскурсовода коснется вопросов хозяйственной и экономической жизни обители. Особое место в экскурсии уделяется знакомству с уникальным природным комплексом Валаамского архипелага, его флорой и фауной.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="section service">
+			<div class="main__caption">ПРОКАТ ЛОДКИ</div>
+			<div class="main__content">
+				<p class="service__desc">
+					<img class="service__img" src="./img/services/service_list_boatprokat.png" alt="">
+					Лодка, два весла и хорошая компания – это все, что может понадобиться для путешествия . Несомненно, такая прогулка будет запоминающаяся как для романтических пар, так и семьям с детьми.
+					<br><br>
+					Пешеходная экскурсия, построенная на стремлении показать и раскрыть редкостную гармонию дикой, суровой северной природы и строгой подвижнической иноческой жизни. Маршрут экскурсии проходит по трем валаамским скитам: Воскресенскому, Гефсиманскому и Коневскому.
+					<br><br>
+					Воскресенский и Гефсиманский скиты с их своеобразным архитектурно-ландшафтным решением образуют знаменитую «Валаамскую Палестину», расположенную в западной части о. Валаам, неподалеку от причала круизных теплоходов в Большой Никоновской бухте. В районе удаленных внутренних Игуменских озер и Коневского скита гостей ожидает встреча с совсем другим по своему характеру уголком Валаама – необыкновенно тихим и прикровенным. Именно здесь располагалась некогда пустынька отшельника Дамаскина - будущего знаменитого Валаамского игумена. Всегда ровная водная гладь, отражающая густой хвойный лес, дубовая аллея, образующая прозрачную шелестящую арку, деревянные мосточки, соединяющие низкие берега, густой, целительный, напоенный ароматом можжевельника воздух - все это создает особую умиротворяющую атмосферу.
+					<br>
+					Заканчивается экскурсия «Скиты Валаама» у монастырской фермы, с конца XIX столетия и до наших дней снабжающей обитель превосходными молочными продуктами. Рассказ экскурсовода коснется вопросов хозяйственной и экономической жизни обители. Особое место в экскурсии уделяется знакомству с уникальным природным комплексом Валаамского архипелага, его флорой и фауной.					
+				</p>
+			</div>
+		</section>		
+		<section class="section registration">
+			<div class="main__caption">Регистрация</div>
+			<div class="main__introtext">Для юридических лиц</div>
+			<div class="main__content">
+				<form class="register__form" action="">
+					<div class="checkbox__label">
+						<input type="checkbox" class="checkbox" checked>
+						<span class="checkbox__text">АГЕНСТВО</span>
+					</div>
+					<div class="register__row">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="ФИО представителя компании*">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="E-mail*">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон*">	
+					</div>
+					<div class="main__introtext">Реквизиты компании</div>
+					<div class="register__row">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Название*">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="ИНН*">
+						<input type="text" class="input__text flex-1" value="" placeholder="КПП">
+					</div>
+					<div class="register__row">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Юридический адрес">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон/Факс*">
+						<input type="text" class="input__text flex-1" value="" placeholder="Расчетный счет*">
+					</div>
+					<div class="register__row">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Название банка*">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="БИК*">
+						<input type="text" class="input__text flex-1" value="" placeholder="Кор.счет банка*">
+					</div>	
+					<div class="register__row">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон/Факс банка*">
+						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Адрес доставки документов*">
+						<div class="register__col flex-1 center-v" for="">
+							<div class="checkbox__label">
+								<input type="checkbox" class="checkbox" checked>
+								<span class="checkbox__text">Плательщик НДС</span>
+							</div>
+						</div>
+					</div>
+					<div class="register__row">
+						<div class="register__col flex-1 pos-v pl-0">
+							<div class="checkbox__label">
+								<input type="checkbox" class="checkbox" checked>
+								<span class="checkbox__text">Я согласен с условиями передачи информации</span>
+							</div>
+							<div class="checkbox__label">
+								<input type="checkbox" class="checkbox">
+								<span class="checkbox__text">Подписаться на рассылку новостей</span>
+							</div>							
+						</div>
+						<div class="register__col flex-1" for=""></div>
+						<button class="vp-btn flex-1 pl-0 pr-0">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+					</div>		
+				</form>
+			</div>
+		</section>
+		<section class="section program">
+			<div class="main__caption">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</div>
+			<div class="program__icons">
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/clock.svg" alt="">
+					<span class="find-list__label">2 дня</span>
+				</div>
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/bus.svg" alt="">
+					<span class="find-list__label">Автобус из СПБ</span>
+				</div>	
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/geo.svg" alt="">
+					<span class="find-list__label">Сортавала</span>
+				</div>
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/ship.svg" alt="">
+					<span class="find-list__label">«Метеор»</span>
+				</div>
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/feed.svg" alt="">
+					<span class="find-list__label">Полупансион</span>
+				</div>	
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/path.svg" alt="">
+					<span class="find-list__label">15 экскурсий</span>
+				</div>
+				<div class="find-list__icon-list">
+					<img class="find-list__icon" src="./img/icons-svg/house.svg" alt="">
+					<span class="find-list__label">Дом Паломника</span>
+				</div>											
+			</div>
+			<div class="main__content">
+				<div class="gallery">
+					<div class="gallery__imgs slider slider-for">
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__img">
+						</div>
+						<div class="gallery__slider">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__img">
+						</div>
+					</div>
+					<div class="gallery__previews slider slider-nav">
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>	
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_1.png" alt="" class="gallery__view">
+						</div>
+						<div class="gallery__preview">
+							<img src="./img/sliders/slider_2.png" alt="" class="gallery__view">
+						</div>							
+
+					</div>
+				</div>
+				<div class="options">
+					<div class="buy-tickets-form">
+						<div class="buy-tickets-form__title">Оформить билеты онлайн</div>
+						<input type="text" class="search__filter icon_date flatpickr-input active" value="" placeholder="Дата поездки" readonly="readonly">
+						<div class="index-form">
+							<div class="index-form__label">
+								<span class="index-form__text">Взрослые</span>
+								<span class="index-form__text">6 000 ₽</span>
+							</div>
+							<div class="index-form__input" minValue="0" maxValue="6">
+								<div class="index-form__btn-minus"></div>
+								<span class="index-form__value">1</span>
+								<div class="index-form__btn-plus"></div>
+							</div>
+						</div>
+						<div class="index-form">
+							<div class="index-form__label">
+								<span class="index-form__text">Дети 7-12 лет</span>
+								<span class="index-form__text">3 000 ₽</span>
+							</div>
+							<div class="index-form__input" minValue="0" maxValue="6">
+								<div class="index-form__btn-minus"></div>
+								<span class="index-form__value">1</span>
+								<div class="index-form__btn-plus"></div>
+							</div>
+						</div>
+						<div class="index-form">
+							<div class="index-form__label">
+								<span class="index-form__text">Дети 0-6 лет</span>
+								<span class="index-form__text">0 ₽</span>
+							</div>
+							<div class="index-form__input" minValue="0" maxValue="6">
+								<div class="index-form__btn-minus"></div>
+								<span class="index-form__value">1</span>
+								<div class="index-form__btn-plus"></div>
+							</div>
+						</div>
+						<div class="buy-tickets-form__total">
+							<span class="buy-tickets-form__total-label">Итого (без проживания)</span>
+							<span class="buy-tickets-form__price">15 000 ₽</span>
+						</div>
+						<button class="vp-btn">Выбрать вариант размещения</button>			
+					</div>
+				</div>
+				<div class="description">
+					<p>
+						Пешеходная экскурсия, построенная на стремлении показать и раскрыть редкостную гармонию дикой, суровой северной природы и строгой подвижнической иноческой жизни. Маршрут экскурсии проходит по трем валаамским скитам: Воскресенскому, Гефсиманскому и Коневскому.
+					</p>
+					<p>
+						Воскресенский и Гефсиманский скиты с их своеобразным архитектурно-ландшафтным решением образуют знаменитую «Валаамскую Палестину», расположенную в западной части о. Валаам, неподалеку от причала круизных теплоходов в Большой Никоновской бухте. В районе удаленных внутренних Игуменских озер и Коневского скита гостей ожидает встреча с совсем другим по своему характеру уголком Валаама – необыкновенно тихим и прикровенным. Именно здесь располагалась некогда пустынька отшельника Дамаскина - будущего знаменитого Валаамского игумена. Всегда ровная водная гладь, отражающая густой хвойный лес, дубовая аллея, образующая прозрачную шелестящую арку, деревянные мосточки, соединяющие низкие берега, густой, целительный, напоенный ароматом можжевельника воздух - все это создает особую умиротворяющую атмосферу.
+						Заканчивается экскурсия «Скиты Валаама» у монастырской фермы, с конца XIX столетия и до наших дней снабжающей обитель превосходными молочными продуктами. Рассказ экскурсовода коснется вопросов хозяйственной и экономической жизни обители. Особое место в экскурсии уделяется знакомству с уникальным природным комплексом Валаамского архипелага, его флорой и фауной.
+					</p>
+				</div>
+			</div>
+			<div class="main__caption">Программа</div>
+			<div class="main__content">
+				<div class="program-content">
+					<div class="program-content__title">
+						<div class="program-content__icon"></div>
+						<div class="program-content__label">День 1</div>
+					</div>
+					<ul class="program-content__list">
+						<li class="program-content__item">
+							Посадка в автобус осуществляется при предъявлении паспорта и билета на поездку.
+						</li>
+						<li class="program-content__item">
+							<b>07.45</b> сбор группы у автобуса (Выборгcкое шоссе, ст.м. «Озерки»).
+						</li>
+						<li class="program-content__item">
+							<b>08.00</b> отправление автобуса из Санкт-Петербурга. Прибытие в г. Приозерск, 
+						</li>
+						<li class="program-content__item">
+							<b>10.30</b> посадка на т/х «Валаам». Отправление на о.Валаам. Прибытие в Монастырскую бухту. Размещение в паломнических домах «Игуменский» или «Валаам».
+						</li>
+						<li class="program-content__item">
+							<b>15.00</b> обед.
+						</li>
+						<li class="program-content__item">
+							<b>15.30</b> экскурсия по Центральной усадьбе Валаамского монастыря.
+						</li>
+						<li class="program-content__item">
+							Свободное время, участие в мастер-классах для детей и взрослых (по желанию, за дополнительное пожертвование).
+						</li>
+						<li class="program-content__item">
+							<b>19.00</b> Ужин
+						</li>
+					</ul>
+					<div class="program-content__title">
+						<div class="program-content__icon"></div>
+						<div class="program-content__label">День 2</div>
+					</div>
+					<ul class="program-content__list">
+						<li class="program-content__item">
+							Посадка в автобус осуществляется при предъявлении паспорта и билета на поездку.
+						</li>
+						<li class="program-content__item">
+							<b>07.45</b> сбор группы у автобуса (Выборгcкое шоссе, ст.м. «Озерки»).
+						</li>
+						<li class="program-content__item">
+							<b>08.00</b> отправление автобуса из Санкт-Петербурга. Прибытие в г. Приозерск, 
+						</li>
+						<li class="program-content__item">
+							<b>10.30</b> посадка на т/х «Валаам». Отправление на о.Валаам. Прибытие в Монастырскую бухту. Размещение в паломнических домах «Игуменский» или «Валаам».
+						</li>
+						<li class="program-content__item">
+							<b>15.00</b> обед.
+						</li>
+						<li class="program-content__item">
+							<b>15.30</b> экскурсия по Центральной усадьбе Валаамского монастыря.
+						</li>
+						<li class="program-content__item">
+							Свободное время, участие в мастер-классах для детей и взрослых (по желанию, за дополнительное пожертвование).
+						</li>
+						<li class="program-content__item">
+							<b>19.00</b> Ужин
+						</li>
+					</ul>
+					<div class="program-content__title">
+						<div class="program-content__icon"></div>
+						<div class="program-content__label">День 3</div>
+					</div>
+					<ul class="program-content__list">
+						<li class="program-content__item">
+							Посадка в автобус осуществляется при предъявлении паспорта и билета на поездку.
+						</li>
+						<li class="program-content__item">
+							<b>07.45</b> сбор группы у автобуса (Выборгcкое шоссе, ст.м. «Озерки»).
+						</li>
+						<li class="program-content__item">
+							<b>08.00</b> отправление автобуса из Санкт-Петербурга. Прибытие в г. Приозерск, 
+						</li>
+						<li class="program-content__item">
+							<b>10.30</b> посадка на т/х «Валаам». Отправление на о.Валаам. Прибытие в Монастырскую бухту. Размещение в паломнических домах «Игуменский» или «Валаам».
+						</li>
+						<li class="program-content__item">
+							<b>15.00</b> обед.
+						</li>
+						<li class="program-content__item">
+							<b>15.30</b> экскурсия по Центральной усадьбе Валаамского монастыря.
+						</li>
+						<li class="program-content__item">
+							Свободное время, участие в мастер-классах для детей и взрослых (по желанию, за дополнительное пожертвование).
+						</li>
+						<li class="program-content__item">
+							<b>19.00</b> Ужин
+						</li>
+					</ul>										
+				</div>
+			</div>
+			<div class="main__caption">Сумма пожертвования за паломничество</div>
+			<div class="main__content">
+				<table class="table">
+				    <thead class="table__head">
+				        <tr>
+				            <th>30.12.2022 — 02.01.2023</th> 
+				            <th>из Санкт-Петербурга</th> 
+				            <th>из Приозерска</th>
+				        </tr>
+				    </thead>
+				    <thead class="table__subhead-first">
+				        <tr>
+				            <th>Дом паломника «Валаам»</th> 
+				            <th>руб/чел.</th> 
+				            <th>руб/чел.</th>
+				        </tr>
+				    </thead>				    
+				    <tbody class="table__body">
+				        <tr>
+				            <td>3х местный с удобствами в номере  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>1м с удобствами на блок (на 2 номера)  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>х местный с удобствами в номере  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>1м с удобствами на блок (на 2 номера)  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>х местный с удобствами в номере  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>				        
+				    </tbody>
+				    <thead class="table__subhead">
+				        <tr>
+				            <th>Паломнический дом «Игуменский»</th> 
+				            <th>руб/чел.</th> 
+				            <th>руб/чел.</th>
+				        </tr>
+				    </thead>
+				    <tbody class="table__body">
+				        <tr>
+				            <td>3х местный с удобствами в номере  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>1м с удобствами на блок (на 2 номера)  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>х местный с удобствами в номере  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>1м с удобствами на блок (на 2 номера)  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>х местный с удобствами в номере  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>
+				        <tr>
+				            <td>1м с удобствами на блок (на 2 номера)  1,2,3 этажи</td> 
+				            <td>25 200,00</td> 
+				            <td>21 800,00</td>
+				        </tr>				        
+				    </tbody>  
+				</table>
+			</div>
+			<div class="main__caption">Примечание</div>
+			<div class="main__content">
+				<ol class="num-list">
+					<li>Время в программе указано ориентировочное. Порядок выполнения пунктов программы и их продолжительность могут быть изменены в зависимости от метеоусловий!
+					</li>
+					<li>
+						В случае шторма на Ладожском озере возможен перенос даты отправления.
+					</li>
+					<li>
+						На протяжении всех  каникул в Духовно-просветительском центре при Доме паломника «Валаам» будут проходить мастер-классы:
+					</li>
+				</ol>
+				<div class="pos-h w-100">
+					<div class="flex-1">
+						<div class="listing ml-30">
+							<div class="listing__title">Живописная мастерская (от 500 до 700 руб.):</div>
+							<ul class="listing__list">
+								<li class="listing__item">Акрил на холсте;</li>
+								<li class="listing__item">Каллиграфия;</li>
+								<li class="listing__item">Акварель.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="flex-1">
+						<div class="listing">
+							<div class="listing__title">Живописная мастерская (от 500 до 700 руб.):</div>
+							<ul class="listing__list">
+								<li class="listing__item">Акрил на холсте;</li>
+								<li class="listing__item">Каллиграфия;</li>
+								<li class="listing__item">Акварель.</li>
+							</ul>
+						</div>
+					</div>	
+				</div>
+				<p class="main__text">
+					В мастер-классах могут принять участие и дети, и взрослые (а лучше – все вместе). Также будут организованы бесплатные лекции, посвященные богословию праздника Рождества Христова, разбору его богослужебных особенностей; просмотр и обсуждение семейных Рожественских фильмов.
+				</p>
+			</div>
+			<div class="main__donations">
+				<div class="main__content-mini">
+					<div class="main__caption">В ПОЖЕРТВОВАНИЕ ВХОДИТ</div>
+						<ul class="listing__list">
+							<li class="listing__item">
+							проживание в каюте со всеми удобствами (душ, туалет, кондиционер, есть варианты кают с балконами)
+							</li>
+							<li class="listing__item">
+							3-х разовое разнообразное питание
+							</li>
+							<li class="listing__item">
+							экскурсионная программа
+							</li>
+							<li class="listing__item">
+							перемещение между городами без необходимости каждый день собрать и разбирать чемодан и ждать заселение в отеле
+							</li>							
+						</ul>
+				</div>
+				<div class="main__content-mini">
+					<div style="font-size: 29px;" class="main__caption">За дополнительное пожертвование</div>
+						<ul class="listing__list">
+							<li class="listing__item">
+							напитки и закуски в барах и ресторанах
+							</li>
+							<li class="listing__item">
+							телефонные переговоры
+							</li>
+							<li class="listing__item">
+							посещение сауны
+							</li>
+							<li class="listing__item">
+							прочие дополнительные услуги на борту теплохода.
+							</li>							
+						</ul>
+				</div>				
+			</div>
+			<div class="main__caption">КАРТА МАРШРУТА</div>
+			<div class="main__content">
+				<div class="map">
+					<div class="map__content">
+						<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0d32a7319b14aef44c06305519d354f8190b68af08ef76c96c4a452a3dadbd4e&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+					</div>			
+				</div>
+			</div>
+			<div class="main__caption">КОНТАКТЫ ОРГАНИЗАТОРА</div>
+			<div class="program__contacts">
+				<span class="program__contact">8 (812) 902-86-11, доб. 104</span>
+				<span class="program__contact">e-mail: pal@vp.valaam.ru</span>
+				<span class="program__contact">по будним дням с 10.00 до 18.00</span>
+			</div>
+		</section>
+		<section class="section placement">
+			<div class="main__caption">РАЗМЕЩЕНИЕ</div>
+			<div class="main__introtext">Выберите понравившийся Вам вариант размещения</div>
+			<div class="list">
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В заявку</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value">25 800</span>
+							₽
+						</div>
+					</div>
+					<div class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>							
+			</div>
+			<div class="placement-select">
+				<div class="placement-select__content">
+					<div class="main__introtext mt-0">Ваш выбор:</div>
+					<ul class="placement-select__list">
+
+					</ul>
+				</div>
+				<button class="vp-btn-inline">Выбрать ещё номер</button>
+			</div>
+			<div class="main__content">
+				<div class="program-card">
+					<div class="program-card__labels">
+						<span class="program-card__label">Программа:</span>
+						<span class="program-card__label">Дата заезда:</span>
+						<span class="program-card__label">Количество гостей:</span>
+						<span class="program-card__label">Проезд на атобусе:</span>
+						<span class="program-card__label">Проезд на теплоходе:</span>
+						<span class="program-card__label">Проживание:</span>
+						<span class="program-card__label">Питание:</span>
+						<span class="program-card__label">Кол-во экскурсий:</span>
+					</div>
+					<div class="program-card__content">
+						<span class="program-card__label">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</span>
+						<span class="program-card__label">25.12.2022</span>
+						<span class="program-card__label">2 взрослых | 1 ребёнок 7-12 лет</span>
+						<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
+						<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>			
+						<span class="program-card__label">2х местный с удобствами на блок (на 2 номера)  1,2,3 этажи</span>
+						<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
+						<span class="program-card__label">4</span>
+					</div>
+					<div class="program-card__footer">
+						<div class="program-card__info">
+							<div class="program-card__title">ВАША ЗАЯВКА</div>
+
+								<div class="program-card__item">
+									<span class="program-card__label">Программа:</span>
+									<span class="program-card__price"><b>15 849</b> ₽</span>
+								</div>
+								<div class="program-card__item">
+									<span class="program-card__label">Проживание:</span>
+									<span class="program-card__price"><b>25 800</b> ₽</span>
+								</div>								
+
+						</div>
+						<div class="program-card__totals">
+							<div class="program-card__paid">
+								<div class="program-card__total">К ОПЛАТЕ:</div>
+								<div class="program-card__total-price"><b>41 649</b> ₽</div>
+							</div>
+							<a href="#" class="program-card__edit">Редактировать заявку</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="placement-footer">
+				<button class="vp-btn-inline bg-while">Вернуться назад к выбору программ</button>
+				<button class="vp-btn">ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
+			</div>
+		</section>
+		<section class="section reg-order">
+			<div class="main__caption">Оформление заявки</div>
+			<div class="main__content">
+				<div class="program-card">
+					<div class="program-card__labels">
+						<span class="program-card__label">Программа:</span>
+						<span class="program-card__label">Дата заезда:</span>
+						<span class="program-card__label">Количество гостей:</span>
+						<span class="program-card__label">Проезд на атобусе:</span>
+						<span class="program-card__label">Проезд на теплоходе:</span>
+						<span class="program-card__label">Проживание:</span>
+						<span class="program-card__label">Питание:</span>
+						<span class="program-card__label">Кол-во экскурсий:</span>
+					</div>
+					<div class="program-card__content">
+						<span class="program-card__label">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</span>
+						<span class="program-card__label">25.12.2022</span>
+						<span class="program-card__label">2 взрослых | 1 ребёнок 7-12 лет</span>
+						<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
+						<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>			
+						<span class="program-card__label">2х местный с удобствами на блок (на 2 номера)  1,2,3 этажи</span>
+						<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
+						<span class="program-card__label">4</span>
+					</div>
+					<div class="program-card__footer">
+						<div class="program-card__info">
+							<div class="program-card__title">ВАША ЗАЯВКА</div>
+
+								<div class="program-card__item">
+									<span class="program-card__label">Программа:</span>
+									<span class="program-card__price"><b>15 849</b> ₽</span>
+								</div>
+								<div class="program-card__item">
+									<span class="program-card__label">Проживание:</span>
+									<span class="program-card__price"><b>25 800</b> ₽</span>
+								</div>								
+
+						</div>
+						<div class="program-card__totals">
+							<div class="program-card__paid">
+								<div class="program-card__total">К ОПЛАТЕ:</div>
+								<div class="program-card__total-price"><b>41 649</b> ₽</div>
+							</div>
+							<a href="#" class="program-card__edit">Редактировать заявку</a>
+						</div>
+					</div>
+				</div>
+				<div class="order-form">
+					<div class="order-form__title">Данные заказчика</div>
+					<div class="order-form__field">
+						<div class="order-form__content-human">
+							<div class="order-form__field-contacts">
+								<div class="order-form__field-contact">
+									<input type="text" class="search__filter" value="" placeholder="Фамилия*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Имя*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Отчество*">
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<input type="text" class="search__filter" value="" placeholder="Дата рождения*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Паспорт серия/номер*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Телефон">
+								</div>								
+							</div>
+							<div class="order-form__fields-gender ml-20">
+								<div class="order-form__field-gender order-form_field-active">М</div>
+								<div class="order-form__field-gender">Ж</div>
+							</div>							
+						</div>
+					</div>
+					<div class="checkbox__label mt-10">
+						<input type="checkbox" class="checkbox" checked="">
+						<span class="checkbox__text">Заказчик является Паломником</span>
+					</div>
+					<div class="order-form__title">Данные туристов</div>
+					<div class="order-form__field order-form__group">
+						<div class="order-form__subtitle">Взрослый</div>
+						<div class="order-form__content-human">
+							<div class="order-form__field-contacts">
+								<div class="order-form__field-contact">
+									<input type="text" class="search__filter" value="" placeholder="Фамилия*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Имя*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Отчество*">
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<input type="text" class="search__filter" value="" placeholder="Дата рождения*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Паспорт серия/номер*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Телефон">
+								</div>								
+							</div>
+							<div class="order-form__fields-gender ml-20">
+								<div class="order-form__field-gender order-form_field-active">М</div>
+								<div class="order-form__field-gender">Ж</div>
+							</div>							
+						</div>
+					</div>
+					<div class="order-form__field order-form__group">
+						<div class="order-form__subtitle">Взрослый</div>
+						<div class="order-form__content-human">
+							<div class="order-form__field-contacts">
+								<div class="order-form__field-contact">
+									<input type="text" class="search__filter" value="" placeholder="Фамилия*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Имя*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Отчество*">
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<input type="text" class="search__filter" value="" placeholder="Дата рождения*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Паспорт серия/номер*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Телефон">
+								</div>								
+							</div>
+							<div class="order-form__fields-gender ml-20">
+								<div class="order-form__field-gender order-form_field-active">М</div>
+								<div class="order-form__field-gender">Ж</div>
+							</div>							
+						</div>
+					</div>
+					<div class="order-form__field order-form__group">
+						<div class="order-form__subtitle">Ребёнок (7-12)</div>
+						<div class="order-form__content-human">
+							<div class="order-form__field-contacts">
+								<div class="order-form__field-contact">
+									<input type="text" class="search__filter" value="" placeholder="Фамилия*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Имя*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Отчество*">
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<input type="text" class="search__filter" value="" placeholder="Дата рождения*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Паспорт серия/номер*">
+									<input type="text" class="search__filter ml-20" value="" placeholder="Телефон">
+								</div>								
+							</div>
+							<div class="order-form__fields-gender ml-20">
+								<div class="order-form__field-gender order-form_field-active">М</div>
+								<div class="order-form__field-gender">Ж</div>
+							</div>							
+						</div>
+					</div>
+					<div class="order-form__total"></div>
+					<div class="order-form__title">Способ оплаты</div>
+					<div class="order-form__field pos-h">
+						<div class="order-form__group order-form__pay-group">
+							<div class="order-form__subtitle">Категория оплаты</div>
+							<div class="radiobox__label mt-20">
+								<input name="categorypay" type="radio" class="radiobox">
+								<span class="radiobox__text">Стандартная</span>
+							</div>
+							<div class="radiobox__label mt-20">
+								<input name="categorypay" type="radio" class="radiobox">
+								<span class="radiobox__text">Пожертвование</span>
+							</div>
+							<div class="order-form__help mt-20">
+								<a href="#" class="order-form__help-link">Справка</a>
+							</div>
+						</div>
+						<div class="order-form__group order-form__pay-group">
+							<div class="order-form__subtitle">Тип платежа</div>
+							<div class="radiobox__label mt-20">
+								<input name="typepay" type="radio" class="radiobox">
+								<span class="radiobox__text">Картой он-лайн</span>
+							</div>
+							<div class="radiobox__label mt-20">
+								<input name="typepay" type="radio" class="radiobox">
+								<span class="radiobox__text">По счету</span>
+							</div>
+							<div class="radiobox__label mt-20">
+								<input name="typepay" type="radio" class="radiobox">
+								<span class="radiobox__text">Наличными в офисе</span>
+							</div>							
+						</div>						
+					</div>
+					<div class="order-form__field pos-h">
+						<div class="order-form__pay-group">
+						</div>
+						<div class="order-form__pay-group">
+							<div class="order-form__footer">
+								<div class="order-form__agreement">
+									<div class="checkbox__label">
+										<input type="checkbox" class="checkbox" checked>
+										<span class="checkbox__text">Я согласен с условиями передачи информации</span>
+									</div>
+									<div class="checkbox__label">
+										<input type="checkbox" class="checkbox">
+										<span class="checkbox__text">Подписаться на рассылку новостей</span>
+									</div>									
+								</div>
+								<button class="vp-btn flex-1">Оплатить</button>
+							</div>						
+						</div>						
+					</div>														
+				</div>
+			</div>
+		</section>	
+	</main>
+	<!--остальные-->
+	<!--главная-->
+	<main class="main">
+		<section class="main__header">
+			<video class="main__poster" poster="./img/main-slider/slider-1.png">
+				<source src="" type='video/ogg; codecs="theora, vorbis"'>
+				<source src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+				<source src="" type='video/webm; codecs="vp8, vorbis"'>
+			</video>
+			<div class="header__search">
+				<div class="header__filter">
+					<div class="main__title">ПАЛОМНИЧЕСТВО НА ВАЛААМ</div>
+					<div class="main__search">
+						<input type="text" class="vp-input icon-pos-right icon_date mr-10 flex-2" value="" placeholder="Дата заезда">
+						<input type="text" class="vp-input icon-pos-right icon_duration mr-10 flex-2" value="" placeholder="Продолжительность">	
+						<input type="text" class="vp-input icon-pos-right icon_count mr-10 flex-2" value="" placeholder="Количество человек">
+						<button type="submit" class="vp-btn pl-50 pr-50 flex-1">Найти</button>
+					</div>	
+				</div>
+			</div>				
+		</section>
+		<section class="section populars">
+			<div class="main__caption">Популярные программы</div>
+			<div class="list">
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>			
+			</div>
+			<a href="#" class="btn-more-show">Показать ещё</a>	
+		</section>
+		<section class="section posts">
+			<div class="list">
+				<div class="post-list">
+					<a href="#" class="post-list__link">
+						<div class="post-list__title">О ВАЛААМЕ</div>
+					</a>
+					<img src="./img/popular_item_1.png" alt="" class="post-list__img">
+					<div class="post-list__desc">
+						Остров в северной части Ладожского озера, самый большой в составе Валаамского архипелага
+					</div>
+				</div>
+				<div class="post-list">
+					<a href="#" class="post-list__link">
+						<div class="post-list__title">О ВАЛААМЕ</div>
+					</a>
+					<img src="./img/popular_item_1.png" alt="" class="post-list__img">
+					<div class="post-list__desc">
+						Более 15 экскурсионных маршрутов по острову Валаам
+					</div>
+				</div>	
+				<div class="post-list">
+					<a href="#" class="post-list__link">
+						<div class="post-list__title">О ВАЛААМЕ</div>
+					</a>
+					<img src="./img/popular_item_1.png" alt="" class="post-list__img">
+					<div class="post-list__desc">
+						Актуальное расписание на весь сезон
+					</div>				
+				</div>
+				<div class="post-list">
+					<a href="#" class="post-list__link">
+						<div class="post-list__title">О ВАЛААМЕ</div>
+					</a>
+					<img src="./img/popular_item_1.png" alt="" class="post-list__img">
+					<div class="post-list__desc">
+						Поделитесь своими впечатлениями от посещения острова Валаам
+					</div>					
+				</div>										
+			</div>
+		</section>
+		<section class="section map">
+			<div class="map">
+				<div class="map__title">АДРЕСА ПРИЧАЛОВ</div>
+				<div class="map__content">
+					<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0d32a7319b14aef44c06305519d354f8190b68af08ef76c96c4a452a3dadbd4e&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+				</div>
+				<div class="map__footer">
+					<div class="map__geo">
+						<div class="map__index">1</div>
+						<span class="map__location">
+							Причал в Сортавала ул. 2-я Пристанская, 1
+						</span>
+					</div>
+					<div class="map__geo">
+						<div class="map__index">2</div>
+						<span class="map__location">
+							Причал в Сортавала ул. 2-я Пристанская, 1
+						</span>
+					</div>
+					<div class="map__geo">
+						<div class="map__index">3</div>
+						<span class="map__location">
+							Причал в Сортавала ул. 2-я Пристанская, 1
+						</span>
+					</div>
+					<div class="map__geo">
+						<div class="map__index">4</div>
+						<span class="map__location">
+							Причал в Сортавала ул. 2-я Пристанская, 1
+						</span>
+					</div>										
+				</div>				
+			</div>
+		</section>
+		<section class="section find-programs">
+			<div class="find-programs__title">НЕ НАШЛИ ПОДХОДЯЩУЮ ПРОГРАММУ?</div>
+			<div class="find-programs__construct">
+				<span class="find-programs__label">Воспользуйтесь сервисом</span>
+				<button class="vp-btn ml-20 bg-yellow">КОНСТРУКТОР ПРОГРАММ</button>
+			</div>
+			<div class="find-programs__separate"></div>
+			<span class="find-programs__label">Или оставьте заявку, с Вами свяжется организатор</span>
+			<div class="find-programs__form">
+				<input type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
+				<input type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
+				<button type="submit" class="vp-btn ml-20 pl-20 pr-20">Оставить заявку</button>				
+			</div>
+			<div class="checkbox__label">
+				<input type="checkbox" class="checkbox" checked="">
+				<span class="checkbox__text while">Я согласен с условиями передачи информации</span>
+			</div>
+		</section>
+	</main>
+	<!--главная-->
+	<footer class="footer">
+		<div class="footer__content">
+			<div class="footer__col">
+				<img src="./img/logo_footer.svg" alt="logo">
+				<p class="footer__adress">191124, г. Санкт-Петербург, Синопская наб., д. 34/36</p>
+				<p class="footer__dev">Разработка сайта — 
+					<a class="footer__dev-link" href="#dev">Фабрика турсайтов</a>
+				</p>
+			</div>
+			<div class="footer__col">
+				<span class="footer__phone">
+					<a class="footer__phone-link" href="tel:+78129028611">8 (812) 902-8611</a>
+				</span>
+				<span class="footer__phone">
+					<a class="footer__phone-link" href="tel:+74992509799">8 (499) 250-9799</a>
+				</span>
+				<span class="footer__email">E-mail: 
+					<a class="footer__email-link" href="mailto:vp@vp.valaam.ru">vp@vp.valaam.ru</a>
+				</span>
+				<div class="footer__icons">
+					<a class="footer__icons-link" href="#vk">
+						<img class="footer__icon" src="./img/vk_footer.png" alt="vk">
+					</a>
+					<a class="footer__icons-link" href="#ok">
+						<img class="footer__icon" src="./img/ok_footer.png" alt="ok">
+					</a>
+					<a class="footer__icons-link" href="#telegram">
+						<img class="footer__icon" src="./img/telegram_footer.png" alt="telegram">
+					</a>
+					<a class="footer__icons-link" href="#viber">
+						<img class="footer__icon" src="./img/viber_footer.png" alt="viber">
+					</a>
+				</div>			
+			</div>
+			<div class="footer__col">
+				<ul class="footer__menu">
+					<li class="footer__item">
+						<a class="footer__item-link" href="#">Посетить</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__item-link" href="#">На Валааме</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__item-link" href="#">Информация</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__item-link" href="#">О нас</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__item-link" href="#">Заказ</a>
+					</li>
+				</ul>
+				<div class="footer__widgets">
+					<div class="footer__weather"></div>
+					<div class="footer__pay">
+						<img class="footer__card" src="./img/pay-mir.png" alt="mir">
+						<img class="footer__card" src="./img/pay-mastercard.png" alt="mastercard">
+						<img class="footer__card" src="./img/pay-visa.png" alt="visa">
+					</div>
+				</div>				
+			</div>
+
+		</div>
+	</footer>
+	<div id="m-login" class="modals modal login hide">
+		<a href="javascript:void(0)" class="modal__close-link">
+			<img src="./img/icon_modal_close.png" alt="" class="modal__close">
+		</a>
+		<form class="modal__form" action="/">
+		<div class="modal__forms">
+			<div class="modal__caption">Вход</div>
+			<input type="text" class="modal_username modal__input" placeholder="Телефон или email">
+			<input type="password" class="modal_password modal__input" placeholder="Пароль">			
+			<div class="modal__options">
+				<div class="checkbox__label">
+					<input type="checkbox" class="checkbox" checked>
+					<span class="checkbox__text">Запомнить пароль</span>
+				</div>
+				<button type="button" class="modal__forgot">Забыли пароль?</button>
+			</div>
+			<button class="modal__submit">Войти</button>				
+		</div>
+		<div class="modal__info">
+			<div class="modal__title">Нет аккаунта?</div>
+			<div class="modal__desc">
+			На вашу почту будет отправлена инструкция с дальнейшими действиями.
+			</div>
+			<a href="javascript:void(0)" class="modal__btn">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+		</div>
+		</form>
+	</div>
+	<div id="m-register" class="modals modal register hide">
+		<a href="javascript:void(0)" class="modal__close-link">
+			<img src="./img/icon_modal_close_black.png" alt="" class="modal__close">
+		</a>
+		<form class="modal__form" action="/">
+		<div class="modal__info modal_br-left">
+			<div class="modal__title">Есть аккаунт?</div>
+			<div class="modal__desc">
+			Если вы зарегистрированы и у вас есть аккаунт, то нажмите кнопку 
+			</div>
+			<a href="javascript:void(0)" class="modal__btn">Войти</a>
+		</div>		
+		<div class="modal__forms">
+			<div class="modal__caption">Регистрация</div>
+			<div class="modal__subtitle">Для физических лиц</div>
+			<input type="text" class="modal_username modal__input" placeholder="Имя">
+			<input type="email" class="modal_email modal__input" placeholder="Email">
+			<input type="phone" class="modal_phone modal__input" placeholder="Телефон">
+			<div class="modal__options modal_pos-v">
+				<div class="checkbox__label">
+					<input type="checkbox" class="checkbox" checked>
+					<span class="checkbox__text">Я согласен с условиями передачи информации</span>
+				</div>
+				<div class="checkbox__label">
+					<input type="checkbox" class="checkbox" checked>
+					<span class="checkbox__text">Подписаться на рассылку новостей</span>
+				</div>
+			</div>
+			<button class="modal__submit">Зарегистрироваться</button>				
+		</div>
+		</form>
+	</div>
+	<div class="modals modal recovery-password hide">
+		<a href="javascript:void(0)" class="modal__close-link">
+			<img src="./img/icon_modal_close_black.png" alt="" class="modal__close">
+		</a>
+		<form class="modal__form" action="/">
+			<div class="modal__forms">
+				<div class="modal__caption">Восстановление пароля</div>
+				<input type="email" class="modal_email modal__input" placeholder="Email">
+				<div class="modal__captcha"></div>
+				<div class="modal__desc gray">
+				Это легко исправить! Заполните личные данные и добро пожаловать к нам!
+				</div>
+				<button class="modal__submit">ВОССТАНОВИТЬ ПАРОЛЬ</button>
+			</div>
+		</form>	
+	</div>
+	<div class="modal__blocked hide"></div>
+	<div class="popup__listing checkbox-list hide" popupobject="">
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Один день</span>
+		</div>
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Два дня</span>
+		</div>
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Три дня</span>
+		</div>
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Четыре дня</span>
+		</div>	
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Пять дней</span>
+		</div>
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Шесть дней</span>
+		</div>	
+		<div class="checkbox__label">
+			<input type="checkbox" class="checkbox" checked>
+			<span class="checkbox__text">Семь дней и более</span>
+		</div>								
+	</div>
+	<div class="popup__listing radiobox-list hide" popupobject="">
+		<div class="radiobox__label">
+			<input type="radio" class="radiobox">
+			<span class="radiobox__text">Один день</span>
+		</div>
+		<div class="radiobox__label">
+			<input type="radio" class="radiobox">
+			<span class="radiobox__text">Два дня</span>
+		</div>		
+	</div>
+	<div class="popup__composition count-list hide" popupobject="">
+		<div class="popup__composition-list">
+			<div class="index-form">
+				<div class="index-form__label">
+					<span class="index-form__text">Взрослые</span>
+				</div>
+				<div class="index-form__input" minValue="1" maxValue="6">
+					<div class="index-form__btn-minus"></div>
+					<span class="index-form__value">1</span>
+					<div class="index-form__btn-plus"></div>
+				</div>
+			</div>
+			<div class="index-form">
+				<div class="index-form__label">
+					<span class="index-form__text">Дети</span>
+				</div>
+				<div class="index-form__input" minValue="1" maxValue="3">
+					<div class="index-form__btn-minus"></div>
+					<span class="index-form__value">0</span>
+					<div class="index-form__btn-plus"></div>
+				</div>
+			</div>
+			<div class="index-form">
+				<div class="index-form__label">
+					<span class="index-form__text">Возраст ребёнка</span>
+				</div>
+				<div class="index-form__input">
+					<select class="index-form__select">
+						<option value="1">До 7 лет</option>
+						<option value="2">От 7 до 14 лет</option>
+						<option value="3">Старше 14 лет</option>
+					</select>
+				</div>
+			</div>						
+		</div>
+		<button class="popup__composition-btn">Готово</button>
+	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+	<script type="text/javascript" src="./sliderClick/slick.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
+	<script type="text/javascript">
+
+	    $('.slider-for').slick({
+		    slidesToShow: 1,
+		    slidesToScroll: 1,
+		    arrows: true,
+		    prevArrow: '<img src="./img/arrow_prev_slider.png" alt="btn prev" class="gallery__btn-prev">',
+		    nextArrow: '<img src="./img/arrow_next_slider.png" alt="btn next" class="gallery__btn-next">',
+		    fade: true,
+		    asNavFor: '.slider-nav'
+	    });
+
+	    $('.slider-nav').slick({
+		    slidesToShow: 6,
+		    slidesToScroll: 1,
+		    asNavFor: '.slider-for',
+		    dots: false,
+		    arrows: false,
+		    centerMode: false,
+		    focusOnSelect: true
+	    });
+		$(document).ready(function() {
+		    $(".icon_date").flatpickr(
+			{
+			    "locale": "ru"
+			}
+		    );
+			$('.header__login-auth').click(function() {
+				$('.modal__blocked').show();
+				$('body').css('overflow', 'hidden');
+				$('.modals').hide();
+				$('.login').show();
+			});
+			$('.header__login-reg').click(function() {
+				$('.modal__blocked').show();
+				$('body').css('overflow', 'hidden');
+				$('.modals').hide();
+				$('.register').show();
+			});
+			$('.modal__close-link').click(function() {
+				$(this).parent('.modals').hide();
+				$('body').css('overflow', 'auto');
+				$('.modal__blocked').hide();
+			});
+			$('.modal__blocked').click(function() {
+				$('.modal__close-link').click();
+			});
+			$('.modal__forgot').click(function() {
+				$('.modal__close-link').click();
+				$('.modal__blocked').show();
+				$('body').css('overflow', 'hidden');
+				$('.modals').hide();
+				$('.recovery-password').show();
+			});			
+			$('.modal__btn').click(function() {
+				var bolean = $(this).closest('.modals').hasClass('login');
+				$('.modals').hide();
+				var res = (bolean) ? $('.register').show() :$('.login').show();
+			});
+			$('.placement-item__btn').click(function() {
+				var parent = $(this).closest('.placement-item');
+				var slider = parent.find('.placement-item__gallery-item');
+				var geo = parent.find('.placement-item__geo');
+				var title = parent.find('.placement-item__title');
+				var desc = parent.find('.placement-item__desc');
+				var prices = parent.find('.placement-item__prices');
+				var btn = parent.find('.placement-item__btn');
+				var included = parent.find('.placement-item__included');
+				console.log(btn.attr('selectedOrder'));
+				if (btn.attr('selectedOrder') === 'false') {
+					slider.css('border-top', '3px solid #FF8A00').css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+					geo.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+					title.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+					desc.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+					prices.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+					btn.css('border-bottom', '3px solid #FF8A00')
+						.css('border-left', '3px solid #FF8A00')
+						.css('border-right', '3px solid #FF8A00')
+						.css('background-color', '#FF8A00')
+						.text('Отменить выбор');
+					included.css('top','3px');
+					btn.attr('selectedOrder', 'true');
+				} else {
+					slider.css('border-top', 'none').css('border-left', 'none').css('border-right', 'none');
+					btn.attr('style', '').text('Добавить в заявку');
+					geo.attr('style', '');
+					title.attr('style', '');
+					desc.attr('style', '');
+					prices.attr('style', '');
+					included.attr('style', '');
+					btn.attr('selectedOrder', 'false');			
+				}
+				$('.placement-select__list').html('');
+				$('.placement-item__btn[selectedOrder=true]').each(function (index, element){
+					var caption = $(element).closest('.placement-item').find('.placement-item__title').text();
+					$('.placement-select__list').append('<li class="placement-select__item">' + caption + '</li>');
+				});
+			});
+			$('[showmodal]').click(function() {
+				var pos = $(this).position();
+				$('.' + $(this).attr('showmodal')).css('top', pos.top + $(this).height() + 1).css('left', pos.left).show();
+				//$('.' + $(this).attr('showmodal')).attr('popupobject', );
+			});					
+		});
+	</script>
+</body>
+</html>

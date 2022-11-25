@@ -2742,10 +2742,20 @@ border-bottom-left-radius: 20px;
 }
 /*-----------footer---------------------*/
 /*-----------modal---------------------*/
+.login {
+	top: calc(50% - 171px);
+	left: calc(50% - 435px);	
+}
+.register {
+	top: calc(50% - 253px);
+	left: calc(50% - 435px);
+}
+.recovery-password {
+	top: calc(50% - 150px);
+	left: calc(50% - 260px);	
+}
 .modal {
 	position: absolute;
-	top: calc(50% - 167px);
-	left: calc(50% - 435px);
 	width: fit-content;
 	height: fit-content;
 	background: #fff;

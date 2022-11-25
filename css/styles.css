@@ -2571,6 +2571,7 @@ border-bottom-left-radius: 20px;
 .order-form__total {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	align-items: flex-start;
 	padding: 30px 30px 20px;
 	box-sizing: border-box;
@@ -2594,16 +2595,43 @@ border-bottom-left-radius: 20px;
 .order-form__items {
 	width: 100%;
 	height: fit-content;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 }
 .order-form__item {
 	width: 100%;
 	height: 33px;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 0px;
-
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+}
+.order-form__result {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	padding: 20px 0px 0px;
+	box-sizing: border-box;
+	border-top: 1px solid #1D3054;	
+}
+.order-form__result-title {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 38px;
+	color: #1D3054;
+}
+.order-form__total-price {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 41px;
+	color: #B72025;
 }
 /*order*/
 /*-----------program---------------------*/

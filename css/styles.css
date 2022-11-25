@@ -1960,7 +1960,7 @@ border-bottom-left-radius: 20px;
 /*-----------sliders-----------------------------*/
 .options {
 	width: 500px;
-	height: 480px;
+	height: fit-content;
 	margin-left: 40px;
 	display: flex;
 	flex-direction: column;
@@ -2581,6 +2581,30 @@ border-bottom-left-radius: 20px;
 	border-radius: 10px;
 	margin-top: 20px;
 }
+.order-form__caption {
+	width: 100;
+	height: 33px;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 33px;
+	color: #1D3054;
+}
+.order-form__items {
+	width: 100%;
+	height: fit-content;
+}
+.order-form__item {
+	width: 100%;
+	height: 33px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+
+}
 /*order*/
 /*-----------program---------------------*/
 /*-----------register-form--------------*/
@@ -2897,6 +2921,7 @@ border-bottom-left-radius: 20px;
 	border: none;
 	margin-top: 20px;
 	text-transform: uppercase;
+	cursor: pointer;
 }
 .modal__info {
 	display: flex;
@@ -3010,6 +3035,9 @@ border-bottom-left-radius: 20px;
 }
 .icon_telefon {
 	background-image: url(../img/icons-svg/telefon.svg);
+}
+.icon_arrowdown {
+	background-image: url(../img/icons-svg/arrowdown.svg);
 }
 .icon_geo_search {
 	background-image: url(../img/icons-svg/geo_search.svg);

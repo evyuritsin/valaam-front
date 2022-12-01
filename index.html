@@ -900,18 +900,20 @@
 					</div>
 				</div>
 				<div class="options">
-					<div class="options__desc">
-						В наши дни доставка паломников и туристов производится шестью теплоходами Валаамского монастыря, которые на период летней навигации передаются Паломнической службе в оперативное управление. Это два теплохода типа «ОМ» - «Валаам» и «Северный Афон» (вместимостью 122 чел. каждый) и четыре скоростные судна на подводных крыльях типа «Метеор» - «Патриарх Алексий II», «Преподобный Серафим», «Андрей Первозванный», «Игумен Назарий» (вместимостью 116 чел. каждый). <!--Дружные, прекрасно подготовленные команды монастырских теплоходов позволяют обеспечивать перевозки пассажиров в сложных навигационных условиях Ладожского озера и вызывают неизменную благодарность со стороны гостей обители.-->
-					</div>
+					<div class="options__desc"></div>
 					<div class="options__list">
-						<div class="options__item">
-							<img src="./img/icon_calendar3.png" alt="" class="options__icon">
-							<span class="options__label">Год постройки: <b>1962</b></span>
-						</div>
 						<div class="options__item">
 							<img src="./img/icon_people2.png" alt="" class="options__icon">
 							<span class="options__label">Вместимость: <b>150 человек</b></span>
 						</div>
+						<div class="options__item">
+							<img src="./img/icon_path.png" alt="" class="options__icon">
+							<span class="options__label">Сортавала – Валаам, Приозерск – Валаам, Монастырская бухта – Никоновская бухта</span>
+						</div>
+						<div class="options__item">
+							<img src="./img/icon_clock2.png" alt="" class="options__icon">
+							<span class="options__label">Время движения теплохода:<br>Приозёрск-Валаам <b>2 часа</b><br>Сортавала-Валаам <b>3 часа</b></span>
+						</div>						
 					</div>
 				</div>
 				<div class="description">
@@ -2009,7 +2011,151 @@
 					</div>														
 				</div>
 			</div>
-		</section>	
+		</section>
+		<section class="section program-designer-habitation">
+			<div class="main__caption">Конструктор программ</div>
+			<div class="main__content">
+				<div class="program-designer__header">
+					<div class="vp-tabs-content">
+						<div class="vp-tabs">
+							<div id-tab="tab-1" class="vp-tab">Многодневные</div>
+							<div id-tab="tab-2" class="vp-tab vp-tab_active">Однодневные</div>
+						</div>
+						<div class="vp-tab-contents">
+							<div id-tab-content="tab-1" class="vp-tab-content">
+								<form action="">
+									<div class="search__filters">
+										<div class="search__col flex-2">
+											<label for="" class="search__filter-name">Дата заезда</label>
+											<input type="text" class="search__filter icon_date flatpickr-input active" value="" placeholder="17 октября 2022" readonly="readonly">
+										</div>
+										<div class="search__col flex-2 ml-20">
+											<label for="" class="search__filter-name">Дата отъезда</label>
+											<input type="text" class="search__filter icon_date flatpickr-input active" value="" placeholder="17 октября 2022" readonly="readonly">
+										</div>		
+										<div class="search__col flex-2 ml-20">
+											<label for="" class="search__filter-name">Количество человек</label>
+											<input type="text" class="search__filter icon_count" showmodal="count-list" inputobj="65663" readonly="" value="" placeholder="Состав гостей" data="">
+										</div>
+										<div class="search__col flex-2 ml-20">
+											<label for="" class="search__filter-name">Место отправления</label>
+											<input type="text" class="search__filter icon_geo_search" showmodal="geo-list" inputobj="45634" readonly="" value="" placeholder="Любое" data="">
+										</div>	
+										<div class="search__col flex-1 ml-20">
+											<label for="" class="search__filter-name"></label>
+											<button type="submit" class="vp-btn pl-50 pr-50">Найти</button>
+										</div>				
+									</div>
+								</form>
+							</div>
+							<div id-tab-content="tab-2" class="vp-tab-content vp-tab-content_active">
+								<form action="">
+									<div class="search__filters">
+										<div class="search__col flex-2">
+											<label for="" class="search__filter-name">Дата заезда</label>
+											<input type="text" class="search__filter icon_date flatpickr-input active" value="" placeholder="17 октября 2022" readonly="readonly">
+										</div>	
+										<div class="search__col flex-2 ml-20">
+											<label for="" class="search__filter-name">Количество человек</label>
+											<input type="text" class="search__filter icon_count" showmodal="count-list" inputobj="65663" readonly="" value="" placeholder="Состав гостей" data="">
+										</div>
+										<div class="search__col flex-2 ml-20">
+											<label for="" class="search__filter-name">Место отправления</label>
+											<input type="text" class="search__filter icon_geo_search" showmodal="geo-list" inputobj="45634" readonly="" value="" placeholder="Любое" data="">
+										</div>	
+										<div class="search__col flex-1 ml-20">
+											<label for="" class="search__filter-name"></label>
+											<button type="submit" class="vp-btn pl-50 pr-50">Найти</button>
+										</div>				
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="program-designer__stages">
+						<div class="program-designer__stage">
+							<div class="program-designer__stage-item program-designer_active-line">
+								<div class="program-designer__stage-circle program-designer_active-circle">1</div>
+							</div>
+							<div class="program-designer__stage-label">
+							</div>
+						</div>
+						<div class="program-designer__stage">
+							<div class="program-designer__stage-item">
+								<div class="program-designer__stage-circle">2</div>
+							</div>
+							<div class="program-designer__stage-label">
+							</div>
+						</div>
+						<div class="program-designer__stage">
+							<div class="program-designer__stage-item">
+								<div class="program-designer__stage-circle">3</div>
+							</div>
+							<div class="program-designer__stage-label">
+							</div>
+						</div>
+						<div class="program-designer__stage">
+							<div class="program-designer__stage-item">
+								<div class="program-designer__stage-circle">4</div>
+							</div>
+							<div class="program-designer__stage-label">
+							</div>
+						</div>
+						<div class="program-designer__stage">
+							<div class="program-designer__stage-item">
+								<div class="program-designer__stage-circle">5</div>
+							</div>
+							<div class="program-designer__stage-label">
+							</div>
+						</div>
+						<div class="program-designer__stage">
+							<div class="program-designer__stage-item">
+								<div class="program-designer__stage-circle">6</div>
+							</div>
+							<div class="program-designer__stage-label">
+							</div>
+						</div>
+
+
+
+
+
+					</div>
+				</div>
+				<div class="program-designer__content">
+				</div>
+				<div class="program-designer__footer">
+					<div class="program-card program-card_habitation">
+						<div class="program-card__labels">
+							<span class="program-card__label">Маршрут:</span>
+							<span class="program-card__label mt-20">Даты поездки:</span>
+							<span class="program-card__label mt-20">Количество человек:</span>
+							<span class="program-card__label mt-20">Проживание:</span>
+						</div>
+						<div class="program-card__content">
+							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
+							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							<span class="program-card__label mt-20">3х местный с удобствами в номере  1,2,3 этажи</span>
+						</div>
+						<div class="program-card__footer">
+							<div class="program-card__info">
+								<div class="program-card__item">
+									<span class="program-card__label">Проживание:</span>
+									<span class="program-card__price"><b>25 800</b> ₽</span>
+								</div>								
+							</div>
+							<div class="program-card__totals">
+								<div class="program-card__paid mb-0">
+									<div class="program-card__total">Сумма:</div>
+									<div class="program-card__total-price"><b>25 800</b> ₽</div>
+								</div>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 	<!--остальные-->
 	<!--главная-->

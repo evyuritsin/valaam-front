@@ -177,4 +177,12 @@ $(document).ready(function() {
 	$('.popup').blur(function() {
 		$('.popup').hide();
 	});
+	$('.vp-tab').click(function() {
+		var idTab = $(this).attr('id-tab');
+		console.log(idTab);
+		$('.vp-tab').removeClass('vp-tab_active');
+		$(this).addClass('vp-tab_active');
+		$('.vp-tab-content').removeClass('vp-tab-content_active');
+		$('[id-tab-content=' + idTab + ']').addClass('vp-tab-content_active');	
+	});
 });

@@ -510,6 +510,73 @@ option::after {
 	color: #1D3054;	
 }
 /*--inputs--*/
+/*--tabs--*/
+.vp-tabs-content {
+	width: 100%;
+	height: 167px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	box-sizing: border-box;
+	background-color: #fff;
+	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
+	border-radius: 10px;
+}
+.vp-tabs {
+	width: 100%;
+	height: 45px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #FF8A00;
+}
+.vp-tab {
+	height: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1D3054;
+	cursor: pointer;
+}
+.vp-tab:first-child {
+	border-top-left-radius: 10px;
+}
+.vp-tab:last-child {
+	border-top-right-radius: 10px;
+}
+.vp-tab_active {
+	background: #FF8A00;
+	font-style: normal;
+	font-weight: 700;
+	color: #fff;
+	cursor: default;
+}
+.vp-tab-contents {
+	width: 100%;
+	flex: 1;
+}
+.vp-tab-content {
+	width: 100%;
+	height: 100%;
+	display: none;
+	padding: 15px 20px 30px 20px;
+  box-sizing: border-box;
+}
+.vp-tab-content_active {
+	display: block;
+}
+/*--tabs--*/
 /*-----------UI элементы----------------*/
 /*-----------header---------------------*/
 .header {
@@ -1989,10 +2056,15 @@ border-bottom-left-radius: 20px;
 }
 .options__item {
 	width: 100%;
-	height: 30px;
-	margin-top: 30px;
+	height: fit-content;
+	margin-top: 20px;
 	display: flex;
 	align-items: center;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 27px;
+	color: #4F4F4F;
 }
 .options__label {
 	margin-left: 20px;
@@ -2339,14 +2411,18 @@ border-bottom-left-radius: 20px;
 	align-items: flex-start;
 	box-sizing: border-box;
 	width: 100%;
-	height: 380px;
+	height: 320px;
 	background: #FFFFFF;
 	border: 2px solid #31B404;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
 	border-radius: 10px;
 }
+.program-card__block {
+	width: 100%;
+	display: flex;
+}
 .program-card__labels {
-	width: 200px;
+	/*width: 210px;*/
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -2431,7 +2507,7 @@ border-bottom-left-radius: 20px;
 	justify-content: space-between;
 	align-items: flex-end;
 	width: 100%;
-	height: 61px;
+	height: 60px;
 	border-top: 1px solid #1D3054;
 	margin-bottom: 20px;
 }
@@ -2655,6 +2731,70 @@ border-bottom-left-radius: 20px;
 	color: #4F4F4F;
 }
 /*-----------register-form--------------*/
+/*----------program-designer------------*/
+.program-designer__header {
+	width: 100%;
+	height: fit-content;
+}
+.program-designer__content {
+	
+}
+.program-designer__footer {
+	width: 100%;
+	height: fit-content;
+	margin-top: 30px;
+}
+.program-card_habitation {
+	height: 200px;
+}
+.program-designer__stages {
+	width: 100%;
+	height: 130px;
+	display: flex;
+	align-items: flex-start;
+	padding: 10px 0px 5px;
+
+}
+.program-designer__stage {
+	flex: 1;
+}
+.program-designer__stage-item {
+	position: relative;
+	width: 100%;
+	height: 44px;
+	border-bottom: 4px solid #1D3054;
+	box-sizing: border-box;
+}
+.program-designer_active-line {
+	border-bottom: 4px solid #31B404;	
+}
+.program-designer__stage-label {
+	width: 100%;
+	height: 86px;
+}
+.program-designer__stage-circle {
+	position: absolute;
+	top: 20px;
+	left:  calc(50% - 20px);
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border: 1px solid #1D3054;
+	border-radius: 50px;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 40px;
+	text-align: center;
+	color: #1D3054;
+	box-sizing: border-box;
+}
+.program-designer_active-circle {
+	color: #FFFFFF;
+	background-color: #31B404;
+	border: 1px solid #31B404;
+}
+/*----------program-designer------------*/
 /*-----------UI calendar----------------*/
 .ui-datepicker {
 	width: 300px;

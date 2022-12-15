@@ -1,4 +1,25 @@
 $(document).ready(function() {
+	function centerViewObj(obj) {
+		var height_doc = $(document).scrollTop();
+		var height_view = $(window).height();
+		var width_view = $(window).width();
+		var height_obj = obj.height();
+		var width_obj = obj.width();		
+		var center_x = (width_view / 2) - (width_obj / 2);
+		var center_y = (height_doc + (height_view / 2)) - (height_obj / 2);
+		obj.css('top', center_y + 'px').css('left', center_x + 'px');	
+	}
+    $('.calendar-slider-ship').slick({
+	    slidesToShow: 7,
+	    slidesToScroll: 7,
+	    prevArrow: '<div class="calendar-slider__arrow calendar-slider_arrow-prev"></div>',
+	    nextArrow: '<div class="calendar-slider__arrow calendar-slider_arrow-next"></div>',
+	    dots: false,
+	    arrows: true,
+	    centerMode: false,
+	    focusOnSelect: true,
+	    infinite: true
+    });  
     $('.slider-for').slick({
 	    slidesToShow: 1,
 	    slidesToScroll: 1,
@@ -6,7 +27,8 @@ $(document).ready(function() {
 	    prevArrow: '<img src="./img/arrow_prev_slider.png" alt="btn prev" class="gallery__btn-prev">',
 	    nextArrow: '<img src="./img/arrow_next_slider.png" alt="btn next" class="gallery__btn-next">',
 	    fade: true,
-	    asNavFor: '.slider-nav'
+	    asNavFor: '.slider-nav',
+	    infinite: true
     });
 
     $('.slider-nav').slick({
@@ -16,8 +38,49 @@ $(document).ready(function() {
 	    dots: false,
 	    arrows: false,
 	    centerMode: false,
-	    focusOnSelect: true
+	    focusOnSelect: true,
+	    infinite: true
     });
+    function calcBuyTickets(obj) {
+    	var conteiner = obj.closest('.buy-tickets-form');
+    	var conteinerModal = obj.closest('.edit-order__content');
+    	if (conteiner.length > 0) {
+	    	var value = 0;
+	    	conteiner.find('.index-form').each(function (index, el){
+		    	var count = Number($(el).find('.index-form__value').text());
+		    	var price = Number($(el).find('.index-form__price').attr('value'));
+		    	value = value + (count * price);    		
+	    	});
+	    	conteiner.find('.buy-tickets-form__price').attr('value', value).text(value + ' ₽');   		
+    	}
+		if (conteinerModal.length > 0) {
+	    	var valueModal = 0;
+	    	conteinerModal.find('.index-form').each(function (index, el){
+		    	var count = Number($(el).find('.index-form__value').text());
+		    	var price = Number($(el).find('.index-form__price').attr('value'));
+		    	valueModal = valueModal + (count * price);		    			
+	    	});    	
+	    	conteinerModal.find('.buy-tickets-form__price').attr('value', valueModal).text(valueModal + ' ₽');
+		}
+    }
+    function updateTouristForm() {
+		$('.tourist_block').not('.order-form_clone').remove();
+		$('.order-form_clone').show();
+		var clone = $('.order-form_clone');
+		$('.edit-order__content').find('.index-form').each(function (i, element){
+			var count = Number($(element).find('.index-form__value').text());
+			var label = $(element).find('.index-form_label').text();
+			for(var counter = 0; counter < count; counter++) {
+				var newBlock = $(clone).before(clone.clone());
+				newBlock.removeClass('order-form_clone').find('.order-form__subtitle').text(label);
+				newBlock.find('[inputobj]').each(function (j, el){
+					var rand = Math.floor(Math.random() * 100000);
+					$(el).attr('inputobj', rand);
+				});
+			}
+		});
+		$('.order-form_clone').hide();
+    }
 	$('.index-form__btn-minus').click(function() {
 		var target = $(this).parent().find('.index-form__value');
 		var value = Number(target.text());
@@ -25,7 +88,8 @@ $(document).ready(function() {
 		var minValue = Number($(this).parent().attr('minValue'));
 		if (value > minValue) {
 			target.text(value - 1);
-		}		
+		}
+		calcBuyTickets($(this));	
 	});
 	$('.index-form__btn-plus').click(function() {
 		var target = $(this).parent().find('.index-form__value');
@@ -34,11 +98,14 @@ $(document).ready(function() {
 		var minValue = Number($(this).parent().attr('minValue'));	
 		if (value < maxValue) {
 			target.text(value + 1);
-		}		
-	});	
+		}
+		calcBuyTickets($(this));			
+	});
+	/*
     $(".icon_date").flatpickr({
 	    "locale": "ru"
 	});
+	*/
 	$('.header__login-auth').click(function() {
 		$('.modal__blocked').show();
 		$('body').css('overflow', 'hidden');
@@ -56,8 +123,20 @@ $(document).ready(function() {
 		$('body').css('overflow', 'auto');
 		$('.modal__blocked').hide();
 	});
+	$('.program-card__edit').click(function() {
+		$('.edit-order').removeClass('hide').addClass('show');
+		centerViewObj($('.edit-order'));
+		$('.modal__blocked').show();
+
+	});
+	$('.edit-order__close').click(function() {
+		$(this).closest('.modals').removeClass('show').addClass('hide');
+		$('.modal__blocked').hide();
+	});
 	$('.modal__blocked').click(function() {
 		$('.modal__close-link').click();
+		$('.modals').removeClass('show').addClass('hide');
+		$(this).hide();
 	});
 	$('.modal__forgot').click(function() {
 		$('.modal__close-link').click();
@@ -72,16 +151,83 @@ $(document).ready(function() {
 		var res = (bolean) ? $('.register').show() :$('.login').show();
 	});
 	$('.placement-item__btn').click(function() {
-		var parent = $(this).closest('.placement-item');
-		var slider = parent.find('.placement-item__gallery-item');
-		var geo = parent.find('.placement-item__geo');
-		var title = parent.find('.placement-item__title');
-		var desc = parent.find('.placement-item__desc');
-		var prices = parent.find('.placement-item__prices');
-		var btn = parent.find('.placement-item__btn');
-		var included = parent.find('.placement-item__included');
-		console.log(btn.attr('selectedOrder'));
-		if (btn.attr('selectedOrder') === 'false') {
+		if ($(this).attr('obj') == 'placement') {
+			var parent = $(this).closest('.placement-item');
+			var slider = parent.find('.placement-item__gallery-item');
+			var geo = parent.find('.placement-item__geo');
+			var title = parent.find('.placement-item__title');
+			var desc = parent.find('.placement-item__desc');
+			var prices = parent.find('.placement-item__prices');
+			var btn = parent.find('.placement-item__btn');
+			var included = parent.find('.placement-item__included');
+			if (btn.attr('selectedOrder') === 'false') {
+				parent.addClass('placement-item_select');
+				slider.css('border-top', '3px solid #FF8A00').css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+				geo.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+				title.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+				desc.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+				prices.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
+				btn.css('border-bottom', '3px solid #FF8A00')
+					.css('border-left', '3px solid #FF8A00')
+					.css('border-right', '3px solid #FF8A00')
+					.css('background-color', '#FF8A00')
+					.text('Отменить выбор');
+				included.css('top','3px');
+				btn.attr('selectedOrder', 'true');
+			} else {
+				parent.removeClass('placement-item_select');
+				slider.css('border-top', 'none').css('border-left', 'none').css('border-right', 'none');
+				btn.attr('style', '').text('Добавить в заявку');
+				geo.attr('style', '');
+				title.attr('style', '');
+				desc.attr('style', '');
+				prices.attr('style', '');
+				included.attr('style', '');
+				btn.attr('selectedOrder', 'false');			
+			}			
+			$('.placement-select__list').html('');
+			var rooms = [];
+			var priceRoom = 0;
+			$('.placement-item__btn[selectedOrder=true]').each(function (index, element){
+				var caption = $(element).closest('.placement-item').find('.placement-item__title').text();
+				var price = Number($(element).closest('.placement-item').find('.placement-item__value').attr('value'));
+				priceRoom = priceRoom + price;
+				rooms.push(caption);
+				$('.placement-select__list').append('<li class="placement-select__item">' + caption + '</li>');
+			});
+			$('.program-card_rooms').html(rooms.join('<br>'));
+			$('.program-card_price-rooms').html('<b>' + priceRoom + '</b> ₽').attr('value', priceRoom);
+			var priceProg = Number($('.program-card_price-prog').attr('value'));
+			var totalPrice = priceProg + priceRoom;
+			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
+		}
+		if ($(this).attr('obj') == 'habitation') {
+			var list = $(this).closest('.list');
+			var slider = list.find('.placement-item__gallery-item');
+			var geo = list.find('.placement-item__geo');
+			var title = list.find('.placement-item__title');
+			var desc = list.find('.placement-item__desc');
+			var prices = list.find('.placement-item__prices');
+			var btn = list.find('.placement-item__btn');
+			var included = list.find('.placement-item__included');
+			slider.css('border-top', 'none').css('border-left', 'none').css('border-right', 'none');
+			btn.attr('style', '').text('Добавить в заявку');
+			geo.attr('style', '');
+			title.attr('style', '');
+			desc.attr('style', '');
+			prices.attr('style', '');
+			included.attr('style', '');
+			btn.attr('selectedOrder', 'false');	
+
+			var parent = $(this).closest('.placement-item');
+			var slider = parent.find('.placement-item__gallery-item');
+			var geo = parent.find('.placement-item__geo');
+			var title = parent.find('.placement-item__title');
+			var desc = parent.find('.placement-item__desc');
+			var prices = parent.find('.placement-item__prices');
+			var btn = parent.find('.placement-item__btn');
+			var included = parent.find('.placement-item__included');
+
 			slider.css('border-top', '3px solid #FF8A00').css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
 			geo.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
 			title.css('border-left', '3px solid #FF8A00').css('border-right', '3px solid #FF8A00');
@@ -94,30 +240,36 @@ $(document).ready(function() {
 				.text('Отменить выбор');
 			included.css('top','3px');
 			btn.attr('selectedOrder', 'true');
-		} else {
-			slider.css('border-top', 'none').css('border-left', 'none').css('border-right', 'none');
-			btn.attr('style', '').text('Добавить в заявку');
-			geo.attr('style', '');
-			title.attr('style', '');
-			desc.attr('style', '');
-			prices.attr('style', '');
-			included.attr('style', '');
-			btn.attr('selectedOrder', 'false');			
+
+			var caption = $(this).closest('.placement-item').find('.placement-item__title').text();
+			$('[insertField=habitation]').text(caption);
 		}
-		$('.placement-select__list').html('');
-		$('.placement-item__btn[selectedOrder=true]').each(function (index, element){
-			var caption = $(element).closest('.placement-item').find('.placement-item__title').text();
-			$('.placement-select__list').append('<li class="placement-select__item">' + caption + '</li>');
-		});
 	});
-	$('[showmodal]').click(function() {
+	$('.popup__blocked').click(function() {
+		if ($('.count-list').hasClass('show')) {
+			$('.popup__composition-btn').click();
+		}
+		$('.popup').removeClass('show').addClass('hide');
+		$(this).hide();
+		$('[showmodal]').removeClass('search_filter-open');
+	});
+	$('body').on('click', '[showmodal]', function() {
+		$('.popup').removeClass('show').addClass('hide');
+		var showTarget = $('.' + $(this).attr('showmodal'));
+		console.log($(this).offset());
+		var pos = $(this).offset();
+		var keyObj = $(this).attr('inputobj');
+		var hbody = $('body').height();
+		showTarget
+			.css('top', pos.top + $(this).height() + 1)
+			.css('left', pos.left).attr('obj', keyObj)
+			.removeClass('hide').addClass('show');		
 		$('.' + $(this).attr('showmodal')).css('width', $(this).css('width'));
+		$(this).addClass('search_filter-open');
+		$('.popup__blocked').height(hbody).show();
 	});
 	$('[showmodal=count-list]').click(function() {
-		$('.popup').hide();
-		var pos = $(this).position();
 		var showTarget = $('.' + $(this).attr('showmodal'));
-		var keyObj = $(this).attr('inputobj');
 		var data = $(this).attr('data');
 		if (data != '') {
 			var arrData = JSON.parse(data);
@@ -125,25 +277,16 @@ $(document).ready(function() {
 				showTarget.find('span:contains("' + key + '")').closest('.index-form').find('.index-form__value').text(arrData[key]);
 			}					
 		}
-		showTarget.css('top', pos.top + $(this).height() + 2).css('left', pos.left).attr('obj', keyObj).show();
+		$('.popup__blocked').show();
 	});
-
-	$('[showmodal=duration-list]').click(function() {
-		$('.popup').hide();
-		var pos = $(this).position();
-		var showTarget = $('.' + $(this).attr('showmodal'));
-		var keyObj = $(this).attr('inputobj');
-		showTarget.css('top', pos.top + $(this).height() + 2).css('left', pos.left).attr('obj', keyObj).show();
-
-	});
-	$('[showmodal=geo-list]').click(function() {
-		$('.popup').hide();
-		var pos = $(this).position();
-		var showTarget = $('.' + $(this).attr('showmodal'));
-		var keyObj = $(this).attr('inputobj');
-		showTarget.css('top', pos.top + $(this).height() + 2).css('left', pos.left).attr('obj', keyObj).show();
-
-	});		
+	
+	$('.select__item').click(function() {
+		var obj = $(this).parent().attr('obj');
+		$('[inputobj=' + obj + ']').val($(this).text());
+		$(this).parent().removeClass('show').addClass('hide');
+		$('.popup__blocked').hide();
+		$('[showmodal]').removeClass('search_filter-open');
+	});	
 	$('.popup__composition-btn').click(function() {
 		var output = [];
 		const data = {};
@@ -160,7 +303,9 @@ $(document).ready(function() {
 		});
 		$('[inputobj=' + key + ']').val(output.join(' ')).attr('data', JSON.stringify(data));
 		target.find('.index-form__value').text('0');
-		target.hide();
+		target.removeClass('show').addClass('hide');
+		$('.popup__blocked').hide();
+		$('[showmodal]').removeClass('search_filter-open');
 	});
 	$('.popup__listing input[type=checkbox]').click(function() {
 		var list = [];
@@ -174,15 +319,293 @@ $(document).ready(function() {
 		});
 		$('[inputobj=' + key + ']').val(list.join('; ')).attr('data', JSON.stringify(data));
 	});
-	$('.popup').blur(function() {
-		$('.popup').hide();
-	});
 	$('.vp-tab').click(function() {
 		var idTab = $(this).attr('id-tab');
-		console.log(idTab);
 		$('.vp-tab').removeClass('vp-tab_active');
 		$(this).addClass('vp-tab_active');
 		$('.vp-tab-content').removeClass('vp-tab-content_active');
 		$('[id-tab-content=' + idTab + ']').addClass('vp-tab-content_active');	
+	});
+	$('.direction-table__select-ship').click(function() {
+		if ($(this).hasClass('direction-table_select-ship-active')) {
+			$(this).closest('.direction-table__body').find('tr').removeClass('direction-table__tr-active');
+			$(this).closest('.direction-table__body').find('th').removeClass('green').removeClass('direction-table_select-ship-active');
+		} else {
+			$(this).closest('.direction-table__body').find('tr').removeClass('direction-table__tr-active');
+			$(this).closest('.direction-table__body').find('th').removeClass('green').removeClass('direction-table_select-ship-active');
+			$(this).closest('tr').addClass('direction-table__tr-active');
+			$(this).addClass('direction-table_select-ship-active');			
+		}
+
+	});
+	$('.custom-select__body').click(function() {
+		$('.custom-select__items').removeClass('show').addClass('hide');
+		var items = $(this).parent().find('.custom-select__items');
+		if (items.hasClass('hide')) {
+			$(this).addClass('custom-select_body-open');
+			items.removeClass('hide').addClass('show');
+		} else {
+			$(this).removeClass('custom-select_body-open');
+			items.removeClass('show').addClass('hide');		
+		}
+	});
+	$('.custom-select__item').click(function() {
+		var value = $(this).text();
+		var body = $(this).closest('.custom-select').find('.custom-select__body');
+		body.text(value);
+		body.removeClass('custom-select_body-open');
+		$(this).parent().removeClass('show').addClass('hide');
+	});
+	function getDaysInMonth(month, year) {
+	  var date = new Date(year, month, 1);
+	  var days = [];
+	  while (date.getMonth() === month) {
+	  	var newDate = new Date(date);
+	  	var fDate = [];
+	  	var fMonth = newDate.getMonth() + 1;
+	  	if (newDate.getDate() <= 9) {
+	  		fDate[0] = '0' + newDate.getDate();
+	  	} else {
+	  		fDate[0] = newDate.getDate();
+	  	}
+	  	if (fMonth <= 9) {
+	  		fDate[1] = '0' + fMonth;
+	  	} else {
+	  		fDate[1] = fMonth;
+	  	}
+	  	fDate[2] = newDate.getFullYear(); 	
+	    days.push(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
+	    //days.push(date.getMonth() + '.' + date.getDate() + '.' + date.getFullYear());
+	    date.setDate(date.getDate() + 1);
+	  }
+	  return days;
+	}
+	function getFullMonth(month, year) {
+		var dateList = getDaysInMonth(month, year);
+		var firstDate = new Date(dateList[0]);
+		var lastDate = new Date(dateList[dateList.length - 1]);
+		var nDate = lastDate;
+		if (lastDate.getDay() != 0) {
+			for (var i = 0; i <= 6 - lastDate.getDay(); i++) {
+				var nextDate = new Date(nDate);
+				nextDate.setDate(nextDate.getDate() + 1);
+				var lDate = [];
+				var fMonth = nextDate.getMonth() + 1;
+			  	if (nextDate.getDate() <= 9) {
+			  		lDate[0] = '0' + nextDate.getDate();
+			  	} else {
+			  		lDate[0] = nextDate.getDate();
+			  	}
+			  	if (fMonth <= 9) {
+			  		lDate[1] = '0' + fMonth;
+			  	} else {
+			  		lDate[1] = fMonth;
+			  	}
+			  	lDate[2] = nextDate.getFullYear(); 
+				dateList.push(lDate[1] + '.' + lDate[0] + '.' + lDate[2]);
+				nDate = nextDate;
+			}
+		}
+		nDate = firstDate;
+		if (firstDate.getDay() != 0) {
+			for (var i = 1; i <= firstDate.getDay() - 1; i++) {
+				var prevDate = new Date(nDate);
+				prevDate.setDate(prevDate.getDate() - 1);
+				var fDate = [];
+				var fMonth = prevDate.getMonth() + 1;
+			  	if (prevDate.getDate() <= 9) {
+			  		fDate[0] = '0' + prevDate.getDate();
+			  	} else {
+			  		fDate[0] = prevDate.getDate();
+			  	}
+			  	if (fMonth <= 9) {
+			  		fDate[1] = '0' + fMonth;
+			  	} else {
+			  		fDate[1] = fMonth;
+			  	}
+			  	fDate[2] = prevDate.getFullYear(); 
+			  	dateList.unshift(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
+				nDate = prevDate;
+			}
+		} else {
+			for (var i = 1; i <= 6; i++) {
+				var prevDate = new Date(nDate);
+				prevDate.setDate(prevDate.getDate() - 1);
+				var fDate = [];
+				var fMonth = prevDate.getMonth() + 1;
+			  	if (prevDate.getDate() <= 9) {
+			  		fDate[0] = '0' + prevDate.getDate();
+			  	} else {
+			  		fDate[0] = prevDate.getDate();
+			  	}
+			  	if (fMonth <= 9) {
+			  		fDate[1] = '0' + fMonth;
+			  	} else {
+			  		fDate[1] = fMonth;
+			  	}
+			  	fDate[2] = prevDate.getFullYear(); 
+			  	dateList.unshift(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
+				nDate = prevDate;
+			}			
+		}
+		var output = [];
+		dateList.forEach(function(item, i, dateList) {
+			var cDate = new Date(item);
+			if (cDate.getMonth() === month) {
+				output.push('<div class="datepicker__date" date="' + item + '">' + cDate.getDate() + '</div>');
+			} else {
+				output.push('<div class="datepicker__date datepicker_another-month" date="' + item + '">' + cDate.getDate() + '</div>');
+			}
+		});
+		return output.join('');
+	}
+	var currDate = new Date();
+	$('.datepicker').find('.datepicker__body').html(getFullMonth(currDate.getMonth(), currDate.getFullYear()));
+		
+	$('.datepicker_prev-btn').click(function() {
+		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+		var label = $(this).parent().find('.datepicker_label');
+		var month = label.attr('month');
+		var year = label.attr('year');
+		if (Number(month) === 0) {
+			var prevYear = Number(year) - 1;
+			label.text(months[11] + ' ' + String(prevYear));
+			label.attr('month', '11');
+			label.attr('year', prevYear);			
+		} else {
+			var prevMonth = Number(month) - 1;
+			label.text(months[prevMonth] + ' ' + year);
+			label.attr('month', prevMonth);
+			label.attr('year', year);			
+		}
+		var days = getFullMonth(Number(label.attr('month')), Number(label.attr('year')));
+		$(this).closest('.datepicker').find('.datepicker__body').html(days);
+	});
+	$('.datepicker_next-btn').click(function() {
+		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+		var label = $(this).parent().find('.datepicker_label');
+		var month = label.attr('month');
+		var year = label.attr('year');
+		if (Number(month) === 11) {
+			var nextYear = Number(year) + 1;
+			label.text(months[0] + ' ' + nextYear);
+			label.attr('month', '0');
+			label.attr('year', nextYear);
+		} else {
+			var nextMonth = Number(month) + 1;
+			label.text(months[nextMonth] + ' ' + year);
+			label.attr('month', nextMonth);
+			label.attr('year', year);			
+		}
+		var days = getFullMonth(Number(label.attr('month')), Number(label.attr('year')));
+		$(this).closest('.datepicker').find('.datepicker__body').html(days);
+	});
+	$('body').on('click', '.datepicker__date', function() {
+		var parent = $(this).closest('.popup');
+		var date = $(this).attr('date');
+		var obj = parent.attr('obj');
+		dateArr = date.split('.');
+		date = dateArr[1] + '.' + dateArr[0] + '.' + dateArr[2];
+		if (parent.length === 1) {
+			$('[inputobj=' + obj + ']').val(date);
+		}
+	});
+	$('.btn-next-room').click(function() {
+		var conteiner = $(this).closest('.buy-tickets-form');
+		var date = conteiner.find('.prog-date').val();
+		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
+		if ($('.prog-date').val() != '' && $('.buy-tickets-form__price').attr('value') != '0') {
+			$('.prog-date').val(date);
+			var values = $('.edit-order__content').find('.index-form__value');
+			conteiner.find('.index-form__value').each(function (i, element){
+				$(values[i]).text($(element).text());
+			});
+			$('.program-card_price-prog').attr('value', totalPrice).html('<b>' + totalPrice + '</b> ₽');
+			$('.buy-tickets-form__price').attr('value', totalPrice).text(totalPrice + ' ₽');
+			var arrDate = date.split('.');
+			var fDate = new Date(Number(arrDate[2]), Number(arrDate[1]) - 1, Number(arrDate[0]));
+			fDate.setDate(fDate.getDate() + Number($('.label_duration').attr('value')));
+			var corrMonth = fDate.getMonth() + 1;
+			var finishDate = fDate.getDate() + '.' + corrMonth + '.' + fDate.getFullYear();
+			$('.program-card_date').text(date + ' - ' + finishDate);
+			$('.program-card_date').attr('finishDate', finishDate);
+			var guests = [];
+			conteiner.find('.index-form').each(function (i, element){
+				var label = $(element).find('.index-form_label').text();
+				var count = $(element).find('.index-form__value').text();
+				guests.push(label + ' - ' + count);
+			});
+			$('.program-card_guests').text(guests.join(' | '));
+			$('.program').removeClass('visibShow').addClass('visibHide');
+			$('.placement').removeClass('visibHide').addClass('visibShow');
+			var priceProg = Number($('.program-card_price-prog').attr('value'));
+			var priceRoom = Number($('.program-card_price-rooms').attr('value'));
+			var totalPrice = priceProg + priceRoom;
+			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);		
+		}
+	});
+	$('.btn-edit-order').click(function() {
+		var conteiner = $(this).closest('.edit-order__content');
+		var date = conteiner.find('.prog-date').val();
+		var close = conteiner.find('.edit-order__close');
+		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
+		if ($('.prog-date').val() != '' && $('.buy-tickets-form__price').attr('value') != '0') {
+			$('.prog-date').val(date);
+			var values = $('.buy-tickets-form').find('.index-form__value');
+			conteiner.find('.index-form__value').each(function (i, element){
+				$(values[i]).text($(element).text());
+			});
+			$('.program-card_price-prog').attr('value', totalPrice).html('<b>' + totalPrice + '</b> ₽');
+			$('.buy-tickets-form__price').attr('value', totalPrice).text(totalPrice + ' ₽');
+			var arrDate = date.split('.');
+			var fDate = new Date(Number(arrDate[2]), Number(arrDate[1]) - 1, Number(arrDate[0]));
+			fDate.setDate(fDate.getDate() + Number($('.label_duration').attr('value')));
+			var corrMonth = fDate.getMonth() + 1;
+			var finishDate = fDate.getDate() + '.' + corrMonth + '.' + fDate.getFullYear();
+			$('.program-card_date').text(date + ' - ' + finishDate);
+			var guests = [];
+			conteiner.find('.index-form').each(function (i, element){
+				var label = $(element).find('.index-form_label').text();
+				var count = $(element).find('.index-form__value').text();
+				guests.push(label + ' - ' + count);
+			});
+			$('.program-card_guests').text(guests.join(' | '));
+			var priceProg = Number($('.program-card_price-prog').attr('value'));
+			var priceRoom = Number($('.program-card_price-rooms').attr('value'));
+			var totalPrice = priceProg + priceRoom;
+			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
+			updateTouristForm();
+			close.click();	
+		}
+	});
+	$('.btn-back-prog').click(function() {
+		$('.program').removeClass('visibHide').addClass('visibShow');
+		$('.placement').removeClass('visibShow').addClass('visibHide');	
+	});
+	$('.btn-back-rooms').click(function() {
+		$('.placement').removeClass('visibHide').addClass('visibShow');
+		$('.reg-order').removeClass('visibShow').addClass('visibHide');
+		$('.tourist_block').not('.order-form_clone').remove();
+		$('.order-form_clone').show();
+	});
+	$('.btn-next-order').click(function() {
+		if ($('.program-card_price-prog').attr('value') != '0' && $('.program-card_price-rooms').attr('value') != '0') {
+			$('.placement').removeClass('visibShow').addClass('visibHide');
+			$('.reg-order').removeClass('visibHide').addClass('visibShow');
+			updateTouristForm();
+		}
+	});
+	$('body').on('click', '.order-form__field-gender', function() {
+		if (!$(this).hasClass('order-form_field-active')) {
+			$(this).parent().find('.order-form__field-gender').removeClass('order-form_field-active');
+			$(this).addClass('order-form_field-active');
+		}
+	});
+	$('.btn-finish-order').click(function() {
+		var order = {
+			startDate: $('.prog-date').val(),
+			finishDate: $('.program-card_date').attr('finishDate'),
+			idTour: $('.program-card_name').attr('value'),
+		};
 	});
 });

@@ -187,14 +187,18 @@ $(document).ready(function() {
 			}			
 			$('.placement-select__list').html('');
 			var rooms = [];
+			var idRooms = [];
 			var priceRoom = 0;
 			$('.placement-item__btn[selectedOrder=true]').each(function (index, element){
 				var caption = $(element).closest('.placement-item').find('.placement-item__title').text();
+				var idRoom = $(element).closest('.placement-item').find('.placement-item__title').attr('value');
 				var price = Number($(element).closest('.placement-item').find('.placement-item__value').attr('value'));
 				priceRoom = priceRoom + price;
 				rooms.push(caption);
+				idRooms.push(idRoom);
 				$('.placement-select__list').append('<li class="placement-select__item">' + caption + '</li>');
 			});
+			$('.program-card_rooms').attr('value', idRooms.join(','));
 			$('.program-card_rooms').html(rooms.join('<br>'));
 			$('.program-card_price-rooms').html('<b>' + priceRoom + '</b> ₽').attr('value', priceRoom);
 			var priceProg = Number($('.program-card_price-prog').attr('value'));
@@ -530,12 +534,15 @@ $(document).ready(function() {
 			$('.program-card_date').text(date + ' - ' + finishDate);
 			$('.program-card_date').attr('finishDate', finishDate);
 			var guests = [];
+			var generalGuest = 0;
 			conteiner.find('.index-form').each(function (i, element){
 				var label = $(element).find('.index-form_label').text();
 				var count = $(element).find('.index-form__value').text();
 				guests.push(label + ' - ' + count);
+				generalGuest = generalGuest + Number(count);
 			});
 			$('.program-card_guests').text(guests.join(' | '));
+			$('.program-card_guests').attr('value', generalGuest);
 			$('.program').removeClass('visibShow').addClass('visibHide');
 			$('.placement').removeClass('visibHide').addClass('visibShow');
 			var priceProg = Number($('.program-card_price-prog').attr('value'));
@@ -543,6 +550,7 @@ $(document).ready(function() {
 			var totalPrice = priceProg + priceRoom;
 			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);		
 		}
+		window.scrollTo(0, 0);
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
@@ -564,12 +572,20 @@ $(document).ready(function() {
 			var finishDate = fDate.getDate() + '.' + corrMonth + '.' + fDate.getFullYear();
 			$('.program-card_date').text(date + ' - ' + finishDate);
 			var guests = [];
+			var generalGuest = 0;
 			conteiner.find('.index-form').each(function (i, element){
 				var label = $(element).find('.index-form_label').text();
 				var count = $(element).find('.index-form__value').text();
+				var guest = {
+					type: label,
+					count: count
+				};
 				guests.push(label + ' - ' + count);
+				generalGuest = generalGuest + Number(count);
+				guestList[i] = guest;
 			});
 			$('.program-card_guests').text(guests.join(' | '));
+			$('.program-card_guests').attr('value', generalGuest);
 			var priceProg = Number($('.program-card_price-prog').attr('value'));
 			var priceRoom = Number($('.program-card_price-rooms').attr('value'));
 			var totalPrice = priceProg + priceRoom;
@@ -580,19 +596,22 @@ $(document).ready(function() {
 	});
 	$('.btn-back-prog').click(function() {
 		$('.program').removeClass('visibHide').addClass('visibShow');
-		$('.placement').removeClass('visibShow').addClass('visibHide');	
+		$('.placement').removeClass('visibShow').addClass('visibHide');
+		window.scrollTo(0, 0);
 	});
 	$('.btn-back-rooms').click(function() {
 		$('.placement').removeClass('visibHide').addClass('visibShow');
 		$('.reg-order').removeClass('visibShow').addClass('visibHide');
 		$('.tourist_block').not('.order-form_clone').remove();
 		$('.order-form_clone').show();
+		window.scrollTo(0, 0);
 	});
 	$('.btn-next-order').click(function() {
 		if ($('.program-card_price-prog').attr('value') != '0' && $('.program-card_price-rooms').attr('value') != '0') {
 			$('.placement').removeClass('visibShow').addClass('visibHide');
 			$('.reg-order').removeClass('visibHide').addClass('visibShow');
 			updateTouristForm();
+			window.scrollTo(0, 0);
 		}
 	});
 	$('body').on('click', '.order-form__field-gender', function() {
@@ -602,10 +621,88 @@ $(document).ready(function() {
 		}
 	});
 	$('.btn-finish-order').click(function() {
+		var objClient = $('.order-form .order-form__field').first();
+		var guestList = {};
+		var infoGuestArr = {};
+		var generalGuest = 0;
+		var infoClient = {
+			lastName: objClient.find('input[name=lastname]').val(),
+			firstName: objClient.find('input[name=firstname]').val(),
+			patronymic: objClient.find('input[name=patronymic]').val(),
+			dateBirth: objClient.find('input[name=datebirth]').val(),
+			typeDoc: objClient.find('input[name=typedoc]').val(),
+			passSN: objClient.find('input[name=passSN]').val(),
+			passissued: objClient.find('input[name=passissued]').val(),
+			passDate: objClient.find('input[name=passdate]').val(),
+			email: objClient.find('input[name=email]').val(),
+			gender: objClient.find('.order-form_field-active').attr('value'),
+			isPolomnik: $('.isPolomnik').is(':checked')
+		};
+		$('.edit-order__content').find('.index-form').each(function (i, element){
+			var label = $(element).find('.index-form_label').text();
+			var count = $(element).find('.index-form__value').text();
+			var guest = {
+				type: label,
+				count: count
+			};
+			generalGuest = generalGuest + Number(count);
+			guestList[i] = guest;
+		});
+		$('.tourist_block:not(:first-child)').each(function (i, element){
+			if ($(element).find('.order-form__subtitle').text() !== 'clone') {
+				var infoTourist = {
+					label: $(element).find('.order-form__subtitle').text(),
+					lastName: $(element).find('input[name=lastname]').val(),
+					firstName: $(element).find('input[name=firstname]').val(),
+					patronymic: $(element).find('input[name=patronymic]').val(),
+					dateBirth: $(element).find('input[name=datebirth]').val(),
+					typeDoc: $(element).find('input[name=typedoc]').val(),
+					passSN: $(element).find('input[name=passSN]').val(),
+					passissued: $(element).find('input[name=passissued]').val(),
+					passDate: $(element).find('input[name=passdate]').val(),
+					telefon: $(element).find('input[name=telefon]').val(),
+					benefits: $(element).find('input[name=benefits]').val(),
+					comment: $(element).find('input[name=comment]').val(),
+					gender: $(element).find('.order-form_field-active').attr('value')			
+				};
+				infoGuestArr[i] = infoTourist;
+			}
+
+		});
 		var order = {
 			startDate: $('.prog-date').val(),
 			finishDate: $('.program-card_date').attr('finishDate'),
 			idTour: $('.program-card_name').attr('value'),
+			guestCount: generalGuest,
+			idRooms: $('.program-card_rooms').attr('value'),
+			guests: guestList,
+			infoClient: infoClient,
+			infoGuest: infoGuestArr,
+			priceProgram: $('.program-card_price-prog').attr('value'),
+			priceRooms: $('.program-card_price-rooms').attr('value'),
+			priceTotal: $('.program-card_total-price').attr('value'),
+			categoryPay: $('.categorypay__value').val(),
+			typePay: $('.typepay__value').val()
 		};
+		console.log(order);
+	});
+	$('[name=categorypay]').click(function() {
+		$('.categorypay__value').val($(this).attr('label'));
+	});
+	$('[name=typepay]').click(function() {
+		$('.typepay__value').val($(this).attr('label'));
+	});
+	$('.find-list__footer-link').click(function() {
+		var conteiner = $(this).closest('.find-list');
+		if ($(this).parent().hasClass('bg-orange')) {
+			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibShow').addClass('visibHide');
+			$(this).text('Показать').parent().removeClass('bg-orange')
+		} else {
+			$('.find-list__footer-price').removeClass('bg-orange');
+			$('.find-list__footer-link').text('Показать');
+			$(this).text('Скрыть').parent().addClass('bg-orange');
+			$('.list[data]').removeClass('visibShow').addClass('visibHide');
+			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibHide').addClass('visibShow');			
+		}
 	});
 });

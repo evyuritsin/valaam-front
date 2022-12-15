@@ -1444,6 +1444,15 @@ color: #4F4F4F;
 .find-list__footer-link {
 	color: #fff;
 	text-decoration: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 50px;
+	text-align: center;
+	cursor: pointer;
 }
 /*-----------find-list-------------------*/
 /*-----------list-----------------------*/

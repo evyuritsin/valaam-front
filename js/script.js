@@ -518,6 +518,7 @@ $(document).ready(function() {
 		var conteiner = $(this).closest('.buy-tickets-form');
 		var date = conteiner.find('.prog-date').val();
 		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
+		var durationTour = $('.label_duration').attr('value');
 		if ($('.prog-date').val() != '' && $('.buy-tickets-form__price').attr('value') != '0') {
 			$('.prog-date').val(date);
 			var values = $('.edit-order__content').find('.index-form__value');
@@ -543,12 +544,24 @@ $(document).ready(function() {
 			});
 			$('.program-card_guests').text(guests.join(' | '));
 			$('.program-card_guests').attr('value', generalGuest);
-			$('.program').removeClass('visibShow').addClass('visibHide');
-			$('.placement').removeClass('visibHide').addClass('visibShow');
 			var priceProg = Number($('.program-card_price-prog').attr('value'));
 			var priceRoom = Number($('.program-card_price-rooms').attr('value'));
 			var totalPrice = priceProg + priceRoom;
-			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);		
+			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
+			$('.program').removeClass('visibShow').addClass('visibHide');
+			if (Number(durationTour) == 1) {
+				$('.program-card_rooms').parent().hide();
+				$('.program-card_price-rooms').parent().hide();
+				$('.btn-back-rooms').text('Вернуться назад к описанию программы');
+				updateTouristForm();
+				$('.reg-order').removeClass('visibHide').addClass('visibShow');
+			} else {
+				$('.btn-back-rooms').text('Вернуться назад к выбору размещения');
+				$('.program-card_rooms').parent().show();
+				$('.program-card_price-rooms').parent().show();
+				updateTouristForm();
+				$('.placement').removeClass('visibHide').addClass('visibShow');
+			}
 		}
 		window.scrollTo(0, 0);
 	});
@@ -600,10 +613,15 @@ $(document).ready(function() {
 		window.scrollTo(0, 0);
 	});
 	$('.btn-back-rooms').click(function() {
-		$('.placement').removeClass('visibHide').addClass('visibShow');
+		var durationTour = $('.label_duration').attr('value');
 		$('.reg-order').removeClass('visibShow').addClass('visibHide');
+		if (Number(durationTour) == 1) {
+			$('.program').removeClass('visibHide').addClass('visibShow');
+		} else {
+			$('.placement').removeClass('visibHide').addClass('visibShow');
+		}
 		$('.tourist_block').not('.order-form_clone').remove();
-		$('.order-form_clone').show();
+		$('.order-form_clone').show();	
 		window.scrollTo(0, 0);
 	});
 	$('.btn-next-order').click(function() {
@@ -673,6 +691,7 @@ $(document).ready(function() {
 			startDate: $('.prog-date').val(),
 			finishDate: $('.program-card_date').attr('finishDate'),
 			idTour: $('.program-card_name').attr('value'),
+			durationTour: $('.duration').attr('value'),
 			guestCount: generalGuest,
 			idRooms: $('.program-card_rooms').attr('value'),
 			guests: guestList,
@@ -705,4 +724,5 @@ $(document).ready(function() {
 			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibHide').addClass('visibShow');			
 		}
 	});
+
 });

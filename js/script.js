@@ -80,6 +80,11 @@ $(document).ready(function() {
 			}
 		});
 		$('.order-form_clone').hide();
+		setupMask();
+    }
+    function setupMask() {
+		$("[name=passSN]").mask("9999 999999");
+		$("[name=telefon]").mask("+7 (999) 999 99 99");
     }
 	$('.index-form__btn-minus').click(function() {
 		var target = $(this).parent().find('.index-form__value');
@@ -260,7 +265,6 @@ $(document).ready(function() {
 	$('body').on('click', '[showmodal]', function() {
 		$('.popup').removeClass('show').addClass('hide');
 		var showTarget = $('.' + $(this).attr('showmodal'));
-		console.log($(this).offset());
 		var pos = $(this).offset();
 		var keyObj = $(this).attr('inputobj');
 		var hbody = $('body').height();
@@ -283,13 +287,13 @@ $(document).ready(function() {
 		}
 		$('.popup__blocked').show();
 	});
-	
-	$('.select__item').click(function() {
+	$('body').on('click', '.select__item', function() {
 		var obj = $(this).parent().attr('obj');
 		$('[inputobj=' + obj + ']').val($(this).text());
 		$(this).parent().removeClass('show').addClass('hide');
 		$('.popup__blocked').hide();
 		$('[showmodal]').removeClass('search_filter-open');
+		
 	});	
 	$('.popup__composition-btn').click(function() {
 		var output = [];
@@ -519,8 +523,8 @@ $(document).ready(function() {
 		var date = conteiner.find('.prog-date').val();
 		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
 		var durationTour = $('.label_duration').attr('value');
-		if ($('.prog-date').val() != '' && $('.buy-tickets-form__price').attr('value') != '0') {
-			$('.prog-date').val(date);
+		if (conteiner.find('.prog-date').val() != '' && conteiner.find('.buy-tickets-form__price').attr('value') != '0') {
+			conteiner.find('.prog-date').val(date);
 			var values = $('.edit-order__content').find('.index-form__value');
 			conteiner.find('.index-form__value').each(function (i, element){
 				$(values[i]).text($(element).text());
@@ -562,16 +566,20 @@ $(document).ready(function() {
 				updateTouristForm();
 				$('.placement').removeClass('visibHide').addClass('visibShow');
 			}
+			conteiner.find('.buy-tickets-form__msg').removeClass('show').addClass('hide');
+			window.scrollTo(0, 0);
+		} else {
+			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
-		window.scrollTo(0, 0);
+		
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
 		var date = conteiner.find('.prog-date').val();
 		var close = conteiner.find('.edit-order__close');
 		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
-		if ($('.prog-date').val() != '' && $('.buy-tickets-form__price').attr('value') != '0') {
-			$('.prog-date').val(date);
+		if (conteiner.find('.prog-date').val() != '' && conteiner.find('.buy-tickets-form__price').attr('value') != '0') {
+			conteiner.find('.prog-date').val(date);
 			var values = $('.buy-tickets-form').find('.index-form__value');
 			conteiner.find('.index-form__value').each(function (i, element){
 				$(values[i]).text($(element).text());
@@ -595,7 +603,6 @@ $(document).ready(function() {
 				};
 				guests.push(label + ' - ' + count);
 				generalGuest = generalGuest + Number(count);
-				guestList[i] = guest;
 			});
 			$('.program-card_guests').text(guests.join(' | '));
 			$('.program-card_guests').attr('value', generalGuest);
@@ -605,15 +612,20 @@ $(document).ready(function() {
 			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
 			updateTouristForm();
 			close.click();	
+			conteiner.find('.buy-tickets-form__msg').removeClass('show').addClass('hide');
+		} else {
+			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
 	});
 	$('.btn-back-prog').click(function() {
+		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 		$('.program').removeClass('visibHide').addClass('visibShow');
 		$('.placement').removeClass('visibShow').addClass('visibHide');
 		window.scrollTo(0, 0);
 	});
 	$('.btn-back-rooms').click(function() {
 		var durationTour = $('.label_duration').attr('value');
+		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 		$('.reg-order').removeClass('visibShow').addClass('visibHide');
 		if (Number(durationTour) == 1) {
 			$('.program').removeClass('visibHide').addClass('visibShow');
@@ -628,8 +640,13 @@ $(document).ready(function() {
 		if ($('.program-card_price-prog').attr('value') != '0' && $('.program-card_price-rooms').attr('value') != '0') {
 			$('.placement').removeClass('visibShow').addClass('visibHide');
 			$('.reg-order').removeClass('visibHide').addClass('visibShow');
+			$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 			updateTouristForm();
 			window.scrollTo(0, 0);
+		} else {
+			$('.buy-tickets-form__msg')
+				.text('Не выбрано место для проживания')
+				.removeClass('hide').addClass('show');
 		}
 	});
 	$('body').on('click', '.order-form__field-gender', function() {
@@ -639,6 +656,38 @@ $(document).ready(function() {
 		}
 	});
 	$('.btn-finish-order').click(function() {
+		//$('.vp-input[required]').removeClass('vp-input_invalid');
+		$('.vp-input[required]').each(function (i, element){
+			if ($(element).val() == '') {
+				$(element).addClass('vp-input_invalid');
+			} else {
+				$(element).removeClass('vp-input_invalid');
+			}
+		});
+		if ($('.vp-input_invalid').length > 0) {
+			$('.buy-tickets-form__msg')
+				.text('Не все обязательные поля заполнены')
+				.removeClass('hide').addClass('show');
+			//return;
+		} else {
+			$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
+		}
+		if ($('.categorypay__value').val() == '') {
+			$('.buy-tickets-form__msg')
+				.text('Категория оплаты не выбрана')
+				.removeClass('hide').addClass('show');
+			return;
+		} else {
+			$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
+		}
+		if ($('.typepay__value').val() == '') {
+			$('.buy-tickets-form__msg')
+				.text('Тип оплаты не выбран')
+				.removeClass('hide').addClass('show');
+			return;
+		} else {
+			$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
+		}	
 		var objClient = $('.order-form .order-form__field').first();
 		var guestList = {};
 		var infoGuestArr = {};
@@ -651,8 +700,12 @@ $(document).ready(function() {
 			typeDoc: objClient.find('input[name=typedoc]').val(),
 			passSN: objClient.find('input[name=passSN]').val(),
 			passissued: objClient.find('input[name=passissued]').val(),
+			passNP: objClient.find('input[name=passNP]').val(),
 			passDate: objClient.find('input[name=passdate]').val(),
+			passAdress: objClient.find('input[name=passadress]').val(),
+			telefon: objClient.find('input[name=telefon]').val(),
 			email: objClient.find('input[name=email]').val(),
+			findout: objClient.find('input[name=findout]').val(),
 			gender: objClient.find('.order-form_field-active').attr('value'),
 			isPolomnik: $('.isPolomnik').is(':checked')
 		};
@@ -677,7 +730,9 @@ $(document).ready(function() {
 					typeDoc: $(element).find('input[name=typedoc]').val(),
 					passSN: $(element).find('input[name=passSN]').val(),
 					passissued: $(element).find('input[name=passissued]').val(),
+					passNP: $(element).find('input[name=passNP]').val(),
 					passDate: $(element).find('input[name=passdate]').val(),
+					passAdress: $(element).find('input[name=passadress]').val(),
 					telefon: $(element).find('input[name=telefon]').val(),
 					benefits: $(element).find('input[name=benefits]').val(),
 					comment: $(element).find('input[name=comment]').val(),
@@ -703,7 +758,7 @@ $(document).ready(function() {
 			categoryPay: $('.categorypay__value').val(),
 			typePay: $('.typepay__value').val()
 		};
-		console.log(order);
+		console.log(JSON.stringify(order));
 	});
 	$('[name=categorypay]').click(function() {
 		$('.categorypay__value').val($(this).attr('label'));
@@ -724,5 +779,5 @@ $(document).ready(function() {
 			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibHide').addClass('visibShow');			
 		}
 	});
-
+	setupMask();
 });

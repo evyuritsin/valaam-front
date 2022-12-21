@@ -9,6 +9,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 		<!--link rel="icon" type="image/png" href="/favicon.png" /-->
 		<link rel="stylesheet" href="./jquery-ui/jquery-ui.css">
+
 		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
 		<link rel="stylesheet" type="text/css" href="./sliderClick/slick.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -206,12 +207,12 @@
 				</ul>
 			</div>
 		</div>
-		<section class="section program visibShow">
+		<section class="section program zi-1 visibShow">
 			<div class="main__caption">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</div>
 			<div class="program__icons">
 				<div class="find-list__icon-list">
 					<img class="find-list__icon" src="./img/icons-svg/clock.svg" alt="">
-					<span class="find-list__label label_duration" value="1">2 дня</span>
+					<span class="find-list__label label_duration" value="2">2 дня</span>
 				</div>
 				<div class="find-list__icon-list">
 					<img class="find-list__icon" src="./img/icons-svg/bus.svg" alt="">
@@ -344,6 +345,7 @@
 							<span class="buy-tickets-form__total-label">Итого (без проживания)</span>
 							<span class="buy-tickets-form__price" value="0">0 ₽</span>
 						</div>
+						<span class="buy-tickets-form__msg hide">Не выбрана дата или количество паломников</span>
 						<button class="vp-btn btn-next-room">Выбрать вариант размещения</button>			
 					</div>
 				</div>
@@ -626,7 +628,7 @@
 				<span class="program__contact">по будним дням с 10.00 до 18.00</span>
 			</div>
 		</section>
-		<section class="section placement visibHide">
+		<section class="section placement zi-2 visibHide">
 			<div class="main__caption">РАЗМЕЩЕНИЕ</div>
 			<div class="main__introtext">Выберите понравившийся Вам вариант размещения</div>
 			<div class="list">
@@ -1382,12 +1384,13 @@
 					</div>
 				</div>
 			</div>
+			<span class="buy-tickets-form__msg ta-right hide"></span>
 			<div class="placement-footer">
 				<button class="vp-btn-inline bg-while btn-back-prog">Вернуться назад к выбору программ</button>
 				<button class="vp-btn btn-next-order">ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
 			</div>
 		</section>
-		<section class="section reg-order visibHide">
+		<section class="section reg-order zi-3 visibHide">
 			<div class="main__caption">Оформление заявки</div>
 			<div class="main__content">
 				<div class="program-card">
@@ -1455,11 +1458,32 @@
 							<div class="order-form__field-contacts">
 								<div class="order-form__field-contact">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" name="lastname" class="vp-input" value="" placeholder="Фамилия*">
-										<input type="text" name="firstname" class="vp-input ml-20" value="" placeholder="Имя*">	
+										<input 
+											type="text" 
+											name="lastname" 
+											class="vp-input" 
+											value="" 
+											placeholder="Фамилия*"
+											required
+										>
+										<input 
+											type="text" 
+											name="firstname" 
+											class="vp-input ml-20" 
+											value="" 
+											placeholder="Имя*"
+											required
+										>	
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" name="patronymic" class="vp-input flex-1" value="" placeholder="Отчество*">
+										<input 
+											type="text" 
+											name="patronymic" 
+											class="vp-input flex-1" 
+											value="" 
+											placeholder="Отчество*"
+											required
+										>
 									</div>
 								</div>
 								<div class="order-form__field-contact mt-20">
@@ -1473,7 +1497,8 @@
 											showmodal="datepicker-lite"
 											inputobj="001151" 
 											readonly
-											data=""											
+											data=""	
+											required										
 										>
 										<input 
 											type="text"
@@ -1485,6 +1510,7 @@
 											inputobj="995470" 
 											readonly
 											data=""
+											required
 										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
@@ -1494,9 +1520,11 @@
 											class="vp-input flex-1" 
 											value="" 
 											placeholder="Паспорт серия/номер*"
+											required
 										>
 									</div>
 								</div>
+
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
 										<input 
@@ -1505,6 +1533,29 @@
 											class="vp-input" 
 											value="" 
 											placeholder="Кем выдан*"
+											required
+										>
+									</div>
+									<div class="order-form__field-contact-col flex-1 ml-20">
+										<input 
+											type="text"
+											name="passNP" 
+											class="vp-input" 
+											value="" 
+											placeholder="Номер подразделения*"
+											required										
+										>
+									</div>
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<div class="order-form__field-contact-col flex-2">
+										<input 
+												type="text"
+												name="passadress" 
+												class="vp-input" 
+												value="" 
+												placeholder="Адрес регистрации*"
+												required
 										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
@@ -1517,19 +1568,34 @@
 											showmodal="datepicker-lite"
 											inputobj="96544" 
 											readonly
-											data=""											
+											data=""
+											required										
 										>
 									</div>
-								</div>
+								</div>								
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Телефон*">
-										<input type="text" class="vp-input ml-20" value="" placeholder="E-mail*">
+										<input 
+											type="text"
+											name="telefon"
+											class="vp-input" 
+											value="" 
+											placeholder="Телефон*"
+											required
+										>
+										<input 
+											type="text"
+											name="email" 
+											class="vp-input ml-20" 
+											value="" 
+											placeholder="E-mail*"
+											required
+										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
 											type="text"
-											name="email"
+											name="findout"
 											class="vp-input input__icon_right icon_arrowdown flex-1" 
 											value="" 
 											placeholder="Откуда о нас узнали"
@@ -1558,11 +1624,32 @@
 							<div class="order-form__field-contacts">
 								<div class="order-form__field-contact">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" name="lastname" class="vp-input" value="" placeholder="Фамилия*">
-										<input type="text" name="firstname" class="vp-input ml-20" value="" placeholder="Имя*">	
+										<input 
+											type="text" 
+											name="lastname" 
+											class="vp-input" 
+											value="" 
+											placeholder="Фамилия*"
+											required
+										>
+										<input 
+											type="text" 
+											name="firstname" 
+											class="vp-input ml-20" 
+											value="" 
+											placeholder="Имя*"
+											required
+										>	
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" name="patronymic" class="vp-input flex-1" value="" placeholder="Отчество*">
+										<input 
+											type="text" 
+											name="patronymic" 
+											class="vp-input flex-1" 
+											value="" 
+											placeholder="Отчество*"
+											required
+										>
 									</div>
 								</div>
 								<div class="order-form__field-contact mt-20">
@@ -1577,6 +1664,7 @@
 											inputobj="878940" 
 											readonly
 											data=""
+											required
 										>
 										<input 
 											type="text"
@@ -1588,6 +1676,7 @@
 											inputobj="164165" 
 											readonly
 											data=""
+											required
 										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
@@ -1597,6 +1686,7 @@
 											class="vp-input flex-1" 
 											value="" 
 											placeholder="Паспорт серия/номер*"
+											required
 										>
 									</div>
 								</div>
@@ -1608,22 +1698,46 @@
 											class="vp-input" 
 											value="" 
 											placeholder="Кем выдан*"
+											required
 										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
 											type="text"
-											name="passdate" 
+											name="passNP" 
+											class="vp-input" 
+											value="" 
+											placeholder="Номер подразделения*"
+											required										
+										>
+									</div>
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<div class="order-form__field-contact-col flex-2">
+										<input 
+												type="text"
+												name="passadress" 
+												class="vp-input" 
+												value="" 
+												placeholder="Адрес регистрации*"
+												required
+										>
+									</div>
+									<div class="order-form__field-contact-col flex-1 ml-20">
+										<input 
+											type="text"
+											name="passdate"
 											class="vp-input" 
 											value="" 
 											placeholder="Дата выдачи*"
 											showmodal="datepicker-lite"
-											inputobj="786136" 
+											inputobj="96544" 
 											readonly
 											data=""
+											required										
 										>
 									</div>
-								</div>
+								</div>	
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
 										<input 
@@ -1632,6 +1746,7 @@
 											class="vp-input" 
 											value="" 
 											placeholder="Телефон*"
+											required
 										>
 										<input 
 											type="text"
@@ -1720,6 +1835,7 @@
 							<input class="typepay__value" type="hidden" value="">						
 						</div>						
 					</div>
+					<span class="buy-tickets-form__msg ta-right hide"></span>
 					<div class="order-form__field pos-h">
 						<div class="order-form__pay-group">
 							<div class="order-form__footer">
@@ -2170,6 +2286,7 @@
 				<span class="buy-tickets-form__total-label">Итого</span>
 				<span class="buy-tickets-form__price" value="0">0 ₽</span>
 			</div>
+			<span class="buy-tickets-form__msg hide">Не выбрана дата или количество паломников</span>
 			<button class="vp-btn btn-edit-order">Сохранить</button>
 			<div class="edit-order__close">
 				<img src="./img/icon_modal_close_red.png" alt="close">
@@ -2180,6 +2297,7 @@
 	<script type="text/javascript" src="./sliderClick/slick.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 	<script type="text/javascript" src="./js/pluginJquery/vpdatepicker.js"></script>
 	<script type="text/javascript" src="./js/script.js"></script>
 

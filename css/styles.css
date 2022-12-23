@@ -969,6 +969,12 @@ option::after {
 .header-bottom_order:hover {
 	background: #FF8A00;
 }
+.header-bottom_order .header-bottom__link {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	color: #FFFFFF;
+}
 .header-bottom__link {
 	font-style: normal;
 	font-weight: 400;
@@ -2642,6 +2648,14 @@ border-bottom-left-radius: 20px;
 	border: 2px solid #31B404;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
 	border-radius: 10px;
+}
+.program-card__warning-text {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #4F4F4F;
+	margin-left: 20px;
 }
 .program-card__block {
 	width: 100%;

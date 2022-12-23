@@ -595,6 +595,106 @@
 				</div>
 			</section>		
 		</section>
+		<section class="section group-program">
+			<div class="main__caption">ЗАЯВКА НА ГРУППОВУЮ ПРОГРАММУ</div>
+			<div class="main__content">
+				<div class="search">
+					<form action="">
+					<div class="search__filters">
+						<div class="search__col">
+							<label for="" class="search__filter-name">Дата заезда</label>
+							<input 
+								type="text" 
+								class="search__filter icon_date" 
+								value="" 
+								placeholder="17 октября 2022"
+								showmodal="datepicker-lite"
+								inputobj="91675" 
+								readonly
+								data=""						
+							>
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Продолжительность</label>
+							<input 
+								type="text" 
+								class="search__filter icon_duration" 
+								showmodal="duration-list"
+								inputobj="92576" 
+								readonly 
+								value="" 
+								placeholder="Продолжительность"
+								data=""
+							>			
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Количество человек</label>
+							<input 
+								type="text" 
+								class="search__filter icon_count" 
+								showmodal="count-list" 
+								inputobj="57952" 
+								readonly 
+								value="" 
+								placeholder="Состав гостей"
+								data=""
+							>
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Место отправления</label>
+							<input 
+								type="text" 
+								class="search__filter icon_geo_search" 
+								showmodal="geo-list"
+								inputobj="64729"
+								readonly 
+								value="" 
+								placeholder="Любое"
+								data=""
+							>
+						</div>						
+					</div>
+					<div class="search__submits">						
+						<button type="submit" class="vp-btn ml-30 pl-50 pr-50">Найти</button>
+					</div>
+					</form>
+				</div>
+				<div class="program-card p-20 mt-20 pos-h">
+					<img src="./img/icons-svg/warning.svg" alt="">
+					<p class="program-card__warning-text">
+						Для групп более 10 человек действуют специальные условия. Оставьте, пожалуйста, контактные данные и с Вами в ближайшее время свяжется организатор.
+					</p>
+				</div>
+				<div class="main__introtext">Данные заказчика</div>
+				<div class="register__row">
+					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Имя*">
+					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон*">
+					<input type="text" class="input__text flex-1" value="" placeholder="Email*">
+					<input type="text" name="timecall" class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" value="" placeholder="Удобное время для звонка" showmodal="docs-list" inputobj="839856" readonly="" data="" required="">
+				</div>
+				<div class="order-form__field pos-h">
+					<div class="order-form__pay-group">
+						<div class="order-form__footer">							
+						</div>
+					</div>
+					<div class="order-form__pay-group">
+						<div class="order-form__footer">
+							<div class="order-form__agreement">
+								<div class="checkbox__label">
+									<input type="checkbox" class="checkbox" checked="">
+									<span class="checkbox__text">Я даю своё согласие на обработку персональных данных</span>
+								</div>
+								<div class="checkbox__label">
+									<input type="checkbox" class="checkbox" checked="">
+									<span class="checkbox__text">Подписаться на рассылку новостей</span>
+								</div>									
+							</div>
+							<button class="vp-btn btn-finish-order flex-1">Оплатить</button>
+						</div>						
+					</div>						
+				</div>
+			</div>
+		</section>
 		<section class="section motorShips">
 			<div class="main__caption">Теплоходы</div>
 			<div class="list">
@@ -1156,12 +1256,12 @@
 				</form>
 			</div>
 		</section>
-		<section class="section program">
+		<section class="section program zi-1">
 			<div class="main__caption">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</div>
 			<div class="program__icons">
 				<div class="find-list__icon-list">
 					<img class="find-list__icon" src="./img/icons-svg/clock.svg" alt="">
-					<span class="find-list__label">2 дня</span>
+					<span class="find-list__label label_duration" value="2">2 дня</span>
 				</div>
 				<div class="find-list__icon-list">
 					<img class="find-list__icon" src="./img/icons-svg/bus.svg" alt="">
@@ -1249,7 +1349,7 @@
 						<div class="buy-tickets-form__title">Оформить билеты онлайн</div>
 						<input 
 							type="text" 
-							class="search__filter icon_date flatpickr-input active" 
+							class="search__filter icon_date flatpickr-input active prog-date" 
 							value="" 
 							placeholder="Дата поездки" 
 							showmodal="datepicker-prog"
@@ -1259,42 +1359,43 @@
 						>
 						<div class="index-form">
 							<div class="index-form__label">
-								<span class="index-form__text">Взрослые</span>
-								<span class="index-form__text">6 000 ₽</span>
+								<span class="index-form__text index-form_label">Взрослые</span>
+								<span class="index-form__text index-form__price" value="6000">6 000 ₽</span>
 							</div>
 							<div class="index-form__input" minValue="0" maxValue="6">
 								<div class="index-form__btn-minus"></div>
-								<span class="index-form__value">1</span>
+								<span class="index-form__value">0</span>
 								<div class="index-form__btn-plus"></div>
 							</div>
 						</div>
 						<div class="index-form">
 							<div class="index-form__label">
-								<span class="index-form__text">Дети 7-12 лет</span>
-								<span class="index-form__text">3 000 ₽</span>
+								<span class="index-form__text index-form_label">Дети 7-12 лет</span>
+								<span class="index-form__text index-form__price" value="3000">3 000 ₽</span>
 							</div>
 							<div class="index-form__input" minValue="0" maxValue="6">
 								<div class="index-form__btn-minus"></div>
-								<span class="index-form__value">1</span>
+								<span class="index-form__value">0</span>
 								<div class="index-form__btn-plus"></div>
 							</div>
 						</div>
 						<div class="index-form">
 							<div class="index-form__label">
-								<span class="index-form__text">Дети 0-6 лет</span>
-								<span class="index-form__text">0 ₽</span>
+								<span class="index-form__text index-form_label">Дети 0-6 лет</span>
+								<span class="index-form__text index-form__price" value="0">0 ₽</span>
 							</div>
 							<div class="index-form__input" minValue="0" maxValue="6">
 								<div class="index-form__btn-minus"></div>
-								<span class="index-form__value">1</span>
+								<span class="index-form__value">0</span>
 								<div class="index-form__btn-plus"></div>
 							</div>
 						</div>
 						<div class="buy-tickets-form__total">
 							<span class="buy-tickets-form__total-label">Итого (без проживания)</span>
-							<span class="buy-tickets-form__price">15 000 ₽</span>
+							<span class="buy-tickets-form__price" value="0">0 ₽</span>
 						</div>
-						<button class="vp-btn">Выбрать вариант размещения</button>			
+						<span class="buy-tickets-form__msg hide">Не выбрана дата или количество паломников</span>
+						<button class="vp-btn btn-next-room">Выбрать вариант размещения</button>			
 					</div>
 				</div>
 				<div class="description">
@@ -1576,10 +1677,62 @@
 				<span class="program__contact">по будним дням с 10.00 до 18.00</span>
 			</div>
 		</section>
-		<section class="section placement">
+		<section class="section placement zi-2">
 			<div class="main__caption">РАЗМЕЩЕНИЕ</div>
 			<div class="main__introtext">Выберите понравившийся Вам вариант размещения</div>
 			<div class="list">
+				<div class="find-list" data="564">
+					<img class="find-list__img" src="./img/list_img_1.png" alt="list img">
+					<div class="find-list__content">
+						<div class="find-list__header">
+							<div class="find-list__col border-none">
+								<div class="find-list__title">
+									<a class="find-list__link" href="#">ДОМ ПАЛОМНИКА «ВАЛААМ»</a>
+								</div>
+								<div class="find-list__desc">
+									Дом паломника "Валаам" располагается в пяти минутах ходьбы от Спасо-Преображенского собора монастыря в историческом здании Зимней гостиницы. Оно было построено в середине XIX века для многочисленных путешественников. В наши дни после пятилетней реконструкции двери Дома паломника вновь открыты для всех гостей острова. Добро пожаловать!
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="find-list__price">
+						<div class="find-list__body-price">
+							от
+							<span class="find-list__price-value">5 849 ₽</span>
+							/сут.
+						</div>
+						<div class="find-list__footer-price bg-orange">
+							<button class="find-list__footer-link">Скрыть</button>
+						</div>
+					</div>
+				</div>
+				<div class="find-list" data="713">
+					<img class="find-list__img" src="./img/list_img_1.png" alt="list img">
+					<div class="find-list__content">
+						<div class="find-list__header">
+							<div class="find-list__col border-none">
+								<div class="find-list__title">
+									<a class="find-list__link" href="#">Паломнический дом «Игуменский»</a>
+								</div>
+								<div class="find-list__desc">
+									Дом паломника "Игуменский" располагается во внешнем каре келейных корпусов Центральной усадьбы монастыря, что в непосредственной близости от Спасо-Преображенского собора. Бывшие монашеские келии, переделанные в уютные номера, сохранили следы строгого монастырского быта.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="find-list__price">
+						<div class="find-list__body-price">
+							от
+							<span class="find-list__price-value">5 849 ₽</span>
+							/сут.
+						</div>
+						<div class="find-list__footer-price">
+							<button class="find-list__footer-link">Показать</button>
+						</div>
+					</div>
+				</div>						
+			</div>
+			<div class="list" data="564">
 				<div class="placement-item">
 					<div class="placement-item__gallery slider-for">
 						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
@@ -1596,14 +1749,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1632,14 +1785,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1667,14 +1820,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1701,14 +1854,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1734,14 +1887,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1766,50 +1919,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
-							₽
-						</div>
-					</div>
-					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
-					<div class="placement-item__included">
-						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
-						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
-						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
-						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
-						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
-					</div>
-				</div>
-				<div class="placement-item">
-					<div class="placement-item__gallery slider-for">
-						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
-						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
-						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
-					</div>
-					<div class="placement-item__geo">
-						<div class="icon-list pt-0">
-							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
-							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
-								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
-							</svg>
-							<span class="icon-list__label while">Дом паломника «Валаам»</span>
-						</div>
-					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
-					<div class="placement-item__desc">
-						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
-					</div>
-					<div class="placement-item__prices">
-						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
-						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1838,14 +1955,14 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1874,14 +1991,50 @@
 							<span class="icon-list__label while">Дом паломника «Валаам»</span>
 						</div>
 					</div>
-					<div class="placement-item__title">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
 					<div class="placement-item__desc">
 						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
 					</div>
 					<div class="placement-item__prices">
 						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
 						<div class="placement-item__price">
-							<span class="placement-item__value">25 800</span>
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
 							₽
 						</div>
 					</div>
@@ -1895,6 +2048,322 @@
 					</div>
 				</div>							
 			</div>
+			<div class="list visibHide" data="713">
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В заявку</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>
+				<div class="placement-item">
+					<div class="placement-item__gallery slider-for">
+						<img src="./img/sliders/slider_3.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_4.png" alt="" class="placement-item__gallery-item">
+						<img src="./img/sliders/slider_5.png" alt="" class="placement-item__gallery-item">
+					</div>
+					<div class="placement-item__geo">
+						<div class="icon-list pt-0">
+							<!--img class="icon-list__icon while" src="./img/icons-svg/geo.svg" alt=""-->
+							<svg class="icon-list__icon icon-h-16" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7005 5.53857C9.28007 5.53857 6.50692 8.15953 6.50692 11.3922C6.50692 14.6249 9.28007 17.2459 12.7005 17.2459C16.1209 17.2459 18.894 14.6249 18.894 11.3922C18.894 8.15953 16.1209 5.53857 12.7005 5.53857ZM9.17205 11.352C9.17205 9.53681 10.7354 8.0593 12.6559 8.0593C14.5777 8.0593 16.1396 9.53672 16.1398 11.3518C16.1407 13.178 14.6113 14.6849 12.7005 14.6849C10.7796 14.6849 9.17205 13.1673 9.17205 11.352Z" fill="#1D3054"/>
+								<path class="while" fill-rule="evenodd" clip-rule="evenodd" d="M12.7774 0C6.21324 0 0.666626 5.27577 0.666626 11.5285C0.666626 14.805 2.27388 18.0836 4.36992 21.0866C6.29461 23.844 8.66192 26.4104 10.6529 28.5689L10.6885 28.6075C10.8565 28.7895 11.0217 28.9687 11.1837 29.1448C11.2288 29.1937 11.4226 29.3877 11.7128 29.5773C12.0183 29.7768 12.4742 30 13.0039 30H13.0779C13.6079 30 14.0627 29.7767 14.3674 29.5769C14.6764 29.3742 14.8727 29.1681 14.8942 29.1448C16.867 27.0014 19.3034 24.1526 21.2482 21.0726C23.1881 18.0005 24.6666 14.6557 24.6666 11.5285C24.6666 8.42354 23.5908 5.5411 21.5554 3.43081C19.5156 1.31602 16.5338 0 12.7774 0ZM3.3763 11.5285C3.3763 6.66818 7.68882 2.56052 12.7774 2.56052C15.9752 2.56052 18.2558 3.69008 19.7432 5.35521C21.2388 7.02951 21.9569 9.27404 21.9569 11.5285C21.9569 13.4915 21.2146 15.8119 19.6975 18.4811C18.2096 21.099 15.989 24.0306 13.0375 27.2587L12.6957 26.8872C10.7059 24.7298 8.37042 22.1965 6.53056 19.5339C4.68628 16.8649 3.3763 14.116 3.3763 11.5285Z" fill="#1D3054"/>
+							</svg>
+							<span class="icon-list__label while">Дом паломника «Валаам»</span>
+						</div>
+					</div>
+					<div class="placement-item__title" value="44">---2х местный с удобствами в номере  1,2,3 этажи</div>
+					<div class="placement-item__desc">
+						Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца. Доступно дополнительное спальное место. Уютные тёплые номера (на 2-х гостей) с удобствами в номере. В номере имеются: чайник, чашки, чайные ложки, плечики для одежды, полотенца.
+					</div>
+					<div class="placement-item__prices">
+						<div class="placement-item__price-label">Стоимость номера за весь период поездки</div>
+						<div class="placement-item__price">
+							<span class="placement-item__value" value="25800">25 800</span>
+							₽
+						</div>
+					</div>
+					<div obj="placement" class="placement-item__btn" selectedOrder="false">ДОБАВИТЬ В ЗАЯВКУ</div>
+					<div class="placement-item__included">
+						<img src="./img/icons-svg/wifi.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/shower.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/airconditioner.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/kettle.svg" alt="" class="placement-item__icon">
+						<img src="./img/icons-svg/hanger.svg" alt="" class="placement-item__icon">
+					</div>
+				</div>							
+			</div>			
 			<div class="placement-select">
 				<div class="placement-select__content">
 					<div class="main__introtext mt-0">Ваш выбор:</div>
@@ -1906,25 +2375,39 @@
 			</div>
 			<div class="main__content">
 				<div class="program-card">
-					<div class="program-card__labels">
-						<span class="program-card__label">Программа:</span>
-						<span class="program-card__label">Дата заезда:</span>
-						<span class="program-card__label">Количество гостей:</span>
-						<span class="program-card__label">Проезд на атобусе:</span>
-						<span class="program-card__label">Проезд на теплоходе:</span>
-						<span class="program-card__label">Проживание:</span>
-						<span class="program-card__label">Питание:</span>
-						<span class="program-card__label">Кол-во экскурсий:</span>
-					</div>
 					<div class="program-card__content">
-						<span class="program-card__label">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</span>
-						<span class="program-card__label">25.12.2022</span>
-						<span class="program-card__label">2 взрослых | 1 ребёнок 7-12 лет</span>
-						<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
-						<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>			
-						<span class="program-card__label">2х местный с удобствами на блок (на 2 номера)  1,2,3 этажи</span>
-						<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
-						<span class="program-card__label">4</span>
+						<div class="program-card__labels">
+							<span class="program-card__label">Программа:</span>
+							<span class="program-card__label program-card_name" value="14">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Дата заезда:</span>
+							<span class="program-card__label program-card_date">25.12.2022</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Количество гостей:</span>
+							<span class="program-card__label program-card_guests" value="">2 взрослых | 1 ребёнок 7-12 лет</span>							
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Проезд на атобусе:</span>
+							<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Проезд на теплоходе:</span>
+							<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>	
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Проживание:</span>
+							<span class="program-card__label program-card_rooms" value="">не выбрано</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Питание:</span>
+							<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Кол-во экскурсий:</span>
+							<span class="program-card__label">4</span>
+						</div>																	
 					</div>
 					<div class="program-card__footer">
 						<div class="program-card__info">
@@ -1932,52 +2415,67 @@
 
 								<div class="program-card__item">
 									<span class="program-card__label">Программа:</span>
-									<span class="program-card__price"><b>15 849</b> ₽</span>
+									<span class="program-card__price program-card_price-prog" value="0"><b>0</b> ₽</span>
 								</div>
 								<div class="program-card__item">
 									<span class="program-card__label">Проживание:</span>
-									<span class="program-card__price"><b>25 800</b> ₽</span>
+									<span class="program-card__price program-card_price-rooms" value="0"><b>0</b> ₽</span>
 								</div>								
 
 						</div>
 						<div class="program-card__totals">
 							<div class="program-card__paid">
 								<div class="program-card__total">К ОПЛАТЕ:</div>
-								<div class="program-card__total-price"><b>41 649</b> ₽</div>
+								<div class="program-card__total-price program-card_total-price" value="0"><b>0</b> ₽</div>
 							</div>
 							<button type="button" class="program-card__edit">Редактировать заявку</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			<span class="buy-tickets-form__msg ta-right hide"></span>
 			<div class="placement-footer">
-				<button class="vp-btn-inline bg-while">Вернуться назад к выбору программ</button>
-				<button class="vp-btn">ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
+				<button class="vp-btn-inline bg-while btn-back-prog">Вернуться назад к выбору программ</button>
+				<button class="vp-btn btn-next-order">ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
 			</div>
 		</section>
-		<section class="section reg-order">
+		<section class="section reg-order zi-3">
 			<div class="main__caption">Оформление заявки</div>
 			<div class="main__content">
 				<div class="program-card">
-					<div class="program-card__labels">
-						<span class="program-card__label">Программа:</span>
-						<span class="program-card__label">Дата заезда:</span>
-						<span class="program-card__label">Количество гостей:</span>
-						<span class="program-card__label">Проезд на атобусе:</span>
-						<span class="program-card__label">Проезд на теплоходе:</span>
-						<span class="program-card__label">Проживание:</span>
-						<span class="program-card__label">Питание:</span>
-						<span class="program-card__label">Кол-во экскурсий:</span>
-					</div>
 					<div class="program-card__content">
-						<span class="program-card__label">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</span>
-						<span class="program-card__label">25.12.2022</span>
-						<span class="program-card__label">2 взрослых | 1 ребёнок 7-12 лет</span>
-						<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
-						<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>			
-						<span class="program-card__label">2х местный с удобствами на блок (на 2 номера)  1,2,3 этажи</span>
-						<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
-						<span class="program-card__label">4</span>
+						<div class="program-card__labels">
+							<span class="program-card__label">Программа:</span>
+							<span class="program-card__label program-card_name" value="14">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Дата заезда:</span>
+							<span class="program-card__label program-card_date">25.12.2022</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Количество гостей:</span>
+							<span class="program-card__label program-card_guests" value="">2 взрослых | 1 ребёнок 7-12 лет</span>							
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Проезд на атобусе:</span>
+							<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Проезд на теплоходе:</span>
+							<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>	
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Проживание:</span>
+							<span class="program-card__label program-card_rooms" value="">не выбрано</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Питание:</span>
+							<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
+						</div>
+						<div class="program-card__labels">
+							<span class="program-card__label">Кол-во экскурсий:</span>
+							<span class="program-card__label">4</span>
+						</div>	
 					</div>
 					<div class="program-card__footer">
 						<div class="program-card__info">
@@ -1985,18 +2483,18 @@
 
 								<div class="program-card__item">
 									<span class="program-card__label">Программа:</span>
-									<span class="program-card__price"><b>15 849</b> ₽</span>
+									<span class="program-card__price program-card_price-prog" value="0"><b>0</b> ₽</span>
 								</div>
 								<div class="program-card__item">
 									<span class="program-card__label">Проживание:</span>
-									<span class="program-card__price"><b>25 800</b> ₽</span>
+									<span class="program-card__price program-card_price-rooms" value="0"><b>0</b> ₽</span>
 								</div>								
 
 						</div>
 						<div class="program-card__totals">
 							<div class="program-card__paid">
 								<div class="program-card__total">К ОПЛАТЕ:</div>
-								<div class="program-card__total-price"><b>41 649</b> ₽</div>
+								<div class="program-card__total-price program-card_total-price" value="0"><b>0</b> ₽</div>
 							</div>
 							<button type="button" class="program-card__edit">Редактировать заявку</button>
 						</div>
@@ -2009,27 +2507,51 @@
 							<div class="order-form__field-contacts">
 								<div class="order-form__field-contact">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Фамилия*">
-										<input type="text" class="vp-input ml-20" value="" placeholder="Имя*">	
+										<input 
+											type="text" 
+											name="lastname" 
+											class="vp-input" 
+											value="" 
+											placeholder="Фамилия*"
+											required
+										>
+										<input 
+											type="text" 
+											name="firstname" 
+											class="vp-input ml-20" 
+											value="" 
+											placeholder="Имя*"
+											required
+										>	
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Отчество*">
+										<input 
+											type="text" 
+											name="patronymic" 
+											class="vp-input flex-1" 
+											value="" 
+											placeholder="Отчество*"
+											required
+										>
 									</div>
 								</div>
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
 										<input 
-											type="text" 
+											type="text"
+											name="datebirth"
 											class="vp-input flex-1" 
 											value="" 
 											placeholder="Дата рождения*"
 											showmodal="datepicker-lite"
 											inputobj="001151" 
 											readonly
-											data=""											
+											data=""	
+											required										
 										>
 										<input 
-											type="text" 
+											type="text"
+											name="typedoc"
 											class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" 
 											value="" 
 											placeholder="Тип документа*"
@@ -2037,46 +2559,96 @@
 											inputobj="995470" 
 											readonly
 											data=""
+											required
 										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
-											type="text" 
+											type="text"
+											name="passSN" 
 											class="vp-input flex-1" 
 											value="" 
 											placeholder="Паспорт серия/номер*"
+											required
+										>
+									</div>
+								</div>
+
+								<div class="order-form__field-contact mt-20">
+									<div class="order-form__field-contact-col flex-2">
+										<input 
+											type="text"
+											name="passissued" 
+											class="vp-input" 
+											value="" 
+											placeholder="Кем выдан*"
+											required
+										>
+									</div>
+									<div class="order-form__field-contact-col flex-1 ml-20">
+										<input 
+											type="text"
+											name="passNP" 
+											class="vp-input" 
+											value="" 
+											placeholder="Номер подразделения*"
+											required										
 										>
 									</div>
 								</div>
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Кем выдан*">
+										<input 
+												type="text"
+												name="passadress" 
+												class="vp-input" 
+												value="" 
+												placeholder="Адрес регистрации*"
+												required
+										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
-											type="text" 
+											type="text"
+											name="passdate"
 											class="vp-input" 
 											value="" 
 											placeholder="Дата выдачи*"
 											showmodal="datepicker-lite"
 											inputobj="96544" 
 											readonly
-											data=""											
+											data=""
+											required										
 										>
 									</div>
-								</div>
+								</div>								
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Телефон*">
-										<input type="text" class="vp-input ml-20" value="" placeholder="E-mail*">
+										<input 
+											type="text"
+											name="telefon"
+											class="vp-input" 
+											value="" 
+											placeholder="Телефон*"
+											required
+										>
+										<input 
+											type="text"
+											name="email" 
+											class="vp-input ml-20" 
+											value="" 
+											placeholder="E-mail*"
+											required
+										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
-											type="text" 
+											type="text"
+											name="findout"
 											class="vp-input input__icon_right icon_arrowdown flex-1" 
 											value="" 
 											placeholder="Откуда о нас узнали"
-											showmodal="benefits-list"
+											showmodal="findout-list"
 											inputobj="852951" 
 											readonly
 											data=""
@@ -2085,33 +2657,55 @@
 								</div>
 							</div>
 							<div class="order-form__fields-gender ml-20">
-								<div class="order-form__field-gender order-form_field-active">М</div>
-								<div class="order-form__field-gender">Ж</div>
+								<div class="order-form__field-gender order-form_field-active" value="male">М</div>
+								<div class="order-form__field-gender" value="female">Ж</div>
 							</div>							
 						</div>
 					</div>
 					<div class="checkbox__label mt-10">
-						<input type="checkbox" class="checkbox" checked="">
+						<input type="checkbox" class="checkbox isPolomnik" checked="">
 						<span class="checkbox__text">Заказчик является Паломником</span>
 					</div>
 					<div class="order-form__title">Данные туристов</div>
-					<div class="order-form__field order-form__group">
-						<div class="order-form__subtitle">Взрослый</div>
+					<div class="order-form__field order-form__group tourist_block order-form_clone">
+						<div class="order-form__subtitle">clone</div>
 						<div class="order-form__content-human">
 							<div class="order-form__field-contacts">
 								<div class="order-form__field-contact">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Фамилия*">
-										<input type="text" class="vp-input ml-20" value="" placeholder="Имя*">	
+										<input 
+											type="text" 
+											name="lastname" 
+											class="vp-input" 
+											value="" 
+											placeholder="Фамилия*"
+											required
+										>
+										<input 
+											type="text" 
+											name="firstname" 
+											class="vp-input ml-20" 
+											value="" 
+											placeholder="Имя*"
+											required
+										>	
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Отчество*">
+										<input 
+											type="text" 
+											name="patronymic" 
+											class="vp-input flex-1" 
+											value="" 
+											placeholder="Отчество*"
+											required
+										>
 									</div>
 								</div>
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
 										<input 
-											type="text" 
+											type="text"
+											name="datebirth"
 											class="vp-input flex-1" 
 											value="" 
 											placeholder="Дата рождения*"
@@ -2119,9 +2713,11 @@
 											inputobj="878940" 
 											readonly
 											data=""
+											required
 										>
 										<input 
-											type="text" 
+											type="text"
+											name="typedoc"
 											class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" 
 											value="" 
 											placeholder="Тип документа*"
@@ -2129,116 +2725,81 @@
 											inputobj="164165" 
 											readonly
 											data=""
+											required
 										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Паспорт серия/номер*">
-									</div>
-								</div>
-								<div class="order-form__field-contact mt-20">
-									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Кем выдан*">
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
-											type="text" 
-											class="vp-input" 
-											value="" 
-											placeholder="Дата выдачи*"
-											showmodal="datepicker-lite"
-											inputobj="786136" 
-											readonly
-											data=""
-										>
-									</div>
-								</div>
-								<div class="order-form__field-contact mt-20">
-									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Телефон*">
-										<input 
-											type="text" 
-											class="vp-input input__icon_right icon_arrowdown ml-20" 
-											value="" 
-											placeholder="Право на льготы"
-											showmodal="benefits-list"
-											inputobj="984315" 
-											readonly
-											data=""
-										>										
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Комментарий">
-									</div>
-								</div>
-							</div>
-							<div class="order-form__fields-gender ml-20">
-								<div class="order-form__field-gender order-form_field-active">М</div>
-								<div class="order-form__field-gender">Ж</div>
-							</div>							
-						</div>
-					</div>
-					<div class="order-form__field order-form__group">
-						<div class="order-form__subtitle">Взрослый</div>
-						<div class="order-form__content-human">
-							<div class="order-form__field-contacts">
-								<div class="order-form__field-contact">
-									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Фамилия*">
-										<input type="text" class="vp-input ml-20" value="" placeholder="Имя*">	
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Отчество*">
-									</div>
-								</div>
-								<div class="order-form__field-contact mt-20">
-									<div class="order-form__field-contact-col flex-2">
-										<input 
-											type="text" 
+											type="text"
+											name="passSN"
 											class="vp-input flex-1" 
 											value="" 
-											placeholder="Дата рождения*"
-											showmodal="datepicker-lite"
-											inputobj="786136" 
-											readonly
-											data=""
+											placeholder="Паспорт серия/номер*"
+											required
 										>
-										<input 
-											type="text" 
-											class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" 
-											value="" 
-											placeholder="Тип документа*"
-											showmodal="docs-list"
-											inputobj="739887" 
-											readonly
-											data=""
-										>
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Паспорт серия/номер*">
 									</div>
 								</div>
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Кем выдан*">
+										<input 
+											type="text"
+											name="passissued" 
+											class="vp-input" 
+											value="" 
+											placeholder="Кем выдан*"
+											required
+										>
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
 										<input 
-											type="text" 
+											type="text"
+											name="passNP" 
+											class="vp-input" 
+											value="" 
+											placeholder="Номер подразделения*"
+											required										
+										>
+									</div>
+								</div>
+								<div class="order-form__field-contact mt-20">
+									<div class="order-form__field-contact-col flex-2">
+										<input 
+												type="text"
+												name="passadress" 
+												class="vp-input" 
+												value="" 
+												placeholder="Адрес регистрации*"
+												required
+										>
+									</div>
+									<div class="order-form__field-contact-col flex-1 ml-20">
+										<input 
+											type="text"
+											name="passdate"
 											class="vp-input" 
 											value="" 
 											placeholder="Дата выдачи*"
 											showmodal="datepicker-lite"
-											inputobj="987913" 
+											inputobj="96544" 
 											readonly
 											data=""
+											required										
 										>
 									</div>
-								</div>
+								</div>	
 								<div class="order-form__field-contact mt-20">
 									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Телефон*">
 										<input 
-											type="text" 
+											type="text"
+											name="telefon"
+											class="vp-input" 
+											value="" 
+											placeholder="Телефон*"
+											required
+										>
+										<input 
+											type="text"
+											name="benefits"
 											class="vp-input input__icon_right icon_arrowdown ml-20" 
 											value="" 
 											placeholder="Право на льготы"
@@ -2249,95 +2810,19 @@
 										>										
 									</div>
 									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Комментарий">
-									</div>
-								</div>
-							</div>
-							<div class="order-form__fields-gender ml-20">
-								<div class="order-form__field-gender order-form_field-active">М</div>
-								<div class="order-form__field-gender">Ж</div>
-							</div>							
-						</div>
-					</div>
-					<div class="order-form__field order-form__group">
-						<div class="order-form__subtitle">Ребёнок (7-12)</div>
-						<div class="order-form__content-human">
-							<div class="order-form__field-contacts">
-								<div class="order-form__field-contact">
-									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Фамилия*">
-										<input type="text" class="vp-input ml-20" value="" placeholder="Имя*">	
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Отчество*">
-									</div>
-								</div>
-								<div class="order-form__field-contact mt-20">
-									<div class="order-form__field-contact-col flex-2">
 										<input 
-											type="text" 
+											type="text"
+											name="comment"
 											class="vp-input flex-1" 
 											value="" 
-											placeholder="Дата рождения*"
-											showmodal="datepicker-lite"
-											inputobj="987131" 
-											readonly
-											data=""
+											placeholder="Комментарий"
 										>
-										<input 
-											type="text" 
-											class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" 
-											value="" 
-											placeholder="Тип документа*"
-											showmodal="docs-list"
-											inputobj="6546187" 
-											readonly
-											data=""
-										>
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Паспорт серия/номер*">
-									</div>
-								</div>
-								<div class="order-form__field-contact mt-20">
-									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Кем выдан*">
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input 
-											type="text" 
-											class="vp-input" 
-											value="" 
-											placeholder="Дата выдачи*"
-											showmodal="datepicker-lite"
-											inputobj="8971637" 
-											readonly
-											data=""
-										>
-									</div>
-								</div>
-								<div class="order-form__field-contact mt-20">
-									<div class="order-form__field-contact-col flex-2">
-										<input type="text" class="vp-input" value="" placeholder="Телефон*">
-										<input 
-											type="text" 
-											class="vp-input input__icon_right icon_arrowdown ml-20" 
-											value="" 
-											placeholder="Право на льготы"
-											showmodal="benefits-list"
-											inputobj="984315" 
-											readonly
-											data=""
-										>										
-									</div>
-									<div class="order-form__field-contact-col flex-1 ml-20">
-										<input type="text" class="vp-input flex-1" value="" placeholder="Комментарий">
 									</div>
 								</div>
 							</div>
 							<div class="order-form__fields-gender ml-20">
-								<div class="order-form__field-gender order-form_field-active">М</div>
-								<div class="order-form__field-gender">Ж</div>
+								<div class="order-form__field-gender order-form_field-active" value="male">М</div>
+								<div class="order-form__field-gender" value="female">Ж</div>
 							</div>							
 						</div>
 					</div>
@@ -2346,20 +2831,23 @@
 						<div class="order-form__items">
 							<div class="order-form__item">
 								<span class="order-form__text"><b>Программа</b> «НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ»</span>
-								<span class="order-form__price"><b>15 849</b> ₽</span>
+								<span class="order-form__price program-card_price-prog" value="0"><b>0</b> ₽</span>
 							</div>
 							<div class="order-form__item">
-								<span class="order-form__text"><b>Проживание</b> «2х местный с удобствами на блок (на 2 номера)_1,2,3 этажи»</span>
-								<span class="order-form__price"><b>25 800</b> ₽</span>
+								<span class="order-form__text">
+									<b>Проживание</b><br>
+									<span class="program-card_rooms">не выбрано</span>
+								</span>
+								<span class="order-form__price program-card_price-rooms" value="0"><b>0</b> ₽</span>
 							</div>
 							<div class="order-form__item">
 								<span class="order-form__text"><b>Льготы</b></span>
-								<span class="order-form__price"><b>-5 800</b> ₽</span>
+								<span class="order-form__price program-card_price-benefits" value="0"><b>0</b> ₽</span>
 							</div>							
 						</div>
 						<div class="order-form__result">
 							<span class="order-form__result-title">К ОПЛАТЕ</span>
-							<span class="order-form__total-price"><b>35 849</b> ₽</span>
+							<span class="order-form__total-price program-card_total-price" value="0"><b>0</b> ₽</span>
 						</div>
 					</div>
 					<div class="order-form__title">Способ оплаты</div>
@@ -2367,35 +2855,43 @@
 						<div class="order-form__group order-form__pay-group">
 							<div class="order-form__subtitle">Категория оплаты</div>
 							<div class="radiobox__label mt-20">
-								<input name="categorypay" type="radio" class="radiobox">
+								<input name="categorypay" type="radio" label="standart" class="radiobox">
 								<span class="radiobox__text">Стандартная</span>
 							</div>
 							<div class="radiobox__label mt-20">
-								<input name="categorypay" type="radio" class="radiobox">
+								<input name="categorypay" type="radio" label="donate" class="radiobox">
 								<span class="radiobox__text">Пожертвование</span>
 							</div>
 							<div class="order-form__help mt-20">
 								<a href="#" class="order-form__help-link">Справка</a>
 							</div>
+							<input class="categorypay__value" type="hidden" value="">
 						</div>
 						<div class="order-form__group order-form__pay-group">
 							<div class="order-form__subtitle">Тип платежа</div>
 							<div class="radiobox__label mt-20">
-								<input name="typepay" type="radio" class="radiobox">
+								<input name="typepay" type="radio" label="cart" class="radiobox">
 								<span class="radiobox__text">Картой он-лайн</span>
 							</div>
 							<div class="radiobox__label mt-20">
-								<input name="typepay" type="radio" class="radiobox">
+								<input name="typepay" type="radio" label="invoice" class="radiobox">
 								<span class="radiobox__text">По счету</span>
 							</div>
 							<div class="radiobox__label mt-20">
-								<input name="typepay" type="radio" class="radiobox">
+								<input name="typepay" type="radio" label="cash" class="radiobox">
 								<span class="radiobox__text">Наличными в офисе</span>
-							</div>							
+							</div>
+							<input class="typepay__value" type="hidden" value="">						
 						</div>						
 					</div>
+					<span class="buy-tickets-form__msg ta-right hide"></span>
 					<div class="order-form__field pos-h">
 						<div class="order-form__pay-group">
+							<div class="order-form__footer">
+								<div class="order-form__agreement">
+									<button class="vp-btn-inline bg-while btn-back-rooms">Вернуться назад к выбору размещения</button>
+								</div>								
+							</div>
 						</div>
 						<div class="order-form__pay-group">
 							<div class="order-form__footer">
@@ -2409,7 +2905,7 @@
 										<span class="checkbox__text">Подписаться на рассылку новостей</span>
 									</div>									
 								</div>
-								<button class="vp-btn flex-1">Оплатить</button>
+								<button class="vp-btn btn-finish-order flex-1">Оплатить</button>
 							</div>						
 						</div>						
 					</div>														

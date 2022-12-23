@@ -553,7 +553,11 @@ $(document).ready(function() {
 			var totalPrice = priceProg + priceRoom;
 			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
 			$('.program').removeClass('visibShow').addClass('visibHide');
-			if (Number(durationTour) == 1) {
+			if (Number(durationTour) >= 10) {
+				updateTouristForm();
+				$('.program').removeClass('visibShow').addClass('visibHide');
+				$('.group-program').removeClass('visibHide').addClass('visibShow');
+			} else if (Number(generalGuest) == 1) {
 				$('.program-card_rooms').parent().hide();
 				$('.program-card_price-rooms').parent().hide();
 				$('.btn-back-rooms').text('Вернуться назад к описанию программы');

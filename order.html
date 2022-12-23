@@ -1863,6 +1863,106 @@
 				</div>
 			</div>
 		</section>
+		<section class="section group-program zi-4 visibHide">
+			<div class="main__caption">ЗАЯВКА НА ГРУППОВУЮ ПРОГРАММУ</div>
+			<div class="main__content">
+				<div class="search">
+					<form action="">
+					<div class="search__filters">
+						<div class="search__col">
+							<label for="" class="search__filter-name">Дата заезда</label>
+							<input 
+								type="text" 
+								class="search__filter icon_date" 
+								value="" 
+								placeholder="17 октября 2022"
+								showmodal="datepicker-lite"
+								inputobj="91675" 
+								readonly
+								data=""						
+							>
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Продолжительность</label>
+							<input 
+								type="text" 
+								class="search__filter icon_duration" 
+								showmodal="duration-list"
+								inputobj="92576" 
+								readonly 
+								value="" 
+								placeholder="Продолжительность"
+								data=""
+							>			
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Количество человек</label>
+							<input 
+								type="text" 
+								class="search__filter icon_count" 
+								showmodal="count-list" 
+								inputobj="57952" 
+								readonly 
+								value="" 
+								placeholder="Состав гостей"
+								data=""
+							>
+						</div>
+						<div class="search__col">
+							<label for="" class="search__filter-name">Место отправления</label>
+							<input 
+								type="text" 
+								class="search__filter icon_geo_search" 
+								showmodal="geo-list"
+								inputobj="64729"
+								readonly 
+								value="" 
+								placeholder="Любое"
+								data=""
+							>
+						</div>						
+					</div>
+					<div class="search__submits">						
+						<button type="submit" class="vp-btn ml-30 pl-50 pr-50">Найти</button>
+					</div>
+					</form>
+				</div>
+				<div class="program-card p-20 mt-20 pos-h">
+					<img src="./img/icons-svg/warning.svg" alt="">
+					<p class="program-card__warning-text">
+						Для групп более 10 человек действуют специальные условия. Оставьте, пожалуйста, контактные данные и с Вами в ближайшее время свяжется организатор.
+					</p>
+				</div>
+				<div class="main__introtext">Данные заказчика</div>
+				<div class="register__row">
+					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Имя*">
+					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон*">
+					<input type="text" class="input__text flex-1" value="" placeholder="Email*">
+					<input type="text" name="timecall" class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" value="" placeholder="Удобное время для звонка" showmodal="docs-list" inputobj="839856" readonly="" data="" required="">
+				</div>
+				<div class="order-form__field pos-h">
+					<div class="order-form__pay-group">
+						<div class="order-form__footer">							
+						</div>
+					</div>
+					<div class="order-form__pay-group">
+						<div class="order-form__footer">
+							<div class="order-form__agreement">
+								<div class="checkbox__label">
+									<input type="checkbox" class="checkbox" checked="">
+									<span class="checkbox__text">Я даю своё согласие на обработку персональных данных</span>
+								</div>
+								<div class="checkbox__label">
+									<input type="checkbox" class="checkbox" checked="">
+									<span class="checkbox__text">Подписаться на рассылку новостей</span>
+								</div>									
+							</div>
+							<button class="vp-btn btn-finish-order flex-1">Оплатить</button>
+						</div>						
+					</div>						
+				</div>
+			</div>
+		</section>
 	</main>
 	<!--остальные-->
 	<footer class="footer">

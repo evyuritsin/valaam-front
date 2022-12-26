@@ -553,11 +553,10 @@ $(document).ready(function() {
 			var totalPrice = priceProg + priceRoom;
 			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
 			$('.program').removeClass('visibShow').addClass('visibHide');
-			if (Number(durationTour) >= 10) {
+			if (Number(generalGuest) >= 10) {
 				updateTouristForm();
-				$('.program').removeClass('visibShow').addClass('visibHide');
 				$('.group-program').removeClass('visibHide').addClass('visibShow');
-			} else if (Number(generalGuest) == 1) {
+			} else if (Number(durationTour) == 1) {
 				$('.program-card_rooms').parent().hide();
 				$('.program-card_price-rooms').parent().hide();
 				$('.btn-back-rooms').text('Вернуться назад к описанию программы');
@@ -575,7 +574,6 @@ $(document).ready(function() {
 		} else {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
-		
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
@@ -617,6 +615,12 @@ $(document).ready(function() {
 			updateTouristForm();
 			close.click();	
 			conteiner.find('.buy-tickets-form__msg').removeClass('show').addClass('hide');
+			if (Number(generalGuest) >= 10) {
+				updateTouristForm();
+				$('.section').removeClass('visibShow').addClass('visibHide');
+				$('.group-program').removeClass('visibHide').addClass('visibShow');
+				window.scrollTo(0, 0);
+			}
 		} else {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
@@ -761,6 +765,20 @@ $(document).ready(function() {
 			priceTotal: $('.program-card_total-price').attr('value'),
 			categoryPay: $('.categorypay__value').val(),
 			typePay: $('.typepay__value').val()
+		};
+		console.log(JSON.stringify(order));
+	});
+	$('.btn-group-program').click(function() {
+		var order = {
+			startDate: $('.prog-date').val(),
+			finishDate: $('.program-card_date').attr('finishDate'),
+			idTour: $('.program-card_name').attr('value'),
+			durationTour: $('.duration').attr('value'),
+			guestCount: $('.program-card_guests').attr('value'),
+			firstName: $('[name=gp_firstname]').val(),
+			telefon: $('[name=gp_phone]').val(),
+			email: $('[name=gp_email]').val(),
+			time: $('[name=gp_timecall]').val(),								
 		};
 		console.log(JSON.stringify(order));
 	});

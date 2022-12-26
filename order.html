@@ -13,7 +13,7 @@
 		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
 		<link rel="stylesheet" type="text/css" href="./sliderClick/slick.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-		<link href="./css/styles.css" rel="stylesheet"/>
+		<link href="./styles/styles.css" rel="stylesheet"/>
 </head>
 <body>
 	<header class="header">
@@ -1872,7 +1872,8 @@
 						<div class="search__col">
 							<label for="" class="search__filter-name">Дата заезда</label>
 							<input 
-								type="text" 
+								type="text"
+								name="dateStart"
 								class="search__filter icon_date" 
 								value="" 
 								placeholder="17 октября 2022"
@@ -1885,7 +1886,8 @@
 						<div class="search__col">
 							<label for="" class="search__filter-name">Продолжительность</label>
 							<input 
-								type="text" 
+								type="text"
+								name="durationTour"
 								class="search__filter icon_duration" 
 								showmodal="duration-list"
 								inputobj="92576" 
@@ -1898,7 +1900,8 @@
 						<div class="search__col">
 							<label for="" class="search__filter-name">Количество человек</label>
 							<input 
-								type="text" 
+								type="text"
+								name="countTourist"
 								class="search__filter icon_count" 
 								showmodal="count-list" 
 								inputobj="57952" 
@@ -1911,7 +1914,8 @@
 						<div class="search__col">
 							<label for="" class="search__filter-name">Место отправления</label>
 							<input 
-								type="text" 
+								type="text"
+								name="geoStart"
 								class="search__filter icon_geo_search" 
 								showmodal="geo-list"
 								inputobj="64729"
@@ -1935,10 +1939,10 @@
 				</div>
 				<div class="main__introtext">Данные заказчика</div>
 				<div class="register__row">
-					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Имя*">
-					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон*">
-					<input type="text" class="input__text flex-1" value="" placeholder="Email*">
-					<input type="text" name="timecall" class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" value="" placeholder="Удобное время для звонка" showmodal="docs-list" inputobj="839856" readonly="" data="" required="">
+					<input type="text" name="gp_firstname" class="input__text mr-20 flex-1" value="" placeholder="Имя*">
+					<input type="text" name="gp_phone" class="input__text mr-20 flex-1" value="" placeholder="Телефон*">
+					<input type="text" name="gp_email" class="input__text flex-1" value="" placeholder="Email*">
+					<input type="text" name="gp_timecall" class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" value="" placeholder="Удобное время для звонка" showmodal="time-call" inputobj="8967541129" readonly="" data="" required="">
 				</div>
 				<div class="order-form__field pos-h">
 					<div class="order-form__pay-group">
@@ -1957,7 +1961,7 @@
 									<span class="checkbox__text">Подписаться на рассылку новостей</span>
 								</div>									
 							</div>
-							<button class="vp-btn btn-finish-order flex-1">Оплатить</button>
+							<button class="vp-btn btn-group-program flex-1">Отправить</button>
 						</div>						
 					</div>						
 				</div>
@@ -2160,6 +2164,11 @@
 		<div class="select__item">Свидетельство о рождении</div>
 		<div class="select__item">Паспорт иностранца</div>
 	</div>
+	<div class="popup popup__select time-call hide" popupobject="" obj="">
+		<div class="select__item">Паспорт РФ</div>
+		<div class="select__item">Свидетельство о рождении</div>
+		<div class="select__item">Паспорт иностранца</div>
+	</div>	
 	<div class="popup popup__select benefits-list hide" popupobject="" obj="">
 		<div class="select__item">Студент</div>
 		<div class="select__item">Инвалид</div>
@@ -2398,8 +2407,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
-	<script type="text/javascript" src="./js/pluginJquery/vpdatepicker.js"></script>
-	<script type="text/javascript" src="./js/script.js"></script>
+	<script type="text/javascript" src="./scripts/pluginJquery/vpdatepicker.js"></script>
+	<script type="text/javascript" src="./scripts/script.js"></script>
 
 </body>
 </html>

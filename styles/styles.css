@@ -1,5 +1,3 @@
-@import './css/modifiers.css'
-
 html {
 
 }
@@ -25,6 +23,32 @@ body {
 }
 
 /*-----------UI элементы----------------*/
+table {
+    width: 100%;
+    border-color: #1D3054;
+    border-collapse: collapse;
+}
+thead {
+    width: 100%;
+    height: 60px;
+    background: #DCDEE1;
+    border-radius: 10px 10px 10px 10px;
+}
+td {
+	/*border: 1px solid #DCDEE1;*/
+}
+/*
+tr:nth-child(even) {
+    height: 45px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+tr:nth-child(odd) {
+    height: 45px;
+    background-color: transparent;
+    border-radius: 0px;
+}
+*/
 .input__checkbox:checked {
 	background-color: #31B404;
 	background-image: url(../img/icon_checkbox.svg);

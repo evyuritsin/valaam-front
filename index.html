@@ -13,8 +13,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,700;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 		<!--link rel="icon" type="image/png" href="/favicon.png" /-->
-		<link rel="stylesheet" href="./jquery-ui/jquery-ui.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+		<!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script-->
+		<script src="./scripts/mask/jquery.maskedinput.min.js"></script>
 		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->	
 		<link rel="stylesheet" type="text/css" href="./sliderClick/slick.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -198,7 +199,7 @@
 		</div>
 	</header>
 	<!--остальные-->
-	<main class="main">
+	<main id="app" class="main">
 		<div class="crumbs">
 			<div class="crumbs__row">
 				<ul class="crumbs__list">
@@ -213,7 +214,7 @@
 			</div>
 		</div>
 		<section class="section search-program">
-			<div class="main__caption">ПОИСК ТУРА НА ВАЛААМ</div>
+			<div class="main__caption">{{ searchProgramTitle }}</div>
 			<div class="main__content">
 				<div class="search">
 					<form action="">
@@ -290,7 +291,7 @@
 				</div>
 			</div>
 			<div class="main__caption">НАЙДЕННЫЕ ПРОГРАММЫ</div>
-			<div class="list" count="two">
+			<div class="list" v-bind:class="findListVisible" count="two">
 				<div class="find-list">
 					<img class="find-list__img" src="./img/list_img_1.png" alt="list img">
 					<div class="find-list__content">
@@ -330,7 +331,6 @@
 								</div>															
 							</div>
 						</div>
-
 						<div class="find-list__footer">
 							<img src="./img/icon_calendar.png" alt="icon calendar" class="find-list__calendar">
 							<div class="find-list__date-item">
@@ -580,7 +580,7 @@
 					</div>
 				</div>							
 			</div>
-			<a href="#" class="btn-more-show" count="2">Показать ещё</a>
+			<a href="#" class="btn-more-show" @click.prevent="findListShowClick" count="2">{{ findListVisible.findListBtnShow }}</a>
 			<section class="find-programs">
 				<div class="find-programs__title">НЕ НАШЛИ ПОДХОДЯЩУЮ ПРОГРАММУ?</div>
 				<div class="find-programs__construct">
@@ -590,9 +590,12 @@
 				<div class="find-programs__separate"></div>
 				<span class="find-programs__label">Или оставьте заявку, с Вами свяжется организатор</span>
 				<div class="find-programs__form">
-					<input type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
-					<input type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
-					<button type="submit" class="vp-btn ml-20 pl-20 pr-20">Оставить заявку</button>				
+					<input v-model="findProgramInputs.name" type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
+					<input v-model="findProgramInputs.phone" type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
+					<button type="button" class="vp-btn ml-20 pl-20 pr-20" @click.prevent="findProgramClick">Оставить заявку</button>
+				</div>
+				<div class="checkbox__label" v-bind:class="findProgramInputs.visible">
+					<span class="mt-10 w-100 ta-right red">{{ findProgramInputs.error }}</span>
 				</div>
 				<div class="checkbox__label">
 					<input type="checkbox" class="checkbox" checked="">
@@ -672,11 +675,12 @@
 				</div>
 				<div class="main__introtext">Данные заказчика</div>
 				<div class="register__row">
-					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Имя*">
-					<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон*">
-					<input type="text" class="input__text flex-1" value="" placeholder="Email*">
-					<input type="text" name="timecall" class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" value="" placeholder="Удобное время для звонка" showmodal="docs-list" inputobj="839856" readonly="" data="" required="">
+					<input v-model="groupProgInputs.name" type="text" class="input__text mr-20 flex-1" value="" placeholder="Имя*">
+					<input v-model="groupProgInputs.phone" type="text" class="input__text input_phone mr-20 flex-1" value="" placeholder="Телефон*">
+					<input v-model="groupProgInputs.email" type="text" class="input__text flex-1" value="" placeholder="Email*">
+					<input v-model="groupProgInputs.timecall" type="text" name="timecall" class="vp-input flex-1 input__icon_right icon_arrowdown ml-20" value="" placeholder="Удобное время для звонка" showmodal="docs-list" inputobj="839856" readonly="" data="" required="">
 				</div>
+				<span class="mt-10 w-100 ta-right red" v-bind:class="groupProgInputs.visible">{{ groupProgInputs.error }}</span>			
 				<div class="order-form__field pos-h">
 					<div class="order-form__pay-group">
 						<div class="order-form__footer">							
@@ -686,15 +690,15 @@
 						<div class="order-form__footer">
 							<div class="order-form__agreement">
 								<div class="checkbox__label">
-									<input type="checkbox" class="checkbox" checked="">
+									<input v-model="groupProgInputs.personeData" type="checkbox" class="checkbox" checked="">
 									<span class="checkbox__text">Я даю своё согласие на обработку персональных данных</span>
 								</div>
 								<div class="checkbox__label">
-									<input type="checkbox" class="checkbox" checked="">
+									<input v-model="groupProgInputs.mailingNews" type="checkbox" class="checkbox" checked="">
 									<span class="checkbox__text">Подписаться на рассылку новостей</span>
 								</div>									
 							</div>
-							<button class="vp-btn btn-finish-order flex-1">Оплатить</button>
+							<button type="button" @click.prevent="groupProgInputsClick" class="vp-btn flex-1">Оплатить</button>
 						</div>						
 					</div>						
 				</div>
@@ -702,7 +706,7 @@
 		</section>
 		<section class="section motorShips">
 			<div class="main__caption">Теплоходы</div>
-			<div class="list">
+			<div class="list" v-bind:class="motorShipsVisible">
 				<div class="motorShips-list">
 					<img src="./img/motorShips/motorShips_list_valaam.png" alt="list img" class="motorShips-list__img">
 					<div class="motorShips-list__name">
@@ -820,6 +824,77 @@
 							<span class="motorShips-list__footer-text">из Сортавала</span>
 						</div>						
 					</div>						
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_igumen_nazarii.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«ИГУМЕН НАЗАРИЙ»</a>
+					</div>
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>						
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_prepodobnii_serafim.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«ПРЕПОДОБНЫЙ СЕРАФИМ»</a>
+					</div>
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-subvalue">30 минут</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>						
+				</div>
+				<div class="motorShips-list">
+					<img src="./img/motorShips/motorShips_list_andrei_pervozvanii.png" alt="list img" class="motorShips-list__img">
+					<div class="motorShips-list__name">
+						<a class="motorShips-list__link-name" href="#">«АНДРЕЙ ПЕРВОЗВАННЫЙ»</a>
+					</div>	
+					<div class="motorShips-list__footer">
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_people.png" alt="icon people" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">150</span>
+							<span class="motorShips-list__footer-text">пассажиров</span>	
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">2 часа</span>
+							<span class="motorShips-list__footer-subvalue">30 минут</span>
+							<span class="motorShips-list__footer-text">из Приозерска</span>			
+						</div>
+						<div class="motorShips-list__footer-item">
+							<img src="./img/icon_clock3.png" alt="icon calendar" class="motorShips-list__footer-icon">
+							<span class="motorShips-list__footer-value">3 часа</span>
+							<span class="motorShips-list__footer-text">из Сортавала</span>
+						</div>						
+					</div>						
 				</div>	
 				<div class="motorShips-list">
 					<img src="./img/motorShips/motorShips_list_igumen_nazarii.png" alt="list img" class="motorShips-list__img">
@@ -843,13 +918,13 @@
 							<span class="motorShips-list__footer-text">из Сортавала</span>
 						</div>						
 					</div>						
-				</div>																	
+				</div>
 			</div>
-			<a href="#" class="btn-more-show">Показать ещё</a>
+			<a href="#" class="btn-more-show" @click.prevent="motorShipsShowClick">{{ motorShipsVisible.motorShipsBtnShow }}</a>
 		</section>
 		<section class="section services">
 			<div class="main__caption">Услуги</div>
-			<div class="list">
+			<div class="list" v-bind:class="servicesVisible">
 				<div class="service-list">
 					<a href="#service" class="servive-list__link">
 						<img src="./img/services/service_list_veloprokat.png" alt="list img" class="service-list__img">
@@ -903,13 +978,49 @@
 							<img src="./img/icon_arrow.png" alt="" class="servise-list__arrow">
 						</div>
 					</a>
-				</div>				
+				</div>
+				<div class="service-list">
+					<a href="#service" class="servive-list__link">
+						<img src="./img/services/service_list_boatprokat.png" alt="list img" class="service-list__img">
+					</a>
+					<div class="service-list__content">
+						<a href="#service" class="servive-list__link">
+							<div class="service-list__title">Прокат лодки</div>
+						</a>
+						<div class="service-list__desc">
+							Лодка, два весла и хорошая компания – это все, что может понадобиться для путешествия . Несомненно, такая прогулка будет запоминающаяся как для романтических пар, так и семьям с детьми.
+						</div>
+					</div>
+					<a href="#service" class="servive-list__link">
+						<div class="service-list__arrow">
+							<img src="./img/icon_arrow.png" alt="" class="servise-list__arrow">
+						</div>
+					</a>
+				</div>
+				<div class="service-list">
+					<a href="#service" class="servive-list__link">
+						<img src="./img/services/service_list_bathhouse.png" alt="list img" class="service-list__img">
+					</a>
+					<div class="service-list__content">
+						<a href="#service" class="servive-list__link">
+							<div class="service-list__title">Баня на дровах</div>
+						</a>						
+						<div class="service-list__desc">
+							Традиционная русская баня — парная на дровах. В ней неприемлемы инновационные аналоги лассической каменки или модели печей, работающих от электричества. В этом заключается главная особенность, и на этом же основываются преимущества русской бани и польза.
+						</div>
+					</div>
+					<a href="#service" class="servive-list__link">
+						<div class="service-list__arrow">
+							<img src="./img/icon_arrow.png" alt="" class="servise-list__arrow">
+						</div>
+					</a>
+				</div>							
 			</div>
-			<a href="#" class="btn-more-show">Показать ещё</a>
+			<a href="#" class="btn-more-show" @click.prevent="servicesShowClick">{{ servicesVisible.servicesBtnShow }}</a>
 		</section>
 		<section class="section excursions">
 			<div class="main__caption">Экскурсии</div>
-			<div class="list">
+			<div class="list" v-bind:class="excursionsVisible">
 				<div class="excursion-list">
 					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
 					<div class="excursion-list__content">
@@ -1005,9 +1116,57 @@
 						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
 						<span class="excursion-list__time">2,5 часа</span>
 					</div>
-				</div>										
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Острова монашеского подвига</div>
+						<div class="excursion-list__desc">
+							Теплоходная экскурсия по красивейшим местам Валаамского архипелага: вдоль его западного побережья, из бухты Монастырской, на высоком берегу которой располагается центральная ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Скиты во имя Всех Святых и Смоленский</div>
+						<div class="excursion-list__desc">
+							Пешеходная экскурсия от Центральной Усадьбы монастыря на о. Скитский – второй по величине остров Валаамского архипелага. На его территории расположены 2 из 13 исторических ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>
+				<div class="excursion-list">
+					<img src="./img/services/service_list_bathhouse.png" alt="list img" class="excursion-list__img">
+					<div class="excursion-list__content">
+						<div class="excursion-list__title">Никольский скит</div>
+						<div class="excursion-list__desc">
+							Экскурсия в один из красивейших скитов Валаама, где вновь отреставрированный шатровый храм во имя святителя Николая Чудотворца, белоснежный келейный корпус, яблоневый сад ...
+						</div>
+					</div>
+					<div class="excursion-list__footer">
+						<a class="excursion-list__link" href="#">Подробнее</a>
+					</div>
+					<div class="excursion-list__duration">
+						<img src="./img/icon_clock.png" alt="icon clock" class="excursion-list__icon">
+						<span class="excursion-list__time">2,5 часа</span>
+					</div>
+				</div>													
 			</div>
-			<a href="#" class="btn-more-show">Показать ещё</a>
+			<a href="#" class="btn-more-show" @click.prevent="excursionsShowClick">{{ excursionsVisible.excursionsBtnShow }}</a>
 		</section>
 		<section class="section excursion">
 			<div class="main__caption">СКИТЫ ВАЛААМА</div>
@@ -1210,53 +1369,56 @@
 			<div class="main__content">
 				<form class="register__form" action="">
 					<div class="checkbox__label">
-						<input type="checkbox" class="checkbox" checked>
+						<input v-model="regUrInputs.agent" type="checkbox" class="checkbox" checked>
 						<span class="checkbox__text">АГЕНСТВО</span>
 					</div>
 					<div class="register__row">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="ФИО представителя компании*">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="E-mail*">
-						<input type="text" class="input__text flex-1" value="" placeholder="Телефон*">	
+						<input v-model="regUrInputs.fio" type="text" class="input__text mr-20 flex-1" value="" placeholder="ФИО представителя компании*">
+						<input v-model="regUrInputs.email" type="text" class="input__text mr-20 flex-1" value="" placeholder="E-mail*">
+						<input v-model="regUrInputs.phone" type="text" class="input__text flex-1" value="" placeholder="Телефон*">	
 					</div>
 					<div class="main__introtext">Реквизиты компании</div>
 					<div class="register__row">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Название*">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="ИНН*">
-						<input type="text" class="input__text flex-1" value="" placeholder="КПП">
+						<input v-model="regUrInputs.name" type="text" class="input__text mr-20 flex-1" value="" placeholder="Название*">
+						<input v-model="regUrInputs.inn" type="text" class="input__text mr-20 flex-1" value="" placeholder="ИНН*">
+						<input v-model="regUrInputs.kpp" type="text" class="input__text flex-1" value="" placeholder="КПП">
 					</div>
 					<div class="register__row">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Юридический адрес">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон/Факс*">
-						<input type="text" class="input__text flex-1" value="" placeholder="Расчетный счет*">
+						<input v-model="regUrInputs.adressUr" type="text" class="input__text mr-20 flex-1" value="" placeholder="Юридический адрес">
+						<input v-model="regUrInputs.fax" type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон/Факс*">
+						<input v-model="regUrInputs.rasChet" type="text" class="input__text flex-1" value="" placeholder="Расчетный счет*">
 					</div>
 					<div class="register__row">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Название банка*">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="БИК*">
-						<input type="text" class="input__text flex-1" value="" placeholder="Кор.счет банка*">
+						<input v-model="regUrInputs.nameBank" type="text" class="input__text mr-20 flex-1" value="" placeholder="Название банка*">
+						<input v-model="regUrInputs.bik" type="text" class="input__text mr-20 flex-1" value="" placeholder="БИК*">
+						<input v-model="regUrInputs.korChetBank" type="text" class="input__text flex-1" value="" placeholder="Кор.счет банка*">
 					</div>	
 					<div class="register__row">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон/Факс банка*">
-						<input type="text" class="input__text mr-20 flex-1" value="" placeholder="Адрес доставки документов*">
+						<input v-model="regUrInputs.phoneBank" type="text" class="input__text mr-20 flex-1" value="" placeholder="Телефон/Факс банка*">
+						<input v-model="regUrInputs.adressDilivery" type="text" class="input__text mr-20 flex-1" value="" placeholder="Адрес доставки документов*">
 						<div class="register__col flex-1 center-v" for="">
 							<div class="checkbox__label">
-								<input type="checkbox" class="checkbox" checked>
+								<input v-model="regUrInputs.payNds" type="checkbox" class="checkbox" checked>
 								<span class="checkbox__text">Плательщик НДС</span>
 							</div>
 						</div>
 					</div>
 					<div class="register__row">
+						<span class="mt-10 w-100 ta-right red" v-bind:class="regUrInputs.visible">{{ regUrInputs.error }}</span>
+					</div>
+					<div class="register__row">
 						<div class="register__col flex-1 pos-v pl-0">
 							<div class="checkbox__label">
-								<input type="checkbox" class="checkbox" checked>
+								<input v-model="regUrInputs.sendInfo" type="checkbox" class="checkbox" checked>
 								<span class="checkbox__text">Я согласен с условиями передачи информации</span>
 							</div>
 							<div class="checkbox__label">
-								<input type="checkbox" class="checkbox">
+								<input v-model="regUrInputs.news" type="checkbox" class="checkbox">
 								<span class="checkbox__text">Подписаться на рассылку новостей</span>
 							</div>							
 						</div>
 						<div class="register__col flex-1" for=""></div>
-						<button class="vp-btn flex-1 pl-0 pr-0">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+						<button class="vp-btn flex-1 pl-0 pr-0" @click.prevent="regUrInputsClick">ЗАРЕГИСТРИРОВАТЬСЯ</button>
 					</div>		
 				</form>
 			</div>
@@ -4357,24 +4519,30 @@
 				</div>
 				<div class="program-designer__footer">
 					<div class="program-card">
-						<div class="program-card__labels">
-							<span class="program-card__label">Маршрут:</span>
-							<span class="program-card__label mt-20">Даты поездки:</span>
-							<span class="program-card__label mt-20">Количество человек:</span>
-							<span class="program-card__label mt-20">Проживание:</span>
-						</div>
 						<div class="program-card__content">
-							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
-							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
-							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
-							<span insertField="habitation" class="program-card__label mt-20">3х местный с удобствами в номере  1,2,3 этажи</span>
+							<div class="program-card__labels">
+								<span class="program-card__label">Маршрут:</span>
+								<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Даты поездки:</span>
+								<span class="program-card__label">18.11.2022 — 25.15.2022</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Количество человек:</span>
+								<span class="program-card__label">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проживание:</span>
+								<span class="program-card__label">3х местный с удобствами в номере  1,2,3 этажи</span>
+							</div>
 						</div>
 						<div class="program-card__footer">
 							<div class="program-card__info">
 								<div class="program-card__item">
 									<span class="program-card__label">Проживание:</span>
 									<span class="program-card__price"><b>25 800</b> ₽</span>
-								</div>								
+								</div>				
 							</div>
 							<div class="program-card__totals">
 								<div class="program-card__paid mb-0">
@@ -4908,23 +5076,31 @@
 				</div>
 				<div class="program-designer__footer">
 					<div class="program-card">
-						<div class="program-card__labels">
-							<span class="program-card__label">Маршрут:</span>
-							<span class="program-card__label mt-20">Даты поездки:</span>
-							<span class="program-card__label mt-20">Количество человек:</span>
-							<span class="program-card__label mt-20">Проживание:</span>
-							<span class="program-card__label mt-20">Проезд туда:</span>
-							<span class="program-card__label mt-20">Проезд обратно:</span>
-						</div>
 						<div class="program-card__content">
-							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
-							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
-							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
-							<span insertField="habitation" class="program-card__label mt-20">
-								3х местный с удобствами в номере  1,2,3 этажи
-							</span>
-							<span class="program-card__label mt-20">ТХ «Преподобный Серафим» отправление 11:00</span>
-							<span class="program-card__label mt-20">ТХ «Андрей Первозванный» отправление 12:00</span>
+							<div class="program-card__labels">
+								<span class="program-card__label">Маршрут:</span>
+								<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Даты поездки:</span>
+								<span class="program-card__label">18.11.2022 — 25.15.2022</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Количество человек:</span>
+								<span class="program-card__label">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проживание:</span>
+								<span class="program-card__label">3х местный с удобствами в номере  1,2,3 этажи</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд туда:</span>
+								<span class="program-card__label">ТХ «Преподобный Серафим» отправление 11:00</span>
+							</div>																
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд обратно:</span>
+								<span class="program-card__label">ТХ «Андрей Первозванный» отправление 12:00</span>
+							</div>
 						</div>
 						<div class="program-card__footer">
 							<div class="program-card__info">
@@ -5222,24 +5398,36 @@
 				</div>
 				<div class="program-designer__footer">
 					<div class="program-card">
-						<div class="program-card__labels">
-							<span class="program-card__label">Маршрут:</span>
-							<span class="program-card__label mt-20">Даты поездки:</span>
-							<span class="program-card__label mt-20">Количество человек:</span>
-							<span class="program-card__label mt-20">Проживание:</span>
-							<span class="program-card__label mt-20">Проезд туда:</span>
-							<span class="program-card__label mt-20">Проезд обратно:</span>
-							<span class="program-card__label mt-20">Питание:</span>
-						</div>
 						<div class="program-card__content">
-							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
-							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
-							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
-							<span class="program-card__label mt-20">3х местный с удобствами в номере  1,2,3 этажи</span>
-							<span class="program-card__label mt-20">ТХ «Преподобный Серафим» отправление 11:00</span>
-							<span class="program-card__label mt-20">ТХ «Андрей Первозванный» отправление 12:00</span>
-							<span class="program-card__label mt-20">4 завтрака | 5 обедов | 4 ужина</span>
-						</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Маршрут:</span>
+								<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Даты поездки:</span>
+								<span class="program-card__label">18.11.2022 — 25.15.2022</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Количество человек:</span>
+								<span class="program-card__label">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проживание:</span>
+								<span class="program-card__label">3х местный с удобствами в номере  1,2,3 этажи</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд туда:</span>
+								<span class="program-card__label">ТХ «Преподобный Серафим» отправление 11:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд обратно:</span>
+								<span class="program-card__label">ТХ «Андрей Первозванный» отправление 12:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Питание:</span>
+								<span class="program-card__label">4 завтрака | 5 обедов | 4 ужина</span>
+							</div>
+						</div>							
 						<div class="program-card__footer">
 							<div class="program-card__info">
 								<div class="program-card__item">
@@ -5519,27 +5707,43 @@
 				</div>
 				<div class="program-designer__footer">
 					<div class="program-card">
-						<div class="program-card__labels">
-							<span class="program-card__label">Маршрут:</span>
-							<span class="program-card__label mt-20">Даты поездки:</span>
-							<span class="program-card__label mt-20">Количество человек:</span>
-							<span class="program-card__label mt-20">Проживание:</span>
-							<span class="program-card__label mt-20">Проезд туда:</span>
-							<span class="program-card__label mt-20">Проезд обратно:</span>
-							<span class="program-card__label mt-20">Питание:</span>
-							<span class="program-card__label mt-20">Экскурсия 1:</span>
-							<span class="program-card__label mt-20">Экскурсия 2:</span>
-						</div>
 						<div class="program-card__content">
-							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
-							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
-							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
-							<span class="program-card__label mt-20">3х местный с удобствами в номере  1,2,3 этажи</span>
-							<span class="program-card__label mt-20">ТХ «Преподобный Серафим» отправление 11:00</span>
-							<span class="program-card__label mt-20">ТХ «Андрей Первозванный» отправление 12:00</span>
-							<span class="program-card__label mt-20">4 завтрака | 5 обедов | 4 ужина</span>
-							<span class="program-card__label mt-20">Валаамское братство в годы военного лихолетья: Скалистый берег</span>
-							<span class="program-card__label mt-20">Прокат лодки</span>
+							<div class="program-card__labels">
+								<span class="program-card__label">Маршрут:</span>
+								<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Даты поездки:</span>
+								<span class="program-card__label">18.11.2022 — 25.15.2022</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Количество человек:</span>
+								<span class="program-card__label">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проживание:</span>
+								<span class="program-card__label">3х местный с удобствами в номере  1,2,3 этажи</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд туда:</span>
+								<span class="program-card__label">ТХ «Преподобный Серафим» отправление 11:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд обратно:</span>
+								<span class="program-card__label">ТХ «Андрей Первозванный» отправление 12:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Питание:</span>
+								<span class="program-card__label">4 завтрака | 5 обедов | 4 ужина</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Экскурсия 1:</span>
+								<span class="program-card__label">Валаамское братство в годы военного лихолетья: Скалистый берег</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Услуги:</span>
+								<span class="program-card__label">Прокат лодки</span>
+							</div>
 						</div>
 						<div class="program-card__footer">
 							<div class="program-card__info">
@@ -5734,25 +5938,39 @@
 				</div>
 				<div class="program-designer__footer">
 					<div class="program-card">
-						<div class="program-card__labels">
-							<span class="program-card__label">Маршрут:</span>
-							<span class="program-card__label mt-20">Даты поездки:</span>
-							<span class="program-card__label mt-20">Количество человек:</span>
-							<span class="program-card__label mt-20">Проживание:</span>
-							<span class="program-card__label mt-20">Проезд туда:</span>
-							<span class="program-card__label mt-20">Проезд обратно:</span>
-							<span class="program-card__label mt-20">Питание:</span>
-							<span class="program-card__label mt-20">Дополнительно:</span>
-						</div>
 						<div class="program-card__content">
-							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
-							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
-							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
-							<span class="program-card__label mt-20">3х местный с удобствами в номере  1,2,3 этажи</span>
-							<span class="program-card__label mt-20">ТХ «Преподобный Серафим» отправление 11:00</span>
-							<span class="program-card__label mt-20">ТХ «Андрей Первозванный» отправление 12:00</span>
-							<span class="program-card__label mt-20">4 завтрака | 5 обедов | 4 ужина</span>
-							<span insertField="services" class="program-card__label mt-20">Прокат лодки</span>							
+							<div class="program-card__labels">
+								<span class="program-card__label">Маршрут:</span>
+								<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Даты поездки:</span>
+								<span class="program-card__label">18.11.2022 — 25.15.2022</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Количество человек:</span>
+								<span class="program-card__label">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проживание:</span>
+								<span class="program-card__label">3х местный с удобствами в номере  1,2,3 этажи</span>
+							</div>					
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд туда:</span>
+								<span class="program-card__label">ТХ «Преподобный Серафим» отправление 11:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд обратно:</span>
+								<span class="program-card__label">ТХ «Андрей Первозванный» отправление 12:00</span>
+							</div>						
+							<div class="program-card__labels">
+								<span class="program-card__label">Питание:</span>
+								<span class="program-card__label">4 завтрака | 5 обедов | 4 ужина</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Дополнительно:</span>
+								<span class="program-card__label">Прокат лодки</span>
+							</div>
 						</div>
 						<div class="program-card__footer">
 							<div class="program-card__info">
@@ -5905,25 +6123,39 @@
 				</div>
 				<div class="program-designer__footer">
 					<div class="program-card">
-						<div class="program-card__labels">
-							<span class="program-card__label">Маршрут:</span>
-							<span class="program-card__label mt-20">Даты поездки:</span>
-							<span class="program-card__label mt-20">Количество человек:</span>
-							<span class="program-card__label mt-20">Проживание:</span>
-							<span class="program-card__label mt-20">Проезд туда:</span>
-							<span class="program-card__label mt-20">Проезд обратно:</span>
-							<span class="program-card__label mt-20">Питание:</span>
-							<span class="program-card__label mt-20">Дополнительно:</span>
-						</div>
 						<div class="program-card__content">
-							<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
-							<span class="program-card__label mt-20">18.11.2022 — 25.15.2022</span>
-							<span class="program-card__label mt-20">2 взрослых  |  1 ребёнок 7-12 лет</span>
-							<span class="program-card__label mt-20">3х местный с удобствами в номере  1,2,3 этажи</span>
-							<span class="program-card__label mt-20">ТХ «Преподобный Серафим» отправление 11:00</span>
-							<span class="program-card__label mt-20">ТХ «Андрей Первозванный» отправление 12:00</span>
-							<span class="program-card__label mt-20">4 завтрака | 5 обедов | 4 ужина</span>
-							<span class="program-card__label mt-20">Прокат лодки</span>	
+							<div class="program-card__labels">
+								<span class="program-card__label">Маршрут:</span>
+								<span class="program-card__label">Приозерск — Валаам — Приозерск</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Даты поездки:</span>
+								<span class="program-card__label">18.11.2022 — 25.15.2022</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Количество человек:</span>
+								<span class="program-card__label">2 взрослых  |  1 ребёнок 7-12 лет</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проживание:</span>
+								<span class="program-card__label">3х местный с удобствами в номере  1,2,3 этажи</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд туда:</span>
+								<span class="program-card__label">ТХ «Преподобный Серафим» отправление 11:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Проезд обратно:</span>
+								<span class="program-card__label">ТХ «Андрей Первозванный» отправление 12:00</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Питание:</span>
+								<span class="program-card__label">4 завтрака | 5 обедов | 4 ужина</span>
+							</div>
+							<div class="program-card__labels">
+								<span class="program-card__label">Дополнительно:</span>
+								<span class="program-card__label">Прокат лодки</span>
+							</div>
 						</div>
 						<div class="program-card__footer">
 							<div class="program-card__info">
@@ -6239,7 +6471,7 @@
 	</main>
 	<!--остальные-->
 	<!--главная-->
-	<main class="main">
+	<main id="index" class="main">
 		<section class="main__header">
 			<video class="main__poster" poster="./img/main-slider/slider-1.png">
 				<source src="" type='video/ogg; codecs="theora, vorbis"'>
@@ -6287,7 +6519,7 @@
 		</section>
 		<section class="section populars">
 			<div class="main__caption">Популярные программы</div>
-			<div class="list">
+			<div class="list" v-bind:class="popularsVisible">
 				<div class="popular-list">
 					<div class="popular-list__header">
 						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
@@ -6583,9 +6815,157 @@
 						<img src="./img/icon_clock.png" alt="icon clock">
 						<span>2 дня</span>
 					</div>
-				</div>			
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>
+				<div class="popular-list">
+					<div class="popular-list__header">
+						<img src="./img/popular_item_1.png" alt="" class="popular-list__img">
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__title">Осенний Валаам из Сортавала</div>
+						</a>
+					</div>
+					<div class="popular-list__options">
+						<div class="popular-list__option">
+							<img src="./img/icon_calendar.png" alt="" class="options__icon">
+							<span class="options__label">15.10.2022 - сб | 22.10.2022 - сб</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_service.png" alt="" class="options__icon">
+							<span class="options__label">Без обеда</span>
+						</div>
+						<div class="popular-list__option">
+							<img src="./img/icon_geo.png" alt="" class="popular-list__icon">
+							<span class="options__label">Санкт-Петербург</span>
+						</div>						
+					</div>
+					<div class="popular-list__footer">
+						<div class="popular-list__price">
+							от
+							<span class="popular-list__price-value">15 849 ₽</span>
+							/чел							
+						</div>
+						<a href="#" class="popular-list__link">
+							<div class="popular-list__btn">Смотреть</div>
+						</a>
+						
+					</div>
+					<div class="label-list">
+						<img src="./img/icon_clock.png" alt="icon clock">
+						<span>2 дня</span>
+					</div>
+				</div>							
 			</div>
-			<a href="#" class="btn-more-show">Показать ещё</a>	
+			<a href="#" class="btn-more-show" @click.prevent="popularsShowClick">{{ popularsVisible.popularsBtnShow }}</a>	
 		</section>
 		<section class="section posts">
 			<div class="list">
@@ -6670,9 +7050,12 @@
 			<div class="find-programs__separate"></div>
 			<span class="find-programs__label">Или оставьте заявку, с Вами свяжется организатор</span>
 			<div class="find-programs__form">
-				<input type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
-				<input type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
-				<button type="submit" class="vp-btn ml-20 pl-20 pr-20">Оставить заявку</button>				
+				<input v-model="findProgramInputs.name" type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
+				<input v-model="findProgramInputs.phone" type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
+				<button type="button" class="vp-btn ml-20 pl-20 pr-20" @click.prevent="findProgramClick">Оставить заявку</button>				
+			</div>
+			<div class="checkbox__label" v-bind:class="findProgramInputs.visible">
+				<span class="mt-10 w-100 ta-right red">{{ findProgramInputs.error }}</span>
 			</div>
 			<div class="checkbox__label">
 				<input type="checkbox" class="checkbox" checked="">
@@ -7108,13 +7491,14 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script type="text/javascript" src="./scripts/scriptVue.js"></script>
 	<script type="text/javascript" src="./sliderClick/slick.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
 	<script type="text/javascript" src="./scripts/pluginJquery/vpdatepicker.js"></script>
 	<script type="text/javascript" src="./scripts/script.js"></script>
-
+	
 </body>
 </html>

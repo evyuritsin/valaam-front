@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    function setupMask() {
+		$("[name=passSN]").mask("9999 999999");
+		$("[name=telefon]").add('.icon_telefon').add('.input_phone').mask("+7 (999) 999 99 99");
+    }
 	function centerViewObj(obj) {
 		var height_doc = $(document).scrollTop();
 		var height_view = $(window).height();
@@ -81,10 +85,6 @@ $(document).ready(function() {
 		});
 		$('.order-form_clone').hide();
 		setupMask();
-    }
-    function setupMask() {
-		$("[name=passSN]").mask("9999 999999");
-		$("[name=telefon]").mask("+7 (999) 999 99 99");
     }
 	$('.index-form__btn-minus').click(function() {
 		var target = $(this).parent().find('.index-form__value');
@@ -517,6 +517,7 @@ $(document).ready(function() {
 		if (parent.length === 1) {
 			$('[inputobj=' + obj + ']').val(date);
 		}
+		$('.popup__blocked').click();
 	});
 	$('.btn-next-room').click(function() {
 		var conteiner = $(this).closest('.buy-tickets-form');

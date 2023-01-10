@@ -1279,13 +1279,22 @@ color: #4F4F4F;
 	border-radius: 20px;
 	display: flex;
 }
-
+.findList_show .find-list {
+	display: flex;
+}
+.findList_hide > .find-list:nth-child(-n+3) {
+	display: flex;
+}
+.findList_hide > .find-list:nth-child(n+3) {
+	display: none;
+}
+/*
 .list[count=two] > .find-list:nth-child(n+3) {
 	height: 0;
 	opacity: 0;
 	margin: 0;
 }
-
+*/
 .find-list__img {
 	width: 300px;
 	height: 100%;
@@ -1511,6 +1520,15 @@ color: #4F4F4F;
 	border-radius: 20px;
 	background-color: #fff;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);	
+}
+.popularsList_show .popular-list {
+	display: flex;
+}
+.popularsList_hide > .popular-list:nth-child(-n+9) {
+	display: flex;
+}
+.popularsList_hide > .popular-list:nth-child(n+9) {
+	display: none;
 }
 .popular-list__header {
 	width: 100%;
@@ -1973,6 +1991,15 @@ border-bottom-left-radius: 20px;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
 	border-radius: 20px;
 }
+.motorShipslist_show .motorShips-list {
+	display: flex;
+}
+.motorShipslist_hide > .motorShips-list:nth-child(-n+7) {
+	display: flex;
+}
+.motorShipslist_hide > .motorShips-list:nth-child(n+7) {
+	display: none;
+}
 .motorShips-list__img {
 	width: 100%;
 	height: 200px;
@@ -2064,6 +2091,15 @@ border-bottom-left-radius: 20px;
 	border-radius: 20px;
 	margin: 12px 0px 12px 0px;
 }
+.servicesList_show .service-list {
+	display: flex;
+}
+.servicesList_hide > .service-list:nth-child(-n+4) {
+	display: flex;
+}
+.servicesList_hide > .service-list:nth-child(n+4) {
+	display: none;
+}
 .servive-list__link {
 	text-decoration: none;
 	font-style: normal;
@@ -2143,6 +2179,15 @@ border-bottom-left-radius: 20px;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
 	border-radius: 20px;
 	margin: 12px 0px 12px 0px;
+}
+.excursionsList_show .excursion-list {
+	display: flex;
+}
+.excursionsList_hide > .excursion-list:nth-child(-n+7) {
+	display: flex;
+}
+.excursionsList_hide > .excursion-list:nth-child(n+7) {
+	display: none;
 }
 .excursion-list__link {
 	width: 100%;
@@ -4078,8 +4123,8 @@ border-radius: 10px;
 	background-position: center right;
 	background-position-x: calc(100% - 15px);
 }
-.show {	display: block; }
-.hide {	display: none; }
+.show {	display: block!important; }
+.hide {	display: none!important; }
 .visibShow { 
 	opacity: 1!important; 
 	visibility: visible!important; 

@@ -4335,6 +4335,12 @@ border-radius: 10px;
 .bg-blue { background-color: #1D3054!important; }
 .bg-orange { background-color: #FF8A00!important; }
 
+.bg-img {
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
 .transform-0 { transform: rotateX(0deg); }
 .transform-45 { transform: rotateX(45deg); }
 .transform-90 { transform: rotateX(90deg); }

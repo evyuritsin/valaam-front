@@ -2178,6 +2178,9 @@ border-bottom-left-radius: 20px;
 	background-color: #1D3054;
 	border-radius: 0px 20px 20px 0px;
 }
+.service-list__arrow:hover {
+	background-color: #FF8A00;
+}
 /*-----------services-list------------------------*/
 /*-----------service------------------------------*/
 .service__desc {
@@ -3864,6 +3867,8 @@ border-radius: 10px;
 	height: 100%;
 	box-sizing: border-box;
 	padding: 30px 30px 20px 30px;
+    display: flex;
+    flex-direction: column;
 	align-items: center;
 }
 .modal__caption {
@@ -3987,6 +3992,14 @@ border-radius: 10px;
 	margin-top: 20px;
 	text-transform: uppercase;
 	cursor: pointer;
+}
+.modal__link {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1D3054;
+	margin-top: 20px;
 }
 .modal__info {
 	display: flex;

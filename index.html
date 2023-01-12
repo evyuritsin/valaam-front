@@ -72,7 +72,9 @@
 		</div>
 		<div class="header__row">
 			<div class="header-bottom">
-				<img class="header-bottom__logo" src="./img/logo.svg" alt="logo">
+				<a href="#">
+					<img class="header-bottom__logo" src="./img/logo.svg" alt="logo">
+				</a>
 				<ul class="header-bottom__nav">
 					<li class="header-bottom__submenu">
 						<a class="header-bottom__link" href="#">Программы</a>
@@ -4054,7 +4056,17 @@
 									<div class="search__filters">
 										<div class="search__col flex-2">
 											<label for="" class="search__filter-name">Дата заезда</label>
-											<input type="text" class="search__filter icon_date flatpickr-input active" value="" placeholder="17 октября 2022" readonly="readonly">
+											<!--input type="text" class="search__filter icon_date flatpickr-input active" value="" placeholder="17 октября 2022" readonly="readonly"-->
+							<input 
+								type="text" 
+								class="search__filter icon_date" 
+								value="" 
+								placeholder="Дата заезда"
+								showmodal="datepicker-lite"
+								inputobj="72020247" 
+								readonly
+								data=""						
+							>
 										</div>
 										<div class="search__col flex-2 ml-20">
 											<label for="" class="search__filter-name">Дата отъезда</label>
@@ -7166,7 +7178,7 @@
 
 		</div>
 	</footer>
-	<div id="m-login" class="modals modal login hide">
+	<div id="m-login" class="modals modal login" style="display: none;">
 		<a href="javascript:void(0)" class="modal__close-link">
 			<img src="./img/icon_modal_close.png" alt="" class="modal__close">
 		</a>
@@ -7195,7 +7207,7 @@
 		</div>
 		</form>
 	</div>
-	<div id="m-register" class="modals modal register hide">
+	<div id="m-register" class="modals modal register" style="display: none;">
 		<a href="javascript:void(0)" class="modal__close-link">
 			<img src="./img/icon_modal_close_black.png" alt="" class="modal__close">
 		</a>
@@ -7223,7 +7235,8 @@
 					<span class="checkbox__text">Подписаться на рассылку новостей</span>
 				</div>
 			</div>
-			<button class="modal__submit">Зарегистрироваться</button>				
+			<button class="modal__submit">Зарегистрироваться</button>
+			<a href="#" class="modal__link w-100">Регистрация для юридических лиц</a>
 		</div>
 		</form>
 	</div>

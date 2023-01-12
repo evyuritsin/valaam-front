@@ -116,12 +116,14 @@ $(document).ready(function() {
 		$('body').css('overflow', 'hidden');
 		$('.modals').hide();
 		$('.login').show();
+		console.log('login');
 	});
 	$('.header__login-reg').click(function() {
 		$('.modal__blocked').show();
 		$('body').css('overflow', 'hidden');
 		$('.modals').hide();
 		$('.register').show();
+		console.log('reg');
 	});
 	$('.modal__close-link').click(function() {
 		$(this).parent('.modals').hide();

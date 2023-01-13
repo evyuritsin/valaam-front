@@ -21,7 +21,13 @@ body {
     outline: 0;
     outline-offset: 0;
 }
-
+p {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #4F4F4F;
+}
 /*-----------UI элементы----------------*/
 table {
     width: 100%;

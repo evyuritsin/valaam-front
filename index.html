@@ -13,6 +13,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,700;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 		<!--link rel="icon" type="image/png" href="/favicon.png" /-->
+
+		<!--script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=1587e4dd-6d70-4885-aeec-5e92c324be4c" type="text/javascript"></script>
+		<script type="text/javascript" src="./scripts/maps/main_map.js"></script-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
 		<!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script-->
 		<script src="./scripts/mask/jquery.maskedinput.min.js"></script>
@@ -7555,7 +7558,7 @@
 		<section class="section map">
 			<div class="map">
 				<div class="map__title">АДРЕСА ПРИЧАЛОВ</div>
-				<div class="map__content">
+				<div id="main_map" class="map__content">
 					<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0d32a7319b14aef44c06305519d354f8190b68af08ef76c96c4a452a3dadbd4e&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
 				</div>
 				<div class="map__footer">

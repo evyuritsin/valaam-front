@@ -142,7 +142,8 @@ $(document).ready(function() {
 	});
 	$('.modal__blocked').click(function() {
 		$('.modal__close-link').click();
-		$('.modals').removeClass('show').addClass('hide');
+		//$('.modals').removeClass('show').addClass('hide');
+		$('.modals').hide();
 		$(this).hide();
 	});
 	$('.modal__forgot').click(function() {

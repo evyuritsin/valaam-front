@@ -335,7 +335,8 @@ $(document).ready(function() {
 		$('.vp-tab').removeClass('vp-tab_active');
 		$(this).addClass('vp-tab_active');
 		$('.vp-tab-content').removeClass('vp-tab-content_active');
-		$('[id-tab-content=' + idTab + ']').addClass('vp-tab-content_active');	
+		$('[id-tab-content=' + idTab + ']').addClass('vp-tab-content_active');
+		$('.popup').removeClass('show').addClass('hide');
 	});
 	$('.direction-table__select-ship').click(function() {
 		if ($(this).hasClass('direction-table_select-ship-active')) {

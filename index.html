@@ -4840,7 +4840,7 @@
 										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
 										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
 									</div>
-									<input @change="starsValue" class="reviewsStarsCountInput" type="hidden">
+									<input ref="starsCount" class="reviewsStarsCountInput" type="hidden">
 								</div>
 							</div>
 							<div class="reviews__form-field">
@@ -7845,7 +7845,19 @@
 					</div>
 				</div>							
 			</div>
-			<a href="#" class="btn-more-show" @click.prevent="popularsShowClick">{{ popularsVisible.popularsBtnShow }}</a>	
+			<div class="list list_center">
+				<div class="pagination">
+					<a href="#prev" class="pagination__item pagination_prev"></a>
+					<a class="pagination__item pagination_item-active">1</a>
+					<a href="#" class="pagination__item">2</a>
+					<a href="#" class="pagination__item">3</a>
+					<a href="#" class="pagination__item">4</a>
+					<a href="#" class="pagination__item">5</a>
+					<a class="pagination__item">...</a>
+					<a href="#" class="pagination__item">20</a>
+					<a href="#next" class="pagination__item pagination_next"></a>
+				</div>				
+			</div>	
 		</section>
 		<section class="section posts">
 			<div class="list">

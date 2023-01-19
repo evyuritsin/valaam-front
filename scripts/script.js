@@ -826,7 +826,7 @@ $(document).ready(function() {
 		var empty = './img/icons-svg/' + 'icon_reviews_star_empty.svg';
 		$('.reviews__field-star').attr('src', empty);
 		$('.reviews__field-star:nth-child(-n+' + index + ')').attr('src', full);
-		$('.reviewsStarsCountInput').val(index);
+		$('.reviewsStarsCountInput').attr('count', index);
 	});
 	$('.reviews__btn-all').click(function() {
 		var target = $(this).closest('.reviews__item');

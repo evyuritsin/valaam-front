@@ -1149,6 +1149,50 @@ option::after {
 	border: 2px solid rgba(29, 48, 84, 0.5);
 	box-sizing: border-box;
 }
+.pagination {
+	width: fit-content;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	box-sizing: border-box;
+
+	background: #FFFFFF;
+	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
+	border-radius: 50px;
+	margin-top: 30px;
+}
+.pagination__item {
+	width: 30px;
+	height: 30px;
+	background: transparent;
+	border-radius: 30px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 30px;
+	text-align: center;
+	color: #4F4F4F;
+	text-decoration: none;
+}
+.pagination_item-active {
+	background: #1D3054;
+	color: #FFFFFF;	
+}
+.pagination_prev {
+	background-image: url(../img/icons-svg/nav_arrow_prev.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.pagination_next {
+	background-image: url(../img/icons-svg/nav_arrow_next.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.pagination a:nth-last-child(n+2) {
+	margin-right: 10px;
+}
 .label-list {
 	position: absolute;
 	width: 134px;
@@ -1541,6 +1585,9 @@ color: #4F4F4F;
 .list_left {
 	justify-content: flex-start;
 }
+.list_center {
+	justify-content: center;
+}
 /*-----------list-----------------------*/
 /*-----------popular-list---------------*/
 .popular-list {
@@ -1552,7 +1599,8 @@ color: #4F4F4F;
 	flex-direction: column;
 	border-radius: 20px;
 	background-color: #fff;
-	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);	
+	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
+	margin-right: 19px;	
 }
 .popularsList_show .popular-list {
 	display: flex;

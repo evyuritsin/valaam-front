@@ -200,9 +200,10 @@ var app = new Vue({
       console.log(event.target);
     },
     starsClick: function (event) {
-      console.log(event.target);
+      //console.log(event.target.attributes.class.nodeValue);
     },    
     sendReview: function (event) {
+      this.reviews.starsCount = this.$refs.starsCount.getAttribute('count')
       console.log(this.reviews);
     },
   },

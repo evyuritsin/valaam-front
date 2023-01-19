@@ -471,9 +471,16 @@ $(document).ready(function() {
 		});
 		return output.join('');
 	}
+	function getLabelCalendar (month, year) {
+		var label = $('.datepicker-lite').find('.datepicker_label');
+		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+		label.text(months[month] + ' ' + String(year));
+		label.attr('month', month);
+		label.attr('year', year);
+	}
 	var currDate = new Date();
 	$('.datepicker').find('.datepicker__body').html(getFullMonth(currDate.getMonth(), currDate.getFullYear()));
-		
+	getLabelCalendar (currDate.getMonth(), currDate.getFullYear());
 	$('.datepicker_prev-btn').click(function() {
 		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 		var label = $(this).parent().find('.datepicker_label');
@@ -805,6 +812,32 @@ $(document).ready(function() {
 			$('.list[data]').removeClass('visibShow').addClass('visibHide');
 			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibHide').addClass('visibShow');			
 		}
+	});
+	
+	$('.reviews__form-value-foto').click(function() {
+		$('.reviewsFotosInput').click();
+	});
+	
+	$('.reviews__field-star').click(function() {
+		var index = $(this).index();
+		var indexStar = index++;
+		var path = './img/icons-svg/';
+		var full = './img/icons-svg/' + 'icon_reviews_star_full.svg';
+		var empty = './img/icons-svg/' + 'icon_reviews_star_empty.svg';
+		$('.reviews__field-star').attr('src', empty);
+		$('.reviews__field-star:nth-child(-n+' + index + ')').attr('src', full);
+		$('.reviewsStarsCountInput').val(index);
+	});
+	$('.reviews__btn-all').click(function() {
+		var target = $(this).closest('.reviews__item');
+		if (target.find('.reviews__desc').hasClass('reviews_desc-active')) {
+			target.find('.reviews__desc').removeClass('reviews_desc-active');
+			$(this).text('Читать отзыв полностью');	
+		} else {
+			target.find('.reviews__desc').addClass('reviews_desc-active');
+			$(this).text('Скрыть полный текст отзыва');			
+		}
+
 	});
 /*
 	$('.post-list__img').hover(function() {

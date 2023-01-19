@@ -69,6 +69,17 @@ var app = new Vue({
       news: '',
       error: '',
     },
+    reviews: {
+      nameUser: '',
+      starsCount: '',
+      comment: '',
+      fotos: '',
+      infoTrue: false,
+      visible: {
+        showFlex: false,
+        hide: true,
+      },      
+    },
   },
 
   methods: {
@@ -171,6 +182,28 @@ var app = new Vue({
         this.regUrInputs.visible.show = false;
         this.regUrInputs.visible.hide = true;      
       }
+    },
+    reviewsVisibleClick: function (event) {
+      if (this.reviews.visible.showFlex) {
+        this.reviews.visible.showFlex = false;
+        this.reviews.visible.hide = true;
+      } else {
+        this.reviews.visible.showFlex = true;
+        this.reviews.visible.hide = false;
+      }
+    },
+    fotoFiles: function (event) {
+      this.reviews.fotos = event.target.files;
+    },
+    starsValue: function (event) {
+      this.starsCount = event.target.value;
+      console.log(event.target);
+    },
+    starsClick: function (event) {
+      console.log(event.target);
+    },    
+    sendReview: function (event) {
+      console.log(this.reviews);
     },
   },
 });

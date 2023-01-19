@@ -2211,6 +2211,7 @@ border-bottom-left-radius: 20px;
 .service__img {
 	float: left;
 	margin: 0px 10px 20px 0px;
+	max-width: 700px;
 }
 /*-----------service------------------------------*/
 /*-----------excursion-list----------------------*/
@@ -3249,6 +3250,7 @@ border-bottom-left-radius: 20px;
 	line-height: 50px;
 	color: #FFFFFF;
 	margin-left: 20px;
+	cursor: pointer;
 }
 .reviews__list {
 	width: 100%;
@@ -3389,27 +3391,75 @@ border-bottom-left-radius: 20px;
 	margin-top: 30px;
 }
 .reviews__form-content {
-
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 20px 30px;
+	box-sizing: border-box;
+	height: 100%;
+	flex: 1;
 }
 .reviews__form-img {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 20px 30px;
-box-sizing: border-box;
-gap: 20px;
-width: 432px;
-height: 100%;
-background: url(image.png), #FFFFFF;
-border-width: 20px 20px 20px 0px;
-border-style: solid;
-border-color: #FFFFFF;
-border-radius: 0px 30px 30px 0px;
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	box-sizing: border-box;
+	width: 430px!important;
+	height: 100%;
+	background: url(../img/reviews_img.png), #FFFFFF;
+	background-repeat: no-repeat;
+	background-position-x: calc( 100% + 150px );
+    background-size: cover;
+	border-width: 20px 20px 20px 0px;
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-radius: 0px 30px 30px 0px;
+	flex: none;
+	order: 1;
+	/*align-self: stretch;*/
 }
+.reviews__form-fields {
+	width: 100%;
+	height: fit-content;
+	
+}
+.reviews__form-field {
+	width: 100%;
+	display: flex;
+	margin-top: 20px;
+}
+.reviews__field-star {
+	cursor: pointer;
+}
+.reviews__form-label {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #4F4F4F;
+	flex: 1;
+}
+.reviews__form-value-foto {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 15px;
+	box-sizing: border-box;
+	gap: 20px;
+	height: 50px;
+	border: 1px dashed #1D3054;
+	border-radius: 4px;
+	flex: 3;
+	cursor: pointer;
+}
+.reviews__form-foto-label {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #1D3054;
+}
+
 /*-----------reviews---------------------*/
 /*-----------timing---------------------*/
 .datepicker-timing {
@@ -4559,6 +4609,7 @@ color: #B72025;
 	background-position-x: calc(100% - 15px);
 }
 .show {	display: block!important; }
+.showFlex { display: flex!important;  }
 .hide {	display: none!important; }
 .visibShow { 
 	opacity: 1!important; 

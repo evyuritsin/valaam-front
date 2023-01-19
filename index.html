@@ -4721,7 +4721,7 @@
 						<a href="#" class="reviews__sort-date"><b>по дате добавления</b></a>
 						<a href="#" class="reviews__sort-useful">по полезности</a>
 					</div>
-					<button class="reviews__create">Написать отзыв</button>
+					<button class="reviews__create" @click="reviewsVisibleClick">Написать отзыв</button>
 				</div>
 				<div class="reviews__list">
 					<div class="reviews__item">
@@ -4742,7 +4742,7 @@
 							<span class="reviews__info-date">13.12.2022</span>
 						</div>
 						<div class="reviews__content">
-							<div class="reviews__desc reviews_desc-active">
+							<div class="reviews__desc">
 								13 сентября 2022 года, в день моего рождения, отправились на водно-пешеходную экскурсию на север Валаамского архипелага к острову Святому. Нас сопровождал необыкновенно талантливый, эрудированный, внимательнейший, с тонким чувством юмора гид Данила Колесников. Рассказ Данилы интересный и познавательный, хотелось слушать его ещё и ещё! Мы любовалась потрясающими видами золотой осени, узнавали огромное количество фактов и самых интересных мест острова Святой. По преданию, в XV веке на нём жил Преподобный Александр Свирский. Три часа экскурсии пролетели, как одно мгновение. Организация поездки на самом высоком уровне. Выражаю огромную благодарность Паломнической службе Валаамского монастыря «Валаамский паломник» за четкую и слаженную работу, за высокий профессиональный уровень гидов! Поездка стала для меня незабываемым праздником! Храни вас Господь! С уважением, Анна. г. Мурманск.
 							</div>
 							<button type="button" class="reviews__btn-all">Читать отзыв полностью</button>
@@ -4822,11 +4822,52 @@
 					</div>													
 				</div>
 				<a href="#" class="btn-more-show">Показать ещё</a>
-				<div class="reviews__form">
+				<div id="reviewCreate" class="reviews__form" v-bind:class="reviews.visible">
 					<div class="reviews__form-content">
 						<div class="main__caption">Написать отзыв</div>
+						<div class="reviews__form-fields">
+							<div class="reviews__form-field">
+								<div class="reviews__form-label">Имя*</div>
+								<input type="text" v-model="reviews.nameUser" class="reviewsNameUserInput vp-input flex-3" value="">
+							</div>
+							<div class="reviews__form-field">
+								<div class="reviews__form-label">Оценка*</div>
+								<div class="flex-3">
+									<div class="reviews__ratings-stars flex-3">
+										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
+										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
+										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
+										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
+										<img @click="starsClick" class="reviews__field-star" src="./img/icons-svg/icon_reviews_star_empty.svg" alt="">
+									</div>
+									<input @change="starsValue" class="reviewsStarsCountInput" type="hidden">
+								</div>
+							</div>
+							<div class="reviews__form-field">
+								<div class="reviews__form-label">Комментарий*</div>
+								<textarea v-model="reviews.comment" class="reviewsCommentInput vp-input flex-3" style="height: 100px;"></textarea>
+							</div>
+							<div class="reviews__form-field">
+								<div class="reviews__form-label">Фото</div>
+								<div class="reviews__form-value-foto">
+									<img src="./img/icons-svg/foto.svg" alt="">
+									<span class="reviews__form-foto-label">Добавить фото</span>
+								</div>
+								<input @change="fotoFiles" class="reviewsFotosInput hide" type="file" multiple>
+							</div>
+							<div class="reviews__form-field">
+								<div class="reviews__form-label">* Поля обязательны для заполнения</div>
+							</div>
+							<div class="reviews__form-field mb-20">
+								<div class="checkbox__label flex-3">
+									<input type="checkbox" v-model="reviews.infoTrue" checked="checked" class="reviewsInfoTrue checkbox"> 
+									<span class="checkbox__text">Я согласен с условиями передачи информации</span>
+								</div>
+								<button type="button" @click="sendReview" class="vp-btn pl-50 pr-50 flex-1">Отправить отзыв</button>
+							</div>											
+						</div>
 					</div>
-					<img src="./img/reviews_img.png" alt="" class="reviews__form-img">
+					<div class="reviews__form-img"></div>
 				</div>
 			</div>
 		</section>
@@ -7269,7 +7310,7 @@
 				</div>							
 			</div>
 		</section>
-		<section class="section program-designer-order">
+		<section class="section test-table">
 			<div class="main__caption">Тестовая таблица</div>
 			<div class="main__content">
 				<table width="100%" cellspacing="2" cellpadding="2">

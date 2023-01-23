@@ -1330,7 +1330,7 @@ option::after {
 	color: #fff;
 }
 .main__poster {
-	width: auto;
+	width: 100%;
 	height: 80vh;
 	z-index: 1;
 	background-image: url(../img/main-slider/slider-1.png);

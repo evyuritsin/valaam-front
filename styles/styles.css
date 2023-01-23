@@ -4934,6 +4934,35 @@ color: #B72025;
 	.find-programs__link {
 		margin-left: unset!important;
 	}
+	.pagination {
+		width: calc( 100% - 20px );
+		height: fit-content;
+		justify-content: space-between;
+	}
+	.pagination__item {
+		width: unset;
+		flex: 1;
+	}
+	.pagination a:nth-last-child(n+2) {
+		margin-right: unset;
+	}
+	.find-programs {
+		padding: 10px;
+	}
+	.find-programs__link {
+		font-size: 16px;
+	}
+	.header__login, .header__login a {
+		font-size: 12px;
+	}
+	.populars .list {
+		flex-wrap: nowrap;
+		overflow-x: scroll;
+	}
+	.populars .list > .popular-list {
+		margin-left: 20px;
+		min-width: 300px;
+	}
 }
 @media screen and (max-width: 660px) {
 	.main__title {
@@ -4979,35 +5008,6 @@ color: #B72025;
 	}
 	.popular-list {
 		margin-right: 0;
-	}
-	.pagination {
-		width: calc( 100% - 20px );
-		height: fit-content;
-		justify-content: space-between;
-	}
-	.pagination__item {
-		width: unset;
-		flex: 1;
-	}
-	.pagination a:nth-last-child(n+2) {
-		margin-right: unset;
-	}
-	.find-programs {
-		padding: 10px;
-	}
-	.find-programs__link {
-		font-size: 16px;
-	}
-	.header__login, .header__login a {
-		font-size: 12px;
-	}
-	.populars .list {
-		flex-wrap: nowrap;
-		overflow-x: scroll;
-	}
-	.populars .list > .popular-list {
-		margin-left: 20px;
-		min-width: 300px;
 	}
 }
 /*-----------media----------------------*/

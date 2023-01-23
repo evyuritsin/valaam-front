@@ -4960,7 +4960,8 @@ color: #B72025;
 @media screen and (max-width: 560px) {
 	.main__title {
 	    font-size: 30px;
-	    line-height: 30px;
+	    line-height: 40px;
+	    height: fit-content;
 	}
 	.footer__col:last-child {
 		flex-direction: column;
@@ -4971,7 +4972,33 @@ color: #B72025;
 
 }
 @media screen and (max-width: 340px) {
-
+	.main__caption {
+		font-size: 26px;
+	}
+	.popular-list {
+		margin-right: 0;
+	}
+	.pagination {
+		width: calc( 100% - 20px );
+		height: fit-content;
+		justify-content: space-between;
+	}
+	.pagination__item {
+		width: unset;
+		flex: 1;
+	}
+	.pagination a:nth-last-child(n+2) {
+		margin-right: unset;
+	}
+	.find-programs {
+		padding: 10px;
+	}
+	.find-programs__link {
+		font-size: 16px;
+	}
+	.header__login, .header__login a {
+		font-size: 14px;
+	}
 }
 /*-----------media----------------------*/
 /*-----------модификаторы глобальные----*/

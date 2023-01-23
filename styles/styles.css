@@ -4969,7 +4969,9 @@ color: #B72025;
 	}
 }
 @media screen and (max-width: 420px) {
-
+	.main__caption {
+		font-size: 28px;
+	}
 }
 @media screen and (max-width: 340px) {
 	.main__caption {
@@ -4997,7 +4999,15 @@ color: #B72025;
 		font-size: 16px;
 	}
 	.header__login, .header__login a {
-		font-size: 14px;
+		font-size: 12px;
+	}
+	.populars .list {
+		flex-wrap: nowrap;
+		overflow-x: scroll;
+	}
+	.populars .list > .popular-list {
+		margin-left: 20px;
+		min-width: 300px;
 	}
 }
 /*-----------media----------------------*/

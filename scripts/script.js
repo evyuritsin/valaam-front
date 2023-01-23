@@ -839,6 +839,13 @@ $(document).ready(function() {
 		}
 
 	});
+	$('.header__menu-mob').click(function() {
+		$('.menu-mobile__conteiner').removeClass('hide').addClass('showFlex');
+	});
+	$('.header__close-mob').click(function() {
+		var target = $(this).closest('.menu-mobile__conteiner')
+		target.removeClass('showFlex').addClass('hide');
+	});
 /*
 	$('.post-list__img').hover(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({top: 300, opacity: 1}, 1000);

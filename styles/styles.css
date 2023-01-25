@@ -462,6 +462,8 @@ option::after {
 .checkbox {
 	width: 20px;
 	height: 20px;
+	min-width: 20px;
+	min-height: 20px;	
 	margin: 0;
 	appearance: none;
 	-webkit-appearance: none;
@@ -4736,6 +4738,9 @@ color: #B72025;
 	:root {
 	  --width-page: 90%;
 	}
+	.search__filters {
+	    justify-content: flex-start;
+	}
 	.search__col {
 		margin-right: 20px;
 	}
@@ -4770,7 +4775,7 @@ color: #B72025;
 		width: calc( 100% - 40px );
 	}
 	.search__col {
-	    margin-right: 0px;
+	    margin-right: 20px;
 	    min-width: 500px;
 	}
 	.main__poster {
@@ -4803,6 +4808,9 @@ color: #B72025;
 	.footer__pay {
 	    display: flex;
 	    justify-content: center;
+	}
+	.search__submits {
+	    justify-content: space-evenly;
 	}
 }
 @media screen and (max-width: 1024px) {

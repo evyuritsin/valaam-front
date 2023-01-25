@@ -116,14 +116,12 @@ $(document).ready(function() {
 		$('body').css('overflow', 'hidden');
 		$('.modals').hide();
 		$('.login').show();
-		console.log('login');
 	});
 	$('.header__login-reg').click(function() {
 		$('.modal__blocked').show();
 		$('body').css('overflow', 'hidden');
 		$('.modals').hide();
 		$('.register').show();
-		console.log('reg');
 	});
 	$('.modal__close-link').click(function() {
 		$(this).parent('.modals').hide();
@@ -846,10 +844,29 @@ $(document).ready(function() {
 		var target = $(this).closest('.menu-mobile__conteiner')
 		target.removeClass('showFlex').addClass('hide');
 	});
+	$('.modal_submit-login').click(function() {
+      console.log($(this).closest('form').serialize());
+      $.ajax({
+          url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/login/',
+          method: 'post',
+          dataType: 'json',
+          data: $(this).closest('form').serialize(),
+          success: function(data){
+              console.log(data);
+          }
+      });
+	});
+	$('.modal_submit-reg').click(function() {
+
+	});
+	$('.modal_submit-recpass').click(function() {
+
+	});	
 /*
 	$('.post-list__img').hover(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({top: 300, opacity: 1}, 1000);
 	});
 */
 	setupMask();
+	//$('.populars .list').scrollTo(300);
 });

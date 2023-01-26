@@ -4776,7 +4776,6 @@ color: #B72025;
 	}
 	.search__col {
 	    margin-right: 20px;
-	    min-width: 500px;
 	}
 	.main__poster {
 	    width: 100%;
@@ -4816,7 +4815,6 @@ color: #B72025;
 @media screen and (max-width: 1024px) {
 	.search__col {
 	    margin-right: 0px;
-	    min-width: 400px;
 	}
 	.main__poster {
 	    width: 100%;
@@ -4831,7 +4829,6 @@ color: #B72025;
 @media screen and (max-width: 890px) {
 	.search__col {
 	    margin-right: 0px;
-	    min-width: 300px;
 	}
 	.main__poster {
 	    width: 100%;

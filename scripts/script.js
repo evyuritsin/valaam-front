@@ -845,19 +845,86 @@ $(document).ready(function() {
 		target.removeClass('showFlex').addClass('hide');
 	});
 	$('.modal_submit-login').click(function() {
-      console.log($(this).closest('form').serialize());
-      $.ajax({
-          url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/login/',
-          method: 'post',
-          dataType: 'json',
-          data: $(this).closest('form').serialize(),
-          success: function(data){
-              console.log(data);
-          }
-      });
+	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
+	  var username = $(this).closest('.modal__forms').find('.modal_username');
+	  var password = $(this).closest('.modal__forms').find('.modal_password');
+	  if (username.val() == '') {
+	  	$('.modal_loginname-msg').removeClass('hide').addClass('show').text('Не заполнено обязательное поле');
+	  	username.addClass('vp-input_invalid');
+	  	password.addClass('vp-input_invalid');
+	  	$('.modal_loginpass-msg').removeClass('show').addClass('hide');
+	  	$('.modal_global-login-msg').removeClass('show').addClass('hide');
+	  } else if (password.val() == '') {
+	  	username.removeClass('vp-input_invalid');
+	  	$('.modal_loginname-msg').removeClass('show').addClass('hide')
+	  	$('.modal_global-login-msg').removeClass('show').addClass('hide');
+	  	$('.modal_loginpass-msg').removeClass('hide').addClass('show').text('Не заполнено обязательное поле');
+	  	password.addClass('vp-input_invalid');
+	  } else {
+	  	  $(this).closest('.modal__forms').find('input[name]').removeClass('vp-input_invalid');
+	  	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
+	      $.ajax({
+	          url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/login/',
+	          method: 'post',
+	          dataType: 'json',
+	          crossDomain: true,
+	          data: $(this).closest('form').serialize(),
+	          success: function(data){
+		          console.log(data);
+		          if (data['status'] === 'error') {
+		          	$('.modal_global-login-msg').removeClass('hide').addClass('show').text(data['data'][0])
+		          }
+	          }
+	      });	  
+	  }
 	});
 	$('.modal_submit-reg').click(function() {
-
+	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
+	  var inputfull = $(this).closest('.modal__forms').find('.modal__input');
+	  var msgfull = $(this).closest('.modal__forms').find('.modal__invalid-msg');
+	  var username = $(this).closest('.modal__forms').find('.modal_username');
+	  var email = $(this).closest('.modal__forms').find('.modal_email');
+	  var phone = $(this).closest('.modal__forms').find('.modal_phone');
+	  var msg_general = $('.modal__invalid-general');
+	  var msg_username = $('.modal__invalid-name');
+	  var msg_email = $('.modal__invalid-email');
+	  var msg_phone = $('.modal__invalid-phone');
+	  if (username.val() == '') {
+	  	inputfull.removeClass('vp-input_invalid');
+	  	msgfull.removeClass('show').addClass('hide');
+	  	username.addClass('vp-input_invalid');
+	  	msg_general.removeClass('show').addClass('hide');
+	  	msg_username.removeClass('hide').addClass('show').text('Не заполнено обязательное поле');
+	  } else if (email.val() == '') {
+	  	inputfull.removeClass('vp-input_invalid');
+	  	msgfull.removeClass('show').addClass('hide');
+	  	email.addClass('vp-input_invalid');
+	  	msg_general.removeClass('show').addClass('hide');
+	  	msg_email.removeClass('hide').addClass('show').text('Не заполнено обязательное поле');
+	  } else if (phone.val() == '') {
+	  	inputfull.removeClass('vp-input_invalid');
+	  	msgfull.removeClass('show').addClass('hide');
+	  	phone.addClass('vp-input_invalid');
+	  	msg_general.removeClass('show').addClass('hide');
+	  	msg_phone.removeClass('hide').addClass('show').text('Не заполнено обязательное поле');
+	  } else {
+	  	  $(this).closest('.modal__forms').find('input[name]').removeClass('vp-input_invalid');
+	  	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
+	      $.ajax({
+	          url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/register/',
+	          method: 'post',
+	          dataType: 'json',
+	          crossDomain: true,
+	          data: $(this).closest('form').serialize(),
+	          success: function(data){
+		          console.log(data);
+		          if (data['status'] === 'error') {
+		          	msgfull.removeClass('show').addClass('hide');
+		          	msg_general.removeClass('hide').addClass('show').text('Генерация кода ошибки');
+		          }
+	          }
+	      });
+	  }
 	});
 	$('.modal_submit-recpass').click(function() {
 

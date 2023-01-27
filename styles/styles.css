@@ -494,7 +494,7 @@ option::after {
 	margin-left: 10px;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 1rem;
 	line-height: 20px;
 	color: #4f4f4f;
 }
@@ -5123,6 +5123,9 @@ option::after {
 	.populars .list > .popular-list {
 		margin-left: 20px;
 		min-width: 300px;
+	}
+	.checkbox__text {
+		font-size: 0.7rem;
 	}
 }
 @media screen and (max-width: 660px) {

@@ -171,7 +171,7 @@ tr:nth-child(odd) {
 	color: #ffffff !important;
 	background: #31b404 !important;
 }
-.flatpickr-monthdropdown-months option: {
+.flatpickr-monthdropdown-months option {
 	border: 1px solid #ffffff !important;
 }
 .numInputWrapper {
@@ -4836,6 +4836,23 @@ option::after {
 	.options {
 		margin-left: 0;
 	}
+	.timing .main__content {
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.find-list__price-value {
+		font-size: 1rem;
+	}
+	.timing__list {
+		padding: 0;
+		overflow: hidden;
+	}
+	.timing__item {
+		max-width: 100%;
+	}
+	.datepicker-timing {
+		width: 100%;
+	}
 }
 @media screen and (max-width: 1024px) {
 	.search__col {
@@ -4983,6 +5000,12 @@ option::after {
 	}
 	.register__col {
 		gap: 10px;
+	}
+
+	.timing__item {
+		flex-direction: column;
+		margin-bottom: 10px;
+		height: auto;
 	}
 }
 @media screen and (max-width: 780px) {
@@ -5158,6 +5181,9 @@ option::after {
 	}
 	.service-list__img {
 		display: none;
+	}
+	.register__col {
+		gap: 2rem;
 	}
 }
 @media screen and (max-width: 560px) {

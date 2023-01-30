@@ -1189,7 +1189,6 @@ option::after {
 	box-sizing: border-box;
 	padding: 10px 0px;
 	width: 100%;
-	height: 55px;
 	text-align: left;
 	border-bottom: 1px solid rgba(29, 48, 84, 0.5);
 	text-transform: uppercase;
@@ -1549,7 +1548,6 @@ option::after {
 }
 .find-list__icon-list {
 	display: flex;
-	width: 100%;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -2693,8 +2691,6 @@ option::after {
 /*-----------program---------------------*/
 .program__icons {
 	max-width: 100%;
-	overflow-x: auto;
-	height: 70px;
 	margin-top: 20px;
 	background: #ffffff;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
@@ -2702,6 +2698,9 @@ option::after {
 	padding: 20px;
 	box-sizing: border-box;
 	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	flex-wrap: wrap;
 }
 .program__contacts {
 	font-style: normal;
@@ -2830,6 +2829,7 @@ option::after {
 	width: 100%;
 	border-color: #1d3054;
 	border-collapse: collapse;
+	overflow-x: auto;
 }
 .table__head {
 	width: 100%;
@@ -4781,7 +4781,7 @@ option::after {
 		width: 150px;
 	}
 	.gallery {
-		max-width: 500px;
+		max-width: 100%;
 		margin-bottom: 1rem;
 		flex: 1;
 		height: auto;

@@ -87,6 +87,7 @@ tr:nth-child(odd) {
 }
 .input__text {
 	width: 100%;
+	min-width: 300px;
 	background-color: #fff;
 	border: 1px solid #dddddd;
 	border-radius: 4px;
@@ -592,6 +593,7 @@ option::after {
 /*--inputs--*/
 .vp-input {
 	width: 100%;
+	min-width: 230px;
 	background-color: #fff;
 	border: 1px solid #dddddd;
 	border-radius: 4px;
@@ -1711,6 +1713,11 @@ option::after {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+}
+.list-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 412px);
+	justify-content: space-around;
 }
 .list_left {
 	justify-content: flex-start;
@@ -3175,6 +3182,7 @@ option::after {
 }
 .order-form__pay-group {
 	width: calc(50% - 10px);
+	margin-left: auto;
 }
 .order-form__help-link {
 	height: 35px;
@@ -3190,11 +3198,17 @@ option::after {
 	color: #1d3054;
 }
 .order-form__footer {
-	width: 100%;
+	width: 50%;
 	height: 100px;
 	display: flex;
 	align-items: center;
+	margin-left: auto;
 }
+
+.order-form__footer .vp-btn {
+	flex: 1;
+}
+
 .order-form__agreement {
 	margin-right: 20px;
 }
@@ -3868,20 +3882,15 @@ option::after {
 	margin-top: 30px;
 	gap: 20px;
 }
-
-.register__row .input__text {
-	flex: 1;
-	min-width: 300px;
+.register__nds {
+	padding: 10px 15px;
 }
 
-.register__row .vp-input {
-	flex: 1;
-	min-width: 300px;
+.register__nds .checkbox__label {
+	margin-left: auto;
 }
 
 .register__col {
-	width: 100%;
-	padding: 0px 15px;
 	display: flex;
 	font-style: normal;
 	font-weight: 400;
@@ -4936,6 +4945,14 @@ option::after {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
+	.order-form__footer {
+		width: 100%;
+		margin-left: 0;
+		justify-content: space-between;
+	}
+	.order-form__footer .vp-btn {
+		flex: 0;
+	}
 }
 @media screen and (max-width: 890px) {
 	.main {
@@ -5013,9 +5030,7 @@ option::after {
 	.register .modal__options {
 		height: fit-content;
 	}
-	.motorShips-list {
-		width: 300px;
-	}
+
 	.motorShips-list__footer-value,
 	.motorShips-list__footer-text {
 		font-size: 12px;
@@ -5050,6 +5065,12 @@ option::after {
 		margin-bottom: 10px;
 		height: auto;
 	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 @media screen and (max-width: 780px) {
 	/*Начало мобильной версии*/
@@ -5079,18 +5100,17 @@ option::after {
 	.header-bottom__nav {
 		display: none;
 	}
-	.list {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		justify-items: center;
-	}
 	.service-list {
 		flex-direction: column;
 		height: auto;
 		width: 300px;
 	}
 	.service-list__arrow {
-		display: none;
+		width: auto;
+		border-radius: 0 0 20px 20px;
+	}
+	.service-list__arrow img {
+		transform: rotate(90deg);
 	}
 	.service-list__img {
 		width: 100%;
@@ -5315,6 +5335,10 @@ option::after {
 		flex-direction: column;
 		gap: 1rem;
 	}
+
+	.order-form__footer .vp-btn {
+		width: 100%;
+	}
 }
 @media screen and (max-width: 420px) {
 	.main__caption {
@@ -5327,6 +5351,12 @@ option::after {
 	}
 	.popular-list {
 		margin-right: 0;
+	}
+	.motorShips-list {
+		width: 300px;
+	}
+	.list-grid {
+		grid-template-columns: repeat(auto-fill, 300px);
 	}
 }
 /*-----------media----------------------*/
@@ -5871,5 +5901,8 @@ option::after {
 }
 .zi-5 {
 	z-index: 5 !important;
+}
+.justify-content-between {
+	justify-content: space-between;
 }
 /*-----------модификаторы глобальные----*/

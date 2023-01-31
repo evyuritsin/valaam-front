@@ -4112,171 +4112,92 @@
 				<span class="checkbox__text">Заказчик является Паломником</span>
 			</div>
 			<div class="order-form__title">Данные туристов</div>
-			<div
-				class="order-form__field order-form__group tourist_block order-form_clone"
-			>
-				<div class="order-form__subtitle">clone</div>
-				<div class="order-form__content-human">
-					<div class="order-form__field-contacts">
-						<div class="order-form__field-contact">
-							<div class="order-form__field-contact-col flex-2">
-								<input
-									type="text"
-									name="lastname"
-									class="vp-input"
-									value=""
-									placeholder="Фамилия*"
-									required
-								/>
-								<input
-									type="text"
-									name="firstname"
-									class="vp-input ml-20"
-									value=""
-									placeholder="Имя*"
-									required
-								/>
+			<div class="order-form__field order-form__group tourist_block order-form_clone">
+							<div class="order-form__subtitle">clone</div>
+							<div class="order-form__content-human">
+								<div class="order-form__field-contacts">
+									<div class="order-form__field-contact">
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Фамилия*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Имя*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Отчество*"
+										/>
+									</div>
+									<div class="order-form__field-contact mt-20">
+											<input
+												type="text"
+												class="vp-input"
+												value=""
+												placeholder="Дата рождения*"
+											/>
+											<input
+												type="text"
+												class="vp-input input__icon_right icon_arrowdown"
+												value=""
+												placeholder="Тип документа*"
+											/>
+											<input
+												type="text"
+												class="vp-input flex-1"
+												value=""
+												placeholder="Паспорт серия/номер*"
+											/>
+									</div>
+									<div class="order-form__field-contact mt-20">
+											<input
+												type="text"
+												class="vp-input"
+												value=""
+												placeholder="Кем выдан*"
+											/>
+											<input
+												type="text"
+												class="vp-input"
+												value=""
+												placeholder="Дата выдачи*"
+											/>
+									</div>
+									<div class="order-form__field-contact mt-20">
+											<input
+												type="text"
+												class="vp-input"
+												value=""
+												placeholder="Телефон*"
+											/>
+											<input
+												type="text"
+												class="vp-input input__icon_right icon_arrowdown"
+												value=""
+												placeholder="Право на льготы"
+											/>
+											<input
+												type="text"
+												class="vp-input"
+												value=""
+												placeholder="Комментарий"
+											/>
+									</div>
+								</div>
+								<div class="order-form__fields-gender">
+									<div class="order-form__field-gender order-form_field-active">
+										М
+									</div>
+									<div class="order-form__field-gender">Ж</div>
+								</div>
 							</div>
-							<div class="order-form__field-contact-col flex-1 ml-20">
-								<input
-									type="text"
-									name="patronymic"
-									class="vp-input flex-1"
-									value=""
-									placeholder="Отчество*"
-									required
-								/>
-							</div>
-						</div>
-						<div class="order-form__field-contact mt-20">
-							<div class="order-form__field-contact-col flex-2">
-								<input
-									type="text"
-									name="datebirth"
-									class="vp-input flex-1"
-									value=""
-									placeholder="Дата рождения*"
-									showmodal="datepicker-lite"
-									inputobj="878940"
-									readonly
-									data=""
-									required
-								/>
-								<input
-									type="text"
-									name="typedoc"
-									class="vp-input flex-1 input__icon_right icon_arrowdown ml-20"
-									value=""
-									placeholder="Тип документа*"
-									showmodal="docs-list"
-									inputobj="164165"
-									readonly
-									data=""
-									required
-								/>
-							</div>
-							<div class="order-form__field-contact-col flex-1 ml-20">
-								<input
-									type="text"
-									name="passSN"
-									class="vp-input flex-1"
-									value=""
-									placeholder="Паспорт серия/номер*"
-									required
-								/>
-							</div>
-						</div>
-						<div class="order-form__field-contact mt-20">
-							<div class="order-form__field-contact-col flex-2">
-								<input
-									type="text"
-									name="passissued"
-									class="vp-input"
-									value=""
-									placeholder="Кем выдан*"
-									required
-								/>
-							</div>
-							<div class="order-form__field-contact-col flex-1 ml-20">
-								<input
-									type="text"
-									name="passNP"
-									class="vp-input"
-									value=""
-									placeholder="Номер подразделения*"
-									required
-								/>
-							</div>
-						</div>
-						<div class="order-form__field-contact mt-20">
-							<div class="order-form__field-contact-col flex-2">
-								<input
-									type="text"
-									name="passadress"
-									class="vp-input"
-									value=""
-									placeholder="Адрес регистрации*"
-									required
-								/>
-							</div>
-							<div class="order-form__field-contact-col flex-1 ml-20">
-								<input
-									type="text"
-									name="passdate"
-									class="vp-input"
-									value=""
-									placeholder="Дата выдачи*"
-									showmodal="datepicker-lite"
-									inputobj="96544"
-									readonly
-									data=""
-									required
-								/>
-							</div>
-						</div>
-						<div class="order-form__field-contact mt-20">
-							<div class="order-form__field-contact-col flex-2">
-								<input
-									type="text"
-									name="telefon"
-									class="vp-input"
-									value=""
-									placeholder="Телефон*"
-									required
-								/>
-								<input
-									type="text"
-									name="benefits"
-									class="vp-input input__icon_right icon_arrowdown ml-20"
-									value=""
-									placeholder="Право на льготы"
-									showmodal="benefits-list"
-									inputobj="984315"
-									readonly
-									data=""
-								/>
-							</div>
-							<div class="order-form__field-contact-col flex-1 ml-20">
-								<input
-									type="text"
-									name="comment"
-									class="vp-input flex-1"
-									value=""
-									placeholder="Комментарий"
-								/>
-							</div>
-						</div>
-					</div>
-					<div class="order-form__fields-gender">
-						<div
-							class="order-form__field-gender order-form_field-active"
-							value="male"
-						>
-							М
-						</div>
-						<div class="order-form__field-gender" value="female">Ж</div>
-					</div>
-				</div>
 			</div>
 			<div class="order-form__total">
 				<div class="order-form__caption">ИТОГО:</div>
@@ -4367,7 +4288,7 @@
 				</div>
 			</div>
 			<span class="buy-tickets-form__msg ta-right hide"></span>
-			<div class="order-form__field pos-h">
+			<div class="order-form__field order-form__field-footer pos-h">
 				<div class="order-form__pay-group">
 					<div class="order-form__footer">
 						<div class="order-form__agreement">
@@ -7254,7 +7175,7 @@
 								<th class="ta-left">11:00</th>
 								<th class="ta-left">«Северный Афон»</th>
 								<th class="ta-left">
-									<div class="find-list__date-item ml-0">
+									<div class="find-list__date-item">
 										<div class="find-list__point find-list_green"></div>
 										<span class="find-list__date">много мест</span>
 									</div>
@@ -7267,7 +7188,7 @@
 								<th class="ta-left">11:00</th>
 								<th class="ta-left">«Преподобный Серафим»</th>
 								<th class="ta-left">
-									<div class="find-list__date-item ml-0">
+									<div class="find-list__date-item">
 										<div class="find-list__point find-list_red"></div>
 										<span class="find-list__date">заканчиваются</span>
 									</div>
@@ -7280,7 +7201,7 @@
 								<th class="ta-left">11:00</th>
 								<th class="ta-left">«Андрей Первозванный»</th>
 								<th class="ta-left">
-									<div class="find-list__date-item ml-0">
+									<div class="find-list__date-item ">
 										<div class="find-list__point find-list_orange"></div>
 										<span class="find-list__date">мало мест</span>
 									</div>
@@ -7613,7 +7534,7 @@
 								<th class="ta-left">11:00</th>
 								<th class="ta-left">«Северный Афон»</th>
 								<th class="ta-left">
-									<div class="find-list__date-item ml-0">
+									<div class="find-list__date-item">
 										<div class="find-list__point find-list_green"></div>
 										<span class="find-list__date">много мест</span>
 									</div>
@@ -7626,7 +7547,7 @@
 								<th class="ta-left">11:00</th>
 								<th class="ta-left">«Преподобный Серафим»</th>
 								<th class="ta-left">
-									<div class="find-list__date-item ml-0">
+									<div class="find-list__date-item">
 										<div class="find-list__point find-list_red"></div>
 										<span class="find-list__date">заканчиваются</span>
 									</div>
@@ -7639,7 +7560,7 @@
 								<th class="ta-left">11:00</th>
 								<th class="ta-left">«Андрей Первозванный»</th>
 								<th class="ta-left">
-									<div class="find-list__date-item ml-0">
+									<div class="find-list__date-item">
 										<div class="find-list__point find-list_orange"></div>
 										<span class="find-list__date">мало мест</span>
 									</div>
@@ -9457,7 +9378,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="order-form__fields-gender ml-20">
+								<div class="order-form__fields-gender">
 									<div class="order-form__field-gender order-form_field-active">
 										М
 									</div>
@@ -9475,73 +9396,60 @@
 							<div class="order-form__content-human">
 								<div class="order-form__field-contacts">
 									<div class="order-form__field-contact">
-										<div class="order-form__field-contact-col flex-2">
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Фамилия*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Имя*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Отчество*"
+										/>
+									</div>
+									<div class="order-form__field-contact mt-20">
 											<input
 												type="text"
 												class="vp-input"
-												value=""
-												placeholder="Фамилия*"
-											/>
-											<input
-												type="text"
-												class="vp-input ml-20"
-												value=""
-												placeholder="Имя*"
-											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
-											<input
-												type="text"
-												class="vp-input flex-1"
-												value=""
-												placeholder="Отчество*"
-											/>
-										</div>
-									</div>
-									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
-											<input
-												type="text"
-												class="vp-input flex-1"
 												value=""
 												placeholder="Дата рождения*"
 											/>
 											<input
 												type="text"
-												class="vp-input flex-1 input__icon_right icon_arrowdown ml-20"
+												class="vp-input input__icon_right icon_arrowdown"
 												value=""
 												placeholder="Тип документа*"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
 												class="vp-input flex-1"
 												value=""
 												placeholder="Паспорт серия/номер*"
 											/>
-										</div>
 									</div>
 									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
 											<input
 												type="text"
 												class="vp-input"
 												value=""
 												placeholder="Кем выдан*"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
 												class="vp-input"
 												value=""
 												placeholder="Дата выдачи*"
 											/>
-										</div>
 									</div>
 									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
 											<input
 												type="text"
 												class="vp-input"
@@ -9550,22 +9458,19 @@
 											/>
 											<input
 												type="text"
-												class="vp-input input__icon_right icon_arrowdown ml-20"
+												class="vp-input input__icon_right icon_arrowdown"
 												value=""
 												placeholder="Право на льготы"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
-												class="vp-input flex-1"
+												class="vp-input"
 												value=""
 												placeholder="Комментарий"
 											/>
-										</div>
 									</div>
 								</div>
-								<div class="order-form__fields-gender ml-20">
+								<div class="order-form__fields-gender">
 									<div class="order-form__field-gender order-form_field-active">
 										М
 									</div>
@@ -9578,73 +9483,60 @@
 							<div class="order-form__content-human">
 								<div class="order-form__field-contacts">
 									<div class="order-form__field-contact">
-										<div class="order-form__field-contact-col flex-2">
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Фамилия*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Имя*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Отчество*"
+										/>
+									</div>
+									<div class="order-form__field-contact mt-20">
 											<input
 												type="text"
 												class="vp-input"
-												value=""
-												placeholder="Фамилия*"
-											/>
-											<input
-												type="text"
-												class="vp-input ml-20"
-												value=""
-												placeholder="Имя*"
-											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
-											<input
-												type="text"
-												class="vp-input flex-1"
-												value=""
-												placeholder="Отчество*"
-											/>
-										</div>
-									</div>
-									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
-											<input
-												type="text"
-												class="vp-input flex-1"
 												value=""
 												placeholder="Дата рождения*"
 											/>
 											<input
 												type="text"
-												class="vp-input flex-1 input__icon_right icon_arrowdown ml-20"
+												class="vp-input input__icon_right icon_arrowdown"
 												value=""
 												placeholder="Тип документа*"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
 												class="vp-input flex-1"
 												value=""
 												placeholder="Паспорт серия/номер*"
 											/>
-										</div>
 									</div>
 									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
 											<input
 												type="text"
 												class="vp-input"
 												value=""
 												placeholder="Кем выдан*"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
 												class="vp-input"
 												value=""
 												placeholder="Дата выдачи*"
 											/>
-										</div>
 									</div>
 									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
 											<input
 												type="text"
 												class="vp-input"
@@ -9653,22 +9545,19 @@
 											/>
 											<input
 												type="text"
-												class="vp-input input__icon_right icon_arrowdown ml-20"
+												class="vp-input input__icon_right icon_arrowdown"
 												value=""
 												placeholder="Право на льготы"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
-												class="vp-input flex-1"
+												class="vp-input"
 												value=""
 												placeholder="Комментарий"
 											/>
-										</div>
 									</div>
 								</div>
-								<div class="order-form__fields-gender ml-20">
+								<div class="order-form__fields-gender">
 									<div class="order-form__field-gender order-form_field-active">
 										М
 									</div>
@@ -9681,73 +9570,60 @@
 							<div class="order-form__content-human">
 								<div class="order-form__field-contacts">
 									<div class="order-form__field-contact">
-										<div class="order-form__field-contact-col flex-2">
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Фамилия*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Имя*"
+										/>
+										<input
+											type="text"
+											class="vp-input"
+											value=""
+											placeholder="Отчество*"
+										/>
+									</div>
+									<div class="order-form__field-contact mt-20">
 											<input
 												type="text"
 												class="vp-input"
-												value=""
-												placeholder="Фамилия*"
-											/>
-											<input
-												type="text"
-												class="vp-input ml-20"
-												value=""
-												placeholder="Имя*"
-											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
-											<input
-												type="text"
-												class="vp-input flex-1"
-												value=""
-												placeholder="Отчество*"
-											/>
-										</div>
-									</div>
-									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
-											<input
-												type="text"
-												class="vp-input flex-1"
 												value=""
 												placeholder="Дата рождения*"
 											/>
 											<input
 												type="text"
-												class="vp-input flex-1 input__icon_right icon_arrowdown ml-20"
+												class="vp-input input__icon_right icon_arrowdown"
 												value=""
 												placeholder="Тип документа*"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
 												class="vp-input flex-1"
 												value=""
 												placeholder="Паспорт серия/номер*"
 											/>
-										</div>
 									</div>
 									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
 											<input
 												type="text"
 												class="vp-input"
 												value=""
 												placeholder="Кем выдан*"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
 												class="vp-input"
 												value=""
 												placeholder="Дата выдачи*"
 											/>
-										</div>
 									</div>
 									<div class="order-form__field-contact mt-20">
-										<div class="order-form__field-contact-col flex-2">
 											<input
 												type="text"
 												class="vp-input"
@@ -9756,22 +9632,19 @@
 											/>
 											<input
 												type="text"
-												class="vp-input input__icon_right icon_arrowdown ml-20"
+												class="vp-input input__icon_right icon_arrowdown"
 												value=""
 												placeholder="Право на льготы"
 											/>
-										</div>
-										<div class="order-form__field-contact-col flex-1 ml-20">
 											<input
 												type="text"
-												class="vp-input flex-1"
+												class="vp-input"
 												value=""
 												placeholder="Комментарий"
 											/>
-										</div>
 									</div>
 								</div>
-								<div class="order-form__fields-gender ml-20">
+								<div class="order-form__fields-gender">
 									<div class="order-form__field-gender order-form_field-active">
 										М
 									</div>

@@ -1717,6 +1717,7 @@ option::after {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 412px);
 	justify-content: space-around;
+	justify-items: center;
 }
 .list_left {
 	justify-content: flex-start;
@@ -3177,8 +3178,13 @@ option::after {
 }
 .order-form__field-contact {
 	display: flex;
-	justify-content: space-between;
+	gap: 20px;
 }
+
+.order-form__field-contact .vp-input {
+	flex: 1;
+}
+
 .order-form__field-contact-col {
 	display: flex;
 }
@@ -5107,6 +5113,35 @@ option::after {
 	.order-form__content-human {
 		flex-direction: column-reverse;
 	}
+
+	.program-designer-order .order-form__group.order-form__pay-group {
+		width: 48%;
+		margin-left: 0;
+	}
+
+	.reg-order .order-form__group.order-form__pay-group {
+		width: 48%;
+		margin-left: 0;
+	}
+
+	.reg-order .order-form__field-footer {
+		flex-direction: column;
+	}
+
+	.find-list__price-value {
+		font-size: 22px;
+	}
+
+	.find-list__body-price {
+		gap: 0;
+	}
+
+	.order-form__field-contact {
+		flex-wrap: wrap;
+	}
+	.find-list__date {
+		display: none;
+	}
 }
 @media screen and (max-width: 780px) {
 	/*Начало мобильной версии*/
@@ -5117,7 +5152,7 @@ option::after {
 		flex-direction: column-reverse;
 	}
 	.header__top {
-		width: 100%;
+		max-width: 100%;
 		padding: 0 20px;
 		box-sizing: border-box;
 	}
@@ -5161,7 +5196,7 @@ option::after {
 		margin-left: 0;
 	}
 	.main__poster {
-		width: 100%;
+		max-width: 100%;
 	}
 	.main__title {
 		font-size: 46px;
@@ -5181,9 +5216,6 @@ option::after {
 		height: auto;
 		padding-top: 10px;
 		margin-bottom: 10px;
-	}
-	.find-list__date-item {
-		margin: 0;
 	}
 
 	.search__submits button {

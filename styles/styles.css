@@ -3139,6 +3139,7 @@ option::after {
 	height: fit-content;
 	display: flex;
 	margin-top: 20px;
+	gap: 20px;
 }
 .order-form__fields-gender {
 	width: 110px;
@@ -5101,6 +5102,10 @@ option::after {
 
 	.main__content-mini {
 		width: 100%;
+	}
+
+	.order-form__content-human {
+		flex-direction: column-reverse;
 	}
 }
 @media screen and (max-width: 780px) {

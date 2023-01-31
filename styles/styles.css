@@ -362,6 +362,9 @@ tr:nth-child(odd) {
 	align-items: center;
 	padding: 7px 0px;
 }
+.program-designer-excursions .find-list__body-price {
+	padding: 0 10px 0 10px;
+}
 .index-form__label {
 	flex: 1;
 	height: 100%;
@@ -701,7 +704,6 @@ option::after {
 /*--tabs--*/
 .vp-tabs-content {
 	width: 100%;
-	height: 167px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -1148,7 +1150,7 @@ option::after {
 /*-----------menu-mobile----------------*/
 /*-----------main-----------------------*/
 .main {
-	width: 100%;
+	max-width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1477,7 +1479,6 @@ option::after {
 .find-list {
 	position: relative;
 	width: 100%;
-	height: 251px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	background: #fff;
@@ -1503,7 +1504,7 @@ option::after {
 */
 .find-list__img {
 	width: 300px;
-	height: 100%;
+	min-height: 100%;
 	max-height: 251px;
 	border-radius: 20px 0 0 20px;
 }
@@ -1514,7 +1515,6 @@ option::after {
 }
 .find-list__content {
 	height: 100%;
-	max-height: 251px;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -1637,8 +1637,7 @@ option::after {
 
 .find-list__price {
 	width: 200px;
-	height: 100%;
-	max-height: 251px;
+	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 	border-bottom-right-radius: 20px;
@@ -1648,6 +1647,7 @@ option::after {
 	flex: 1;
 	background-color: #f5f5f5;
 	display: flex;
+	gap: 1rem;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -1711,6 +1711,7 @@ option::after {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	width: 100%;
 }
 .list-grid {
 	display: grid;
@@ -2699,7 +2700,7 @@ option::after {
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
-	gap: 1rem;
+	gap: 2rem;
 	flex-wrap: wrap;
 }
 .program__contacts {
@@ -3198,7 +3199,7 @@ option::after {
 	color: #1d3054;
 }
 .order-form__footer {
-	width: 50%;
+	width: auto;
 	height: 100px;
 	display: flex;
 	align-items: center;
@@ -3812,7 +3813,6 @@ option::after {
 .timing__item {
 	position: relative;
 	width: 100%;
-	height: 251px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	background: #fff;
@@ -4777,9 +4777,6 @@ option::after {
 	.motorShips-list {
 		margin: 30px 0px 15px 0px;
 	}
-	.find-list__price {
-		width: 150px;
-	}
 	.gallery {
 		max-width: 100%;
 		margin-bottom: 1rem;
@@ -4862,8 +4859,11 @@ option::after {
 		padding: 0;
 		overflow: hidden;
 	}
-	.timing__item {
-		max-width: 100%;
+	.buy-tickets-form .index-form {
+		flex-direction: row;
+	}
+	.buy-tickets-form {
+		gap: 1rem;
 	}
 }
 @media screen and (max-width: 1024px) {
@@ -4893,6 +4893,7 @@ option::after {
 		flex-direction: column;
 		max-width: 300px;
 		height: auto;
+		max-height: 700px;
 	}
 	.find-list__desc {
 		display: none;
@@ -4916,9 +4917,10 @@ option::after {
 		flex-direction: row;
 	}
 	.find-list__body-price {
-		display: flex;
-		align-items: center;
 		flex-direction: row;
+		border-bottom-left-radius: 20px;
+		border-top-right-radius: 0;
+		height: 50px;
 	}
 	.find-list__col:last-child {
 		border-left: 0;
@@ -4936,10 +4938,6 @@ option::after {
 	.find-list__link {
 		color: #fff;
 	}
-	.find-list__body-price {
-		border-bottom-left-radius: 20px;
-		border-top-right-radius: 0;
-	}
 	.find-list__footer-price {
 		width: fit-content;
 		padding-left: 10px;
@@ -4953,11 +4951,39 @@ option::after {
 	.order-form__footer .vp-btn {
 		flex: 0;
 	}
+	.timing__item {
+		flex-direction: column;
+		margin-bottom: 10px;
+	}
+
+	.timing__item .find-list__col {
+		border-radius: 20px 20px 0 0;
+	}
+
+	.program-designer-excursions .find-list__price {
+		flex-direction: column;
+	}
+
+	.program-designer-excursions .find-list__body-price {
+		flex-direction: column;
+		max-height: 200px;
+	}
+
+	.program-designer-excursions .index-form {
+		flex-direction: row;
+	}
+
+	.program-designer-excursions .find-list__footer-price {
+		width: 300px;
+		padding: 0;
+		border-bottom-left-radius: 20px;
+	}
+
+	.program-designer-excursions .list {
+		margin-bottom: 3rem;
+	}
 }
 @media screen and (max-width: 890px) {
-	.main {
-		max-width: 860px;
-	}
 	.search__filters {
 		justify-content: center;
 	}
@@ -4992,6 +5018,7 @@ option::after {
 		grid-column: 1/3;
 		text-align: center;
 	}
+
 	.checkbox__label {
 		min-width: fit-content;
 	}
@@ -5058,12 +5085,6 @@ option::after {
 	}
 	.register__col {
 		gap: 2rem;
-	}
-
-	.timing__item {
-		flex-direction: column;
-		margin-bottom: 10px;
-		height: auto;
 	}
 
 	.list {

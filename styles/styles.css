@@ -4010,6 +4010,11 @@ option::after {
 	align-items: center;
 	justify-content: flex-end;
 }
+.program-designer__nav_habitation {
+	flex-direction: column;
+	align-items: end;
+	gap: 1rem;
+}
 .program-designer__direction {
 	display: flex;
 	flex-direction: column;
@@ -5129,7 +5134,7 @@ option::after {
 	}
 
 	.find-list__price-value {
-		font-size: 22px;
+		font-size: 18px;
 	}
 
 	.find-list__body-price {
@@ -5138,9 +5143,6 @@ option::after {
 
 	.order-form__field-contact {
 		flex-wrap: wrap;
-	}
-	.find-list__date {
-		display: none;
 	}
 }
 @media screen and (max-width: 780px) {
@@ -5321,9 +5323,7 @@ option::after {
 		line-height: 36px;
 		height: fit-content;
 	}
-	.find-list__price-value {
-		font-size: 1rem;
-	}
+
 	.find-programs__form {
 		flex-direction: column;
 	}
@@ -5523,6 +5523,9 @@ option::after {
 	height: 32px;
 }
 
+.ml-auto {
+	margin-left: auto;
+}
 .p-0 {
 	padding: 0px;
 }
@@ -5803,6 +5806,10 @@ option::after {
 	margin-bottom: 50px;
 }
 
+.mw-fit {
+	max-width: fit-content;
+}
+
 .flex-a {
 	flex: auto;
 }
@@ -5974,3 +5981,9 @@ option::after {
 	justify-content: space-between;
 }
 /*-----------модификаторы глобальные----*/
+
+/*Конструктор программ*/
+.hidden {
+	height: 0px !important;
+	overflow-y: hidden;
+}

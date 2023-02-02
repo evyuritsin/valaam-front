@@ -4412,6 +4412,9 @@ option::after {
 	flex-direction: column;
 	align-items: center;
 }
+.footer__col:last-child .footer__dev {
+	display: none;
+}
 .footer__adress {
 	font-style: normal;
 	font-weight: 400;
@@ -4862,6 +4865,12 @@ option::after {
 	.footer__col:last-child {
 		width: 100%;
 		height: fit-content;
+	}
+	.footer__col:first-child .footer__dev {
+		display: none;
+	}
+	.footer__col:last-child .footer__dev {
+		display: block;
 	}
 	.footer__pay {
 		display: flex;
@@ -5430,6 +5439,7 @@ option::after {
 		flex-direction: column;
 		align-items: center;
 	}
+
 	.recovery-password {
 		width: calc(100% - 100px);
 		left: 50px;

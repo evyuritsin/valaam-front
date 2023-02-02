@@ -1487,6 +1487,12 @@ option::after {
 	border-radius: 20px;
 	display: flex;
 }
+
+.search-program .find-list {
+	max-height: 276px;
+	height: 276px;
+}
+
 .findList_show .find-list {
 	display: flex;
 }
@@ -4924,6 +4930,13 @@ option::after {
 	}
 	.reviews__create {
 		margin-left: 0;
+	}
+	.search-program .find-list {
+		max-height: 100%;
+		height: auto;
+	}
+	.find-list__price-value {
+		font-size: 20px;
 	}
 	.find-list {
 		flex-direction: column;

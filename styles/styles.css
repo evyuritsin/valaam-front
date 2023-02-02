@@ -1040,6 +1040,7 @@ option::after {
 	text-transform: uppercase;
 	text-decoration: none;
 	margin-right: 5px;
+	text-align: center;
 }
 /*-----------header---------------------*/
 /*-----------menu-mobile----------------*/
@@ -4855,7 +4856,7 @@ option::after {
 		padding-bottom: 10px;
 	}
 	.footer__col {
-		width: 100%;
+		min-width: 100%;
 		height: fit-content;
 	}
 	.footer__col:last-child {

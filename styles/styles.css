@@ -32,9 +32,10 @@ p {
 }
 /*-----------UI элементы----------------*/
 table {
-	width: 100%;
+	max-width: 100%;
 	border-color: #1d3054;
 	border-collapse: collapse;
+	overflow-x: auto;
 }
 thead {
 	width: 100%;
@@ -2499,6 +2500,7 @@ option::after {
 .gallery {
 	width: 736px;
 	height: 480px;
+	max-width: 100%;
 }
 .gallery__imgs {
 	width: 100%;
@@ -2619,9 +2621,14 @@ option::after {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.search__filters .search__col.flex-1 {
+	justify-content: flex-end;
 }
 .search__col {
-	min-width: 300px;
+	min-width: 200px;
 	height: 80px;
 	display: flex;
 	flex-direction: column;
@@ -2721,6 +2728,7 @@ option::after {
 	padding: 20px;
 	box-sizing: border-box;
 	width: 100%;
+	max-width: 100%;
 	height: 100%;
 	background-color: #fff;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
@@ -2831,7 +2839,6 @@ option::after {
 	width: 100%;
 	border-color: #1d3054;
 	border-collapse: collapse;
-	overflow-x: auto;
 }
 .table__head {
 	width: 100%;
@@ -4774,9 +4781,6 @@ option::after {
 	:root {
 		--width-page: 90%;
 	}
-	.search__filters {
-		gap: 20px;
-	}
 	.search__col {
 		margin-right: 20px;
 	}
@@ -4804,9 +4808,6 @@ option::after {
 	}
 	.header-bottom {
 		flex-direction: column;
-	}
-	.search__col {
-		min-width: 30%;
 	}
 	.header__filter {
 		width: 100%;
@@ -4999,6 +5000,16 @@ option::after {
 	.search__filters {
 		justify-content: center;
 	}
+	.program-card {
+		flex-direction: column;
+	}
+	.program-card__footer {
+		width: auto;
+		gap: 10px;
+	}
+	.program-card__info {
+		height: auto;
+	}
 	.main__poster {
 		width: 100%;
 	}
@@ -5152,6 +5163,11 @@ option::after {
 	}
 	.header {
 		flex-direction: column-reverse;
+	}
+	.placement-footer {
+		flex-direction: column;
+		gap: 10px;
+		align-items: normal;
 	}
 	.header__top {
 		max-width: 100%;
@@ -5339,6 +5355,10 @@ option::after {
 
 	.register__col {
 		gap: 2rem;
+	}
+
+	.options {
+		width: 100%;
 	}
 
 	.list {

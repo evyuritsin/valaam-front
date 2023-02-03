@@ -1522,7 +1522,7 @@ option::after {
 	box-sizing: border-box;
 }
 .find-list__content {
-	height: 100%;
+	max-height: 100%;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -1655,7 +1655,6 @@ option::after {
 	flex: 1;
 	background-color: #f5f5f5;
 	display: flex;
-	gap: 1rem;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -3848,6 +3847,8 @@ option::after {
 }
 .timing__item {
 	position: relative;
+	height: 226px;
+	max-height: 226px;
 	width: 100%;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -5181,10 +5182,6 @@ option::after {
 
 	.find-list__price-value {
 		font-size: 18px;
-	}
-
-	.find-list__body-price {
-		gap: 0;
 	}
 
 	.order-form__field-contact {

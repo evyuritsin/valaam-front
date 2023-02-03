@@ -471,10 +471,14 @@ $(document).ready(function() {
 	}
 	function getLabelCalendar (month, year) {
 		var label = $('.datepicker-lite').find('.datepicker_label');
+		var labelProg = $('.datepicker-prog').find('.datepicker_label');
 		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 		label.text(months[month] + ' ' + String(year));
 		label.attr('month', month);
 		label.attr('year', year);
+		labelProg.text(months[month] + ' ' + String(year));
+		labelProg.attr('month', month);
+		labelProg.attr('year', year);		
 	}
 	var currDate = new Date();
 	$('.datepicker').find('.datepicker__body').html(getFullMonth(currDate.getMonth(), currDate.getFullYear()));

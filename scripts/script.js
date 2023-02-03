@@ -482,7 +482,7 @@ $(document).ready(function() {
 		labelProg.attr('year', year);
 		labelTime.text(months[month] + ' ' + String(year));
 		labelTime.attr('month', month);
-		labelTime.attr('year', year);	
+		labelTime.attr('year', year);
 	}
 	var currDate = new Date();
 	$('.datepicker').find('.datepicker__body').html(getFullMonth(currDate.getMonth(), currDate.getFullYear()));

@@ -1572,7 +1572,7 @@ option::after {
 .find-list__col:last-child {
 	flex: 1;
 	border-left: 1px solid #b3b3b3;
-	padding: 0px 20px 0px 15px;
+	padding: 0px 0px 0px 15px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -5003,6 +5003,8 @@ option::after {
 	.timing__item {
 		flex-direction: column;
 		margin-bottom: 10px;
+		max-height: fit-content;
+		height: auto;
 	}
 
 	.timing__item .find-list__col {

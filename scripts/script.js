@@ -291,6 +291,7 @@ $(document).ready(function() {
 	$('body').on('click', '.select__item', function() {
 		var obj = $(this).parent().attr('obj');
 		$('[inputobj=' + obj + ']').val($(this).text());
+		$('[inputfind=' + obj + ']').val($(this).text());
 		$(this).parent().removeClass('show').addClass('hide');
 		$('.popup__blocked').hide();
 		$('[showmodal]').removeClass('search_filter-open');
@@ -299,18 +300,22 @@ $(document).ready(function() {
 	$('.popup__composition-btn').click(function() {
 		var output = [];
 		const data = {};
+		var arr = [];
 		var target = $(this).closest('.popup__composition');
 		var key = target.attr('obj');
 		target.find('.index-form').each(function (index, element) {
 			var label = $(element).find('.index-form__text').text();
+			var index = $(element).find('.index-form__text').attr('index');
 			var value = $(element).find('.index-form__value').text();
 			if (value != '0') {
 				output.push(label + ' - ' + value);
-				data[label] = value;						
+				data[label] = value;
+				arr.push(index + '-' + value);				
 			}
 
 		});
 		$('[inputobj=' + key + ']').val(output.join(' ')).attr('data', JSON.stringify(data));
+		$('[inputfind=' + key + ']').val(arr.join(';'));
 		target.find('.index-form__value').text('0');
 		target.removeClass('show').addClass('hide');
 		$('.popup__blocked').hide();
@@ -318,15 +323,18 @@ $(document).ready(function() {
 	});
 	$('.popup__listing input[type=checkbox]').click(function() {
 		var list = [];
+		var arr = [];
 		const data = {};
 		var key = $(this).closest('.popup__listing').attr('obj');
 		$(this).closest('.popup__listing').find('input[type=checkbox]').each(function (index, element) {
 			if ($(element).is(':checked')) {
 				list.push($(element).parent().find('.checkbox__text').text());
 				data[index] = $(element).parent().find('.checkbox__text').text();
+				arr.push(index + 1);
 			}
 		});
 		$('[inputobj=' + key + ']').val(list.join('; ')).attr('data', JSON.stringify(data));
+		$('[inputfind=' + key + ']').val(arr.join(','));
 	});
 	$('.vp-tab').click(function() {
 		var idTab = $(this).attr('id-tab');
@@ -531,8 +539,10 @@ $(document).ready(function() {
 		var obj = parent.attr('obj');
 		dateArr = date.split('.');
 		date = dateArr[1] + '.' + dateArr[0] + '.' + dateArr[2];
+		var dateOutput = dateArr[2] + '.' + dateArr[0] + '.' + dateArr[1];
 		if (parent.length === 1) {
 			$('[inputobj=' + obj + ']').val(date);
+			$('[inputfind=' + obj + ']').val(dateOutput);
 		}
 		$('.popup__blocked').click();
 	});

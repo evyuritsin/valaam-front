@@ -1054,7 +1054,7 @@ option::after {
 	padding: 0px;
 	background: #1d3054;
 	border-radius: 0px;
-	z-index: 10;
+	z-index: 3;
 }
 .menu-mobile__header {
 	width: 100%;
@@ -4535,7 +4535,7 @@ option::after {
 	height: fit-content;
 	background: #fff;
 	border-radius: 20px;
-	z-index: 3;
+	z-index: 4;
 }
 .modal__blocked {
 	width: 100vw;
@@ -5262,8 +5262,8 @@ option::after {
 		text-align: center;
 	}
 	.header__search {
-		top: 40px;
-		bottom: unset;
+		top: unset;
+		bottom: 40px;
 	}
 	.search__submits {
 		max-width: 100%;
@@ -5524,6 +5524,7 @@ option::after {
 	background-image: url(../img/icons-svg/geo_search.svg);
 }
 .input__icon_right {
+	padding-right: 40px;
 	background-repeat: no-repeat;
 	background-position: center right;
 	background-position-x: calc(100% - 15px);

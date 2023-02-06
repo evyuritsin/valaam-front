@@ -270,7 +270,7 @@ $(document).ready(function() {
 		var keyObj = $(this).attr('inputobj');
 		var hbody = $('body').height();
 		showTarget
-			.css('top', pos.top + $(this).height() + 1)
+			.css('top', pos.top + $(this).height() + 21)
 			.css('left', pos.left).attr('obj', keyObj)
 			.removeClass('hide').addClass('show');		
 		$('.' + $(this).attr('showmodal')).css('width', $(this).css('width'));

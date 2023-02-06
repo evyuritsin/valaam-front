@@ -378,76 +378,79 @@
 			<div class="main__content">
 				<div class="search">
 					<form action="">
-					<div class="search__filters">
-						<div class="search__col">
-							<label for="" class="search__filter-name">Дата заезда</label>
-							<input 
-								type="text" 
-								class="search__filter icon_date" 
-								value="" 
-								placeholder="17 октября 2022"
-								showmodal="datepicker-lite"
-								inputobj="91675" 
-								readonly
-								data=""						
-							>
-						</div>
-						<div class="search__col">
-							<label for="" class="search__filter-name">Продолжительность</label>
-							<input 
-								type="text" 
-								class="search__filter icon_duration" 
-								showmodal="duration-list"
-								inputobj="92576" 
-								readonly 
-								value="" 
-								placeholder="Продолжительность"
-								data=""
-							>			
-						</div>
-						<div class="search__col">
-							<label for="" class="search__filter-name">Количество человек</label>
-							<input 
-								type="text" 
-								class="search__filter icon_count" 
-								showmodal="count-list" 
-								inputobj="57952" 
-								readonly 
-								value="" 
-								placeholder="Состав гостей"
-								data=""
-							>
-						</div>
-						<div class="search__col">
-							<label for="" class="search__filter-name">Место отправления</label>
-							<input 
-								type="text" 
-								class="search__filter icon_geo_search" 
-								showmodal="geo-list"
-								inputobj="64729"
-								readonly 
-								value="" 
-								placeholder="Любое"
-								data=""
-							>
-						</div>
-
-					</div>
-					<div class="search__submits">
-							<div class="find-list__date-item">
-								<div class="find-list__point find-list_green"></div>
-								<span class="find-list__date">много места</span>
+						<div class="search__filters">
+							<div class="search__col">
+								<label for="" class="search__filter-name">Дата заезда</label>
+								<input 
+									type="text" 
+									class="vp-input icon_date input__icon_right" 
+									value="" 
+									placeholder="Дата заезда"
+									showmodal="datepicker-lite"
+									inputobj="91675" 
+									readonly
+									data=""						
+								>
 							</div>
-							<div class="find-list__date-item">
-								<div class="find-list__point find-list_orange"></div>
-								<span class="find-list__date">мало места</span>
+							<div class="search__col">
+								<label for="" class="search__filter-name">Продолжительность</label>
+								<input 
+									type="text" 
+									class="vp-input icon_duration input__icon_right" 
+									showmodal="duration-list"
+									inputobj="92576" 
+									readonly 
+									value="" 
+									placeholder="Продолжительность"
+									data=""
+								>			
 							</div>
-							<div class="find-list__date-item">
-								<div class="find-list__point find-list_red"></div>
-								<span class="find-list__date">места заканчиваются</span>
-							</div>																	
-						<button type="submit" class="vp-btn pl-50 pr-50">Найти</button>
-					</div>
+							<div class="search__col">
+								<label for="" class="search__filter-name">Количество человек</label>
+								<input 
+									type="text" 
+									class="vp-input icon_count input__icon_right" 
+									showmodal="count-list" 
+									inputobj="57952" 
+									readonly 
+									value="" 
+									placeholder="Состав гостей"
+									data=""
+								>
+							</div>
+							<div class="search__col">
+								<label for="" class="search__filter-name">Место отправления</label>
+								<input 
+									type="text" 
+									class="vp-input icon_geo_search input__icon_right" 
+									showmodal="geo-list"
+									inputobj="64729"
+									readonly 
+									value="" 
+									placeholder="Любое"
+									data=""
+								>
+							</div>
+						</div>
+						<div class="search__submits">
+								<div class="find-list__date-item">
+									<div class="find-list__point find-list_green"></div>
+									<span class="find-list__date">много места</span>
+								</div>
+								<div class="find-list__date-item">
+									<div class="find-list__point find-list_orange"></div>
+									<span class="find-list__date">мало места</span>
+								</div>
+								<div class="find-list__date-item">
+									<div class="find-list__point find-list_red"></div>
+									<span class="find-list__date">места заканчиваются</span>
+								</div>																	
+							<button type="submit" class="vp-btn pl-50 pr-50">Найти</button>
+						</div>
+						<input type="hidden" name="dateStart" value="">
+						<input type="hidden" name="durationList" value="">
+						<input type="hidden" name="guestList" value="">
+						<input type="hidden" name="geoList" value="">
 					</form>
 				</div>
 			</div>
@@ -858,6 +861,7 @@
 								<span class="checkbox__text">Подписаться на рассылку новостей</span>
 							</div>									
 						</div>
+
 						<button type="button" @click.prevent="groupProgInputsClick" class="vp-btn">Оплатить</button>
 					</div>						
 				</div>
@@ -1587,11 +1591,11 @@
 					</div>
 					<div class="register__row justify-content-between">
 						<div class="register__col  pos-v pl-0">
-							<div class="checkbox__label">
+							<div style="height: 25px;" class="checkbox__label">
 								<input v-model="regUrInputs.sendInfo" type="checkbox" class="checkbox" checked>
 								<span class="checkbox__text">Я согласен с условиями передачи информации</span>
 							</div>
-							<div class="checkbox__label">
+							<div style="height: 25px;" class="checkbox__label">
 								<input v-model="regUrInputs.news" type="checkbox" class="checkbox">
 								<span class="checkbox__text">Подписаться на рассылку новостей</span>
 							</div>							
@@ -9775,7 +9779,6 @@
 				</table>
 			</div>
 		</section>
-
 	</main>
 	<!--остальные-->
 	<footer class="footer">

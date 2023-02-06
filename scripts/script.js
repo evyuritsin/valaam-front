@@ -880,12 +880,17 @@ $(document).ready(function() {
 	          success: function(data){
 		          console.log(data);
 		          if (data['status'] === 'error') {
-		          	$('.modal_global-login-msg').removeClass('hide').addClass('show').text(data['data'][0])
+		          	if (data['code'] == 51) {
+						$('.modal_global-login-msg').removeClass('hide').addClass('show').text('Введенный пароль короткий.');
+		          	} else if (data['code'] == 59) {
+						$('.modal_global-login-msg').removeClass('hide').addClass('show').text(data['data'][0]);
+		          	}
+		          	
 		          }
 	          }
 	      });	  
 	  }
-	});
+	}); 
 	$('.modal_submit-reg').click(function() {
 	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
 	  var inputfull = $(this).closest('.modal__forms').find('.modal__input');
@@ -918,6 +923,7 @@ $(document).ready(function() {
 	  } else {
 	  	  $(this).closest('.modal__forms').find('input[name]').removeClass('vp-input_invalid');
 	  	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
+	  	  console.log($(this).closest('form').serialize());
 	      $.ajax({
 	          url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/register/',
 	          method: 'post',
@@ -926,17 +932,66 @@ $(document).ready(function() {
 	          data: $(this).closest('form').serialize(),
 	          success: function(data){
 		          console.log(data);
+		          msgfull.removeClass('show').addClass('hide');
 		          if (data['status'] === 'error') {
-		          	msgfull.removeClass('show').addClass('hide');
-		          	msg_general.removeClass('hide').addClass('show').text('Генерация кода ошибки');
+		          	if (data['code'] == 23) {
+						msg_general.removeClass('hide').addClass('show').text('Email уже используется.');
+		          	} else if (data['code'] == 40) {
+		          		msg_general.removeClass('hide').addClass('show').text('Согласие с условиями передачи информации не подтверждено.');
+		          	} else if (data['code'] == 20) {
+						msg_general.removeClass('hide').addClass('show').text('Email введен не верно.');
+		          	}
 		          }
 	          }
 	      });
 	  }
 	});
 	$('.modal_submit-recpass').click(function() {
+		$('.modal__invalid-msg').removeClass('show').addClass('hide');
+		var inputfull = $(this).closest('.modal__forms').find('.modal__input');
+		var msgfull = $(this).closest('.modal__forms').find('.modal__invalid-msg');
+		var msg_general = $('.modal__invalid-general');
+		var email = $(this).closest('.modal__forms').find('.modal_email');
+		if (email.val() == '') {
+		  	inputfull.removeClass('vp-input_invalid');
+		  	msgfull.removeClass('show').addClass('hide');
+		  	email.addClass('vp-input_invalid');
+		  	msg_general.removeClass('hide').addClass('show').text('Не заполнено обязательное поле');
+	    } else {
+	  	  $(this).closest('.modal__forms').find('input[name]').removeClass('vp-input_invalid');
+	  	  $('.modal__invalid-msg').removeClass('show').addClass('hide');
+	      $.ajax({
+	          url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/reset/',
+	          method: 'post',
+	          dataType: 'json',
+	          crossDomain: true,
+	          data: $(this).closest('form').serialize(),
+	          success: function(data){
+		          console.log(data);
+		          if (data['status'] === 'error') {
+		          	if (data['code'] == 1) {
+			          	msgfull.removeClass('show').addClass('hide');
+			          	msg_general.removeClass('hide').addClass('show').text(data['data']['message']);		          		
+		          	}
 
-	});	
+		          }
+	          }
+	      });
+	    }
+	});
+	if ($(window).width() <= 890) {
+		$('.login .modal__close').attr('src', './img/icon_modal_close_black.png');
+	} else {
+		$('.login .modal__close').attr('src', './img/icon_modal_close.png');
+	}
+	$(window).resize(function() {
+		if ($(window).width() <= 890) {
+			$('.login .modal__close').attr('src', './img/icon_modal_close_black.png');
+		} else {
+			$('.login .modal__close').attr('src', './img/icon_modal_close.png');
+		}
+		
+	});
 /*
 	$('.post-list__img').hover(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({top: 300, opacity: 1}, 1000);

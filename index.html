@@ -1051,10 +1051,10 @@
                                 </table>
                             </div>
                         </div>
-                    <!--/div-->
+                    </div>
                     <script async src="https://www.gismeteo.ru/api/informer/getinformer/?hash=0inwnca3r20hrr"></script>
                     <!-- Gismeteo informer END -->
-				</div>				
+					<!--/div-->				
 				</div>				
 				<div class="footer__pay">
 					<img class="footer__card" src="./img/pay-mir.png" alt="mir">
@@ -1073,10 +1073,11 @@
 		<form class="modal__form" action="/">
 		<div class="modal__forms">
 			<div class="modal__caption">Вход</div>
-			<input type="text" class="modal_username modal__input vp-input_invalid" placeholder="Телефон или email">
-			<span class="modal__invalid-msg hide">Не верный ввод</span>
-			<input type="password" class="modal_password modal__input" placeholder="Пароль">
-			<span class="modal__invalid-msg hide">Не верный пароль</span>			
+			<input type="text" class="modal_username modal__input" placeholder="Телефон или email" name="email">
+			<span class="modal__invalid-msg modal_loginname-msg hide"></span>
+			<input type="password" class="modal_password modal__input" placeholder="Пароль" name="password">
+			<span class="modal__invalid-msg modal_loginpass-msg hide"></span>
+			<span class="modal__invalid-msg modal_global-login-msg hide"></span>
 			<div class="modal__options">
 				<div class="checkbox__label">
 					<input type="checkbox" class="checkbox" checked>
@@ -1110,16 +1111,20 @@
 		<div class="modal__forms">
 			<div class="modal__caption">Регистрация</div>
 			<div class="modal__subtitle">Для физических лиц</div>
-			<input type="text" class="modal_username modal__input" placeholder="Имя">
-			<input type="email" class="modal_email modal__input" placeholder="Email">
-			<input type="phone" class="modal_phone modal__input" placeholder="Телефон">
+			<input type="text" class="modal_username modal__input" placeholder="Имя" name="firstname">
+			<span class="modal__invalid-msg modal__invalid-name hide"></span>
+			<input type="email" class="modal_email modal__input" placeholder="Email" name="email">
+			<span class="modal__invalid-msg modal__invalid-email hide"></span>
+			<input type="phone" class="modal_phone modal__input" placeholder="Телефон" name="phone">
+			<span class="modal__invalid-msg modal__invalid-phone hide"></span>
+			<span class="modal__invalid-msg modal__invalid-general hide"></span>
 			<div class="modal__options modal_pos-v">
 				<div class="checkbox__label">
-					<input type="checkbox" class="checkbox" checked>
+					<input type="checkbox" class="checkbox" name="agreement" checked>
 					<span class="checkbox__text">Я согласен с условиями передачи информации</span>
 				</div>
 				<div class="checkbox__label">
-					<input type="checkbox" class="checkbox" checked>
+					<input type="checkbox" class="checkbox" name="sendnews" checked>
 					<span class="checkbox__text">Подписаться на рассылку новостей</span>
 				</div>
 			</div>
@@ -1135,7 +1140,8 @@
 		<form class="modal__form" action="/">
 			<div class="modal__forms">
 				<div class="modal__caption">Восстановление пароля</div>
-				<input type="email" class="modal_email modal__input" placeholder="Email">
+				<input type="email" class="modal_email modal__input" name="email" placeholder="Email">
+				<span class="modal__invalid-msg modal__invalid-general hide"></span>
 				<div class="modal__captcha"></div>
 				<div class="modal__desc gray">
 				Это легко исправить! Заполните личные данные и добро пожаловать к нам!

@@ -955,14 +955,14 @@
 			<div class="find-programs__form">
 				<input v-model="findProgramInputs.name" type="text" class="vp-input icon-pos-left icon_name pl-40 flex-1" value="" placeholder="Ваше имя">	
 				<input v-model="findProgramInputs.phone" type="text" class="vp-input icon-pos-left icon_telefon ml-20 pl-40 flex-1" value="" placeholder="Телефон">
-				<button type="button" class="vp-btn ml-20 pl-20 pr-20" @click.prevent="findProgramClick">Оставить заявку</button>				
+				<button type="button" class="vp-btn ml-20 pl-20 pr-20" @click.prevent="findProgramClick">Оставить заявку</button>		
 			</div>
 			<div class="checkbox__label" v-bind:class="findProgramInputs.visible">
 				<span class="mt-10 w-100 ta-right red">{{ findProgramInputs.error }}</span>
 			</div>
-			<div class="checkbox__label">
+			<div class="checkbox__label w-100">
 				<input type="checkbox" class="checkbox" checked="">
-				<span class="checkbox__text while">Я согласен с условиями передачи информации</span>
+				<span class="checkbox__text while">Я даю своё согласие на обработку персональных данных</span>
 			</div>
 		</section>
 	</main>
@@ -1093,7 +1093,7 @@
 		<div class="modal__info">
 			<div class="modal__title">Нет аккаунта?</div>
 			<div class="modal__desc">
-			На вашу почту будет отправлена инструкция с дальнейшими действиями.
+			Это легко исправить! Заполните личные данные и добро пожаловать к нам!
 			</div>
 			<a href="javascript:void(0)" class="modal__btn">ЗАРЕГИСТРИРОВАТЬСЯ</a>
 		</div>

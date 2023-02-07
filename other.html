@@ -765,7 +765,7 @@
 				<div class="checkbox__label" v-bind:class="findProgramInputs.visible">
 					<span class="mt-10 w-100 ta-right red">{{ findProgramInputs.error }}</span>
 				</div>
-				<div class="checkbox__label">
+				<div class="checkbox__label w-100">
 					<input type="checkbox" class="checkbox" checked="">
 					<span class="checkbox__text while">Я согласен с условиями передачи информации</span>
 				</div>
@@ -1554,10 +1554,10 @@
 			<div class="main__introtext">Для юридических лиц</div>
 			<div class="main__content">
 				<form class="register__form" action="">
-					<div class="checkbox__label">
+					<!--div class="checkbox__label">
 						<input v-model="regUrInputs.agent" type="checkbox" class="checkbox" checked>
 						<span class="checkbox__text">АГЕНСТВО</span>
-					</div>
+					</div-->
 					<div class="register__row">
 						<input v-model="regUrInputs.fio" type="text" class="input__text flex-1" value="" placeholder="ФИО представителя компании*">
 						<input v-model="regUrInputs.email" type="text" class="input__text flex-1" value="" placeholder="E-mail*">
@@ -1593,7 +1593,7 @@
 						<div class="register__col  pos-v pl-0">
 							<div style="height: 25px;" class="checkbox__label">
 								<input v-model="regUrInputs.sendInfo" type="checkbox" class="checkbox" checked>
-								<span class="checkbox__text">Я согласен с условиями передачи информации</span>
+								<span class="checkbox__text">Я согласен с <a href="#">условиями</a> передачи информации</span>
 							</div>
 							<div style="height: 25px;" class="checkbox__label">
 								<input v-model="regUrInputs.news" type="checkbox" class="checkbox">
@@ -4718,6 +4718,7 @@
 					Заканчивается экскурсия «Скиты Валаама» у монастырской фермы, с конца XIX столетия и до наших дней снабжающей обитель превосходными молочными продуктами. Рассказ экскурсовода коснется вопросов хозяйственной и экономической жизни обители. Особое место в экскурсии уделяется знакомству с уникальным природным комплексом Валаамского архипелага, его флорой и фауной.
 					Заканчивается экскурсия «Скиты Валаама» у монастырской фермы, с конца XIX столетия и до наших дней снабжающей обитель превосходными молочными продуктами. Рассказ экскурсовода коснется вопросов хозяйственной и экономической жизни обители. Особое место в экскурсии уделяется знакомству с уникальным природным комплексом Валаамского архипелага, его флорой и фауной.						
 				</p>
+				<div class="main__introtext">Категории номеров</div>
 				<div class="list-grid">
 					<div class="placement-item">
 						<div class="placement-item__gallery slider-for">
@@ -9906,7 +9907,7 @@
 		<div class="modal__info">
 			<div class="modal__title">Нет аккаунта?</div>
 			<div class="modal__desc">
-			На вашу почту будет отправлена инструкция с дальнейшими действиями.
+			Это легко исправить! Заполните личные данные и добро пожаловать к нам!
 			</div>
 			<a href="javascript:void(0)" class="modal__btn">ЗАРЕГИСТРИРОВАТЬСЯ</a>
 		</div>

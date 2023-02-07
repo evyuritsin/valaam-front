@@ -539,7 +539,7 @@ $(document).ready(function() {
 		var obj = parent.attr('obj');
 		dateArr = date.split('.');
 		date = dateArr[1] + '.' + dateArr[0] + '.' + dateArr[2];
-		var dateOutput = dateArr[2] + '.' + dateArr[0] + '.' + dateArr[1];
+		var dateOutput = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 		if (parent.length === 1) {
 			$('[inputobj=' + obj + ']').val(date);
 			$('[inputfind=' + obj + ']').val(dateOutput);
@@ -1000,13 +1000,20 @@ $(document).ready(function() {
 		} else {
 			$('.login .modal__close').attr('src', './img/icon_modal_close.png');
 		}
-		
 	});
-/*
-	$('.post-list__img').hover(function() {
-		$(this).closest('.post-list').find('.post-list__desc').animate({top: 300, opacity: 1}, 1000);
+	/*07-02-23*/
+	$('.post-list__img').mouseenter(function() {
+		$(this).closest('.post-list').find('.post-list__desc').animate({
+			top: "50px",
+		}, 1000);
 	});
-*/
+
+	$('.post-list__desc').mouseout(function() {
+		$(this).closest('.post-list').find('.post-list__desc').animate({
+			top: "300px",
+		}, 1000);
+	});
+	/*07-02-23*/	
 	setupMask();
 	//$('.populars .list').scrollTo(300);
 });

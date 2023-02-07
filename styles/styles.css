@@ -464,6 +464,7 @@ option::after {
 	height: 35px;
 	display: flex;
 	align-items: center;
+	justify-content: center;/*07-02-23*/
 }
 .checkbox {
 	width: 20px;
@@ -501,6 +502,7 @@ option::after {
 	font-size: 1rem;
 	line-height: 20px;
 	color: #4f4f4f;
+	width: unset;/*07-02-23*/
 }
 /*--checkbox-item--*/
 /*--radiobox-item--*/
@@ -627,6 +629,7 @@ option::after {
 	background-position-x: 15px;
 }
 .icon-pos-right {
+	padding-right: 45px;/*07-02-23*/
 	background-position: right;
 	background-position-x: calc(100% - 15px);
 }
@@ -906,8 +909,11 @@ option::after {
 	visibility: visible;
 	opacity: 1;
 }
+/*07-02-23*/
 .header__login-auth,
-.header__login-reg {
+.header__login-reg,
+.header__login-cabinet,
+.header__login-logout {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -915,10 +921,12 @@ option::after {
 	margin: 10px 10px;
 }
 .header__login-auth:hover,
-.header__login-reg:hover {
+.header__login-reg:hover,
+.header__login-cabinet:hover,
+.header__login-logout:hover {
 	color: #31b404;
 }
-
+/*07-02-23*/
 .header-bottom {
 	min-height: 85px;
 	height: fit-content;
@@ -1217,6 +1225,7 @@ option::after {
 	line-height: 81px;
 	color: #fff;
 	text-transform: uppercase;
+	margin-bottom: 30px;/*07-02-23*/
 }
 .main__search {
 	/*position: absolute;
@@ -1321,7 +1330,11 @@ option::after {
 }
 .label-list {
 	position: absolute;
-	width: 134px;
+	/*07-02-23*/
+	width: fit-content;
+    padding: 0 20px;
+    box-sizing: border-box;
+    /*07-02-23*/
 	height: 45px;
 	top: 0px;
 	left: 0px;
@@ -1336,6 +1349,11 @@ option::after {
 	line-height: 25px;
 	color: #fff;
 }
+/*07-02-23*/
+.label-list span {
+	margin-left: 10px;
+}
+/*07-02-23*/
 .main__poster {
 	width: 100%;
 	height: 80vh;
@@ -1393,6 +1411,7 @@ option::after {
 	line-height: 60px;
 	text-align: center;
 	color: #fff;
+	text-transform: uppercase;/*07-02-23*/
 }
 .find-programs__construct {
 	width: 100%;
@@ -1423,7 +1442,7 @@ option::after {
 	border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 .find-programs__form {
-	width: 100%;
+	width: 845px;/*07-02-23*/
 	display: flex;
 	justify-content: center;
 }
@@ -1481,8 +1500,8 @@ option::after {
 .find-list {
 	position: relative;
 	width: 100%;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 30px;/*07-02-23*/
+	/*margin-bottom: 20px;*/
 	background: #fff;
 	box-shadow: 0px 0px 20px rgba(5, 68, 88, 0.2);
 	border-radius: 20px;
@@ -1547,7 +1566,7 @@ option::after {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
-	line-height: 28px;
+	line-height: 45px;/*07-02-23*/
 	color: #1d3054;
 }
 .find-list__link {
@@ -1773,7 +1792,11 @@ option::after {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
-	line-height: 35px;
+	/*07-02-23*/
+	line-height: 28px;
+	display: flex;
+	align-items: center;
+	/*07-02-23*/
 	color: #fff;
 	box-sizing: border-box;
 	text-align: left;
@@ -1883,6 +1906,8 @@ option::after {
 .post-list__desc {
 	position: absolute;
 	opacity: 0;
+	padding: 20px;/*07-02-23*/
+	box-sizing: border-box;/*07-02-23*/
 	top: 50px;
 	width: 100%;
 	height: 250px;
@@ -2111,6 +2136,7 @@ option::after {
 	justify-content: center;
 	align-items: center;
 	padding: 10px 40px;
+	box-sizing: border-box;/*07-02-23*/
 	width: fit-content;
 	height: 45px;
 	background: rgba(255, 255, 255, 0.9);
@@ -2201,7 +2227,7 @@ option::after {
 	font-size: 20px;
 	color: #fff;
 	flex: 5;
-	padding-right: 10px;
+	padding: 0 10px;/*07-02-23*/
 	box-sizing: border-box;
 }
 /*-----------map---------------------*/
@@ -2486,7 +2512,11 @@ option::after {
 }
 .excursion-list__duration {
 	position: absolute;
-	width: 134px;
+	/*07-02-23*/
+	width: fit-content;
+    padding: 0 20px;
+    box-sizing: border-box;
+    /*07-02-23*/
 	height: 45px;
 	top: 0px;
 	left: 0px;
@@ -2501,6 +2531,11 @@ option::after {
 	line-height: 25px;
 	color: #fff;
 }
+/*07-02-23*/
+.excursion-list__time {
+	margin-left: 10px;	
+}
+/*07-02-23*/
 /*-----------excursion-list----------------------*/
 /*-----------sliders-----------------------------*/
 .gallery {
@@ -2594,7 +2629,7 @@ option::after {
 .options__item {
 	width: 100%;
 	height: fit-content;
-	margin-top: 20px;
+	margin-top: 30px;/*07-02-23*/
 	display: flex;
 	align-items: center;
 	font-style: normal;
@@ -4582,6 +4617,7 @@ option::after {
 	line-height: 55px;
 	text-align: center;
 	color: #1d3054;
+	text-transform: uppercase;/*07-02-23*/
 	border-bottom: 1px solid rgba(29, 48, 84, 0.5);
 }
 .modal__subtitle {
@@ -5138,9 +5174,11 @@ option::after {
 		display: flex;
 		gap: 1rem;
 	}
+	/*07-02-23
 	.checkbox__text {
 		max-width: 200px;
 	}
+	*/
 	.excursion-list {
 		width: 300px;
 	}
@@ -5334,10 +5372,11 @@ option::after {
 		margin-right: unset;
 	}
 	.find-programs {
-		padding: 10px;
+		padding: 20px;/*07-02-23*/
 	}
 	.find-programs__link {
 		font-size: 16px;
+		margin-top: 10px;/*07-02-23*/
 	}
 	.header__login,
 	.header__login a {
@@ -5476,11 +5515,21 @@ option::after {
 	.order-form__footer .vp-btn {
 		width: 100%;
 	}
+	/*07-02-23*/
+	.checkbox__label {
+		height: fit-content;
+	}
+	/*07-02-23*/
 }
 @media screen and (max-width: 420px) {
 	.main__caption {
 		font-size: 28px;
 	}
+	/*07-02-23*/
+	.checkbox__text {
+		max-width: 200px;
+	}
+	/*07-02-23*/
 }
 @media screen and (max-width: 340px) {
 	.main__caption {

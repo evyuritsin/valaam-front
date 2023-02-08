@@ -208,6 +208,7 @@
 			</div>
 		</div>
 		<section class="section program zi-1 visibShow">
+			<div class="inputarr" style="display: none;" arr='{"idTour": "14","countDayTour": "1","tourName": "НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ","tourWayBus": "г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург","tourWayShip": "г. Приозерск – о. Валаам – г. Приозерск","feed": "2 завтрака, 2 обеда, 2 ужина","countExcursions": "4"}'></div>
 			<div class="main__caption">НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ</div>
 			<div class="program__icons">
 				<div class="find-list__icon-list">
@@ -1333,7 +1334,7 @@
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Дата заезда:</span>
-							<span class="program-card__label program-card_date">25.12.2022</span>
+							<span class="program-card__label program-card_date"></span>
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Количество гостей:</span>
@@ -1341,11 +1342,11 @@
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Проезд на атобусе:</span>
-							<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
+							<span class="program-card__label program-card_tourWayBus">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Проезд на теплоходе:</span>
-							<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>	
+							<span class="program-card__label program-card_tourWayShip">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>	
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Проживание:</span>
@@ -1353,11 +1354,11 @@
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Питание:</span>
-							<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
+							<span class="program-card__label program-card_feeds">2 завтрака, 2 обеда, 2 ужина</span>
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Кол-во экскурсий:</span>
-							<span class="program-card__label">4</span>
+							<span class="program-card__label program-card_excursion">4</span>
 						</div>																	
 					</div>
 					<div class="program-card__footer">
@@ -1401,7 +1402,7 @@
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Дата заезда:</span>
-							<span class="program-card__label program-card_date">25.12.2022</span>
+							<span class="program-card__label program-card_date"></span>
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Количество гостей:</span>
@@ -1409,11 +1410,11 @@
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Проезд на атобусе:</span>
-							<span class="program-card__label">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
+							<span class="program-card__label program-card_tourWayBus">г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург</span>
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Проезд на теплоходе:</span>
-							<span class="program-card__label">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>	
+							<span class="program-card__label program-card_tourWayShip">«НАЗВАНИЕ» г. Приозерск – о. Валаам – г. Приозерск</span>	
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Проживание:</span>
@@ -1421,11 +1422,11 @@
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Питание:</span>
-							<span class="program-card__label">2 завтрака, 2 обеда, 2 ужина</span>
+							<span class="program-card__label program-card_feeds">2 завтрака, 2 обеда, 2 ужина</span>
 						</div>
 						<div class="program-card__labels">
 							<span class="program-card__label">Кол-во экскурсий:</span>
-							<span class="program-card__label">4</span>
+							<span class="program-card__label program-card_excursion">4</span>
 						</div>	
 					</div>
 					<div class="program-card__footer">
@@ -2402,6 +2403,32 @@
 			</div>
 		</div>
 	</div>
+	<div class="modals modal order-success hide">
+		<a href="javascript:void(0)" class="modal__close-link">
+			<img src="./img/icon_modal_close_black.png" alt="" class="modal__close">
+		</a>
+		<form class="modal__form" action="/">
+			<div class="modal__forms">
+				<div class="modal__caption">Заказ</div>
+				<br>
+				<div class="modal__desc gray">Заказ оформлен успешно</div>
+				<button class="modal__submit">ЗАКРЫТь</button>
+			</div>
+		</form>	
+	</div>
+	<div class="modals modal order-notissued">
+		<a href="javascript:void(0)" class="modal__close-link">
+			<img src="./img/icon_modal_close_black.png" alt="" class="modal__close">
+		</a>
+		<form class="modal__form" action="/">
+			<div class="modal__forms">
+				<div class="modal__caption">Заказ</div>
+				<br>
+				<div class="modal__desc gray">К сожалению заказ не удалось оформить.</div>
+				<button class="modal__submit">ЗАКРЫТь</button>
+			</div>
+		</form>	
+	</div>	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
 	<script type="text/javascript" src="./sliderClick/slick.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

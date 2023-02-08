@@ -13,6 +13,32 @@ $(document).ready(function() {
 		var center_y = (height_doc + (height_view / 2)) - (height_obj / 2);
 		obj.css('top', center_y + 'px').css('left', center_x + 'px');	
 	}
+	function formatDay(countDay) {
+		var countNight = countDay - 1;
+		switch (countDay) {
+			case '1':
+				return countDay + ' день';
+				break;
+			case '2':
+				return countDay + ' дня / ' + countNight + ' ночь';
+				break;
+			case '3':
+			case '4':
+				return countDay + ' дня / ' + countNight + ' ночи';
+				break;
+			case '5':
+				return countDay + ' дней / ' + countNight + ' ночи';
+				break;
+			case '21':
+			case '31':
+			case '41':
+			case '51':
+				return countDay + ' день / ' + countNight + ' ночей';
+				break;					
+			default:
+			   return countDay + ' дней / ' + countNight + ' ночей';
+		}
+	}
     $('.calendar-slider-ship').slick({
 	    slidesToShow: 7,
 	    slidesToScroll: 7,
@@ -546,6 +572,15 @@ $(document).ready(function() {
 		}
 		$('.popup__blocked').click();
 	});
+	var inputarr = JSON.parse($('.inputarr').attr('arr'));
+
+	$('.label_duration').text(formatDay(inputarr['countDayTour'])).attr('value', inputarr['countDayTour']);
+	$('.program-card_excursion').text(inputarr['countExcursions']);
+	$('.program-card_feeds').text(inputarr['feed']);
+	$('.program-card_tourWayShip').text(inputarr['tourWayShip']);
+	$('.program-card_tourWayBus').text(inputarr['tourWayBus']);
+	$('.program-card_name').text(inputarr['tourName']).attr('value', inputarr['idTour']);
+
 	$('.btn-next-room').click(function() {
 		var conteiner = $(this).closest('.buy-tickets-form');
 		var date = conteiner.find('.prog-date').val();
@@ -562,8 +597,20 @@ $(document).ready(function() {
 			var arrDate = date.split('.');
 			var fDate = new Date(Number(arrDate[2]), Number(arrDate[1]) - 1, Number(arrDate[0]));
 			fDate.setDate(fDate.getDate() + Number($('.label_duration').attr('value')));
-			var corrMonth = fDate.getMonth() + 1;
-			var finishDate = fDate.getDate() + '.' + corrMonth + '.' + fDate.getFullYear();
+			var currMonth = fDate.getMonth() + 1;
+			var curMonth = '';
+			if (currMonth <= 9) {
+				curMonth = '0' + currMonth;
+			} else {
+				curMonth = currMonth;
+			}
+			var currDate = '';
+			if (fDate.getDate() <= 9) {
+				currDate = '0' + fDate.getDate();
+			} else {
+				currDate = fDate.getDate();
+			}
+			var finishDate = currDate + '.' + curMonth + '.' + fDate.getFullYear();
 			$('.program-card_date').text(date + ' - ' + finishDate);
 			$('.program-card_date').attr('finishDate', finishDate);
 			var guests = [];
@@ -619,8 +666,20 @@ $(document).ready(function() {
 			var arrDate = date.split('.');
 			var fDate = new Date(Number(arrDate[2]), Number(arrDate[1]) - 1, Number(arrDate[0]));
 			fDate.setDate(fDate.getDate() + Number($('.label_duration').attr('value')));
-			var corrMonth = fDate.getMonth() + 1;
-			var finishDate = fDate.getDate() + '.' + corrMonth + '.' + fDate.getFullYear();
+			var currMonth = fDate.getMonth() + 1;
+			var curMonth = '';
+			if (currMonth <= 9) {
+				curMonth = '0' + currMonth;
+			} else {
+				curMonth = currMonth;
+			}
+			var currDate = '';
+			if (fDate.getDate() <= 9) {
+				currDate = '0' + fDate.getDate();
+			} else {
+				currDate = fDate.getDate();
+			}
+			var finishDate = currDate + '.' + curMonth + '.' + fDate.getFullYear();
 			$('.program-card_date').text(date + ' - ' + finishDate);
 			var guests = [];
 			var generalGuest = 0;

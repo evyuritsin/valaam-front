@@ -1,7 +1,13 @@
 $(document).ready(function() {
+    const jsformat = 'MM.DD.YYYY'
+    const phpformat = 'YYYY-MM-DD'
     function setupMask() {
 		$("[name=passSN]").mask("9999 999999");
 		$("[name=telefon]").add('.icon_telefon').add('.input_phone').mask("+7 (999) 999 99 99");
+        $("input.modal_phone[name='phone'], " +
+            "input.input__text[name='phone'], " +
+            "input.input__text[name='company_phone'], " +
+            "input.input__text[name='bank_phone']").mask("+7 (999) 999 99 99");    
     }
 	function centerViewObj(obj) {
 		var height_doc = $(document).scrollTop();
@@ -39,6 +45,173 @@ $(document).ready(function() {
 			   return countDay + ' дней / ' + countNight + ' ночей';
 		}
 	}
+    function calcBuyTickets(obj) {
+    	var conteiner = obj.closest('.buy-tickets-form');
+    	var conteinerModal = obj.closest('.edit-order__content');
+    	if (conteiner.length > 0) {
+	    	var value = 0;
+	    	conteiner.find('.index-form').each(function (index, el){
+		    	var count = Number($(el).find('.index-form__value').text());
+		    	var price = Number($(el).find('.index-form__price').attr('value'));
+		    	value = value + (count * price);    		
+	    	});
+	    	conteiner
+	    		.find('.buy-tickets-form__price')
+	    		.attr('value', value)
+	    		.text(value + ' ₽');   		
+    	}
+		if (conteinerModal.length > 0) {
+	    	var valueModal = 0;
+	    	conteinerModal.find('.index-form').each(function (index, el){
+		    	var count = Number($(el).find('.index-form__value').text());
+		    	var price = Number($(el).find('.index-form__price').attr('value'));
+		    	valueModal = valueModal + (count * price);		    			
+	    	});    	
+	    	conteinerModal
+	    		.find('.buy-tickets-form__price')
+	    		.attr('value', valueModal)
+	    		.text(valueModal + ' ₽');
+		}
+    }
+    function updateTouristForm() {
+		$('.tourist_block').not('.order-form_clone').remove();
+		$('.order-form_clone').show();
+		var clone = $('.order-form_clone');
+		$('.edit-order__content')
+			.find('.index-form')
+			.each(function (i, element){
+				var count = Number($(element).find('.index-form__value').text());
+				var label = $(element).find('.index-form_label').text();
+				for(var counter = 0; counter < count; counter++) {
+					var newBlock = $(clone).before(clone.clone());
+					newBlock.removeClass('order-form_clone').find('.order-form__subtitle').text(label);
+					newBlock.find('[inputobj]').each(function (j, el){
+						var rand = Math.floor(Math.random() * 100000);
+						$(el).attr('inputobj', rand);
+					});
+				}
+		});
+		$('.order-form_clone').hide();
+		setupMask();
+    }
+	function getDaysInMonth(month, year) {
+	  var date = new Date(year, month, 1);
+	  var days = [];
+	  while (date.getMonth() === month) {
+	  	var newDate = new Date(date);
+	  	var fDate = [];
+	  	var fMonth = newDate.getMonth() + 1;
+	  	if (newDate.getDate() <= 9) {
+	  		fDate[0] = '0' + newDate.getDate();
+	  	} else {
+	  		fDate[0] = newDate.getDate();
+	  	}
+	  	if (fMonth <= 9) {
+	  		fDate[1] = '0' + fMonth;
+	  	} else {
+	  		fDate[1] = fMonth;
+	  	}
+	  	fDate[2] = newDate.getFullYear(); 	
+	    days.push(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
+	    //days.push(date.getMonth() + '.' + date.getDate() + '.' + date.getFullYear());
+	    date.setDate(date.getDate() + 1);
+	  }
+	  return days;
+	}
+	function getFullMonth(month, year) {
+		var dateList = getDaysInMonth(month, year);
+		var firstDate = new Date(dateList[0]);
+		var lastDate = new Date(dateList[dateList.length - 1]);
+		var nDate = lastDate;
+		if (lastDate.getDay() != 0) {
+			for (var i = 0; i <= 6 - lastDate.getDay(); i++) {
+				var nextDate = new Date(nDate);
+				nextDate.setDate(nextDate.getDate() + 1);
+				var lDate = [];
+				var fMonth = nextDate.getMonth() + 1;
+			  	if (nextDate.getDate() <= 9) {
+			  		lDate[0] = '0' + nextDate.getDate();
+			  	} else {
+			  		lDate[0] = nextDate.getDate();
+			  	}
+			  	if (fMonth <= 9) {
+			  		lDate[1] = '0' + fMonth;
+			  	} else {
+			  		lDate[1] = fMonth;
+			  	}
+			  	lDate[2] = nextDate.getFullYear(); 
+				dateList.push(lDate[1] + '.' + lDate[0] + '.' + lDate[2]);
+				nDate = nextDate;
+			}
+		}
+		nDate = firstDate;
+		if (firstDate.getDay() != 0) {
+			for (var i = 1; i <= firstDate.getDay() - 1; i++) {
+				var prevDate = new Date(nDate);
+				prevDate.setDate(prevDate.getDate() - 1);
+				var fDate = [];
+				var fMonth = prevDate.getMonth() + 1;
+			  	if (prevDate.getDate() <= 9) {
+			  		fDate[0] = '0' + prevDate.getDate();
+			  	} else {
+			  		fDate[0] = prevDate.getDate();
+			  	}
+			  	if (fMonth <= 9) {
+			  		fDate[1] = '0' + fMonth;
+			  	} else {
+			  		fDate[1] = fMonth;
+			  	}
+			  	fDate[2] = prevDate.getFullYear(); 
+			  	dateList.unshift(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
+				nDate = prevDate;
+			}
+		} else {
+			for (var i = 1; i <= 6; i++) {
+				var prevDate = new Date(nDate);
+				prevDate.setDate(prevDate.getDate() - 1);
+				var fDate = [];
+				var fMonth = prevDate.getMonth() + 1;
+			  	if (prevDate.getDate() <= 9) {
+			  		fDate[0] = '0' + prevDate.getDate();
+			  	} else {
+			  		fDate[0] = prevDate.getDate();
+			  	}
+			  	if (fMonth <= 9) {
+			  		fDate[1] = '0' + fMonth;
+			  	} else {
+			  		fDate[1] = fMonth;
+			  	}
+			  	fDate[2] = prevDate.getFullYear(); 
+			  	dateList.unshift(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
+				nDate = prevDate;
+			}			
+		}
+		var output = [];
+		dateList.forEach(function(item, i, dateList) {
+			var cDate = new Date(item);
+			if (cDate.getMonth() === month) {
+				output.push('<div class="datepicker__date" date="' + item + '">' + cDate.getDate() + '</div>');
+			} else {
+				output.push('<div class="datepicker__date datepicker_another-month" date="' + item + '">' + cDate.getDate() + '</div>');
+			}
+		});
+		return output.join('');
+	}
+	function getLabelCalendar (month, year) {
+		var label = $('.datepicker-lite').find('.datepicker_label');
+		var labelProg = $('.datepicker-prog').find('.datepicker_label');
+		var labelTime = $('.datepicker-timing').find('.datepicker_label');
+		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+		label.text(months[month] + ' ' + String(year));
+		label.attr('month', month);
+		label.attr('year', year);
+		labelProg.text(months[month] + ' ' + String(year));
+		labelProg.attr('month', month);
+		labelProg.attr('year', year);
+		labelTime.text(months[month] + ' ' + String(year));
+		labelTime.attr('month', month);
+		labelTime.attr('year', year);
+	}
     $('.calendar-slider-ship').slick({
 	    slidesToShow: 7,
 	    slidesToScroll: 7,
@@ -60,7 +233,15 @@ $(document).ready(function() {
 	    asNavFor: '.slider-nav',
 	    infinite: true
     });
-
+    $('.slider-room').slick({
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	    arrows: true,
+	    prevArrow: '<img src="./img/arrow_prev_slider.png" alt="btn prev" class="gallery__btn-prev">',
+	    nextArrow: '<img src="./img/arrow_next_slider.png" alt="btn next" class="gallery__btn-next">',
+	    fade: true,
+	    infinite: true
+    });    
     $('.slider-nav').slick({
 	    slidesToShow: 6,
 	    slidesToScroll: 1,
@@ -71,47 +252,6 @@ $(document).ready(function() {
 	    focusOnSelect: true,
 	    infinite: true
     });
-    function calcBuyTickets(obj) {
-    	var conteiner = obj.closest('.buy-tickets-form');
-    	var conteinerModal = obj.closest('.edit-order__content');
-    	if (conteiner.length > 0) {
-	    	var value = 0;
-	    	conteiner.find('.index-form').each(function (index, el){
-		    	var count = Number($(el).find('.index-form__value').text());
-		    	var price = Number($(el).find('.index-form__price').attr('value'));
-		    	value = value + (count * price);    		
-	    	});
-	    	conteiner.find('.buy-tickets-form__price').attr('value', value).text(value + ' ₽');   		
-    	}
-		if (conteinerModal.length > 0) {
-	    	var valueModal = 0;
-	    	conteinerModal.find('.index-form').each(function (index, el){
-		    	var count = Number($(el).find('.index-form__value').text());
-		    	var price = Number($(el).find('.index-form__price').attr('value'));
-		    	valueModal = valueModal + (count * price);		    			
-	    	});    	
-	    	conteinerModal.find('.buy-tickets-form__price').attr('value', valueModal).text(valueModal + ' ₽');
-		}
-    }
-    function updateTouristForm() {
-		$('.tourist_block').not('.order-form_clone').remove();
-		$('.order-form_clone').show();
-		var clone = $('.order-form_clone');
-		$('.edit-order__content').find('.index-form').each(function (i, element){
-			var count = Number($(element).find('.index-form__value').text());
-			var label = $(element).find('.index-form_label').text();
-			for(var counter = 0; counter < count; counter++) {
-				var newBlock = $(clone).before(clone.clone());
-				newBlock.removeClass('order-form_clone').find('.order-form__subtitle').text(label);
-				newBlock.find('[inputobj]').each(function (j, el){
-					var rand = Math.floor(Math.random() * 100000);
-					$(el).attr('inputobj', rand);
-				});
-			}
-		});
-		$('.order-form_clone').hide();
-		setupMask();
-    }
 	$('.index-form__btn-minus').click(function() {
 		var target = $(this).parent().find('.index-form__value');
 		var value = Number(target.text());
@@ -132,11 +272,6 @@ $(document).ready(function() {
 		}
 		calcBuyTickets($(this));			
 	});
-	/*
-    $(".icon_date").flatpickr({
-	    "locale": "ru"
-	});
-	*/
 	$('.header__login-auth').click(function() {
 		$('.modal__blocked').show();
 		$('body').css('overflow', 'hidden');
@@ -158,7 +293,6 @@ $(document).ready(function() {
 		$('.edit-order').removeClass('hide').addClass('show');
 		centerViewObj($('.edit-order'));
 		$('.modal__blocked').show();
-
 	});
 	$('.edit-order__close').click(function() {
 		$(this).closest('.modals').removeClass('show').addClass('hide');
@@ -182,6 +316,9 @@ $(document).ready(function() {
 		$('.modals').hide();
 		var res = (bolean) ? $('.register').show() :$('.login').show();
 	});
+    $(".loginCaptchaNew").click(function () {
+        $("#captcha_image").attr('src', '/manager/captcha.php?rand=' + Math.random())
+    });
 	$('.placement-item__btn').click(function() {
 		if ($(this).attr('obj') == 'placement') {
 			var parent = $(this).closest('.placement-item');
@@ -321,7 +458,6 @@ $(document).ready(function() {
 		$(this).parent().removeClass('show').addClass('hide');
 		$('.popup__blocked').hide();
 		$('[showmodal]').removeClass('search_filter-open');
-		
 	});	
 	$('.popup__composition-btn').click(function() {
 		var output = [];
@@ -380,7 +516,6 @@ $(document).ready(function() {
 			$(this).closest('tr').addClass('direction-table__tr-active');
 			$(this).addClass('direction-table_select-ship-active');			
 		}
-
 	});
 	$('.custom-select__body').click(function() {
 		$('.custom-select__items').removeClass('show').addClass('hide');
@@ -400,124 +535,6 @@ $(document).ready(function() {
 		body.removeClass('custom-select_body-open');
 		$(this).parent().removeClass('show').addClass('hide');
 	});
-	function getDaysInMonth(month, year) {
-	  var date = new Date(year, month, 1);
-	  var days = [];
-	  while (date.getMonth() === month) {
-	  	var newDate = new Date(date);
-	  	var fDate = [];
-	  	var fMonth = newDate.getMonth() + 1;
-	  	if (newDate.getDate() <= 9) {
-	  		fDate[0] = '0' + newDate.getDate();
-	  	} else {
-	  		fDate[0] = newDate.getDate();
-	  	}
-	  	if (fMonth <= 9) {
-	  		fDate[1] = '0' + fMonth;
-	  	} else {
-	  		fDate[1] = fMonth;
-	  	}
-	  	fDate[2] = newDate.getFullYear(); 	
-	    days.push(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
-	    //days.push(date.getMonth() + '.' + date.getDate() + '.' + date.getFullYear());
-	    date.setDate(date.getDate() + 1);
-	  }
-	  return days;
-	}
-	function getFullMonth(month, year) {
-		var dateList = getDaysInMonth(month, year);
-		var firstDate = new Date(dateList[0]);
-		var lastDate = new Date(dateList[dateList.length - 1]);
-		var nDate = lastDate;
-		if (lastDate.getDay() != 0) {
-			for (var i = 0; i <= 6 - lastDate.getDay(); i++) {
-				var nextDate = new Date(nDate);
-				nextDate.setDate(nextDate.getDate() + 1);
-				var lDate = [];
-				var fMonth = nextDate.getMonth() + 1;
-			  	if (nextDate.getDate() <= 9) {
-			  		lDate[0] = '0' + nextDate.getDate();
-			  	} else {
-			  		lDate[0] = nextDate.getDate();
-			  	}
-			  	if (fMonth <= 9) {
-			  		lDate[1] = '0' + fMonth;
-			  	} else {
-			  		lDate[1] = fMonth;
-			  	}
-			  	lDate[2] = nextDate.getFullYear(); 
-				dateList.push(lDate[1] + '.' + lDate[0] + '.' + lDate[2]);
-				nDate = nextDate;
-			}
-		}
-		nDate = firstDate;
-		if (firstDate.getDay() != 0) {
-			for (var i = 1; i <= firstDate.getDay() - 1; i++) {
-				var prevDate = new Date(nDate);
-				prevDate.setDate(prevDate.getDate() - 1);
-				var fDate = [];
-				var fMonth = prevDate.getMonth() + 1;
-			  	if (prevDate.getDate() <= 9) {
-			  		fDate[0] = '0' + prevDate.getDate();
-			  	} else {
-			  		fDate[0] = prevDate.getDate();
-			  	}
-			  	if (fMonth <= 9) {
-			  		fDate[1] = '0' + fMonth;
-			  	} else {
-			  		fDate[1] = fMonth;
-			  	}
-			  	fDate[2] = prevDate.getFullYear(); 
-			  	dateList.unshift(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
-				nDate = prevDate;
-			}
-		} else {
-			for (var i = 1; i <= 6; i++) {
-				var prevDate = new Date(nDate);
-				prevDate.setDate(prevDate.getDate() - 1);
-				var fDate = [];
-				var fMonth = prevDate.getMonth() + 1;
-			  	if (prevDate.getDate() <= 9) {
-			  		fDate[0] = '0' + prevDate.getDate();
-			  	} else {
-			  		fDate[0] = prevDate.getDate();
-			  	}
-			  	if (fMonth <= 9) {
-			  		fDate[1] = '0' + fMonth;
-			  	} else {
-			  		fDate[1] = fMonth;
-			  	}
-			  	fDate[2] = prevDate.getFullYear(); 
-			  	dateList.unshift(fDate[1] + '.' + fDate[0] + '.' + fDate[2]);
-				nDate = prevDate;
-			}			
-		}
-		var output = [];
-		dateList.forEach(function(item, i, dateList) {
-			var cDate = new Date(item);
-			if (cDate.getMonth() === month) {
-				output.push('<div class="datepicker__date" date="' + item + '">' + cDate.getDate() + '</div>');
-			} else {
-				output.push('<div class="datepicker__date datepicker_another-month" date="' + item + '">' + cDate.getDate() + '</div>');
-			}
-		});
-		return output.join('');
-	}
-	function getLabelCalendar (month, year) {
-		var label = $('.datepicker-lite').find('.datepicker_label');
-		var labelProg = $('.datepicker-prog').find('.datepicker_label');
-		var labelTime = $('.datepicker-timing').find('.datepicker_label');
-		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-		label.text(months[month] + ' ' + String(year));
-		label.attr('month', month);
-		label.attr('year', year);
-		labelProg.text(months[month] + ' ' + String(year));
-		labelProg.attr('month', month);
-		labelProg.attr('year', year);
-		labelTime.text(months[month] + ' ' + String(year));
-		labelTime.attr('month', month);
-		labelTime.attr('year', year);
-	}
 	var currDate = new Date();
 	$('.datepicker').find('.datepicker__body').html(getFullMonth(currDate.getMonth(), currDate.getFullYear()));
 	getLabelCalendar (currDate.getMonth(), currDate.getFullYear());

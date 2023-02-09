@@ -5545,6 +5545,35 @@ option::after {
 	.list-grid {
 		grid-template-columns: repeat(auto-fill, 300px);
 	}
+	.modal__forms {
+	    padding: 10px;
+	}
+	.login .modal__info {
+	    padding: 10px;
+	}
+	.login .modal__options, .register .modal__options {
+	    flex-direction: column;
+    	align-items: center;
+	}
+	.login .modal__title, .register .modal__title {
+	    height: fit-content;
+	}
+	.login .modal__desc, .register .modal__desc {
+		margin: 10px 0;
+	}
+	.modal__submit {
+		width: 100%;
+	}
+	.register .modal__submit {
+		font-size: 16px;
+	}
+	.modal__btn {
+		width: 100%;
+    	font-size: 16px;
+	}
+	.register .modal__caption {
+		margin-top: 20px;
+	}
 }
 /*-----------media----------------------*/
 /*-----------модификаторы глобальные----*/

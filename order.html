@@ -1806,11 +1806,11 @@
 						<div class="order-form__group order-form__pay-group">
 							<div class="order-form__subtitle">Категория оплаты</div>
 							<div class="radiobox__label mt-20">
-								<input name="categorypay" type="radio" label="standart" class="radiobox">
+								<input name="categorypay" type="radio" label="1" class="radiobox">
 								<span class="radiobox__text">Стандартная</span>
 							</div>
 							<div class="radiobox__label mt-20">
-								<input name="categorypay" type="radio" label="donate" class="radiobox">
+								<input name="categorypay" type="radio" label="2" class="radiobox">
 								<span class="radiobox__text">Пожертвование</span>
 							</div>
 							<div class="order-form__help mt-20">
@@ -1821,15 +1821,15 @@
 						<div class="order-form__group order-form__pay-group">
 							<div class="order-form__subtitle">Тип платежа</div>
 							<div class="radiobox__label mt-20">
-								<input name="typepay" type="radio" label="cart" class="radiobox">
+								<input name="typepay" type="radio" label="1" class="radiobox">
 								<span class="radiobox__text">Картой он-лайн</span>
 							</div>
 							<div class="radiobox__label mt-20">
-								<input name="typepay" type="radio" label="invoice" class="radiobox">
+								<input name="typepay" type="radio" label="2" class="radiobox">
 								<span class="radiobox__text">По счету</span>
 							</div>
 							<div class="radiobox__label mt-20">
-								<input name="typepay" type="radio" label="cash" class="radiobox">
+								<input name="typepay" type="radio" label="3" class="radiobox">
 								<span class="radiobox__text">Наличными в офисе</span>
 							</div>
 							<input class="typepay__value" type="hidden" value="">						
@@ -1967,6 +1967,9 @@
 				</div>
 			</div>
 		</section>
+		<script>
+		    var arrreadyprog = '{"idTour":1064,"countDayTour":3,"tourName":"На Дивный остров Валаам 3д\/2н","tourWayBus":"","tourWayShip":"Сортавала – Никоновская бухта – Сортавала","feed":"3 завтрака, 3 обеда, 3 ужина","countExcursions":2,"dates":{"2023-02-09":{"prices":{"adults":2800,"children14":2800,"children7":2800}},"2023-02-10":{"prices":{"adults":4300,"children14":4300,"children7":4300}},"2023-02-11":{"prices":{"adults":3900,"children14":3900,"children7":3900}},"2023-02-12":{"prices":{"adults":2300,"children14":2300,"children7":2300}},"2023-02-13":{"prices":{"adults":2300,"children14":2300,"children7":2300}},"2023-02-14":{"prices":{"adults":2800,"children14":2800,"children7":2800}},"2023-02-15":{"prices":{"adults":3750,"children14":3750,"children7":3750}},"2023-02-16":{"prices":{"adults":2800,"children14":2800,"children7":2800}}}}';
+		</script>
 	</main>
 	<!--остальные-->
 	<footer class="footer">
@@ -2350,7 +2353,7 @@
 			<div class="buy-tickets-form__title">Редактировать ЗАЯВКУ</div>
 			<input 
 				type="text" 
-				class="search__filter icon_date flatpickr-input active prog-date" 
+				class="vp-input input__icon_right icon_date flatpickr-input active prog-date" 
 				value="" 
 				placeholder="Дата поездки" 
 				showmodal="datepicker-prog"

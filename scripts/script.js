@@ -592,7 +592,7 @@ $(document).ready(function() {
 		$('.popup__blocked').click();
 	});
 	/*10-02-23*/
-	var arrreadyprog = '{"idTour": "14","countDayTour": "2","tourName": "НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ","tourWayBus": "г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург",	"tourWayShip": "г. Приозерск – о. Валаам – г. Приозерск","feed": "2 завтрака, 2 обеда, 2 ужина","countExcursions": "4","dates": {"2023-02-12": {"prices": {"adults": "6000","children14": "3000","children7": "0"}},"2023-02-15": {"prices": {"adults": "7000","children14": "4000","children7": "500"}}}}';
+	//var arrreadyprog = '{"idTour": "14","countDayTour": "2","tourName": "НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ","tourWayBus": "г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург",	"tourWayShip": "г. Приозерск – о. Валаам – г. Приозерск","feed": "2 завтрака, 2 обеда, 2 ужина","countExcursions": "4","dates": {"2023-02-12": {"prices": {"adults": "6000","children14": "3000","children7": "0"}},"2023-02-15": {"prices": {"adults": "7000","children14": "4000","children7": "500"}}}}';
 	var inputarr = JSON.parse(arrreadyprog);
 	$('.label_duration').text(formatDay(inputarr['countDayTour'])).attr('value', inputarr['countDayTour']);
 	$('.program-card_excursion').text(inputarr['countExcursions']);
@@ -605,11 +605,12 @@ $(document).ready(function() {
 		var parent = $(this).closest('.popup');
 		var date = $(this).attr('date');
 		var obj = parent.attr('obj');
-		dateArr = date.split('.');
+		var dateArr = date.split('.');
 		date = dateArr[1] + '.' + dateArr[0] + '.' + dateArr[2];
 		var dateInp = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 		var dateOutput = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 		if (parent.length === 1) {
+			console.log(inputarr["dates"][dateOutput]);
 			if (inputarr["dates"][dateOutput] !== undefined) {
 				$('.index-form__price')
 					.eq(0)
@@ -623,10 +624,22 @@ $(document).ready(function() {
 					.eq(2)
 					.attr('value', inputarr["dates"][dateOutput]["prices"]["children7"])
 					.text(inputarr["dates"][dateOutput]["prices"]["children7"] + ' ₽');
+				$('.index-form__price')
+					.eq(3)
+					.attr('value', inputarr["dates"][dateOutput]["prices"]["adults"])
+					.text(inputarr["dates"][dateOutput]["prices"]["adults"] + ' ₽');
+				$('.index-form__price')
+					.eq(4)
+					.attr('value', inputarr["dates"][dateOutput]["prices"]["children14"])
+					.text(inputarr["dates"][dateOutput]["prices"]["children14"] + ' ₽');
+				$('.index-form__price')
+					.eq(5)
+					.attr('value', inputarr["dates"][dateOutput]["prices"]["children7"])
+					.text(inputarr["dates"][dateOutput]["prices"]["children7"] + ' ₽');										
 				$('.buy-tickets-form__msg')
 					.removeClass('show')
 					.addClass('hide')
-					.text('');	
+					.text('');
 				$('[inputobj=' + obj + ']').val(date);
 				calcBuyTickets($(this));
 				$('.btn-next-room').add('.btn-edit-order').prop('disabled', false);	
@@ -643,6 +656,18 @@ $(document).ready(function() {
 					.eq(2)
 					.attr('value', '0')
 					.text('');
+				$('.index-form__price')
+					.eq(3)
+					.attr('value', '0')
+					.text('');
+				$('.index-form__price')
+					.eq(4)
+					.attr('value', '0')
+					.text('');
+				$('.index-form__price')
+					.eq(5)
+					.attr('value', '0')
+					.text('');					
 				$('.buy-tickets-form__msg')
 					.removeClass('hide')
 					.addClass('show')
@@ -730,7 +755,6 @@ $(document).ready(function() {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
 	});
-	
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
 		var date = conteiner.find('.prog-date').val();

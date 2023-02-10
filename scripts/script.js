@@ -45,15 +45,16 @@ $(document).ready(function() {
 			   return countDay + ' дней / ' + countNight + ' ночей';
 		}
 	}
+	/*10-02-23*/
     function calcBuyTickets(obj) {
-    	var conteiner = obj.closest('.buy-tickets-form');
-    	var conteinerModal = obj.closest('.edit-order__content');
+    	var conteiner = $('.buy-tickets-form');
+    	var conteinerModal = $('.edit-order__content');
     	if (conteiner.length > 0) {
 	    	var value = 0;
 	    	conteiner.find('.index-form').each(function (index, el){
 		    	var count = Number($(el).find('.index-form__value').text());
 		    	var price = Number($(el).find('.index-form__price').attr('value'));
-		    	value = value + (count * price);    		
+		    	value = value + (count * price);  		
 	    	});
 	    	conteiner
 	    		.find('.buy-tickets-form__price')
@@ -73,6 +74,7 @@ $(document).ready(function() {
 	    		.text(valueModal + ' ₽');
 		}
     }
+    /*10-02-23*/
     function updateTouristForm() {
 		$('.tourist_block').not('.order-form_clone').remove();
 		$('.order-form_clone').show();
@@ -589,15 +591,75 @@ $(document).ready(function() {
 		}
 		$('.popup__blocked').click();
 	});
-	var inputarr = JSON.parse($('.inputarr').attr('arr'));
-
+	/*10-02-23*/
+	var arrreadyprog = '{"idTour": "14","countDayTour": "2","tourName": "НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ","tourWayBus": "г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург",	"tourWayShip": "г. Приозерск – о. Валаам – г. Приозерск","feed": "2 завтрака, 2 обеда, 2 ужина","countExcursions": "4","dates": {"2023-02-12": {"prices": {"adults": "6000","children14": "3000","children7": "0"}},"2023-02-15": {"prices": {"adults": "7000","children14": "4000","children7": "500"}}}}';
+	var inputarr = JSON.parse(arrreadyprog);
 	$('.label_duration').text(formatDay(inputarr['countDayTour'])).attr('value', inputarr['countDayTour']);
 	$('.program-card_excursion').text(inputarr['countExcursions']);
 	$('.program-card_feeds').text(inputarr['feed']);
 	$('.program-card_tourWayShip').text(inputarr['tourWayShip']);
 	$('.program-card_tourWayBus').text(inputarr['tourWayBus']);
 	$('.program-card_name').text(inputarr['tourName']).attr('value', inputarr['idTour']);
-
+	$('.index-form__price').attr('value', '0').text('');
+	$('body').on('click', '.datepicker-prog .datepicker__date', function() {
+		var parent = $(this).closest('.popup');
+		var date = $(this).attr('date');
+		var obj = parent.attr('obj');
+		dateArr = date.split('.');
+		date = dateArr[1] + '.' + dateArr[0] + '.' + dateArr[2];
+		var dateInp = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
+		var dateOutput = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
+		if (parent.length === 1) {
+			if (inputarr["dates"][dateOutput] !== undefined) {
+				$('.index-form__price')
+					.eq(0)
+					.attr('value', inputarr["dates"][dateOutput]["prices"]["adults"])
+					.text(inputarr["dates"][dateOutput]["prices"]["adults"] + ' ₽');
+				$('.index-form__price')
+					.eq(1)
+					.attr('value', inputarr["dates"][dateOutput]["prices"]["children14"])
+					.text(inputarr["dates"][dateOutput]["prices"]["children14"] + ' ₽');
+				$('.index-form__price')
+					.eq(2)
+					.attr('value', inputarr["dates"][dateOutput]["prices"]["children7"])
+					.text(inputarr["dates"][dateOutput]["prices"]["children7"] + ' ₽');
+				$('.buy-tickets-form__msg')
+					.removeClass('show')
+					.addClass('hide')
+					.text('');	
+				$('[inputobj=' + obj + ']').val(date);
+				calcBuyTickets($(this));
+				$('.btn-next-room').add('.btn-edit-order').prop('disabled', false);	
+			} else {
+				$('.index-form__price')
+					.eq(0)
+					.attr('value', '0')
+					.text('');
+				$('.index-form__price')
+					.eq(1)
+					.attr('value', '0')
+					.text('');
+				$('.index-form__price')
+					.eq(2)
+					.attr('value', '0')
+					.text('');
+				$('.buy-tickets-form__msg')
+					.removeClass('hide')
+					.addClass('show')
+					.text('На выбранную дату не предусмотрена программа.');
+				$('[inputobj=' + obj + ']').val('');
+				$('.buy-tickets-form__price')
+				.attr('value', '0')
+				.text('0 ₽');
+				$(this)
+					.closest('.buy-tickets-form')
+					.find('.index-form__value')
+					.text('0');
+				$('.btn-next-room').add('.btn-edit-order').prop('disabled', true);
+			}
+		}
+		$('.popup__blocked').click();
+	});
 	$('.btn-next-room').click(function() {
 		var conteiner = $(this).closest('.buy-tickets-form');
 		var date = conteiner.find('.prog-date').val();
@@ -646,8 +708,9 @@ $(document).ready(function() {
 			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
 			$('.program').removeClass('visibShow').addClass('visibHide');
 			if (Number(generalGuest) >= 10) {
-				updateTouristForm();
-				$('.group-program').removeClass('visibHide').addClass('visibShow');
+				//updateTouristForm();
+				//$('.group-program').removeClass('visibHide').addClass('visibShow');
+				window.location.href = "/zayavka-na-gruppovuyu-programu.html";
 			} else if (Number(durationTour) == 1) {
 				$('.program-card_rooms').parent().hide();
 				$('.program-card_price-rooms').parent().hide();
@@ -667,6 +730,7 @@ $(document).ready(function() {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
 	});
+	
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
 		var date = conteiner.find('.prog-date').val();
@@ -720,15 +784,17 @@ $(document).ready(function() {
 			close.click();	
 			conteiner.find('.buy-tickets-form__msg').removeClass('show').addClass('hide');
 			if (Number(generalGuest) >= 10) {
-				updateTouristForm();
-				$('.section').removeClass('visibShow').addClass('visibHide');
-				$('.group-program').removeClass('visibHide').addClass('visibShow');
-				window.scrollTo(0, 0);
+				//updateTouristForm();
+				//$('.section').removeClass('visibShow').addClass('visibHide');
+				//$('.group-program').removeClass('visibHide').addClass('visibShow');
+				//window.scrollTo(0, 0);
+				window.location.href = "/zayavka-na-gruppovuyu-programu.html";
 			}
 		} else {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
 	});
+	/*10-02-23*/
 	$('.btn-back-prog').click(function() {
 		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 		$('.program').removeClass('visibHide').addClass('visibShow');
@@ -1077,7 +1143,6 @@ $(document).ready(function() {
 			$('.login .modal__close').attr('src', './img/icon_modal_close.png');
 		}
 	});
-	/*07-02-23*/
 	$('.post-list__img').mouseenter(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({
 			top: "50px",
@@ -1088,8 +1153,7 @@ $(document).ready(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({
 			top: "300px",
 		}, 1000);
-	});
-	/*07-02-23*/	
+	});	
 	setupMask();
 	//$('.populars .list').scrollTo(300);
 });

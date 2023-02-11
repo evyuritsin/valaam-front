@@ -961,6 +961,16 @@ $(document).ready(function() {
 			typePay: $('.typepay__value').val()
 		};
 		console.log(JSON.stringify(order));
+		$.ajax({
+		  url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/login/',
+		  method: 'post',
+		  dataType: 'json',
+		  crossDomain: true,
+		  data: {data: JSON.stringify(order)},
+		  success: function(data){
+		      console.log(data);
+		  }
+		});
 	});
 	$('.btn-group-program').click(function() {
 		var order = {

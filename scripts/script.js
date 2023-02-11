@@ -962,7 +962,7 @@ $(document).ready(function() {
 		};
 		console.log(JSON.stringify(order));
 		$.ajax({
-		  url: 'http://valaamskiy-polomnik.directpr.beget.tech/api/auth/login/',
+		  url: '/api/ready-program/',
 		  method: 'post',
 		  dataType: 'json',
 		  crossDomain: true,

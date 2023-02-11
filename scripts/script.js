@@ -593,14 +593,16 @@ $(document).ready(function() {
 	});
 	/*10-02-23*/
 	//var arrreadyprog = '{"idTour": "14","countDayTour": "2","tourName": "НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ","tourWayBus": "г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург",	"tourWayShip": "г. Приозерск – о. Валаам – г. Приозерск","feed": "2 завтрака, 2 обеда, 2 ужина","countExcursions": "4","dates": {"2023-02-12": {"prices": {"adults": "6000","children14": "3000","children7": "0"}},"2023-02-15": {"prices": {"adults": "7000","children14": "4000","children7": "500"}}}}';
-	var inputarr = JSON.parse(arrreadyprog);
-	$('.label_duration').text(formatDay(inputarr['countDayTour'])).attr('value', inputarr['countDayTour']);
-	$('.program-card_excursion').text(inputarr['countExcursions']);
-	$('.program-card_feeds').text(inputarr['feed']);
-	$('.program-card_tourWayShip').text(inputarr['tourWayShip']);
-	$('.program-card_tourWayBus').text(inputarr['tourWayBus']);
-	$('.program-card_name').text(inputarr['tourName']).attr('value', inputarr['idTour']);
-	$('.index-form__price').attr('value', '0').text('');
+	if (typeof arrreadyprog !== 'undefined') {
+		var inputarr = JSON.parse(arrreadyprog);
+		$('.label_duration').text(formatDay(inputarr['countDayTour'])).attr('value', inputarr['countDayTour']);
+		$('.program-card_excursion').text(inputarr['countExcursions']);
+		$('.program-card_feeds').text(inputarr['feed']);
+		$('.program-card_tourWayShip').text(inputarr['tourWayShip']);
+		$('.program-card_tourWayBus').text(inputarr['tourWayBus']);
+		$('.program-card_name').text(inputarr['tourName']).attr('value', inputarr['idTour']);
+		$('.index-form__price').attr('value', '0').text('');		
+	}
 	$('body').on('click', '.datepicker-prog .datepicker__date', function() {
 		var parent = $(this).closest('.popup');
 		var date = $(this).attr('date');

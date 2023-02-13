@@ -445,6 +445,8 @@ $(document).ready(function() {
 			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
 
 
+		} else {
+			$('.datepicker__date').removeClass('datepicker_select-date');
 		}
 		/*13-02-23*/
 		var showTarget = $('.' + $(this).attr('showmodal'));

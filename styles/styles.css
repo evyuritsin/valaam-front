@@ -5604,6 +5604,7 @@ option::after {
 }
 .input__icon_right {
 	padding-right: 40px;
+	box-sizing: border-box;
 	background-repeat: no-repeat;
 	background-position: center right;
 	background-position-x: calc(100% - 15px);

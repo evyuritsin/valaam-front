@@ -430,6 +430,20 @@ $(document).ready(function() {
 	});
 	$('body').on('click', '[showmodal]', function() {
 		$('.popup').removeClass('show').addClass('hide');
+		/*13-02-23*/
+		var valDate = $(this).val();
+		if (valDate !== '') {
+			var valDateArr = valDate.split('.');
+			var monthjs = 0;
+			if (Number(valDateArr[1]) == 0) {
+				monthjs = 11;
+			} else {
+				monthjs = Number(valDateArr[1]) - 1;
+			}
+			$('.datepicker').find('.datepicker__body').html(getFullMonth(monthjs, Number(valDateArr[2])));
+			getLabelCalendar (monthjs, Number(valDateArr[2]));
+		}
+		/*13-02-23*/
 		var showTarget = $('.' + $(this).attr('showmodal'));
 		var pos = $(this).offset();
 		var keyObj = $(this).attr('inputobj');
@@ -860,7 +874,7 @@ $(document).ready(function() {
 		}
 	});
 	$('.btn-finish-order').click(function() {
-		//$('.vp-input[required]').removeClass('vp-input_invalid');
+		$('.vp-input[required]').removeClass('vp-input_invalid');
 		$('.vp-input[required]').each(function (i, element){
 			if ($(element).val() == '') {
 				$(element).addClass('vp-input_invalid');
@@ -868,11 +882,13 @@ $(document).ready(function() {
 				$(element).removeClass('vp-input_invalid');
 			}
 		});
+		$('.order-form_clone .vp-input').removeClass('vp-input_invalid');
 		if ($('.vp-input_invalid').length > 0) {
 			$('.buy-tickets-form__msg')
 				.text('Не все обязательные поля заполнены')
 				.removeClass('hide').addClass('show');
-			//return;
+				console.log($('.vp-input_invalid'));
+			return;
 		} else {
 			$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 		}
@@ -1007,11 +1023,9 @@ $(document).ready(function() {
 			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibHide').addClass('visibShow');			
 		}
 	});
-	
 	$('.reviews__form-value-foto').click(function() {
 		$('.reviewsFotosInput').click();
 	});
-	
 	$('.reviews__field-star').click(function() {
 		var index = $(this).index();
 		var indexStar = index++;
@@ -1031,7 +1045,6 @@ $(document).ready(function() {
 			target.find('.reviews__desc').addClass('reviews_desc-active');
 			$(this).text('Скрыть полный текст отзыва');			
 		}
-
 	});
 	$('.header__menu-mob').click(function() {
 		$('.menu-mobile__conteiner').removeClass('hide').addClass('showFlex');
@@ -1178,6 +1191,7 @@ $(document).ready(function() {
 		} else {
 			$('.login .modal__close').attr('src', './img/icon_modal_close.png');
 		}
+		$('.popup').removeClass('show').addClass('hide');/*13-02-23*/
 	});
 	$('.post-list__img').mouseenter(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({

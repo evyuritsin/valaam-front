@@ -752,7 +752,7 @@ $(document).ready(function() {
 			var priceRoom = Number($('.program-card_price-rooms').attr('value'));
 			var totalPrice = priceProg + priceRoom;
 			$('.program-card_total-price').html('<b>' + totalPrice + '</b> ₽').attr('value', totalPrice);
-			$('.program').removeClass('visibShow').addClass('visibHide');
+			$('.program').removeClass('show').addClass('hide');//visibShow
 			if (Number(generalGuest) >= 10) {
 				//updateTouristForm();
 				//$('.group-program').removeClass('visibHide').addClass('visibShow');
@@ -762,19 +762,21 @@ $(document).ready(function() {
 				$('.program-card_price-rooms').parent().hide();
 				$('.btn-back-rooms').text('Вернуться назад к описанию программы');
 				updateTouristForm();
-				$('.reg-order').removeClass('visibHide').addClass('visibShow');
+				$('.reg-order').removeClass('hide').addClass('show');//visibShow
 			} else {
 				$('.btn-back-rooms').text('Вернуться назад к выбору размещения');
 				$('.program-card_rooms').parent().show();
 				$('.program-card_price-rooms').parent().show();
 				updateTouristForm();
-				$('.placement').removeClass('visibHide').addClass('visibShow');
+				$('.placement').removeClass('hide').addClass('show');//visibShow
 			}
 			conteiner.find('.buy-tickets-form__msg').removeClass('show').addClass('hide');
 			window.scrollTo(0, 0);
 		} else {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
+		$('.gallery__btn-next').click();
+
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
@@ -861,8 +863,8 @@ $(document).ready(function() {
 	});
 	$('.btn-next-order').click(function() {
 		if ($('.program-card_price-prog').attr('value') != '0' && $('.program-card_price-rooms').attr('value') != '0') {
-			$('.placement').removeClass('visibShow').addClass('visibHide');
-			$('.reg-order').removeClass('visibHide').addClass('visibShow');
+			$('.placement').removeClass('show').addClass('hide');
+			$('.reg-order').removeClass('hide').addClass('show');
 			$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 			updateTouristForm();
 			window.scrollTo(0, 0);
@@ -993,7 +995,8 @@ $(document).ready(function() {
 		  success: function(data){
 		      if (typeof data['data']['data']['formUrl'] !== 'undefined') {
 		      	console.log(data['data']['data']['formUrl']);
-		      	window.location.href = data['data']['data']['formUrl'];
+		      	window.location.replace(data['data']['data']['formUrl']);
+		      	//window.location.href = data['data']['data']['formUrl'];
 		      }
 		  }
 		});
@@ -1021,15 +1024,16 @@ $(document).ready(function() {
 	$('.find-list__footer-link').click(function() {
 		var conteiner = $(this).closest('.find-list');
 		if ($(this).parent().hasClass('bg-orange')) {
-			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibShow').addClass('visibHide');
+			$('.list[data=' + conteiner.attr('data') + ']').removeClass('show').addClass('hide');
 			$(this).text('Показать').parent().removeClass('bg-orange')
 		} else {
 			$('.find-list__footer-price').removeClass('bg-orange');
 			$('.find-list__footer-link').text('Показать');
 			$(this).text('Скрыть').parent().addClass('bg-orange');
-			$('.list[data]').removeClass('visibShow').addClass('visibHide');
-			$('.list[data=' + conteiner.attr('data') + ']').removeClass('visibHide').addClass('visibShow');			
+			$('.list[data]').removeClass('showFlex').addClass('hide');
+			$('.list[data=' + conteiner.attr('data') + ']').removeClass('hide').addClass('showFlex');			
 		}
+		$('.gallery__btn-next').click();
 	});
 	$('.reviews__form-value-foto').click(function() {
 		$('.reviewsFotosInput').click();

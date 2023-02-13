@@ -442,6 +442,9 @@ $(document).ready(function() {
 			}
 			$('.datepicker').find('.datepicker__body').html(getFullMonth(monthjs, Number(valDateArr[2])));
 			getLabelCalendar (monthjs, Number(valDateArr[2]));
+			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
+
+
 		}
 		/*13-02-23*/
 		var showTarget = $('.' + $(this).attr('showmodal'));
@@ -987,6 +990,7 @@ $(document).ready(function() {
 		  data: {data: JSON.stringify(order)},
 		  success: function(data){
 		      if (typeof data['data']['data']['formUrl'] !== 'undefined') {
+		      	console.log(data['data']['data']['formUrl']);
 		      	window.location.href = data['data']['data']['formUrl'];
 		      }
 		  }

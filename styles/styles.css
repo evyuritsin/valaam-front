@@ -3824,7 +3824,7 @@ option::after {
 }
 .datepicker__date:nth-child(7n + 6),
 .datepicker__date:nth-child(7n + 7) {
-	color: #ff8a00 !important;
+	color: #ff8a00;
 }
 .datepicker_weekend {
 	color: #ff8a00 !important;
@@ -3852,9 +3852,14 @@ option::after {
 	border-radius: 10px;
 }
 .datepicker_select-date {
-	border: 2px solid #31b404;
-	background-color: transparent;
-	box-sizing: border-box;
+	//border: 2px solid #31b404;
+	//background-color: transparent;
+	//box-sizing: border-box;
+	background-image: url(../img/circle_geen.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	color: #fff!important;
 }
 .datepicker__point-label {
 	margin-left: 10px;

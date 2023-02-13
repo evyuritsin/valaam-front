@@ -741,8 +741,16 @@ $(document).ready(function() {
 				currDate = fDate.getDate();
 			}
 			var finishDate = currDate + '.' + curMonth + '.' + fDate.getFullYear();
-			$('.program-card_date').text(date + ' - ' + finishDate);
-			$('.program-card_date').attr('finishDate', finishDate);
+			if (inputarr['countDayTour'] == '1') {
+				$('.program-card_date').text(date);
+				$('.program-card_date').attr('finishDate', '');
+				$('.program').removeClass('show').addClass('hide');
+				$('.reg-order').removeClass('hide').addClass('show');
+
+			} else {
+				$('.program-card_date').text(date + ' - ' + finishDate);
+				$('.program-card_date').attr('finishDate', finishDate);
+			}
 			var guests = [];
 			var generalGuest = 0;
 			conteiner.find('.index-form').each(function (i, element){
@@ -781,7 +789,6 @@ $(document).ready(function() {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
 		$('.gallery__btn-next').click();
-
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
@@ -813,7 +820,13 @@ $(document).ready(function() {
 				currDate = fDate.getDate();
 			}
 			var finishDate = currDate + '.' + curMonth + '.' + fDate.getFullYear();
-			$('.program-card_date').text(date + ' - ' + finishDate);
+			if (inputarr['countDayTour'] == '1') {
+				$('.program-card_date').text(date);
+				$('.program-card_date').attr('finishDate', '');
+			} else {
+				$('.program-card_date').text(date + ' - ' + finishDate);
+				$('.program-card_date').attr('finishDate', finishDate);
+			}
 			var guests = [];
 			var generalGuest = 0;
 			conteiner.find('.index-form').each(function (i, element){

@@ -620,7 +620,12 @@ $(document).ready(function() {
 		$('.program-card_tourWayShip').text(inputarr['tourWayShip']);
 		$('.program-card_tourWayBus').text(inputarr['tourWayBus']);
 		$('.program-card_name').text(inputarr['tourName']).attr('value', inputarr['idTour']);
-		$('.index-form__price').attr('value', '0').text('');		
+		$('.index-form__price').attr('value', '0').text('');
+		if (inputarr['countDayTour'] == '1') {
+			$('.btn-next-room').text('Перейти к оформлению');
+		} else {
+			$('.btn-next-room').text('Выбрать вариант размещения');
+		}		
 	}
 	$('body').on('click', '.datepicker-prog .datepicker__date', function() {
 		var parent = $(this).closest('.popup');

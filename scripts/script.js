@@ -995,8 +995,8 @@ $(document).ready(function() {
 		  success: function(data){
 		      if (typeof data['data']['data']['formUrl'] !== 'undefined') {
 		      	console.log(data['data']['data']['formUrl']);
-		      	window.location.replace(data['data']['data']['formUrl']);
-		      	//window.location.href = data['data']['data']['formUrl'];
+		      	//window.location.replace(data['data']['data']['formUrl']);
+		      	window.location.href = data['data']['data']['formUrl'];
 		      }
 		  }
 		});

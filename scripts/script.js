@@ -986,7 +986,9 @@ $(document).ready(function() {
 		  crossDomain: true,
 		  data: {data: JSON.stringify(order)},
 		  success: function(data){
-		      console.log(data);
+		      if (typeof data['data']['data']['formUrl'] !== 'undefined') {
+		      	window.location.href = data['data']['data']['formUrl'];
+		      }
 		  }
 		});
 	});

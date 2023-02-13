@@ -880,6 +880,51 @@ $(document).ready(function() {
 			$(this).addClass('order-form_field-active');
 		}
 	});
+	$('.isPolomnik').click(function() {
+		if ($('.isPolomnik').is(':checked')){
+			var lastname = $('[name=lastname]').eq(0).val();
+			var firstname = $('[name=firstname]').eq(0).val();
+			var patronymic = $('[name=patronymic]').eq(0).val();
+			var datebirth = $('[name=datebirth]').eq(0).val();
+			var typedoc = $('[name=typedoc]').eq(0).val();
+			var passSN = $('[name=passSN]').eq(0).val();
+			var passissued = $('[name=passissued]').eq(0).val();
+			var passNP = $('[name=passNP]').eq(0).val();
+			var passadress = $('[name=passadress]').eq(0).val();
+			var passdate = $('[name=passdate]').eq(0).val();
+			var telefon = $('[name=telefon]').eq(0).val();
+			var email = $('[name=email]').eq(0).val();
+			var findout = $('[name=findout]').eq(0).val();
+
+			$('[name=lastname]').eq(2).val(lastname);
+			$('[name=firstname]').eq(2).val(firstname);
+			$('[name=patronymic]').eq(2).val(patronymic);
+			$('[name=datebirth]').eq(2).val(datebirth);
+			$('[name=typedoc]').eq(2).val(typedoc);
+			$('[name=passSN]').eq(2).val(passSN);
+			$('[name=passissued]').eq(2).val(passissued);
+			$('[name=passNP]').eq(2).val(passNP);
+			$('[name=passadress]').eq(2).val(passadress);
+			$('[name=passdate]').eq(2).val(passdate);
+			$('[name=telefon]').eq(2).val(telefon);
+			$('[name=email]').eq(2).val(email);
+			$('[name=findout]').eq(2).val(findout);			
+		} else {
+			$('[name=lastname]').eq(2).val('');
+			$('[name=firstname]').eq(2).val('');
+			$('[name=patronymic]').eq(2).val('');
+			$('[name=datebirth]').eq(2).val('');
+			$('[name=typedoc]').eq(2).val('');
+			$('[name=passSN]').eq(2).val('');
+			$('[name=passissued]').eq(2).val('');
+			$('[name=passNP]').eq(2).val('');
+			$('[name=passadress]').eq(2).val('');
+			$('[name=passdate]').eq(2).val('');
+			$('[name=telefon]').eq(2).val('');
+			$('[name=email]').eq(2).val('');
+			$('[name=findout]').eq(2).val('');	
+		}
+	});
 	$('.btn-finish-order').click(function() {
 		$('.vp-input[required]').removeClass('vp-input_invalid');
 		$('.vp-input[required]').each(function (i, element){

@@ -783,10 +783,15 @@ $(document).ready(function() {
 				updateTouristForm();
 				$('.placement').removeClass('hide').addClass('show');//visibShow
 			}
-			conteiner.find('.buy-tickets-form__msg').removeClass('show').addClass('hide');
+			conteiner.find('.buy-tickets-form__msg')
+				.removeClass('show')
+				.addClass('hide');
 			window.scrollTo(0, 0);
 		} else {
-			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
+			conteiner.find('.buy-tickets-form__msg')
+				.text('Не выбрана дата или количество паломников')
+				.removeClass('hide')
+				.addClass('show');
 		}
 		$('.gallery__btn-next').click();
 	});
@@ -862,18 +867,18 @@ $(document).ready(function() {
 	/*10-02-23*/
 	$('.btn-back-prog').click(function() {
 		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
-		$('.program').removeClass('visibHide').addClass('visibShow');
-		$('.placement').removeClass('visibShow').addClass('visibHide');
+		$('.program').removeClass('hide').addClass('show');
+		$('.placement').removeClass('show').addClass('hide');
 		window.scrollTo(0, 0);
 	});
 	$('.btn-back-rooms').click(function() {
 		var durationTour = $('.label_duration').attr('value');
 		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
-		$('.reg-order').removeClass('visibShow').addClass('visibHide');
+		$('.reg-order').removeClass('show').addClass('hide');
 		if (Number(durationTour) == 1) {
-			$('.program').removeClass('visibHide').addClass('visibShow');
+			$('.program').removeClass('hide').addClass('show');
 		} else {
-			$('.placement').removeClass('visibHide').addClass('visibShow');
+			$('.placement').removeClass('hide').addClass('show');
 		}
 		$('.tourist_block').not('.order-form_clone').remove();
 		$('.order-form_clone').show();	

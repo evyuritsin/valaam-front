@@ -869,6 +869,8 @@ $(document).ready(function() {
 		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 		$('.program').removeClass('hide').addClass('show');
 		$('.placement').removeClass('show').addClass('hide');
+		$('.gallery__btn-next').click();
+		console.log('btn-back-prog');
 		window.scrollTo(0, 0);
 	});
 	$('.btn-back-rooms').click(function() {
@@ -881,7 +883,8 @@ $(document).ready(function() {
 			$('.placement').removeClass('hide').addClass('show');
 		}
 		$('.tourist_block').not('.order-form_clone').remove();
-		$('.order-form_clone').show();	
+		$('.order-form_clone').show();
+		$('.gallery__btn-next').click();	
 		window.scrollTo(0, 0);
 	});
 	$('.btn-next-order').click(function() {

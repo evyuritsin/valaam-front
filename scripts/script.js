@@ -461,6 +461,17 @@ $(document).ready(function() {
 		$(this).addClass('search_filter-open');
 		$('.popup__blocked').height(hbody).show();
 	});
+	$('body').on('click', '.datepicker_label', function() {
+		var target = $(this).closest('.datepicker__header');
+		var label = target.find('.datepicker_label');
+		var select = target.find('.datepicker-lite__header-select');
+		var height = label.height();
+		var pos = label.offset();
+		select
+			.css('top', pos.top + height)
+			.css('left', pos.left).attr('obj', keyObj)
+			.removeClass('hide').addClass('showFlex');	
+	});
 	$('[showmodal=count-list]').click(function() {
 		var showTarget = $('.' + $(this).attr('showmodal'));
 		var data = $(this).attr('data');

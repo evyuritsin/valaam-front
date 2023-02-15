@@ -338,6 +338,25 @@ tr:nth-child(odd) {
 	font-size: 12px;
 	color: #ffffff;
 }
+.datepicker-lite__header-select {
+	position: absolute;
+	height: 100px;
+	display: flex;
+	background: #31b404;
+}
+.datepicker-lite__header-month {
+
+}
+.datepicker-lite__header-year {
+
+}
+.datepicker-lite__header-item {
+	font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #ffffff;
+    cursor: pointer;
+}
 .datepicker-lite__next-btn {
 	display: flex;
 	flex-direction: row;
@@ -3737,6 +3756,7 @@ option::after {
 	background-color: #fff;
 }
 .datepicker__header {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

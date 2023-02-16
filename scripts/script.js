@@ -45,7 +45,6 @@ $(document).ready(function() {
 			   return countDay + ' дней / ' + countNight + ' ночей';
 		}
 	}
-	/*10-02-23*/
     function calcBuyTickets(obj) {
     	var conteiner = $('.buy-tickets-form');
     	var conteinerModal = $('.edit-order__content');
@@ -74,7 +73,6 @@ $(document).ready(function() {
 	    		.text(valueModal + ' ₽');
 		}
     }
-    /*10-02-23*/
     function updateTouristForm() {
 		$('.tourist_block').not('.order-form_clone').remove();
 		$('.order-form_clone').show();
@@ -677,7 +675,6 @@ $(document).ready(function() {
 		}
 		$('.popup__blocked').click();
 	});
-	/*10-02-23*/
 	//var arrreadyprog = '{"idTour": "14","countDayTour": "2","tourName": "НА ПРАЗДНОВАНИЕ ПОКРОВА ПРЕСВЯТОЙ БОГОРОДИЦЫ","tourWayBus": "г. Санкт-Петербург – г. Приозерск - г. Санкт-Петербург",	"tourWayShip": "г. Приозерск – о. Валаам – г. Приозерск","feed": "2 завтрака, 2 обеда, 2 ужина","countExcursions": "4","dates": {"2023-02-12": {"prices": {"adults": "6000","children14": "3000","children7": "0"}},"2023-02-15": {"prices": {"adults": "7000","children14": "4000","children7": "500"}}}}';
 	if (typeof arrreadyprog !== 'undefined') {
 		var inputarr = JSON.parse(arrreadyprog);
@@ -931,7 +928,6 @@ $(document).ready(function() {
 			conteiner.find('.buy-tickets-form__msg').removeClass('hide').addClass('show');
 		}
 	});
-	/*10-02-23*/
 	$('.btn-back-prog').click(function() {
 		$('.buy-tickets-form__msg').text('').removeClass('show').addClass('hide');
 		$('.program').removeClass('hide').addClass('show');
@@ -1348,12 +1344,10 @@ $(document).ready(function() {
 			top: "50px",
 		}, 1000);
 	});
-
 	$('.post-list__desc').mouseout(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({
 			top: "300px",
 		}, 1000);
 	});	
 	setupMask();
-	//$('.populars .list').scrollTo(300);
 });

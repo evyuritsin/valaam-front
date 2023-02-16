@@ -214,6 +214,21 @@ $(document).ready(function() {
 		labelTime.attr('month', month);
 		labelTime.attr('year', year);
 	}
+	function genMonthSelect() {
+		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+		var output = [];
+		for (index = 0; index < months.length; ++index) {
+		    output.push('<div class="datepicker-lite__header-item" target="month" value="' + index + '">' + months[index] + '</div>');
+		}
+		return output.join('');
+	}
+	function genYearSelect(startYear, count) {
+		var output = [];
+		for (index = startYear; index < count+1; ++index) {
+			output.push('<div class="datepicker-lite__header-item" target="year" value="' + index + '">' + index + '</div>');
+		}
+		return output.join('');
+	}
     $('.calendar-slider-ship').slick({
 	    slidesToShow: 7,
 	    slidesToScroll: 7,
@@ -425,11 +440,13 @@ $(document).ready(function() {
 			$('.popup__composition-btn').click();
 		}
 		$('.popup').removeClass('show').addClass('hide');
+		$('.datepicker-lite__header-select').removeClass('show').addClass('hide');
 		$(this).hide();
 		$('[showmodal]').removeClass('search_filter-open');
 	});
 	$('body').on('click', '[showmodal]', function() {
 		$('.popup').removeClass('show').addClass('hide');
+		$('.datepicker-lite__header-select').removeClass('show').addClass('hide');
 		/*13-02-23*/
 		var valDate = $(this).val();
 		if (valDate !== '') {
@@ -443,8 +460,6 @@ $(document).ready(function() {
 			$('.datepicker').find('.datepicker__body').html(getFullMonth(monthjs, Number(valDateArr[2])));
 			getLabelCalendar (monthjs, Number(valDateArr[2]));
 			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
-
-
 		} else {
 			$('.datepicker__date').removeClass('datepicker_select-date');
 		}
@@ -460,17 +475,55 @@ $(document).ready(function() {
 		$('.' + $(this).attr('showmodal')).css('width', $(this).css('width'));
 		$(this).addClass('search_filter-open');
 		$('.popup__blocked').height(hbody).show();
+		//$('.datepicker-lite__header-month').scrollTo(0, 10);
 	});
 	$('body').on('click', '.datepicker_label', function() {
 		var target = $(this).closest('.datepicker__header');
 		var label = target.find('.datepicker_label');
 		var select = target.find('.datepicker-lite__header-select');
-		var height = label.height();
-		var pos = label.offset();
-		select
-			.css('top', pos.top + height)
-			.css('left', pos.left).attr('obj', keyObj)
-			.removeClass('hide').addClass('showFlex');	
+		var month = $(this).attr('month');
+		var year = $(this).attr('year');
+		select.attr('month', month).attr('year', year);
+		select.removeClass('hide').addClass('showFlex');
+		$(this).css('margin-top', '5px');
+		$(this)
+			.closest('.datepicker__label')
+			.find('.datepicker-lite__header-month')
+			.html(genMonthSelect());
+		$(this)
+			.closest('.datepicker__label')
+			.find('.datepicker-lite__header-year')
+			.html(genYearSelect(1950, 2024));
+		$('.datepicker-lite__header-item').css('font-weight', 'unset');
+		$('.datepicker-lite__header-month .datepicker-lite__header-item[value="' + month + '"]')
+			.css('font-weight', 'bold');
+		$('.datepicker-lite__header-year .datepicker-lite__header-item[value="' + year + '"]')
+			.css('font-weight', 'bold');					
+	});
+	$('body').on('click', '.datepicker-lite__header-item', function() {
+		var target = $(this).closest('.datepicker');
+		var obj = $(this).closest('.datepicker-lite__header-select');
+		if ($(this).attr('target') == 'month') {
+			obj.attr('month', $(this).attr('value'));
+		} else if ($(this).attr('target') == 'year') {
+			obj.attr('year', $(this).attr('value'));
+		}
+		target.find('.datepicker__body').html(getFullMonth(Number(obj.attr('month')), Number(obj.attr('year'))));
+		getLabelCalendar(obj.attr('month'), obj.attr('year'));
+		$(this).parent().find('.datepicker-lite__header-item').css('font-weight', 'unset');
+		$(this).css('font-weight', 'bold');
+		console.log($(this).index());
+	});
+	$('body').on('click', '.datepicker-lite__header-select-close', function() {
+		$(this)
+			.closest('.datepicker__label')
+			.find('.datepicker-lite__header-select')
+			.removeClass('showFlex')
+			.addClass('hide');
+		$(this)
+			.closest('.datepicker__label')
+			.find('.datepicker_label')
+			.css('margin-top', '0');
 	});
 	$('[showmodal=count-list]').click(function() {
 		var showTarget = $('.' + $(this).attr('showmodal'));
@@ -495,12 +548,14 @@ $(document).ready(function() {
 		var output = [];
 		const data = {};
 		var arr = [];
+		var generalGuest = 0
 		var target = $(this).closest('.popup__composition');
 		var key = target.attr('obj');
 		target.find('.index-form').each(function (index, element) {
 			var label = $(element).find('.index-form__text').text();
 			var index = $(element).find('.index-form__text').attr('index');
 			var value = $(element).find('.index-form__value').text();
+			generalGuest = generalGuest + Number(value);
 			if (value != '0') {
 				output.push(label + ' - ' + value);
 				data[label] = value;
@@ -508,6 +563,7 @@ $(document).ready(function() {
 			}
 
 		});
+		if (generalGuest >= 10) window.location.href = '/zayavka-na-gruppovuyu-programu.html';
 		$('[inputobj=' + key + ']').val(output.join(' ')).attr('data', JSON.stringify(data));
 		$('[inputfind=' + key + ']').val(arr.join(';'));
 		target.find('.index-form__value').text('0');

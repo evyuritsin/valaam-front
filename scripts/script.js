@@ -851,13 +851,14 @@ $(document).ready(function() {
 				.removeClass('show')
 				.addClass('hide');
 			window.scrollTo(0, 0);
+			$('.gallery__btn-next').click();
 		} else {
 			conteiner.find('.buy-tickets-form__msg')
 				.text('Не выбрана дата или количество паломников')
 				.removeClass('hide')
 				.addClass('show');
 		}
-		$('.gallery__btn-next').click();
+		
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');
@@ -984,7 +985,14 @@ $(document).ready(function() {
 			var telefon = $('[name=telefon]').eq(0).val();
 			var email = $('[name=email]').eq(0).val();
 			var findout = $('[name=findout]').eq(0).val();
-
+			var gender = '';
+			if ($('.order-form__field-gender').eq(0).hasClass('order-form_field-active')) {
+				gender = 'male';
+			} else if ($('.order-form__field-gender').eq(1).hasClass('order-form_field-active')) {
+				gender = 'female';
+			}
+			console.log($('.order-form__field-gender').eq(0).hasClass('order-form_field-active'));
+			console.log(gender);
 			$('[name=lastname]').eq(2).val(lastname);
 			$('[name=firstname]').eq(2).val(firstname);
 			$('[name=patronymic]').eq(2).val(patronymic);
@@ -997,7 +1005,14 @@ $(document).ready(function() {
 			$('[name=passdate]').eq(2).val(passdate);
 			$('[name=telefon]').eq(2).val(telefon);
 			$('[name=email]').eq(2).val(email);
-			$('[name=findout]').eq(2).val(findout);			
+			$('[name=findout]').eq(2).val(findout);
+			$('.order-form__field-gender').eq(4).removeClass('order-form_field-active');
+			$('.order-form__field-gender').eq(5).removeClass('order-form_field-active');
+			if (gender == 'male') {
+				$('.order-form__field-gender').eq(4).addClass('order-form_field-active');
+			} else if (gender == 'female') {
+				$('.order-form__field-gender').eq(5).addClass('order-form_field-active');
+			}
 		} else {
 			$('[name=lastname]').eq(2).val('');
 			$('[name=firstname]').eq(2).val('');
@@ -1011,7 +1026,10 @@ $(document).ready(function() {
 			$('[name=passdate]').eq(2).val('');
 			$('[name=telefon]').eq(2).val('');
 			$('[name=email]').eq(2).val('');
-			$('[name=findout]').eq(2).val('');	
+			$('[name=findout]').eq(2).val('');
+			$('.order-form__field-gender').eq(4).removeClass('order-form_field-active');
+			$('.order-form__field-gender').eq(5).removeClass('order-form_field-active');
+			$('.order-form__field-gender').eq(4).addClass('order-form_field-active');
 		}
 	});
 	$('.btn-finish-order').click(function() {

@@ -242,12 +242,22 @@ $(document).ready(function() {
 		}
 		return output.join('');
 	}
-	function genYearSelect(startYear, count) {
-		var output = [];
-		for (index = startYear; index < count+1; ++index) {
-			output.push('<div class="datepicker-lite__header-item" target="year" value="' + index + '">' + index + '</div>');
+	function genYearSelect() {
+		if (typeof dp_settings !== 'undefined') {
+			var output = [];
+			var startYear = Number(dp_settings['yearStart']);
+			var yearFinish = Number(dp_settings['yearFinish']);
+			if (startYear < yearFinish) {
+				for (index = startYear; index < yearFinish + 1; ++index) {
+					output.push('<div class="datepicker-lite__header-item" target="year" value="' + index + '">' + index + '</div>');
+				}
+			} else if (startYear > yearFinish) {
+				for (index = startYear; index > yearFinish - 1; --index) {
+					output.push('<div class="datepicker-lite__header-item" target="year" value="' + index + '">' + index + '</div>');
+				}
+			}
+			return output.join('');			
 		}
-		return output.join('');
 	}
     $('.calendar-slider-ship').slick({
 	    slidesToShow: 7,
@@ -497,27 +507,33 @@ $(document).ready(function() {
 		getCurrDate();
 	});
 	$('body').on('click', '.datepicker_label', function() {
-		var target = $(this).closest('.datepicker__header');
-		var label = target.find('.datepicker_label');
-		var select = target.find('.datepicker-lite__header-select');
-		var month = $(this).attr('month');
-		var year = $(this).attr('year');
-		select.attr('month', month).attr('year', year);
-		select.removeClass('hide').addClass('showFlex');
-		$(this).css('margin-top', '5px');
-		$(this)
-			.closest('.datepicker__label')
-			.find('.datepicker-lite__header-month')
-			.html(genMonthSelect());
-		$(this)
-			.closest('.datepicker__label')
-			.find('.datepicker-lite__header-year')
-			.html(genYearSelect(1950, 2024));
-		$('.datepicker-lite__header-item').css('font-weight', 'unset');
-		$('.datepicker-lite__header-month .datepicker-lite__header-item[value="' + month + '"]')
-			.css('font-weight', 'bold');
-		$('.datepicker-lite__header-year .datepicker-lite__header-item[value="' + year + '"]')
-			.css('font-weight', 'bold');					
+		if (typeof dp_settings !== 'undefined') {
+			if (typeof dp_settings['selectNavi'] !== 'undefined') {
+				if (dp_settings['selectNavi']) {
+					var target = $(this).closest('.datepicker__header');
+					var label = target.find('.datepicker_label');
+					var select = target.find('.datepicker-lite__header-select');
+					var month = $(this).attr('month');
+					var year = $(this).attr('year');
+					select.attr('month', month).attr('year', year);
+					select.removeClass('hide').addClass('showFlex');
+					$(this).css('margin-top', '5px');
+					$(this)
+						.closest('.datepicker__label')
+						.find('.datepicker-lite__header-month')
+						.html(genMonthSelect());
+					$(this)
+						.closest('.datepicker__label')
+						.find('.datepicker-lite__header-year')
+						.html(genYearSelect());
+					$('.datepicker-lite__header-item').css('font-weight', 'unset');
+					$('.datepicker-lite__header-month .datepicker-lite__header-item[value="' + month + '"]')
+						.css('font-weight', 'bold');
+					$('.datepicker-lite__header-year .datepicker-lite__header-item[value="' + year + '"]')
+						.css('font-weight', 'bold');					
+				}
+			}
+		}
 	});
 	$('body').on('click', '.datepicker-lite__header-item', function() {
 		var target = $(this).closest('.datepicker');

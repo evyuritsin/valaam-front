@@ -197,7 +197,29 @@ $(document).ready(function() {
 		});
 		return output.join('');
 	}
-	function getLabelCalendar (month, year) {
+	function getCurrDate() {
+		var date = new Date();
+		var lDate = [];
+		var fMonth = date.getMonth() + 1;
+	  	if (date.getDate() <= 9) {
+	  		lDate[0] = '0' + date.getDate();
+	  	} else {
+	  		lDate[0] = date.getDate();
+	  	}
+	  	if (fMonth <= 9) {
+	  		lDate[1] = '0' + fMonth;
+	  	} else {
+	  		lDate[1] = fMonth;
+	  	}
+	  	lDate[2] = date.getFullYear();
+		var fDate = lDate[1] + '.' + lDate[0] + '.' + lDate[2];
+		if (typeof dp_settings !== 'undefined') {
+			if (dp_settings['renderCurrDate']) {
+				$('.datepicker__date[date="' + fDate + '"]').addClass('datepicker_select-currdate');
+			}
+		}
+	}
+ 	function getLabelCalendar (month, year) {
 		var label = $('.datepicker-lite').find('.datepicker_label');
 		var labelProg = $('.datepicker-prog').find('.datepicker_label');
 		var labelTime = $('.datepicker-timing').find('.datepicker_label');
@@ -445,7 +467,7 @@ $(document).ready(function() {
 	$('body').on('click', '[showmodal]', function() {
 		$('.popup').removeClass('show').addClass('hide');
 		$('.datepicker-lite__header-select').removeClass('show').addClass('hide');
-		/*13-02-23*/
+		
 		var valDate = $(this).val();
 		if (valDate !== '') {
 			var valDateArr = valDate.split('.');
@@ -461,7 +483,6 @@ $(document).ready(function() {
 		} else {
 			$('.datepicker__date').removeClass('datepicker_select-date');
 		}
-		/*13-02-23*/
 		var showTarget = $('.' + $(this).attr('showmodal'));
 		var pos = $(this).offset();
 		var keyObj = $(this).attr('inputobj');
@@ -473,7 +494,7 @@ $(document).ready(function() {
 		$('.' + $(this).attr('showmodal')).css('width', $(this).css('width'));
 		$(this).addClass('search_filter-open');
 		$('.popup__blocked').height(hbody).show();
-		//$('.datepicker-lite__header-month').scrollTo(0, 10);
+		getCurrDate();
 	});
 	$('body').on('click', '.datepicker_label', function() {
 		var target = $(this).closest('.datepicker__header');
@@ -623,6 +644,7 @@ $(document).ready(function() {
 	});
 	var currDate = new Date();
 	$('.datepicker').find('.datepicker__body').html(getFullMonth(currDate.getMonth(), currDate.getFullYear()));
+	getCurrDate();
 	getLabelCalendar (currDate.getMonth(), currDate.getFullYear());
 	$('.datepicker_prev-btn').click(function() {
 		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
@@ -1344,6 +1366,12 @@ $(document).ready(function() {
 	      });
 	    }
 	});
+	$('.checkbox__text').click(function() {
+		$(this).parent().find('input[type="checkbox"]').click();
+	});
+	$('.radiobox__text').click(function() {
+		$(this).parent().find('input[type="radio"]').click();
+	});	
 	if ($(window).width() <= 890) {
 		$('.login .modal__close').attr('src', './img/icon_modal_close_black.png');
 	} else {

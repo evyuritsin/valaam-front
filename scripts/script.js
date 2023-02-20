@@ -1387,7 +1387,19 @@ $(document).ready(function() {
 	});
 	$('.radiobox__text').click(function() {
 		$(this).parent().find('input[type="radio"]').click();
-	});	
+	});
+	$('body').on('click', '.modal_password_visibled', function() {
+		var status = $(this).attr('status');
+		var target = $(this).closest('.modal_password_block');
+		var input = target.find('.modal__input');
+		if (status == '0') {
+			input.attr('type', 'text');
+			$(this).attr('status', '1');
+		} else if (status == '1') {
+			input.attr('type', 'password');
+			$(this).attr('status', '0');
+		}
+	});
 	if ($(window).width() <= 890) {
 		$('.login .modal__close').attr('src', './img/icon_modal_close_black.png');
 	} else {

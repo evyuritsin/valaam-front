@@ -6154,7 +6154,9 @@ option::after {
 .center-v {
 	align-items: center;
 }
-
+.center-h {
+	justify-content: center;
+}
 .while {
 	color: #fff !important;
 	fill: #fff !important;

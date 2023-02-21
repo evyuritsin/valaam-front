@@ -41,8 +41,20 @@ p {
 .table__custom tr {
 	height: 50px;
 }
+/*
 .table__custom tr:hover {
     background-color: #fff;
+}
+*/
+.table__custom tr:nth-child(even) {
+    height: 45px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.table__custom tr:nth-child(odd) {
+    height: 45px;
+    background-color: transparent;
+    border-radius: 0px;
 }
 .table__custom a {
 	font-style: normal;

@@ -680,6 +680,7 @@ $(document).ready(function() {
 		}
 		var days = getFullMonth(Number(label.attr('month')), Number(label.attr('year')));
 		$(this).closest('.datepicker').find('.datepicker__body').html(days);
+		getCurrDate();
 	});
 	$('.datepicker_next-btn').click(function() {
 		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
@@ -699,6 +700,7 @@ $(document).ready(function() {
 		}
 		var days = getFullMonth(Number(label.attr('month')), Number(label.attr('year')));
 		$(this).closest('.datepicker').find('.datepicker__body').html(days);
+		getCurrDate();
 	});
 	$('body').on('click', '.datepicker__date', function() {
 		var parent = $(this).closest('.popup');
@@ -1395,9 +1397,11 @@ $(document).ready(function() {
 		if (status == '0') {
 			input.attr('type', 'text');
 			$(this).attr('status', '1');
+			$(this).css('background-image', 'url(../img/icon_hide_psd.png)');
 		} else if (status == '1') {
 			input.attr('type', 'password');
 			$(this).attr('status', '0');
+			$(this).css('background-image', 'url(../img/icon_show_psd.png)');
 		}
 	});
 	if ($(window).width() <= 890) {

@@ -4757,6 +4757,15 @@ option::after {
 	width: 100%;
 	height: fit-content;
 }
+.modal_password_visibled {
+	position: absolute;
+	top: 36px;
+	right: 15px;
+	background-image: url(../img/icon_show_psd.png);
+	width: 20px;
+	height: 17px;
+	cursor: pointer;
+}
 .modal_invalid {
 	border: 1px solid #b72025 !important;
 }
@@ -4774,15 +4783,6 @@ option::after {
 	background-image: url(../img/icon_show_psd.png);
 	background-position: calc(100% - 15px);
 	background-repeat: no-repeat;
-}
-.modal_password_visibled {
-	position: absolute;
-	top: 36px;
-	right: 15px;
-	background-image: url(../img/icon_show_psd.png);
-	width: 20px;
-	height: 17px;
-	cursor: pointer;
 }
 .modal__input::-webkit-input-placeholder,
 .modal__input::-moz-placeholder,

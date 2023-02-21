@@ -1024,40 +1024,23 @@
 			</div>
 			<div class="footer__col">
 				<div class="footer__widgets">
-                  <!--div class="footer__weather"-->
-                    <!-- Gismeteo informer START -->
-                    <link rel="stylesheet" type="text/css" href="https://nst1.gismeteo.ru/assets/flat-ui/legacy/css/informer.min.css">
-                    <div id="gsInformerID-0inwnca3r20hrr" class="gsInformer" style="width:100px;height:100px">
-                        <div class="gsIContent">
-                            <div id="cityLink">
-                                <a href="https://www.gismeteo.ru/weather-valaam-200804/" target="_blank" title="Погода в Валааме">
-                                    <img src="https://nst1.gismeteo.ru/assets/flat-ui/img/gisloader.svg" width="24" height="24" alt="Погода в Валааме">
-                                </a>
-                                </div>
-                            <div class="gsLinks">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <div class="leftCol">
-                                                <a href="https://www.gismeteo.ru/" target="_blank" title="Погода">
-                                                    <img alt="Погода" src="https://nst1.gismeteo.ru/assets/flat-ui/img/logo-mini2.png" align="middle" border="0" width="11" height="16" />
-                                                    <img src="https://nst1.gismeteo.ru/assets/flat-ui/img/informer/gismeteo.svg" border="0" align="middle" style="left: 5px; top:1px">
-                                                </a>
-                                                </div>
-                                                <div class="rightCol">
-                                                    <a href="https://www.gismeteo.ru/weather-valaam-200804/2-weeks/" target="_blank" title="Погода в Валааме на 2 недели">
-                                                        <img src="https://nst1.gismeteo.ru/assets/flat-ui/img/informer/forecast-2weeks.ru.svg" border="0" align="middle" style="top:auto" alt="Погода в Валааме на 2 недели">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <script async src="https://www.gismeteo.ru/api/informer/getinformer/?hash=0inwnca3r20hrr"></script>
-                    <!-- Gismeteo informer END -->
-					<!--/div-->				
+<a style="display: block; position: relative; border: 0; padding: 0; margin: 0; text-decoration: none;" id="meteonova_inf_200_150_22805" href="//www.meteonova.ru/weather/22805-Valaam.htm" alt="Погода на Валааме" title="Погода на Валааме"></a>
+<script type="text/javascript">
+(function() {
+	var script = document.createElement("script");
+	script.src = "https://meteonova.ru/informer/html/js/install.min.js";
+	script.charset = "UTF-8";
+	script.defer = true;
+	script.onload = function() {
+		new MeteonovaInf({
+			type: "200_150",
+			cities: ["22805"],
+			scheme: {"border_radius":"0","box_shadow":"none","border_color":"#a3daff","background_color":"transparent","city_color":"#ffffff","main_color":"#ffffff","params_color":"#ffffff"}
+		});
+	};
+	document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>		
 				</div>				
 				<div class="footer__pay">
 					<img class="footer__card" src="./img/pay-mir.png" alt="mir">

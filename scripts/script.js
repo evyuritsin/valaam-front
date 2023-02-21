@@ -1417,15 +1417,32 @@ $(document).ready(function() {
 		}
 		$('.popup').removeClass('show').addClass('hide');/*13-02-23*/
 	});
-	$('.post-list__img').mouseenter(function() {
+	/*
+	$('.post-list__link').mouseenter(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({
 			top: "50px",
-		}, 1000);
+		}, 500);
+		console.log('mouseenter');
 	});
-	$('.post-list__desc').mouseout(function() {
+	$('.post-list__link').mouseout(function() {
 		$(this).closest('.post-list').find('.post-list__desc').animate({
 			top: "300px",
-		}, 1000);
+		}, 500);
+		console.log('mouseout');
 	});	
+	*/
+$(".post-list__link").hover(
+	function() {
+		$(this).closest('.post-list').find('.post-list__desc').animate({
+			top: "50px",
+		}, 500);
+		console.log('mouseenter');
+	}, function() {
+		$(this).closest('.post-list').find('.post-list__desc').animate({
+			top: "300px",
+		}, 500);
+		console.log('mouseout');
+	}
+);
 	setupMask();
 });

@@ -292,6 +292,56 @@ $(document).ready(function() {
 			return output.join('');			
 		}
 	}
+	function getPricesGuests() {
+		var conteiner = $('.buy-tickets-form');
+		var date = conteiner.find('.prog-date').val();
+		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
+		if (conteiner.find('.prog-date').val() != '' && conteiner.find('.buy-tickets-form__price').attr('value') == '0') {
+			var guestsArr = {};
+			conteiner.find('.index-form').each(function (i, element){
+				var caption = $(element).find('.index-form_label').attr('value');
+				var count = $(element).find('.index-form__value').text();
+				guestsArr[caption] = count;
+			});
+			if (typeof dates !== 'undefined') {
+				var output = {};
+				output['idTour'] = zeroarr['idTour'];
+				output['date'] = conteiner.find('.prog-date').val();
+				output['guests'] = guestsArr;
+				console.log(output);
+				$.ajax({
+					url: '/api/constructor/firstStage/',
+					method: 'post',
+					dataType: 'json',
+					crossDomain: true,
+					data: {data: JSON.stringify(output)},
+					success: function(data){
+						console.log(data);
+						var price1 = zeroStage['date']['selection']['totalPrice']['discount_category1'];
+						var price2 = zeroStage['date']['selection']['totalPrice']['discount_category2'];
+						var price3 = zeroStage['date']['selection']['totalPrice']['discount_category3'];
+						var summ = Number(price1) + Number(price2) + Number(price3);
+						$('.index-form_label[value="adult"]')
+							.parent()
+							.find('.index-form__price')
+							.attr('value', price1);
+						$('.index-form_label[value="children_0_6"]')
+							.parent()
+							.find('.index-form__price')
+							.attr('value', price2);							
+						$('.index-form_label[value="children_7_12"]')
+							.parent()
+							.find('.index-form__price')
+							.attr('value', price3);
+
+						$('.buy-tickets-form__price')
+							.attr('value', summ)
+							.text(summ + ' ₽')											
+					}
+				});
+			}
+		}
+	}
     $('.calendar-slider-ship').slick({
 	    slidesToShow: 7,
 	    slidesToScroll: 7,
@@ -351,7 +401,27 @@ $(document).ready(function() {
 			target.text(value + 1);
 		}
 		calcBuyTickets($(this));			
-	});
+	});	
+	$('.buy-tickets-form .index-form__btn-minus').click(function() {
+		var target = $(this).parent().find('.index-form__value');
+		var value = Number(target.text());
+		var maxValue = Number($(this).parent().attr('maxValue'));
+		var minValue = Number($(this).parent().attr('minValue'));
+		if (value > minValue) {
+			target.text(value - 1);
+		}
+		getPricesGuests();	
+	});	
+	$('.buy-tickets-form .index-form__btn-plus').click(function() {
+		var target = $(this).parent().find('.index-form__value');
+		var value = Number(target.text());
+		var maxValue = Number($(this).parent().attr('maxValue'));
+		var minValue = Number($(this).parent().attr('minValue'));	
+		if (value < maxValue) {
+			target.text(value + 1);
+		}
+		getPricesGuests();			
+	});	
 	$('.header__login-auth').click(function() {
 		$('.modal__blocked').show();
 		$('body').css('overflow', 'hidden');

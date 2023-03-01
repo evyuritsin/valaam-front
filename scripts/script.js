@@ -1,6 +1,23 @@
 $(document).ready(function() {
-    const jsformat = 'MM.DD.YYYY'
-    const phpformat = 'YYYY-MM-DD'
+    const jsformat = 'MM.DD.YYYY';
+    const phpformat = 'YYYY-MM-DD';
+    /*
+	if (typeof zeroStage !== 'undefined') {
+		var zeroarr = JSON.parse(zeroStage);
+		var shipSchedulesIDs = zeroarr['shipSchedulesIDs'];
+		var datesRoute = [];
+		shipSchedulesIDs.forEach(function(IDs) {
+			var shipSchedule = zeroarr['shipSchedules']['shipSchedule' + IDs];
+			shipSchedule.forEach(function(ID) {
+				datesRoute.push(ID);
+			});
+		});
+	}
+	*/
+	if (typeof zeroStage !== 'undefined') {
+		var zeroarr = JSON.parse(zeroStage);
+		var dates = zeroarr['dates'];
+	}
     function setupMask() {
 		$("[name=passSN]").mask("9999 999999");
 		$("[name=telefon]").add('.icon_telefon').add('.input_phone').mask("+7 (999) 999 99 99");
@@ -217,6 +234,22 @@ $(document).ready(function() {
 			if (dp_settings['renderCurrDate']) {
 				$('.datepicker__date[date="' + fDate + '"]').addClass('datepicker_select-currdate');
 			}
+		}
+	}
+	function getSelectDate(date) {
+		if (date !== '') {
+			var valDateArr = date.split('.');
+			var monthjs = 0;
+			if (Number(valDateArr[1]) == 0) {
+				monthjs = 11;
+			} else {
+				monthjs = Number(valDateArr[1]) - 1;
+			}
+			$('.datepicker').find('.datepicker__body').html(getFullMonth(monthjs, Number(valDateArr[2])));
+			getLabelCalendar (monthjs, Number(valDateArr[2]));
+			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
+		} else {
+			$('.datepicker__date').removeClass('datepicker_select-date');
 		}
 	}
  	function getLabelCalendar (month, year) {
@@ -471,27 +504,33 @@ $(document).ready(function() {
 		}
 		$('.popup').removeClass('show').addClass('hide');
 		$('.datepicker-lite__header-select').removeClass('show').addClass('hide');
+		$('.datepicker_label').css('margin-top', '0');
 		$(this).hide();
 		$('[showmodal]').removeClass('search_filter-open');
 	});
 	$('body').on('click', '[showmodal]', function() {
 		$('.popup').removeClass('show').addClass('hide');
 		$('.datepicker-lite__header-select').removeClass('show').addClass('hide');
-		
 		var valDate = $(this).val();
-		if (valDate !== '') {
-			var valDateArr = valDate.split('.');
-			var monthjs = 0;
-			if (Number(valDateArr[1]) == 0) {
-				monthjs = 11;
-			} else {
-				monthjs = Number(valDateArr[1]) - 1;
-			}
-			$('.datepicker').find('.datepicker__body').html(getFullMonth(monthjs, Number(valDateArr[2])));
-			getLabelCalendar (monthjs, Number(valDateArr[2]));
-			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
-		} else {
+		getSelectDate(valDate);
+		/*
+		if (typeof datesRoute !== 'undefined') {
 			$('.datepicker__date').removeClass('datepicker_select-date');
+			datesRoute.forEach(function(entry) {
+			    $('.datepicker__date[date="' + entry + '"]').addClass('datepicker_select-date');
+			});
+		}
+		*/
+		if (typeof zeroStage !== 'undefined') {
+			$('.datepicker__date').removeClass('datepicker_select-date-green');
+			$('.datepicker__date').removeClass('datepicker_select-date-orange');
+			$('.datepicker__date').removeClass('datepicker_select-date-red');
+			$('.datepicker__date').removeClass('datepicker_select-date-access');
+			dates.forEach(function(element) {
+			    $('.datepicker__date[date="' + element['date'] + '"]')
+			    	.addClass('datepicker_select-date-access')
+			    	.addClass('datepicker_select-date-' + element['color']);
+			});
 		}
 		var showTarget = $('.' + $(this).attr('showmodal'));
 		var pos = $(this).offset();
@@ -663,6 +702,8 @@ $(document).ready(function() {
 	getCurrDate();
 	getLabelCalendar (currDate.getMonth(), currDate.getFullYear());
 	$('.datepicker_prev-btn').click(function() {
+		var obj = $(this).closest('.datepicker').attr('obj');
+		var input = $('input[inputobj="' + obj + '"]').val();
 		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 		var label = $(this).parent().find('.datepicker_label');
 		var month = label.attr('month');
@@ -681,8 +722,22 @@ $(document).ready(function() {
 		var days = getFullMonth(Number(label.attr('month')), Number(label.attr('year')));
 		$(this).closest('.datepicker').find('.datepicker__body').html(days);
 		getCurrDate();
+		if (input !== '') {
+			var valDateArr = input.split('.');
+			var monthjs = 0;
+			if (Number(valDateArr[1]) == 0) {
+				monthjs = 11;
+			} else {
+				monthjs = Number(valDateArr[1]) - 1;
+			}
+			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
+		} else {
+			$('.datepicker__date').removeClass('datepicker_select-date');
+		}
 	});
 	$('.datepicker_next-btn').click(function() {
+		var obj = $(this).closest('.datepicker').attr('obj');
+		var input = $('input[inputobj="' + obj + '"]').val();
 		var months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 		var label = $(this).parent().find('.datepicker_label');
 		var month = label.attr('month');
@@ -701,6 +756,18 @@ $(document).ready(function() {
 		var days = getFullMonth(Number(label.attr('month')), Number(label.attr('year')));
 		$(this).closest('.datepicker').find('.datepicker__body').html(days);
 		getCurrDate();
+		if (input !== '') {
+			var valDateArr = input.split('.');
+			var monthjs = 0;
+			if (Number(valDateArr[1]) == 0) {
+				monthjs = 11;
+			} else {
+				monthjs = Number(valDateArr[1]) - 1;
+			}
+			$('.datepicker__date[date="' + valDateArr[1] + '.' + valDateArr[0] + '.' + valDateArr[2] + '"]').addClass('datepicker_select-date');
+		} else {
+			$('.datepicker__date').removeClass('datepicker_select-date');
+		}
 	});
 	$('body').on('click', '.datepicker__date', function() {
 		var parent = $(this).closest('.popup');
@@ -740,7 +807,33 @@ $(document).ready(function() {
 		var dateInp = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 		var dateOutput = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 		if (parent.length === 1) {
-			console.log(inputarr["dates"][dateOutput]);
+			if ($(this).hasClass('datepicker_select-date-access')) {
+				$('[inputobj=' + obj + ']').val(date);
+				$('.buy-tickets-form__msg').removeClass('show').addClass('hide').text('');
+			} else {
+				$('.buy-tickets-form__msg').removeClass('hide').addClass('show')
+					.text('На выбранную дату не предусмотрена программа.');
+			}
+			/*
+			if (typeof datesRoute !== 'undefined') {
+				if (datesRoute.includes($(this).attr('date'))) {
+					var output = {};
+					output['idTour'] = zeroarr['idTour'];
+					output['date'] = $(this).attr('date');
+					console.log(output);
+					$.ajax({
+						url: '/api/constructor/firstStage/',
+						method: 'post',
+						dataType: 'json',
+						crossDomain: true,
+						data: {data: JSON.stringify(output)},
+						success: function(data){
+							console.log(data);
+						}
+					});
+				}
+			}
+			
 			if (inputarr["dates"][dateOutput] !== undefined) {
 				$('.index-form__price')
 					.eq(0)
@@ -812,6 +905,7 @@ $(document).ready(function() {
 					.text('0');
 				$('.btn-next-room').add('.btn-edit-order').prop('disabled', true);
 			}
+			*/
 		}
 		$('.popup__blocked').click();
 	});
@@ -820,7 +914,33 @@ $(document).ready(function() {
 		var date = conteiner.find('.prog-date').val();
 		var totalPrice = conteiner.find('.buy-tickets-form__price').attr('value');
 		var durationTour = $('.label_duration').attr('value');
+		if (conteiner.find('.prog-date').val() != '' && conteiner.find('.buy-tickets-form__price').attr('value') == '0') {
+			var guestsArr = {};
+			conteiner.find('.index-form').each(function (i, element){
+				var caption = $(element).find('.index-form_label').attr('value');
+				var count = $(element).find('.index-form__value').text();
+				guestsArr[caption] = count;
+			});
+			if (typeof dates !== 'undefined') {
+				var output = {};
+				output['idTour'] = zeroarr['idTour'];
+				output['date'] = conteiner.find('.prog-date').val();
+				output['guests'] = guestsArr;
+				console.log(output);
+				$.ajax({
+					url: '/api/constructor/firstStage/',
+					method: 'post',
+					dataType: 'json',
+					crossDomain: true,
+					data: {data: JSON.stringify(output)},
+					success: function(data){
+						console.log(data);
+					}
+				});
+			}
+		}
 		if (conteiner.find('.prog-date').val() != '' && conteiner.find('.buy-tickets-form__price').attr('value') != '0') {
+		
 			conteiner.find('.prog-date').val(date);
 			var values = $('.edit-order__content').find('.index-form__value');
 			conteiner.find('.index-form__value').each(function (i, element){
@@ -856,13 +976,16 @@ $(document).ready(function() {
 				$('.program-card_date').attr('finishDate', finishDate);
 			}
 			var guests = [];
+			var guestsArr = {};
 			var generalGuest = 0;
 			conteiner.find('.index-form').each(function (i, element){
 				var label = $(element).find('.index-form_label').text();
 				var count = $(element).find('.index-form__value').text();
 				guests.push(label + ' - ' + count);
+				guestsArr[label] = count;
 				generalGuest = generalGuest + Number(count);
 			});
+			console.log(guestsArr);
 			$('.program-card_guests').text(guests.join(' | '));
 			$('.program-card_guests').attr('value', generalGuest);
 			var priceProg = Number($('.program-card_price-prog').attr('value'));
@@ -898,7 +1021,6 @@ $(document).ready(function() {
 				.removeClass('hide')
 				.addClass('show');
 		}
-		
 	});
 	$('.btn-edit-order').click(function() {
 		var conteiner = $(this).closest('.edit-order__content');

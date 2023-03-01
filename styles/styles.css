@@ -41,11 +41,6 @@ p {
 .table__custom tr {
 	height: 50px;
 }
-/*
-.table__custom tr:hover {
-    background-color: #fff;
-}
-*/
 .table__custom tr:nth-child(even) {
     height: 45px;
     background-color: #fff;
@@ -62,6 +57,11 @@ p {
 	font-size: 18px;
 	color: #4f4f4f;
 }
+/*
+.table__custom tr:hover {
+    background-color: #fff;
+}
+*/
 table {
 	max-width: 100%;
 	border-color: #1d3054;
@@ -3976,7 +3976,28 @@ option::after {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
-	color: ##4f4f4f!important;
+	color: #4f4f4f!important;
+}
+.datepicker_select-date-green {
+	background-image: url(../img/selectDate.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	color: #4f4f4f!important;
+}
+.datepicker_select-date-orange {
+	background-image: url(../img/selectDateOrange.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	color: #4f4f4f!important;
+}
+.datepicker_select-date-red {
+	background-image: url(../img/selectDateRed.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	color: #4f4f4f!important;
 }
 .datepicker__point-label {
 	margin-left: 10px;
